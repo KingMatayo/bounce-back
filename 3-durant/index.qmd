@@ -1,13 +1,13 @@
 ---
-title: <span style="color:white">The Evolution of LeBron's Shot Choices (2003–2024)</span>
-subtitle: "How the King’s shot selection mirrors the NBA’s transformation"
+title: <span style="color:white">The Shape-Shifter</span>
+subtitle: "How Kevin Durant’s career choices reveal the hidden power of adaptability"
 
 author: 
 - name: "King Matayo"
   email: kingmatayo.thefirst@gmail.com
-date: 12/07/2024
+date: 12/15/2024
 
-title-block-banner: ./assets/lebron-collage.jpg
+title-block-banner: ./assets/durant.jpg
 title-block-banner-color: "black"
 
 format: html
@@ -42,201 +42,70 @@ library(viridis)
 # Source functions
 source(file="./R/00-functions.R")
 
-# Read csv file with all NBA shots data from 2003 to 2024
-all_shots <- read.csv("./data/allshots-2003-2024.csv")
 
 ```
 
-# A rookie’s first shot
+# Be water, my friend
 
-In my experience, the simplest decisions often reveal the most about who we are, at any given point in time.
+Kevin Durant’s story is like water finding its way down a mountain. It doesn’t matter how steep the climb, how jagged the edges, or how narrow the crevices—he adapts. He flows. He finds a way.
 
-On October 29, 2003, 18-year-old LeBron James made his first shot decision as an NBA player. It wasn’t a flashy dunk or a deep three. It was a mid-range jumper - plain, efficient, unremarkable. Two points.
+In the world of basketball, where success often means picking a single lane and sticking to it, Durant has rewritten the playbook. He’s the rare athlete who doesn’t just play the game—he studies it, deconstructs it, and finds the path that works best for him, even when it defies convention.
 
-::: column-margin
-[LeBron's 1st NBA Game: October 29, 2003](https://youtu.be/JLjH0rrNFeU?si=R5YavOwTrWUNfcZ2){target="_blank"}
-:::
+This isn’t just a story about basketball. It’s a lesson about decision-making, adaptability, and the tension between who we are and who the world expects us to be.
 
-But that single shot spoke volumes. It told us what basketball was in 2003: a game that valued size and strength, rewarded mid-range specialists, and treated the three-point line as an occasional luxury.
+# Embracing change: The unpopular path
 
-Fast forward 20 years, and that same decision would look out of place. Today’s NBA is unrecognizable. Three-pointers aren’t just common - they’re necessary. Mid-range shots are now basketball’s version of a landline phone: technically still around, but rarely used.
+Imagine this: you’re one of the most talented players in the NBA, the face of a franchise. You’ve come close to winning it all but fallen short. Everyone wants you to stay, to fight, to “prove” your greatness.
 
-::: column-margin
-[LeBron, 20 years later: October 29, 2023](https://youtu.be/7-q0NDE-_bw?si=mcOFaFomUdgVMu6w){target="_blank"}
-:::
+But what if the best decision—the smartest, most strategic decision—is to leave?
 
-LeBron’s first shot wasn’t just the start of his career. It was a snapshot of a moment in time. And what’s fascinating is how his evolution mirrors the evolution of the league itself. His choices on the court became a masterclass in adaptation.
+In 2016, Kevin Durant faced this exact moment. His move to the Golden State Warriors wasn’t just a transfer of teams; it was a shift in narrative. People saw it as a betrayal, a shortcut, even a cop-out. Durant saw it differently. He didn’t want to climb the same mountain just to prove he could. He wanted to see what was on the other side.
 
-This is the story of how LeBron’s shot selection changed over two decades, and how those choices reflect the shifting forces that reshaped the game of basketball.
+What happened next was a masterclass in reinvention. Durant didn’t just join the Warriors; he transformed them. He became their most lethal weapon, a scoring savant who thrived in a system that celebrated movement, trust, and collaboration. It wasn’t the popular choice, but it was the right one—for him.
 
-::: {.panel-tabset .nav-pills}
-## LeBron's first NBA game chart
+# Scoring brilliance: The shape-shifter
 
-```{r warning=FALSE, message=FALSE}
-# Creating a basic shot chart for Lebron's 1st NBA shot
+Durant’s versatility is his superpower. At nearly seven feet tall, he shoots like a guard, posts up like a center, and moves with the agility of a small forward.
 
-create_shotchart(all_shots,"LeBron James",20031029)
-```
+He’s basketball’s shape-shifter. Put him in an isolation-heavy system, and he’ll dominate one-on-one matchups. Surround him with playmakers, and he’ll blend seamlessly into a team-first offense. He doesn’t impose his game on the system—he adapts his game to the system.
 
-## 20 years later
+Most players have a signature move. Durant has a signature adaptability.
 
-```{r warning=FALSE, message=FALSE}
-create_shotchart(all_shots,"LeBron James",20231029)
-```
+# Handling criticism: Thick skin, Thin walls
 
-## Comparison: 2003 vs 2023
+Here’s the thing about making bold decisions: they invite criticism. Durant has endured it in waves. Joining the Warriors? He was called a “snake.” Leaving for the Brooklyn Nets? Critics questioned his leadership.
 
-```{r warning=FALSE, message=FALSE}
-# Generate's Lebron's slope chart with the slope chart generating function created
-base_lebron_slope_chart <- shots_game_by_game_slope_chart(all_shots,"LeBron James",20031029,20231029)
+Durant’s response has been as unconventional as his career path. He doesn’t ignore the noise; he confronts it. On social media, in interviews, even through burner accounts, Durant takes on his critics head-on. It’s not what you’d expect from a superstar, but maybe that’s the point.
 
-# Style it abit
-base_lebron_slope_chart +
-  scale_x_discrete(labels = c("20031029" = "October 29, 2003", "20231029" = "October 29, 2023")) + 
-  labs(
-    title = "LeBron's shot choices: Oct. 29, 2003 vs. 2023",
-    subtitle = "His 3PT attempts went up from 5% to 42% of all shot choices",
-    x = "",
-    y = "% of shots") +
-  theme_minimal() +
-  theme(
-    text = element_text(size = 14),
-    legend.position = "none",  # Remove the legend
-    plot.title = element_text(size = 14, face = "bold"),
-    plot.subtitle = element_text(size = 10)
-  )
-```
-:::
+Most people would crumble under the weight of public scrutiny. Durant thrives. It’s as if he uses the criticism to sharpen his edge, to remind himself that he’s not playing to meet anyone else’s expectations.
 
-...
+# Flow like water
 
-# 2003-2008: The power of playing to your strengths
+Kevin Durant’s career is a story about basketball, yes. But more than that, it’s a story about how we navigate change, criticism, and uncertainty.
 
-In LeBron’s early years, the game was simple: get to the basket.
+When you watch Durant, you realize the most powerful moves in life aren’t always the flashy ones. Sometimes, they’re the decisions that don’t make sense to anyone else but you. Sometimes, they’re the choices that invite skepticism, misunderstanding, even ridicule.
 
-He was faster, stronger, and more athletic than most players on the court. Why take a risky three-pointer when you could bulldoze your way to the rim? Over 40% of his shots came from the paint, where he was nearly unstoppable.
+Durant reminds us that adaptability isn’t just a skill; it’s a mindset. It’s the willingness to embrace what’s uncomfortable, to reimagine what’s possible, and to keep moving forward even when the path is unclear.
 
-The mid-range jumper - like the one he made in his first game - was his secondary weapon. And it worked because it fit the league’s style. Coaches weren’t chasing efficiency metrics yet. The paint and mid-range were where championships were won.
+# The data doesn’t lie
 
-LeBron wasn’t just playing basketball. He was thriving in a system built for players like him. The lesson? Success often comes from maximizing what works in the moment, even if it won’t last forever.
+Kevin Durant’s story is compelling, but it’s also backed by numbers.
 
-```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
+-   Scoring Efficiency: His true shooting percentage has consistently ranked among the best in NBA history, a testament to his ability to score from anywhere on the court.
 
-# Since this is time-series data - use a custom function to create a line chart - as i did before, but this time make it animated with gganimate
+(Placeholder: Insert chart showing Durant’s TS% compared to league averages.)
 
-base_lebron_linechart_03_08 <- create_linechart(all_shots,"LeBron James",2003,2008)
+-   Isolation vs. Team Play: In Oklahoma City, he thrived in isolation-heavy systems. In Golden State, he flourished in team-oriented play. The numbers prove his ability to adapt to any environment.
 
-lebron_linechart_03_08_v2 <- base_lebron_linechart_03_08 +
-  # Animation: reveal a path per season
-  transition_reveal(yearSeason) +
-  labs(
-    title = "LeBron James % of Shot Choices by Court Zone and by Season (2003-08)",
-    x = "Season",
-    y = "% of Shots",
-    color = "Court Zone"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+(Placeholder: Insert analysis comparing Durant’s efficiency in different offensive systems.)
 
-# Save the animation
-# anim_save("./assets/lebron_linechart_03_08_v2.gif", lebron_linechart_03_08_v2)
+-   Clutch Metrics: In high-pressure playoff moments, Durant shines. His scoring averages in elimination games are among the highest in league history.
 
+(Placeholder: Include stats and a graph showcasing Durant’s playoff performance in clutch situations.)
 
-```
+Kevin Durant is proof that greatness isn’t just about talent—it’s about adaptability. It’s about making decisions that align with your goals, even when they challenge conventional wisdom.
 
-![LeBron's shot choices (2003-08) : Over 40% of LeBron’s shots came from the paint, with mid-range jumpers making up the second-largest proportion. Threes were an afterthought, comprising less than 15% of his attempts.](assets/lebron_linechart_03_08_v2.gif)
-
-# 2009-2015: Learning to adapt
-
-By 2009, the NBA was changing. The three-point revolution, sparked by analytics and players like Stephen Curry, was underway. LeBron noticed.
-
-He didn’t immediately abandon the mid-range game - it was still part of his identity - but he started taking more three-pointers. Slowly, deliberately, he added them to his repertoire. By the time he joined the Miami Heat in 2010, and with the influence of teammates like Ray Allen who joined the Heat in 2012, his three-point attempts had grown to 25% of his total shots.
-
-This wasn’t just about skill development. It was about survival. The game was evolving, and players who clung to the old ways risked falling behind.
-
-LeBron’s willingness to adapt showed a crucial insight: the best performers don’t just play their game -they adjust to the rules as they change.
-
-```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
-base_lebron_linechart_09_15 <- create_linechart(all_shots,"LeBron James",2009,2015)
-
-lebron_linechart_09_15_v2 <- base_lebron_linechart_09_15 +
-  # Animation: reveal a path per season
-  transition_reveal(yearSeason) +
-  labs(
-    title = "LeBron James % of Shot Choices by Court Zone and by Season (2009-15)",
-    x = "Season",
-    y = "% of Shots",
-    color = "Court Zone"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-
-# Save the animation
-# anim_save("./assets/lebron_linechart_09_15_v2.gif", lebron_linechart_09_15_v2)
-
-```
-
-![Lebron's shot choices (2009-15) : Three-point attempts grew from 15% to 25% of his total shots. You can see the drastic change between 2012 and 2013 - the years he won 2 championships, back to back.](assets/lebron_linechart_09_15_v2.gif)
-
-# 2016-2024: Embracing the new reality
-
-The modern NBA belongs to the three-pointer, and so does LeBron.
-
-Between 2016 and 2023, over 35% of his shots came from beyond the arc. The mid-range? Almost gone. The paint? Still important, but less dominant than before.
-
-This wasn’t a concession—it was a strategy. LeBron didn’t stop attacking the basket. He just became more selective, choosing to drive when it mattered most and saving his energy for long-range daggers.
-
-The league had fully transitioned to an era of spacing and efficiency. Teams weren’t just tolerating three-pointers—they were building offenses around them. LeBron’s game evolved accordingly.
-
-The takeaway here is simple: the ability to change isn’t a weakness. It’s a competitive advantage
-
-```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
-
-base_lebron_linechart_16_24 <- create_linechart(all_shots,"LeBron James",2016,2024)
-
-lebron_linechart_16_24_v2 <- base_lebron_linechart_16_24 +
-  # Animation: reveal a path per season
-  transition_reveal(yearSeason) +
-  labs(
-    title = "LeBron James % of Shot Choices by Court Zone and by Season (2016-24)",
-    x = "Season",
-    y = "% of Shots",
-    color = "Court Zone"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-
-# Save the animation
-anim_save("./assets/lebron_linechart_16_24_v2.gif", lebron_linechart_16_24_v2)
-
-
-```
-
-![LeBron's shot choices (2016-2024) : The shift isn't just about LeBron. The NBA's average number of three-point attempts per game has more than doubled since his rookie year. The league has transitioned from a post-centric style to a perimeter-oriented game](assets/lebron_linechart_16_24_v2.gif)
-
-# LeBron as a mirror to the NBA
-
-LeBron’s career isn’t just about scoring points. It’s about reflecting the game’s evolution.
-
-The mid-range game, once the foundation of basketball, is now a relic. Analytics proved that long-range shots and finishes at the rim were more valuable, and the league responded. LeBron’s shift from mid-range jumpers to three-pointers wasn’t just personal growth - it was basketball growth.
-
-Consider this: In 2003, NBA teams averaged just 14 three-point attempts per game. By 2023, that number had more than doubled to 35. LeBron adapted not because he wanted to - but because he had to.
-
-The NBA’s greatest players aren’t just defined by their talent. They’re defined by how well they adjust when the rules of the game change.
-
-# What his journey can teach us
-
-LeBron’s evolution is a lesson in adaptability. He started his career mastering the tools of his era. Then, as the game changed, he didn’t resist - he evolved with it.
-
-For players entering the league today, the message is clear: success isn’t just about being great at one thing. It’s about being willing to reinvent yourself when the world around you changes.
-
-LeBron’s journey isn’t just about basketball. It’s about the universal truth that staying relevant requires constant evolution. The game always changes. The question is whether you’ll change with it.
-
-I believe that when its all said and done, LeBron’s legacy won't just about his stats or his championships. It’s about his adaptability.
-
-Over 20 years, he’s played in a league that’s transformed itself multiple times. Each time, LeBron transformed with it, redefining what it means to be great in basketball.
-
-The King’s reign is a testament to one simple idea: if you want to last, you have to evolve.
+Like water finding its way down a mountain, Durant shows us that the most powerful path isn’t always the most obvious one. It’s the one that keeps you moving. It’s the one that lets you grow
 
 ------------------------------------------------------------------------
 
