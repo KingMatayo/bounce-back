@@ -1,13 +1,13 @@
 ---
-title: <span style="color:white">The Evolution of LeBron's Shot Choices (2003–2024)</span>
-subtitle: "How the King’s shot selection mirrors the NBA’s transformation"
+title: <span style="color:white">The Last Shot</span>
+subtitle: "How Michael Jordan turned pressure, failure, and split-second decisions into a blueprint for greatness"
 
 author: 
 - name: "King Matayo"
   email: kingmatayo.thefirst@gmail.com
-date: 12/07/2024
+date: 12/15/2024
 
-title-block-banner: ./assets/lebron-collage.jpg
+title-block-banner: ./assets/jordan.jpg
 title-block-banner-color: "black"
 
 format: html
@@ -42,201 +42,77 @@ library(viridis)
 # Source functions
 source(file="./R/00-functions.R")
 
-# Read csv file with all NBA shots data from 2003 to 2024
-all_shots <- read.csv("./data/allshots-2003-2024.csv")
-
-```
-
-# A rookie’s first shot
-
-In my experience, the simplest decisions often reveal the most about who we are, at any given point in time.
-
-On October 29, 2003, 18-year-old LeBron James made his first shot decision as an NBA player. It wasn’t a flashy dunk or a deep three. It was a mid-range jumper - plain, efficient, unremarkable. Two points.
-
-::: column-margin
-[LeBron's 1st NBA Game: October 29, 2003](https://youtu.be/JLjH0rrNFeU?si=R5YavOwTrWUNfcZ2){target="_blank"}
-:::
-
-But that single shot spoke volumes. It told us what basketball was in 2003: a game that valued size and strength, rewarded mid-range specialists, and treated the three-point line as an occasional luxury.
-
-Fast forward 20 years, and that same decision would look out of place. Today’s NBA is unrecognizable. Three-pointers aren’t just common - they’re necessary. Mid-range shots are now basketball’s version of a landline phone: technically still around, but rarely used.
-
-::: column-margin
-[LeBron, 20 years later: October 29, 2023](https://youtu.be/7-q0NDE-_bw?si=mcOFaFomUdgVMu6w){target="_blank"}
-:::
-
-LeBron’s first shot wasn’t just the start of his career. It was a snapshot of a moment in time. And what’s fascinating is how his evolution mirrors the evolution of the league itself. His choices on the court became a masterclass in adaptation.
-
-This is the story of how LeBron’s shot selection changed over two decades, and how those choices reflect the shifting forces that reshaped the game of basketball.
-
-::: {.panel-tabset .nav-pills}
-## LeBron's first NBA game chart
-
-```{r warning=FALSE, message=FALSE}
-# Creating a basic shot chart for Lebron's 1st NBA shot
-
-create_shotchart(all_shots,"LeBron James",20031029)
-```
-
-## 20 years later
-
-```{r warning=FALSE, message=FALSE}
-create_shotchart(all_shots,"LeBron James",20231029)
-```
-
-## Comparison: 2003 vs 2023
-
-```{r warning=FALSE, message=FALSE}
-# Generate's Lebron's slope chart with the slope chart generating function created
-base_lebron_slope_chart <- shots_game_by_game_slope_chart(all_shots,"LeBron James",20031029,20231029)
-
-# Style it abit
-base_lebron_slope_chart +
-  scale_x_discrete(labels = c("20031029" = "October 29, 2003", "20231029" = "October 29, 2023")) + 
-  labs(
-    title = "LeBron's shot choices: Oct. 29, 2003 vs. 2023",
-    subtitle = "His 3PT attempts went up from 5% to 42% of all shot choices",
-    x = "",
-    y = "% of shots") +
-  theme_minimal() +
-  theme(
-    text = element_text(size = 14),
-    legend.position = "none",  # Remove the legend
-    plot.title = element_text(size = 14, face = "bold"),
-    plot.subtitle = element_text(size = 10)
-  )
-```
-:::
-
-...
-
-# 2003-2008: The power of playing to your strengths
-
-In LeBron’s early years, the game was simple: get to the basket.
-
-He was faster, stronger, and more athletic than most players on the court. Why take a risky three-pointer when you could bulldoze your way to the rim? Over 40% of his shots came from the paint, where he was nearly unstoppable.
-
-The mid-range jumper - like the one he made in his first game - was his secondary weapon. And it worked because it fit the league’s style. Coaches weren’t chasing efficiency metrics yet. The paint and mid-range were where championships were won.
-
-LeBron wasn’t just playing basketball. He was thriving in a system built for players like him. The lesson? Success often comes from maximizing what works in the moment, even if it won’t last forever.
-
-```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
-
-# Since this is time-series data - use a custom function to create a line chart - as i did before, but this time make it animated with gganimate
-
-base_lebron_linechart_03_08 <- create_linechart(all_shots,"LeBron James",2003,2008)
-
-lebron_linechart_03_08_v2 <- base_lebron_linechart_03_08 +
-  # Animation: reveal a path per season
-  transition_reveal(yearSeason) +
-  labs(
-    title = "LeBron James % of Shot Choices by Court Zone and by Season (2003-08)",
-    x = "Season",
-    y = "% of Shots",
-    color = "Court Zone"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-
-# Save the animation
-# anim_save("./assets/lebron_linechart_03_08_v2.gif", lebron_linechart_03_08_v2)
 
 
 ```
 
-![LeBron's shot choices (2003-08) : Over 40% of LeBron’s shots came from the paint, with mid-range jumpers making up the second-largest proportion. Threes were an afterthought, comprising less than 15% of his attempts.](assets/lebron_linechart_03_08_v2.gif)
+# Relentless
 
-# 2009-2015: Learning to adapt
+The defining moments in life don’t announce themselves in advance. They don’t come with a trumpet blast or a prelude. They sneak up on you, disguised as just another Tuesday or another possession in the fourth quarter of a basketball game.
 
-By 2009, the NBA was changing. The three-point revolution, sparked by analytics and players like Stephen Curry, was underway. LeBron noticed.
+For Michael Jordan, those moments came often—and he made them look inevitable. But inevitability is an illusion. Behind every buzzer-beater, every jaw-dropping play, and every championship trophy was a relentless competitor who understood something fundamental: greatness is built not in moments of glory, but in the countless decisions that come before them
 
-He didn’t immediately abandon the mid-range game - it was still part of his identity - but he started taking more three-pointers. Slowly, deliberately, he added them to his repertoire. By the time he joined the Miami Heat in 2010, and with the influence of teammates like Ray Allen who joined the Heat in 2012, his three-point attempts had grown to 25% of his total shots.
+# The Competitive Fire
 
-This wasn’t just about skill development. It was about survival. The game was evolving, and players who clung to the old ways risked falling behind.
+The story of Michael Jordan is a story about fire. Not the kind that burns brightly and then fizzles out, but the kind that stays lit, consuming everything in its path.
 
-LeBron’s willingness to adapt showed a crucial insight: the best performers don’t just play their game -they adjust to the rules as they change.
+In Game 5 of the 1997 NBA Finals, Jordan was visibly sick. Feverish, dehydrated, and barely able to stand during timeouts, he still managed to score 38 points, including a clutch three-pointer that sealed the win. The “flu game” became legend, but its real lesson wasn’t about his physical performance. It was about his mental one.
 
-```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
-base_lebron_linechart_09_15 <- create_linechart(all_shots,"LeBron James",2009,2015)
+Most players might have rested. They might have conserved their energy for the next game. Not Jordan. Sitting out wasn’t even a consideration. His competitive instinct didn’t allow it. That fire was the same reason he pushed his teammates to exhaustion during practice, sometimes crossing the line into cruelty. He wasn’t trying to be liked; he was trying to win
 
-lebron_linechart_09_15_v2 <- base_lebron_linechart_09_15 +
-  # Animation: reveal a path per season
-  transition_reveal(yearSeason) +
-  labs(
-    title = "LeBron James % of Shot Choices by Court Zone and by Season (2009-15)",
-    x = "Season",
-    y = "% of Shots",
-    color = "Court Zone"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+# Clutch Decision-making
 
-# Save the animation
-# anim_save("./assets/lebron_linechart_09_15_v2.gif", lebron_linechart_09_15_v2)
+Imagine this: the clock is ticking down, the defense is smothering, and millions are watching. Your next decision could win or lose the game. For Jordan, these moments weren’t just tests of skill—they were tests of nerve.
 
-```
+In the 1998 NBA Finals, Game 6, with the championship on the line, Jordan found himself facing Utah’s Bryon Russell. He didn’t rush. He didn’t panic. He simply read the situation, executed a quick crossover, and drained the jumper. To everyone watching, it felt like destiny. But to Jordan, it was preparation.
 
-![Lebron's shot choices (2009-15) : Three-point attempts grew from 15% to 25% of his total shots. You can see the drastic change between 2012 and 2013 - the years he won 2 championships, back to back.](assets/lebron_linechart_09_15_v2.gif)
+Here’s where the numbers would come in.
 
-# 2016-2024: Embracing the new reality
+\[Placeholder for analysis: What do the stats say about Jordan in clutch moments? What was his success rate in the final five minutes of close games? How did he perform under the weight of defensive pressure?\]
 
-The modern NBA belongs to the three-pointer, and so does LeBron.
+Most players shrink under pressure. They overthink, hesitate, or play it safe. Jordan thrived because he trusted his decisions. He understood that pressure isn’t something you avoid—it’s something you embrace2016-2024: Embracing the new reality.
 
-Between 2016 and 2023, over 35% of his shots came from beyond the arc. The mid-range? Almost gone. The paint? Still important, but less dominant than before.
+# Failure as a Catalyst
 
-This wasn’t a concession—it was a strategy. LeBron didn’t stop attacking the basket. He just became more selective, choosing to drive when it mattered most and saving his energy for long-range daggers.
+“I’ve missed more than 9,000 shots in my career.” Jordan’s famous quote is so well-known that it risks losing its weight. But think about it: nine thousand missed shots. That’s not just failure—that’s public failure. Televised, scrutinized, and immortalized.
 
-The league had fully transitioned to an era of spacing and efficiency. Teams weren’t just tolerating three-pointers—they were building offenses around them. LeBron’s game evolved accordingly.
+What made Jordan different wasn’t his avoidance of failure—it was his use of it. Every missed shot became data. Every loss became fuel. He understood a fundamental truth about progress: failure isn’t the opposite of success. It’s a prerequisite.
 
-The takeaway here is simple: the ability to change isn’t a weakness. It’s a competitive advantage
+\[Placeholder for analysis: How did Jordan’s performance evolve in high-pressure scenarios? Did experience mitigate the impact of tough defensive schemes?\]
 
-```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
+This mindset wasn’t just about basketball. It was about life. Failure, for Jordan, wasn’t a wall—it was a door.
 
-base_lebron_linechart_16_24 <- create_linechart(all_shots,"LeBron James",2016,2024)
+# Broader Lessons
 
-lebron_linechart_16_24_v2 <- base_lebron_linechart_16_24 +
-  # Animation: reveal a path per season
-  transition_reveal(yearSeason) +
-  labs(
-    title = "LeBron James % of Shot Choices by Court Zone and by Season (2016-24)",
-    x = "Season",
-    y = "% of Shots",
-    color = "Court Zone"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+We like to think decision-making is about logic and reason. But in high-pressure moments, it’s about something else entirely: persistence, preparation, and poise.
 
-# Save the animation
-anim_save("./assets/lebron_linechart_16_24_v2.gif", lebron_linechart_16_24_v2)
+Jordan’s career teaches us three lessons:
 
+Persistence matters more than talent. Missing 9,000 shots is irrelevant if you make the one that counts.
 
-```
+The moment is yours if you take it. Most of us hesitate. Jordan didn’t. He knew that you can’t win if you don’t shoot.
 
-![LeBron's shot choices (2016-2024) : The shift isn't just about LeBron. The NBA's average number of three-point attempts per game has more than doubled since his rookie year. The league has transitioned from a post-centric style to a perimeter-oriented game](assets/lebron_linechart_16_24_v2.gif)
+Pressure doesn’t create champions—it reveals them. What you’ve done in the quiet hours of preparation determines how you’ll perform when the spotlight hits.
 
-# LeBron as a mirror to the NBA
+These lessons aren’t confined to basketball. They apply to business, relationships, and any decision where the stakes are high. Success isn’t about being perfect. It’s about being ready.
 
-LeBron’s career isn’t just about scoring points. It’s about reflecting the game’s evolution.
+# Data as the Undercurrent
 
-The mid-range game, once the foundation of basketball, is now a relic. Analytics proved that long-range shots and finishes at the rim were more valuable, and the league responded. LeBron’s shift from mid-range jumpers to three-pointers wasn’t just personal growth - it was basketball growth.
+Jordan’s story feels larger than life, but the numbers add depth to the narrative. They reveal patterns and insights that make his greatness feel tangible.
 
-Consider this: In 2003, NBA teams averaged just 14 three-point attempts per game. By 2023, that number had more than doubled to 35. LeBron adapted not because he wanted to - but because he had to.
+Placeholder for visuals and analysis:
 
-The NBA’s greatest players aren’t just defined by their talent. They’re defined by how well they adjust when the rules of the game change.
+His success rates in clutch moments.
 
-# What his journey can teach us
+His performance on contested vs. uncontested shots.
 
-LeBron’s evolution is a lesson in adaptability. He started his career mastering the tools of his era. Then, as the game changed, he didn’t resist - he evolved with it.
+How his efficiency held up under defensive pressure in critical playoff games.
 
-For players entering the league today, the message is clear: success isn’t just about being great at one thing. It’s about being willing to reinvent yourself when the world around you changes.
+The data doesn’t tell the whole story, but it shows how Jordan’s greatness was a blend of skill, preparation, and the courage to seize the moment.
 
-LeBron’s journey isn’t just about basketball. It’s about the universal truth that staying relevant requires constant evolution. The game always changes. The question is whether you’ll change with it.
+Michael Jordan’s career wasn’t a straight line to greatness. It was a series of choices, risks, and moments where the outcome was anything but certain. The only thing that was certain was Jordan himself—the competitor who never stopped deciding to be great.
 
-I believe that when its all said and done, LeBron’s legacy won't just about his stats or his championships. It’s about his adaptability.
-
-Over 20 years, he’s played in a league that’s transformed itself multiple times. Each time, LeBron transformed with it, redefining what it means to be great in basketball.
-
-The King’s reign is a testament to one simple idea: if you want to last, you have to evolve.
+The rest? That’s just history
 
 ------------------------------------------------------------------------
 
