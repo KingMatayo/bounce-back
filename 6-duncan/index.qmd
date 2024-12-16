@@ -1,13 +1,13 @@
 ---
-title: <span style="color:white">The Evolution of LeBron's Shot Choices (2003–2024)</span>
-subtitle: "How the King’s shot selection mirrors the NBA’s transformation"
+title: <span style="color:white">The Foundation of Greatness</span>
+subtitle: "How quiet leadership built the Spurs’ Empire"
 
 author: 
 - name: "King Matayo"
   email: kingmatayo.thefirst@gmail.com
-date: 12/07/2024
+date: 12/16/2024
 
-title-block-banner: ./assets/lebron-collage.jpg
+title-block-banner: ./assets/duncan.jpg
 title-block-banner-color: "black"
 
 format: html
@@ -42,201 +42,66 @@ library(viridis)
 # Source functions
 source(file="./R/00-functions.R")
 
-# Read csv file with all NBA shots data from 2003 to 2024
-all_shots <- read.csv("./data/allshots-2003-2024.csv")
 
 ```
 
-# A rookie’s first shot
+# Let Results Speak
 
-In my experience, the simplest decisions often reveal the most about who we are, at any given point in time.
+Tim Duncan walked into the gym the same way every day. No entourage. No flashy headphones. No announcement. Just a duffel bag slung over his shoulder and a quiet nod to the staff. If you didn’t know better, you might have mistaken him for a rookie trying to earn a roster spot, not a perennial All-Star and two-time MVP.
 
-On October 29, 2003, 18-year-old LeBron James made his first shot decision as an NBA player. It wasn’t a flashy dunk or a deep three. It was a mid-range jumper - plain, efficient, unremarkable. Two points.
+This was Duncan’s magic. He didn’t need to tell you he was great. He just showed up, over and over again, and let the results speak for themselves.
 
-::: column-margin
-[LeBron's 1st NBA Game: October 29, 2003](https://youtu.be/JLjH0rrNFeU?si=R5YavOwTrWUNfcZ2){target="_blank"}
-:::
+# Reliability is a Skill
 
-But that single shot spoke volumes. It told us what basketball was in 2003: a game that valued size and strength, rewarded mid-range specialists, and treated the three-point line as an occasional luxury.
+In a world where peaks and valleys often define careers, Tim Duncan was a flatline of excellence. The kind of reliability that you could set your watch to. Over 19 seasons, he missed the playoffs exactly zero times and rarely failed to deliver in the biggest moments.
 
-Fast forward 20 years, and that same decision would look out of place. Today’s NBA is unrecognizable. Three-pointers aren’t just common - they’re necessary. Mid-range shots are now basketball’s version of a landline phone: technically still around, but rarely used.
+During the Spurs’ 2003 championship run, Duncan was unstoppable. He averaged 42 minutes per game in the Finals, carrying the team on both ends of the court. The defining moment came in Game 6 against the Nets. The Spurs were clinging to a slim lead in the fourth quarter when Duncan blocked four shots in a single possession. It wasn’t just defense—it was a declaration: This is my game, my court, my time.
 
-::: column-margin
-[LeBron, 20 years later: October 29, 2023](https://youtu.be/7-q0NDE-_bw?si=mcOFaFomUdgVMu6w){target="_blank"}
-:::
+Consistency isn’t glamorous. It’s hard to sell the story of someone who simply does their job every single day without drama or fanfare. But that’s the secret of Duncan’s greatness. He wasn’t chasing highlight reels. He was chasing wins.
 
-LeBron’s first shot wasn’t just the start of his career. It was a snapshot of a moment in time. And what’s fascinating is how his evolution mirrors the evolution of the league itself. His choices on the court became a masterclass in adaptation.
+*\[Placeholder for Analysis\]: Chart Duncan’s postseason Player Efficiency Rating (PER) over his career, showing how his steady output made him one of the most reliable performers in NBA history. Highlight his consistency compared to peers.*
 
-This is the story of how LeBron’s shot selection changed over two decades, and how those choices reflect the shifting forces that reshaped the game of basketball.
+# Mastering the Basics
 
-::: {.panel-tabset .nav-pills}
-## LeBron's first NBA game chart
+Ask anyone what Tim Duncan’s signature move was, and they’ll all give the same answer: the bank shot.
 
-```{r warning=FALSE, message=FALSE}
-# Creating a basic shot chart for Lebron's 1st NBA shot
+It’s almost comical in its simplicity. A shot that looks like something out of a high school fundamentals clinic. But in Duncan’s hands, it was a weapon of surgical precision. He didn’t invent it, but he perfected it.
 
-create_shotchart(all_shots,"LeBron James",20031029)
-```
+Here’s the thing about fundamentals: They aren’t exciting. Nobody talks about them at parties. But when the game is on the line, it’s the players who have mastered the basics who come out on top. Duncan understood that better than anyone.
 
-## 20 years later
+Gregg Popovich, the Spurs’ legendary coach, once said that Duncan’s brilliance wasn’t in doing extraordinary things but in doing ordinary things extraordinarily well. And that’s what made him unstoppable. While others chased trick shots and viral dunks, Duncan doubled down on the basics: footwork, positioning, and timing.
 
-```{r warning=FALSE, message=FALSE}
-create_shotchart(all_shots,"LeBron James",20231029)
-```
+*\[Placeholder for Analysis\]: Analyze Duncan’s shot charts, focusing on the efficiency of his bank shots compared to league averages. Include metrics like field goal percentage from mid-range*.
 
-## Comparison: 2003 vs 2023
+# The Unseen Force in Team Dynamics
 
-```{r warning=FALSE, message=FALSE}
-# Generate's Lebron's slope chart with the slope chart generating function created
-base_lebron_slope_chart <- shots_game_by_game_slope_chart(all_shots,"LeBron James",20031029,20231029)
+There’s a saying in basketball that every team takes on the personality of its leader. For the Spurs, that personality was calm, humble, and focused. It was Tim Duncan.
 
-# Style it abit
-base_lebron_slope_chart +
-  scale_x_discrete(labels = c("20031029" = "October 29, 2003", "20231029" = "October 29, 2023")) + 
-  labs(
-    title = "LeBron's shot choices: Oct. 29, 2003 vs. 2023",
-    subtitle = "His 3PT attempts went up from 5% to 42% of all shot choices",
-    x = "",
-    y = "% of shots") +
-  theme_minimal() +
-  theme(
-    text = element_text(size = 14),
-    legend.position = "none",  # Remove the legend
-    plot.title = element_text(size = 14, face = "bold"),
-    plot.subtitle = element_text(size = 10)
-  )
-```
-:::
+Duncan’s leadership wasn’t loud. He didn’t give fiery speeches or call out teammates in the media. His leadership was quiet but unmistakable. He led by showing up early, staying late, and putting the team first.
 
-...
+Tony Parker, one of Duncan’s longtime teammates, put it simply: “He made everyone feel important.” Whether it was mentoring rookies or deferring to teammates in clutch moments, Duncan prioritized the collective over the individual. And in doing so, he created a culture where everyone thrived.
 
-# 2003-2008: The power of playing to your strengths
+The result? Five championships. Twenty-two consecutive playoff appearances. A dynasty that outlasted flashier, louder teams.
 
-In LeBron’s early years, the game was simple: get to the basket.
+*\[Placeholder for Analysis\]: Evaluate the Spurs’ Net Rating during Duncan’s tenure, illustrating how his presence elevated team performance. Include on/off-court impact metrics.*
 
-He was faster, stronger, and more athletic than most players on the court. Why take a risky three-pointer when you could bulldoze your way to the rim? Over 40% of his shots came from the paint, where he was nearly unstoppable.
+# Humility is Power
 
-The mid-range jumper - like the one he made in his first game - was his secondary weapon. And it worked because it fit the league’s style. Coaches weren’t chasing efficiency metrics yet. The paint and mid-range were where championships were won.
+There’s a temptation to think that leadership has to be loud to be effective. That you have to be the one making the big speeches or taking the last shot. Tim Duncan disproved that notion.
 
-LeBron wasn’t just playing basketball. He was thriving in a system built for players like him. The lesson? Success often comes from maximizing what works in the moment, even if it won’t last forever.
+His humility wasn’t an act. It was a strategy. By keeping the focus off himself, he created space for others to shine. Manu Ginóbili, Kawhi Leonard, and Tony Parker all became stars in their own right, but they all credit Duncan for showing them how to succeed.
 
-```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
+Here’s the paradox of Duncan’s humility: It made him more powerful, not less. By putting the team first, he earned the kind of respect that no amount of chest-pounding could achieve.
 
-# Since this is time-series data - use a custom function to create a line chart - as i did before, but this time make it animated with gganimate
+*\[Placeholder for Analysis\]: Correlate Duncan’s career trajectory with the Spurs’ sustained success, including their record-breaking playoff streak.*
 
-base_lebron_linechart_03_08 <- create_linechart(all_shots,"LeBron James",2003,2008)
+# The Blueprint for Success
 
-lebron_linechart_03_08_v2 <- base_lebron_linechart_03_08 +
-  # Animation: reveal a path per season
-  transition_reveal(yearSeason) +
-  labs(
-    title = "LeBron James % of Shot Choices by Court Zone and by Season (2003-08)",
-    x = "Season",
-    y = "% of Shots",
-    color = "Court Zone"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+Tim Duncan retired with more accolades than most players could dream of: five championships, two MVPs, 15 All-Star appearances. But his true legacy is harder to quantify. It’s the culture he built, the lessons he taught, and the standard he set.
 
-# Save the animation
-# anim_save("./assets/lebron_linechart_03_08_v2.gif", lebron_linechart_03_08_v2)
+He showed us that leadership isn’t about volume—it’s about substance. It’s not about being the loudest voice in the room; it’s about being the most reliable. And it’s not about chasing individual glory—it’s about lifting others.
 
-
-```
-
-![LeBron's shot choices (2003-08) : Over 40% of LeBron’s shots came from the paint, with mid-range jumpers making up the second-largest proportion. Threes were an afterthought, comprising less than 15% of his attempts.](assets/lebron_linechart_03_08_v2.gif)
-
-# 2009-2015: Learning to adapt
-
-By 2009, the NBA was changing. The three-point revolution, sparked by analytics and players like Stephen Curry, was underway. LeBron noticed.
-
-He didn’t immediately abandon the mid-range game - it was still part of his identity - but he started taking more three-pointers. Slowly, deliberately, he added them to his repertoire. By the time he joined the Miami Heat in 2010, and with the influence of teammates like Ray Allen who joined the Heat in 2012, his three-point attempts had grown to 25% of his total shots.
-
-This wasn’t just about skill development. It was about survival. The game was evolving, and players who clung to the old ways risked falling behind.
-
-LeBron’s willingness to adapt showed a crucial insight: the best performers don’t just play their game -they adjust to the rules as they change.
-
-```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
-base_lebron_linechart_09_15 <- create_linechart(all_shots,"LeBron James",2009,2015)
-
-lebron_linechart_09_15_v2 <- base_lebron_linechart_09_15 +
-  # Animation: reveal a path per season
-  transition_reveal(yearSeason) +
-  labs(
-    title = "LeBron James % of Shot Choices by Court Zone and by Season (2009-15)",
-    x = "Season",
-    y = "% of Shots",
-    color = "Court Zone"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-
-# Save the animation
-# anim_save("./assets/lebron_linechart_09_15_v2.gif", lebron_linechart_09_15_v2)
-
-```
-
-![Lebron's shot choices (2009-15) : Three-point attempts grew from 15% to 25% of his total shots. You can see the drastic change between 2012 and 2013 - the years he won 2 championships, back to back.](assets/lebron_linechart_09_15_v2.gif)
-
-# 2016-2024: Embracing the new reality
-
-The modern NBA belongs to the three-pointer, and so does LeBron.
-
-Between 2016 and 2023, over 35% of his shots came from beyond the arc. The mid-range? Almost gone. The paint? Still important, but less dominant than before.
-
-This wasn’t a concession—it was a strategy. LeBron didn’t stop attacking the basket. He just became more selective, choosing to drive when it mattered most and saving his energy for long-range daggers.
-
-The league had fully transitioned to an era of spacing and efficiency. Teams weren’t just tolerating three-pointers—they were building offenses around them. LeBron’s game evolved accordingly.
-
-The takeaway here is simple: the ability to change isn’t a weakness. It’s a competitive advantage
-
-```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
-
-base_lebron_linechart_16_24 <- create_linechart(all_shots,"LeBron James",2016,2024)
-
-lebron_linechart_16_24_v2 <- base_lebron_linechart_16_24 +
-  # Animation: reveal a path per season
-  transition_reveal(yearSeason) +
-  labs(
-    title = "LeBron James % of Shot Choices by Court Zone and by Season (2016-24)",
-    x = "Season",
-    y = "% of Shots",
-    color = "Court Zone"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-
-# Save the animation
-anim_save("./assets/lebron_linechart_16_24_v2.gif", lebron_linechart_16_24_v2)
-
-
-```
-
-![LeBron's shot choices (2016-2024) : The shift isn't just about LeBron. The NBA's average number of three-point attempts per game has more than doubled since his rookie year. The league has transitioned from a post-centric style to a perimeter-oriented game](assets/lebron_linechart_16_24_v2.gif)
-
-# LeBron as a mirror to the NBA
-
-LeBron’s career isn’t just about scoring points. It’s about reflecting the game’s evolution.
-
-The mid-range game, once the foundation of basketball, is now a relic. Analytics proved that long-range shots and finishes at the rim were more valuable, and the league responded. LeBron’s shift from mid-range jumpers to three-pointers wasn’t just personal growth - it was basketball growth.
-
-Consider this: In 2003, NBA teams averaged just 14 three-point attempts per game. By 2023, that number had more than doubled to 35. LeBron adapted not because he wanted to - but because he had to.
-
-The NBA’s greatest players aren’t just defined by their talent. They’re defined by how well they adjust when the rules of the game change.
-
-# What his journey can teach us
-
-LeBron’s evolution is a lesson in adaptability. He started his career mastering the tools of his era. Then, as the game changed, he didn’t resist - he evolved with it.
-
-For players entering the league today, the message is clear: success isn’t just about being great at one thing. It’s about being willing to reinvent yourself when the world around you changes.
-
-LeBron’s journey isn’t just about basketball. It’s about the universal truth that staying relevant requires constant evolution. The game always changes. The question is whether you’ll change with it.
-
-I believe that when its all said and done, LeBron’s legacy won't just about his stats or his championships. It’s about his adaptability.
-
-Over 20 years, he’s played in a league that’s transformed itself multiple times. Each time, LeBron transformed with it, redefining what it means to be great in basketball.
-
-The King’s reign is a testament to one simple idea: if you want to last, you have to evolve.
+The next time you watch the Spurs play, even years after Duncan’s retirement, you’ll see his fingerprints all over the team. Quiet leadership leaves a loud legacy.
 
 ------------------------------------------------------------------------
 
