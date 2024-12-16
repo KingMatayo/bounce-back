@@ -1,13 +1,13 @@
 ---
-title: <span style="color:white">The Evolution of LeBron's Shot Choices (2003–2024)</span>
-subtitle: "How the King’s shot selection mirrors the NBA’s transformation"
+title: <span style="color:white">The Fast Mind That Saw It All</span>
+subtitle: "How Larry Bird outsmarted a game built for giants"
 
 author: 
 - name: "King Matayo"
   email: kingmatayo.thefirst@gmail.com
-date: 12/07/2024
+date: 12/16/2024
 
-title-block-banner: ./assets/lebron-collage.jpg
+title-block-banner: ./assets/bird.jpg
 title-block-banner-color: "black"
 
 format: html
@@ -42,201 +42,80 @@ library(viridis)
 # Source functions
 source(file="./R/00-functions.R")
 
-# Read csv file with all NBA shots data from 2003 to 2024
-all_shots <- read.csv("./data/allshots-2003-2024.csv")
 
 ```
 
-# A rookie’s first shot
+# Playing Chess
 
-In my experience, the simplest decisions often reveal the most about who we are, at any given point in time.
+Basketball loves its superlatives. The fastest. The strongest. The most athletic. It’s a sport that thrives on the extraordinary, where players leap over defenders and race past opponents as though physics were just a suggestion. Larry Bird was extraordinary in ways that weren’t always obvious. At 6'9", he was taller than most, but his success wasn’t just about size. It was about what he could see—what others couldn’t—and how he used it to dominate a game designed for athletic marvels.
 
-On October 29, 2003, 18-year-old LeBron James made his first shot decision as an NBA player. It wasn’t a flashy dunk or a deep three. It was a mid-range jumper - plain, efficient, unremarkable. Two points.
+If Larry Bird was extraordinary in any way, it was in how he turned intelligence into an art form. He mastered basketball not by overpowering his opponents but by outsmarting them, seeing the game as a series of decisions to be solved in real time. He played like a grandmaster on a chessboard, always two steps ahead.
 
-::: column-margin
-[LeBron's 1st NBA Game: October 29, 2003](https://youtu.be/JLjH0rrNFeU?si=R5YavOwTrWUNfcZ2){target="_blank"}
-:::
+# The Game Before the Game
 
-But that single shot spoke volumes. It told us what basketball was in 2003: a game that valued size and strength, rewarded mid-range specialists, and treated the three-point line as an occasional luxury.
+Before Larry Bird stepped onto the court, he had already won half the battle. His preparation wasn’t flashy or loud, but it was relentless. Bird studied every detail—opponent tendencies, defensive schemes, how players moved without the ball. He built a mental playbook, piece by piece, until the game slowed down for him.
 
-Fast forward 20 years, and that same decision would look out of place. Today’s NBA is unrecognizable. Three-pointers aren’t just common - they’re necessary. Mid-range shots are now basketball’s version of a landline phone: technically still around, but rarely used.
+There’s a story about Bird once walking into the Celtics locker room before a game and declaring he was going to score 40 points—left-handed. And then he did it. That wasn’t arrogance; it was calculated confidence. Bird knew his opponent so well he could afford to handicap himself, just for the challenge.
 
-::: column-margin
-[LeBron, 20 years later: October 29, 2023](https://youtu.be/7-q0NDE-_bw?si=mcOFaFomUdgVMu6w){target="_blank"}
-:::
+It wasn’t just raw talent. It was an obsession with understanding the game at a level few dared to. Preparation wasn’t just a task—it was his competitive edge.
 
-LeBron’s first shot wasn’t just the start of his career. It was a snapshot of a moment in time. And what’s fascinating is how his evolution mirrors the evolution of the league itself. His choices on the court became a masterclass in adaptation.
+*(Placeholder for analysis: Did Bird’s performance statistically improve against tougher opponents? How did his preparation manifest in metrics like assist-to-turnover ratio or shooting efficiency in critical games?)*
 
-This is the story of how LeBron’s shot selection changed over two decades, and how those choices reflect the shifting forces that reshaped the game of basketball.
+# The Art of Seeing the Floor
 
-::: {.panel-tabset .nav-pills}
-## LeBron's first NBA game chart
+Larry Bird didn’t just see the game. He read it. Basketball has a natural flow—a rhythm that many players follow. Bird broke it. He anticipated plays before they unfolded, finding openings others couldn’t. His court vision turned routine possessions into works of art.
 
-```{r warning=FALSE, message=FALSE}
-# Creating a basic shot chart for Lebron's 1st NBA shot
+Once, he threw a pass between two defenders so perfectly timed that it looked like sleight of hand. Teammates said it wasn’t uncommon for Bird to shout instructions mid-play, pointing out what would happen before it did. He wasn’t reacting to the game—he was creating it.
 
-create_shotchart(all_shots,"LeBron James",20031029)
-```
+Basketball is fast, but Bird’s mind was faster. When others saw chaos, he saw patterns.
 
-## 20 years later
+*(Placeholder for analysis: Use passing metrics—assist percentages, points created, or hockey assists—to show how Bird’s IQ translated into statistical dominance. Highlight specific plays or games where this vision was on full display.)*
 
-```{r warning=FALSE, message=FALSE}
-create_shotchart(all_shots,"LeBron James",20231029)
-```
+# The Weight of the Moment
 
-## Comparison: 2003 vs 2023
+Pressure reveals character. In sports, it reveals decision-making. Larry Bird was at his best when the stakes were highest. Where others froze, he thrived, delivering game-winning shots or critical assists in the moments that mattered most.
 
-```{r warning=FALSE, message=FALSE}
-# Generate's Lebron's slope chart with the slope chart generating function created
-base_lebron_slope_chart <- shots_game_by_game_slope_chart(all_shots,"LeBron James",20031029,20231029)
+Take Game 7 of the 1984 NBA Finals. The Celtics needed him. Bird delivered, hitting clutch shot after clutch shot and pulling down rebounds that shifted the game’s momentum. He wasn’t just executing plays—he was willing his team to victory.
 
-# Style it abit
-base_lebron_slope_chart +
-  scale_x_discrete(labels = c("20031029" = "October 29, 2003", "20231029" = "October 29, 2023")) + 
-  labs(
-    title = "LeBron's shot choices: Oct. 29, 2003 vs. 2023",
-    subtitle = "His 3PT attempts went up from 5% to 42% of all shot choices",
-    x = "",
-    y = "% of shots") +
-  theme_minimal() +
-  theme(
-    text = element_text(size = 14),
-    legend.position = "none",  # Remove the legend
-    plot.title = element_text(size = 14, face = "bold"),
-    plot.subtitle = element_text(size = 10)
-  )
-```
-:::
+Bird’s mental toughness wasn’t about bravado. It was about belief. He trusted his preparation, his instincts, and his ability to rise to the occasion.
 
-...
+*(Placeholder for analysis: Break down Bird’s clutch-time stats. Field goal percentages in the final five minutes of close games? Playoff performances under elimination pressure? Highlight those high-stakes moments where Bird turned mental toughness into an art form.)*
 
-# 2003-2008: The power of playing to your strengths
+# When Thinking Beats Talent
 
-In LeBron’s early years, the game was simple: get to the basket.
+Larry Bird teaches us something profound about strategy: You don’t have to dominate in every category to win. Bird wasn’t the fastest player on the court, and he didn’t need to be. His height was an advantage, but he made his real impact with his mind—his ability to think faster and prepare better than anyone else.
 
-He was faster, stronger, and more athletic than most players on the court. Why take a risky three-pointer when you could bulldoze your way to the rim? Over 40% of his shots came from the paint, where he was nearly unstoppable.
+That’s the thing about life. We’re all playing games where the odds don’t seem to favor us. Maybe we lack the resources, the connections, or the raw talent others have. But like Bird, we can win by outthinking the competition, by doubling down on preparation, and by staying calm when others crack under pressure.
 
-The mid-range jumper - like the one he made in his first game - was his secondary weapon. And it worked because it fit the league’s style. Coaches weren’t chasing efficiency metrics yet. The paint and mid-range were where championships were won.
+Basketball is often seen as a game of moments—the buzzer-beater, the dunk, the block. Bird’s career reminds us that those moments are won long before they happen. They’re won in the hours of preparation, in the hundreds of invisible decisions, and in the ability to stay sharp when the pressure builds.
 
-LeBron wasn’t just playing basketball. He was thriving in a system built for players like him. The lesson? Success often comes from maximizing what works in the moment, even if it won’t last forever.
+Larry Bird didn’t outplay his opponents. He outthought them. And that’s a skill that transcends sports.
 
-```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
+*(Placeholder for broader lessons: Tie Bird’s strategic thinking to broader life lessons. How does preparation create clarity? How can focusing on your strengths mitigate your weaknesses? Use anecdotes and parallels to make the story resonate beyond sports.)*
 
-# Since this is time-series data - use a custom function to create a line chart - as i did before, but this time make it animated with gganimate
+# The Numbers Behind the Genius
 
-base_lebron_linechart_03_08 <- create_linechart(all_shots,"LeBron James",2003,2008)
+Larry Bird’s greatness wasn’t just a feeling—it was a measurable reality.
 
-lebron_linechart_03_08_v2 <- base_lebron_linechart_03_08 +
-  # Animation: reveal a path per season
-  transition_reveal(yearSeason) +
-  labs(
-    title = "LeBron James % of Shot Choices by Court Zone and by Season (2003-08)",
-    x = "Season",
-    y = "% of Shots",
-    color = "Court Zone"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+Passing Metrics:
 
-# Save the animation
-# anim_save("./assets/lebron_linechart_03_08_v2.gif", lebron_linechart_03_08_v2)
+-   Bird’s ability to create plays as a forward wasn’t just revolutionary—it was efficient.
 
+*(Placeholder for data: Use assist-to-turnover ratios and advanced passing metrics to demonstrate Bird’s playmaking compared to peers in his position.)*
 
-```
+-   Scoring Versatility:
 
-![LeBron's shot choices (2003-08) : Over 40% of LeBron’s shots came from the paint, with mid-range jumpers making up the second-largest proportion. Threes were an afterthought, comprising less than 15% of his attempts.](assets/lebron_linechart_03_08_v2.gif)
+Bird’s ability to score from anywhere on the court made him a nightmare for defenders.
 
-# 2009-2015: Learning to adapt
+*(Placeholder for data: Analyze shot charts to highlight Bird’s efficiency from mid-range, three-point territory, and in the post.)*
 
-By 2009, the NBA was changing. The three-point revolution, sparked by analytics and players like Stephen Curry, was underway. LeBron noticed.
+-   Clutch Performance:
 
-He didn’t immediately abandon the mid-range game - it was still part of his identity - but he started taking more three-pointers. Slowly, deliberately, he added them to his repertoire. By the time he joined the Miami Heat in 2010, and with the influence of teammates like Ray Allen who joined the Heat in 2012, his three-point attempts had grown to 25% of his total shots.
+Bird’s decision-making under pressure didn’t just win games—it defined his legacy.
 
-This wasn’t just about skill development. It was about survival. The game was evolving, and players who clung to the old ways risked falling behind.
+*(Placeholder for data: Break down his shooting percentages and decision-making stats in high-pressure situations, especially during playoff runs.)*
 
-LeBron’s willingness to adapt showed a crucial insight: the best performers don’t just play their game -they adjust to the rules as they change.
-
-```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
-base_lebron_linechart_09_15 <- create_linechart(all_shots,"LeBron James",2009,2015)
-
-lebron_linechart_09_15_v2 <- base_lebron_linechart_09_15 +
-  # Animation: reveal a path per season
-  transition_reveal(yearSeason) +
-  labs(
-    title = "LeBron James % of Shot Choices by Court Zone and by Season (2009-15)",
-    x = "Season",
-    y = "% of Shots",
-    color = "Court Zone"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-
-# Save the animation
-# anim_save("./assets/lebron_linechart_09_15_v2.gif", lebron_linechart_09_15_v2)
-
-```
-
-![Lebron's shot choices (2009-15) : Three-point attempts grew from 15% to 25% of his total shots. You can see the drastic change between 2012 and 2013 - the years he won 2 championships, back to back.](assets/lebron_linechart_09_15_v2.gif)
-
-# 2016-2024: Embracing the new reality
-
-The modern NBA belongs to the three-pointer, and so does LeBron.
-
-Between 2016 and 2023, over 35% of his shots came from beyond the arc. The mid-range? Almost gone. The paint? Still important, but less dominant than before.
-
-This wasn’t a concession—it was a strategy. LeBron didn’t stop attacking the basket. He just became more selective, choosing to drive when it mattered most and saving his energy for long-range daggers.
-
-The league had fully transitioned to an era of spacing and efficiency. Teams weren’t just tolerating three-pointers—they were building offenses around them. LeBron’s game evolved accordingly.
-
-The takeaway here is simple: the ability to change isn’t a weakness. It’s a competitive advantage
-
-```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
-
-base_lebron_linechart_16_24 <- create_linechart(all_shots,"LeBron James",2016,2024)
-
-lebron_linechart_16_24_v2 <- base_lebron_linechart_16_24 +
-  # Animation: reveal a path per season
-  transition_reveal(yearSeason) +
-  labs(
-    title = "LeBron James % of Shot Choices by Court Zone and by Season (2016-24)",
-    x = "Season",
-    y = "% of Shots",
-    color = "Court Zone"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-
-# Save the animation
-anim_save("./assets/lebron_linechart_16_24_v2.gif", lebron_linechart_16_24_v2)
-
-
-```
-
-![LeBron's shot choices (2016-2024) : The shift isn't just about LeBron. The NBA's average number of three-point attempts per game has more than doubled since his rookie year. The league has transitioned from a post-centric style to a perimeter-oriented game](assets/lebron_linechart_16_24_v2.gif)
-
-# LeBron as a mirror to the NBA
-
-LeBron’s career isn’t just about scoring points. It’s about reflecting the game’s evolution.
-
-The mid-range game, once the foundation of basketball, is now a relic. Analytics proved that long-range shots and finishes at the rim were more valuable, and the league responded. LeBron’s shift from mid-range jumpers to three-pointers wasn’t just personal growth - it was basketball growth.
-
-Consider this: In 2003, NBA teams averaged just 14 three-point attempts per game. By 2023, that number had more than doubled to 35. LeBron adapted not because he wanted to - but because he had to.
-
-The NBA’s greatest players aren’t just defined by their talent. They’re defined by how well they adjust when the rules of the game change.
-
-# What his journey can teach us
-
-LeBron’s evolution is a lesson in adaptability. He started his career mastering the tools of his era. Then, as the game changed, he didn’t resist - he evolved with it.
-
-For players entering the league today, the message is clear: success isn’t just about being great at one thing. It’s about being willing to reinvent yourself when the world around you changes.
-
-LeBron’s journey isn’t just about basketball. It’s about the universal truth that staying relevant requires constant evolution. The game always changes. The question is whether you’ll change with it.
-
-I believe that when its all said and done, LeBron’s legacy won't just about his stats or his championships. It’s about his adaptability.
-
-Over 20 years, he’s played in a league that’s transformed itself multiple times. Each time, LeBron transformed with it, redefining what it means to be great in basketball.
-
-The King’s reign is a testament to one simple idea: if you want to last, you have to evolve.
+Larry Bird was proof that greatness doesn’t have to be loud or flashy. Sometimes, it looks like calm precision—a mind that moves faster than the game, a player who saw basketball not just for what it was but for what it could be. That’s how Larry Bird dominated a game designed for giants—not just by being tall, but by seeing further
 
 ------------------------------------------------------------------------
 
