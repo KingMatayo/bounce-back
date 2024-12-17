@@ -1,13 +1,13 @@
 ---
-title: <span style="color:white">The Evolution of LeBron's Shot Choices (2003–2024)</span>
-subtitle: "How the King’s shot selection mirrors the NBA’s transformation"
+title: <span style="color:white">The Skyhook and the Infinite Game</span>
+subtitle: "How Kareem Abdul-Jabbar built a legacy by mastering the unmasterable"
 
 author: 
 - name: "King Matayo"
   email: kingmatayo.thefirst@gmail.com
-date: 12/07/2024
+date: 12/17/2024
 
-title-block-banner: ./assets/lebron-collage.jpg
+title-block-banner: ./assets/kareem.jpg
 title-block-banner-color: "black"
 
 format: html
@@ -42,201 +42,92 @@ library(viridis)
 # Source functions
 source(file="./R/00-functions.R")
 
-# Read csv file with all NBA shots data from 2003 to 2024
-all_shots <- read.csv("./data/allshots-2003-2024.csv")
 
 ```
 
-# A rookie’s first shot
+# Mastery of a Shot
 
-In my experience, the simplest decisions often reveal the most about who we are, at any given point in time.
+At the heart of every great achievement is a simple truth: mastering one thing, done better than anyone else, can build something timeless. Kareem Abdul-Jabbar’s story is proof that innovation doesn’t have to look flashy, and consistency doesn’t have to shout to be heard.
 
-On October 29, 2003, 18-year-old LeBron James made his first shot decision as an NBA player. It wasn’t a flashy dunk or a deep three. It was a mid-range jumper - plain, efficient, unremarkable. Two points.
+It’s a quiet kind of genius, like water smoothing the edges of a rock—slow, deliberate, inevitable.
 
-::: column-margin
-[LeBron's 1st NBA Game: October 29, 2003](https://youtu.be/JLjH0rrNFeU?si=R5YavOwTrWUNfcZ2){target="_blank"}
-:::
+Kareem played 20 seasons in the NBA. His career stretched so far that by the end of it, teammates who once idolized him as kids were now feeding him passes in the paint. But it’s not just that he played for 20 years—it’s that he dominated for 20 years. At age 24, Kareem led the league in scoring. At age 38, he was still scoring 23 points a game, casually gliding up and down the court against players nearly half his age.
 
-But that single shot spoke volumes. It told us what basketball was in 2003: a game that valued size and strength, rewarded mid-range specialists, and treated the three-point line as an occasional luxury.
+The reason? A shot no one could stop.
 
-Fast forward 20 years, and that same decision would look out of place. Today’s NBA is unrecognizable. Three-pointers aren’t just common - they’re necessary. Mid-range shots are now basketball’s version of a landline phone: technically still around, but rarely used.
+# The Shot That Couldn’t Be Stopped
 
-::: column-margin
-[LeBron, 20 years later: October 29, 2023](https://youtu.be/7-q0NDE-_bw?si=mcOFaFomUdgVMu6w){target="_blank"}
-:::
+If you want to understand why Kareem’s Skyhook was so unstoppable, you need to watch it the way you watch a magician perform a trick. It looked too simple to work. One step across the lane. A high-arcing flick of the wrist. The ball floated through the air and dropped through the net like it had been placed there. Every time.
 
-LeBron’s first shot wasn’t just the start of his career. It was a snapshot of a moment in time. And what’s fascinating is how his evolution mirrors the evolution of the league itself. His choices on the court became a masterclass in adaptation.
+No player has had a shot so dependable, so unique, and so untouchable. Kareem didn’t invent the hook shot—others used it before him. But he perfected it. He shot it with a release so high that defenders felt like they were trying to block the moon. His 7’2” frame didn’t hurt either.
 
-This is the story of how LeBron’s shot selection changed over two decades, and how those choices reflect the shifting forces that reshaped the game of basketball.
+Here’s the thing about the Skyhook:
 
-::: {.panel-tabset .nav-pills}
-## LeBron's first NBA game chart
+-   It worked in every era. When defenses got bigger, it worked. When defenders got smarter, it worked.
 
-```{r warning=FALSE, message=FALSE}
-# Creating a basic shot chart for Lebron's 1st NBA shot
+-   It was efficient. Kareem’s field goal percentage—often in the 55% range—was lightyears ahead of his peers.
 
-create_shotchart(all_shots,"LeBron James",20031029)
-```
+-   It was reliable. When his athleticism began to wane in his late 30s, the Skyhook didn’t age a day.
 
-## 20 years later
+*Placeholder for Analysis:*
 
-```{r warning=FALSE, message=FALSE}
-create_shotchart(all_shots,"LeBron James",20231029)
-```
+*Shot charts show the Skyhook’s shooting percentage compared to other high-percentage shots, like dunks or layups. Kareem’s Skyhook wasn’t just effective; it was economical, like a move designed to last a thousand lifetimes.*
 
-## Comparison: 2003 vs 2023
+# The Longevity of Greatness
 
-```{r warning=FALSE, message=FALSE}
-# Generate's Lebron's slope chart with the slope chart generating function created
-base_lebron_slope_chart <- shots_game_by_game_slope_chart(all_shots,"LeBron James",20031029,20231029)
+Most careers are like fireworks: bright, fast, and over. Kareem’s was like a lighthouse. It shined for decades, steady and unwavering, no matter the storm.
 
-# Style it abit
-base_lebron_slope_chart +
-  scale_x_discrete(labels = c("20031029" = "October 29, 2003", "20231029" = "October 29, 2023")) + 
-  labs(
-    title = "LeBron's shot choices: Oct. 29, 2003 vs. 2023",
-    subtitle = "His 3PT attempts went up from 5% to 42% of all shot choices",
-    x = "",
-    y = "% of shots") +
-  theme_minimal() +
-  theme(
-    text = element_text(size = 14),
-    legend.position = "none",  # Remove the legend
-    plot.title = element_text(size = 14, face = "bold"),
-    plot.subtitle = element_text(size = 10)
-  )
-```
-:::
+By his late 30s, Kareem wasn’t supposed to be this good. Athletes slow down, bodies wear out, and younger players take over. But while others tried to rely on raw athleticism, Kareem relied on craft.
 
-...
+He was a pioneer of longevity. Long before it was trendy for athletes to obsess over recovery, yoga, and nutrition, Kareem was doing it. Decades later, LeBron James, Tom Brady, and Serena Williams would build careers on the same principles Kareem lived by: consistency, preparation, and the humility to adapt.
 
-# 2003-2008: The power of playing to your strengths
+*Placeholder for Analysis:*
 
-In LeBron’s early years, the game was simple: get to the basket.
+*Data shows Kareem’s production—points per game, efficiency ratings, and win shares—in his late 30s and 40s, compared to legends like Jordan, Duncan, and LeBron. Kareem didn’t just decline slower than others—he didn’t decline at all.*
 
-He was faster, stronger, and more athletic than most players on the court. Why take a risky three-pointer when you could bulldoze your way to the rim? Over 40% of his shots came from the paint, where he was nearly unstoppable.
+# Leadership You Don’t Hear, But You See
 
-The mid-range jumper - like the one he made in his first game - was his secondary weapon. And it worked because it fit the league’s style. Coaches weren’t chasing efficiency metrics yet. The paint and mid-range were where championships were won.
+Kareem was not a loud leader. He didn’t shout at teammates or throw fists at lockers. He led the way quiet people do: by example. Show up. Do the work. Repeat.
 
-LeBron wasn’t just playing basketball. He was thriving in a system built for players like him. The lesson? Success often comes from maximizing what works in the moment, even if it won’t last forever.
+Teammates knew Kareem as steady. He didn’t panic. He didn’t grandstand. In the middle of championship runs, his presence alone felt like a guarantee: We’ll be fine. I’ve been here before.
 
-```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
+What he lacked in vocal fireworks, he made up for in quiet certainty. Leadership, after all, isn’t about how many words you say. It’s about how many people believe you can carry them through the hard parts. And Kareem could.
 
-# Since this is time-series data - use a custom function to create a line chart - as i did before, but this time make it animated with gganimate
+# Innovation That Stood the Test of Time
 
-base_lebron_linechart_03_08 <- create_linechart(all_shots,"LeBron James",2003,2008)
+We think of innovation as invention—something new that no one’s ever seen before. But sometimes, innovation is perfecting something old. Kareem didn’t need a new move. He just needed a move that no one else could use.
 
-lebron_linechart_03_08_v2 <- base_lebron_linechart_03_08 +
-  # Animation: reveal a path per season
-  transition_reveal(yearSeason) +
-  labs(
-    title = "LeBron James % of Shot Choices by Court Zone and by Season (2003-08)",
-    x = "Season",
-    y = "% of Shots",
-    color = "Court Zone"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+There’s a lesson in that. If you want to stand out, don’t reinvent the wheel. Just make sure your wheel is stronger, faster, and smoother than everyone else’s.
 
-# Save the animation
-# anim_save("./assets/lebron_linechart_03_08_v2.gif", lebron_linechart_03_08_v2)
+Kareem’s Skyhook didn’t just score points. It scored points for 20 years.
 
+*Placeholder for Analysis:*
 
-```
+*Comparisons of how defensive schemes evolved in the NBA and how Kareem’s Skyhook remained effective regardless of the era. Innovation, when done right, is timeless.*
 
-![LeBron's shot choices (2003-08) : Over 40% of LeBron’s shots came from the paint, with mid-range jumpers making up the second-largest proportion. Threes were an afterthought, comprising less than 15% of his attempts.](assets/lebron_linechart_03_08_v2.gif)
+# The Infinite Game
 
-# 2009-2015: Learning to adapt
+Kareem Abdul-Jabbar’s greatness didn’t happen overnight. It wasn’t a product of luck, or one magical season, or one championship. It was the slow accumulation of skill, refinement, and discipline over decades. He kept playing the game long after others quit, and he played it better than anyone.
 
-By 2009, the NBA was changing. The three-point revolution, sparked by analytics and players like Stephen Curry, was underway. LeBron noticed.
+Most players play for stats. Some play for championships. Kareem played a game beyond all of that. He built a legacy that will outlast him. He built a story worth telling.
 
-He didn’t immediately abandon the mid-range game - it was still part of his identity - but he started taking more three-pointers. Slowly, deliberately, he added them to his repertoire. By the time he joined the Miami Heat in 2010, and with the influence of teammates like Ray Allen who joined the Heat in 2012, his three-point attempts had grown to 25% of his total shots.
+The Skyhook may be a basketball move, but the lesson it teaches is universal:
 
-This wasn’t just about skill development. It was about survival. The game was evolving, and players who clung to the old ways risked falling behind.
+-   Innovate, but don’t overcomplicate.
 
-LeBron’s willingness to adapt showed a crucial insight: the best performers don’t just play their game -they adjust to the rules as they change.
+-   Master one thing, and master it completely.
 
-```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
-base_lebron_linechart_09_15 <- create_linechart(all_shots,"LeBron James",2009,2015)
+-   Stay consistent. Stay relevant. Stay timeless.
 
-lebron_linechart_09_15_v2 <- base_lebron_linechart_09_15 +
-  # Animation: reveal a path per season
-  transition_reveal(yearSeason) +
-  labs(
-    title = "LeBron James % of Shot Choices by Court Zone and by Season (2009-15)",
-    x = "Season",
-    y = "% of Shots",
-    color = "Court Zone"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+Kareem played basketball, but he was never playing for today. He was playing for forever.
 
-# Save the animation
-# anim_save("./assets/lebron_linechart_09_15_v2.gif", lebron_linechart_09_15_v2)
+And forever is what he got.
 
-```
+# Closing Thought
 
-![Lebron's shot choices (2009-15) : Three-point attempts grew from 15% to 25% of his total shots. You can see the drastic change between 2012 and 2013 - the years he won 2 championships, back to back.](assets/lebron_linechart_09_15_v2.gif)
+Kareem Abdul-Jabbar didn’t leave basketball. Basketball left Kareem. And when it did, he left something behind that no one has matched since—a signature shot, a career, and a legacy built to last.
 
-# 2016-2024: Embracing the new reality
-
-The modern NBA belongs to the three-pointer, and so does LeBron.
-
-Between 2016 and 2023, over 35% of his shots came from beyond the arc. The mid-range? Almost gone. The paint? Still important, but less dominant than before.
-
-This wasn’t a concession—it was a strategy. LeBron didn’t stop attacking the basket. He just became more selective, choosing to drive when it mattered most and saving his energy for long-range daggers.
-
-The league had fully transitioned to an era of spacing and efficiency. Teams weren’t just tolerating three-pointers—they were building offenses around them. LeBron’s game evolved accordingly.
-
-The takeaway here is simple: the ability to change isn’t a weakness. It’s a competitive advantage
-
-```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
-
-base_lebron_linechart_16_24 <- create_linechart(all_shots,"LeBron James",2016,2024)
-
-lebron_linechart_16_24_v2 <- base_lebron_linechart_16_24 +
-  # Animation: reveal a path per season
-  transition_reveal(yearSeason) +
-  labs(
-    title = "LeBron James % of Shot Choices by Court Zone and by Season (2016-24)",
-    x = "Season",
-    y = "% of Shots",
-    color = "Court Zone"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-
-# Save the animation
-anim_save("./assets/lebron_linechart_16_24_v2.gif", lebron_linechart_16_24_v2)
-
-
-```
-
-![LeBron's shot choices (2016-2024) : The shift isn't just about LeBron. The NBA's average number of three-point attempts per game has more than doubled since his rookie year. The league has transitioned from a post-centric style to a perimeter-oriented game](assets/lebron_linechart_16_24_v2.gif)
-
-# LeBron as a mirror to the NBA
-
-LeBron’s career isn’t just about scoring points. It’s about reflecting the game’s evolution.
-
-The mid-range game, once the foundation of basketball, is now a relic. Analytics proved that long-range shots and finishes at the rim were more valuable, and the league responded. LeBron’s shift from mid-range jumpers to three-pointers wasn’t just personal growth - it was basketball growth.
-
-Consider this: In 2003, NBA teams averaged just 14 three-point attempts per game. By 2023, that number had more than doubled to 35. LeBron adapted not because he wanted to - but because he had to.
-
-The NBA’s greatest players aren’t just defined by their talent. They’re defined by how well they adjust when the rules of the game change.
-
-# What his journey can teach us
-
-LeBron’s evolution is a lesson in adaptability. He started his career mastering the tools of his era. Then, as the game changed, he didn’t resist - he evolved with it.
-
-For players entering the league today, the message is clear: success isn’t just about being great at one thing. It’s about being willing to reinvent yourself when the world around you changes.
-
-LeBron’s journey isn’t just about basketball. It’s about the universal truth that staying relevant requires constant evolution. The game always changes. The question is whether you’ll change with it.
-
-I believe that when its all said and done, LeBron’s legacy won't just about his stats or his championships. It’s about his adaptability.
-
-Over 20 years, he’s played in a league that’s transformed itself multiple times. Each time, LeBron transformed with it, redefining what it means to be great in basketball.
-
-The King’s reign is a testament to one simple idea: if you want to last, you have to evolve.
+When you’re playing the infinite game, that’s all that really matters.
 
 ------------------------------------------------------------------------
 
