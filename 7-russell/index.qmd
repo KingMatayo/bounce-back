@@ -1,13 +1,13 @@
 ---
-title: <span style="color:white">The Evolution of LeBron's Shot Choices (2003–2024)</span>
-subtitle: "How the King’s shot selection mirrors the NBA’s transformation"
+title: <span style="color:white">The Invisible Scoreboard</span>
+subtitle: "How Bill Russell proved that winning is about what you don’t see"
 
 author: 
 - name: "King Matayo"
   email: kingmatayo.thefirst@gmail.com
-date: 12/07/2024
+date: 12/17/2024
 
-title-block-banner: ./assets/lebron-collage.jpg
+title-block-banner: ./assets/russell.jpg
 title-block-banner-color: "black"
 
 format: html
@@ -42,201 +42,92 @@ library(viridis)
 # Source functions
 source(file="./R/00-functions.R")
 
-# Read csv file with all NBA shots data from 2003 to 2024
-all_shots <- read.csv("./data/allshots-2003-2024.csv")
 
 ```
 
-# A rookie’s first shot
+# Eleven
 
-In my experience, the simplest decisions often reveal the most about who we are, at any given point in time.
+In a game where the loudest voices are those who score the most points, Bill Russell chose silence.
 
-On October 29, 2003, 18-year-old LeBron James made his first shot decision as an NBA player. It wasn’t a flashy dunk or a deep three. It was a mid-range jumper - plain, efficient, unremarkable. Two points.
+He didn’t dunk with flair or wave his arms after a big block. He didn’t seek headlines or feel envy when his teammates basked in the spotlight. His approach to basketball wasn’t glamorous, but it was unshakable. Russell knew something that most players never figured out: the scoreboard you can’t see matters more than the one you can.
 
-::: column-margin
-[LeBron's 1st NBA Game: October 29, 2003](https://youtu.be/JLjH0rrNFeU?si=R5YavOwTrWUNfcZ2){target="_blank"}
-:::
+Russell finished his career with 11 championships in 13 seasons. Eleven. That number feels too big, like a typo. But when you look closely, it becomes clear that Russell was playing a different game altogether—one where leadership, consistency, and resilience mattered more than points or praise.
 
-But that single shot spoke volumes. It told us what basketball was in 2003: a game that valued size and strength, rewarded mid-range specialists, and treated the three-point line as an occasional luxury.
+# Defense Wins Championships
 
-Fast forward 20 years, and that same decision would look out of place. Today’s NBA is unrecognizable. Three-pointers aren’t just common - they’re necessary. Mid-range shots are now basketball’s version of a landline phone: technically still around, but rarely used.
+Most basketball fans talk about “offense” like it’s the heart of the game. Russell knew better.
 
-::: column-margin
-[LeBron, 20 years later: October 29, 2023](https://youtu.be/7-q0NDE-_bw?si=mcOFaFomUdgVMu6w){target="_blank"}
-:::
+In Game 7 of the 1962 NBA Finals, the Celtics faced the Los Angeles Lakers. The Lakers had Elgin Baylor, who scored 41 points. They had Jerry West, who scored 35. The Celtics had Russell, who scored just 30—but also grabbed 40 rebounds.
 
-LeBron’s first shot wasn’t just the start of his career. It was a snapshot of a moment in time. And what’s fascinating is how his evolution mirrors the evolution of the league itself. His choices on the court became a masterclass in adaptation.
+Forty rebounds.
 
-This is the story of how LeBron’s shot selection changed over two decades, and how those choices reflect the shifting forces that reshaped the game of basketball.
+That stat is almost hard to believe. But it tells you everything you need to know about Bill Russell. He didn’t just stop the Lakers from scoring. He ended possessions. He denied second chances. He controlled everything.
 
-::: {.panel-tabset .nav-pills}
-## LeBron's first NBA game chart
+Basketball games hinge on tiny margins: a missed shot, a tipped ball, a lucky bounce. Russell didn’t leave those margins to chance. He erased them.
 
-```{r warning=FALSE, message=FALSE}
-# Creating a basic shot chart for Lebron's 1st NBA shot
+There’s no trophy for rebounds. No headline for the shot you blocked that turned into someone else’s fast break. But Russell didn’t care. He knew that defense wasn’t about looking good. It was about doing what needed to be done to win.
 
-create_shotchart(all_shots,"LeBron James",20031029)
-```
+*Placeholder for Analysis: How many rebounds did Russell average in critical playoff games? How many shots did he block that led to points in transition? These numbers tell the real story.*
 
-## 20 years later
+# The Team-First Mentality
 
-```{r warning=FALSE, message=FALSE}
-create_shotchart(all_shots,"LeBron James",20231029)
-```
+Bill Russell didn’t play for Bill Russell.
 
-## Comparison: 2003 vs 2023
+It’s a simple statement, but it’s the reason the Celtics became a dynasty. Russell understood something that even great players struggle with: You can’t win alone. Scoring points felt irrelevant to him when there were other ways to contribute.
 
-```{r warning=FALSE, message=FALSE}
-# Generate's Lebron's slope chart with the slope chart generating function created
-base_lebron_slope_chart <- shots_game_by_game_slope_chart(all_shots,"LeBron James",20031029,20231029)
+He set screens. He altered shots. He rebounded. He defended so well that his teammates had easier jobs. None of these things made Russell the focal point of highlight reels. But they turned his team into a machine.
 
-# Style it abit
-base_lebron_slope_chart +
-  scale_x_discrete(labels = c("20031029" = "October 29, 2003", "20231029" = "October 29, 2023")) + 
-  labs(
-    title = "LeBron's shot choices: Oct. 29, 2003 vs. 2023",
-    subtitle = "His 3PT attempts went up from 5% to 42% of all shot choices",
-    x = "",
-    y = "% of shots") +
-  theme_minimal() +
-  theme(
-    text = element_text(size = 14),
-    legend.position = "none",  # Remove the legend
-    plot.title = element_text(size = 14, face = "bold"),
-    plot.subtitle = element_text(size = 10)
-  )
-```
-:::
+Most people are obsessed with their own scorecard—their promotions, their raises, their applause. Russell focused on a different scoreboard: How much better did I make the people around me?
 
-...
+The Celtics’ head coach Red Auerbach once said, “Russell could take over a game without scoring a point.” If you’re playing for a team, isn’t that the best kind of leadership?
 
-# 2003-2008: The power of playing to your strengths
+*Placeholder for Analysis: The Celtics’ offensive and defensive ratings with and without Russell reveal just how irreplaceable he was*.
 
-In LeBron’s early years, the game was simple: get to the basket.
+# Leadership Under Pressure
 
-He was faster, stronger, and more athletic than most players on the court. Why take a risky three-pointer when you could bulldoze your way to the rim? Over 40% of his shots came from the paint, where he was nearly unstoppable.
+It’s one thing to play well when the stakes are low. It’s another to thrive when everything is on the line.
 
-The mid-range jumper - like the one he made in his first game - was his secondary weapon. And it worked because it fit the league’s style. Coaches weren’t chasing efficiency metrics yet. The paint and mid-range were where championships were won.
+Bill Russell played in 10 Game 7s in his career. He won all 10. Ten-for-ten.
 
-LeBron wasn’t just playing basketball. He was thriving in a system built for players like him. The lesson? Success often comes from maximizing what works in the moment, even if it won’t last forever.
+Game 7s are pressure cookers. The noise, the expectations, the fear of failure—it breaks most players. Russell didn’t just survive that pressure; he owned it. He knew that when everyone else tightened up, the game belonged to the calmest player on the court.
 
-```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
+Take the 1969 Finals, Russell’s last season as a player-coach. The Celtics were underdogs against the Lakers. The series went to a Game 7 in Los Angeles. With his leadership, the Celtics won.
 
-# Since this is time-series data - use a custom function to create a line chart - as i did before, but this time make it animated with gganimate
+Here’s the thing: Russell didn’t dominate the stat sheet in that game. But his calm presence gave his team confidence. And confidence is contagious.
 
-base_lebron_linechart_03_08 <- create_linechart(all_shots,"LeBron James",2003,2008)
+*Placeholder for Analysis: Russell’s individual and team performance in high-stakes playoff games will reveal how he elevated his teammates under pressure.*
 
-lebron_linechart_03_08_v2 <- base_lebron_linechart_03_08 +
-  # Animation: reveal a path per season
-  transition_reveal(yearSeason) +
-  labs(
-    title = "LeBron James % of Shot Choices by Court Zone and by Season (2003-08)",
-    x = "Season",
-    y = "% of Shots",
-    color = "Court Zone"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+# The Value of Intangibles
 
-# Save the animation
-# anim_save("./assets/lebron_linechart_03_08_v2.gif", lebron_linechart_03_08_v2)
+What makes Bill Russell’s story remarkable isn’t just the championships. It’s how he won.
 
+Most great players focus on the visible parts of the game—points, assists, rebounds, steals. Russell focused on the things no one was measuring.
 
-```
+-   He set better screens.
 
-![LeBron's shot choices (2003-08) : Over 40% of LeBron’s shots came from the paint, with mid-range jumpers making up the second-largest proportion. Threes were an afterthought, comprising less than 15% of his attempts.](assets/lebron_linechart_03_08_v2.gif)
+-   He altered shots that forced misses.
 
-# 2009-2015: Learning to adapt
+-   He stayed calm when chaos threatened to swallow his team.
 
-By 2009, the NBA was changing. The three-point revolution, sparked by analytics and players like Stephen Curry, was underway. LeBron noticed.
+The value of these contributions is harder to quantify. But here’s the truth: if you ignore the intangibles, you’ll never understand why Russell won so much.
 
-He didn’t immediately abandon the mid-range game - it was still part of his identity - but he started taking more three-pointers. Slowly, deliberately, he added them to his repertoire. By the time he joined the Miami Heat in 2010, and with the influence of teammates like Ray Allen who joined the Heat in 2012, his three-point attempts had grown to 25% of his total shots.
+In life, we tend to reward what’s visible. The promotion. The raise. The applause. But often, the most important contributions are invisible. They’re the small sacrifices you make for the team. The calm leadership you show when everyone else panics. The work you do that no one sees, but everyone benefits from.
 
-This wasn’t just about skill development. It was about survival. The game was evolving, and players who clung to the old ways risked falling behind.
+That’s what Bill Russell understood better than anyone.
 
-LeBron’s willingness to adapt showed a crucial insight: the best performers don’t just play their game -they adjust to the rules as they change.
+# The Invisible Legacy
 
-```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
-base_lebron_linechart_09_15 <- create_linechart(all_shots,"LeBron James",2009,2015)
+Bill Russell’s career was never about individual accolades. He didn’t care about MVP votes or scoring titles. He didn’t play for himself. He played to win.
 
-lebron_linechart_09_15_v2 <- base_lebron_linechart_09_15 +
-  # Animation: reveal a path per season
-  transition_reveal(yearSeason) +
-  labs(
-    title = "LeBron James % of Shot Choices by Court Zone and by Season (2009-15)",
-    x = "Season",
-    y = "% of Shots",
-    color = "Court Zone"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+And he won—more than anyone else ever has.
 
-# Save the animation
-# anim_save("./assets/lebron_linechart_09_15_v2.gif", lebron_linechart_09_15_v2)
+Russell showed that greatness isn’t always obvious. Sometimes, it’s quiet. Sometimes, it’s invisible. But it always makes a difference.
 
-```
+When you look at Bill Russell’s career, you won’t find him on the scoring leaderboards. But you will find 11 championship banners hanging in Boston.
 
-![Lebron's shot choices (2009-15) : Three-point attempts grew from 15% to 25% of his total shots. You can see the drastic change between 2012 and 2013 - the years he won 2 championships, back to back.](assets/lebron_linechart_09_15_v2.gif)
+That’s the scoreboard that matters.
 
-# 2016-2024: Embracing the new reality
-
-The modern NBA belongs to the three-pointer, and so does LeBron.
-
-Between 2016 and 2023, over 35% of his shots came from beyond the arc. The mid-range? Almost gone. The paint? Still important, but less dominant than before.
-
-This wasn’t a concession—it was a strategy. LeBron didn’t stop attacking the basket. He just became more selective, choosing to drive when it mattered most and saving his energy for long-range daggers.
-
-The league had fully transitioned to an era of spacing and efficiency. Teams weren’t just tolerating three-pointers—they were building offenses around them. LeBron’s game evolved accordingly.
-
-The takeaway here is simple: the ability to change isn’t a weakness. It’s a competitive advantage
-
-```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
-
-base_lebron_linechart_16_24 <- create_linechart(all_shots,"LeBron James",2016,2024)
-
-lebron_linechart_16_24_v2 <- base_lebron_linechart_16_24 +
-  # Animation: reveal a path per season
-  transition_reveal(yearSeason) +
-  labs(
-    title = "LeBron James % of Shot Choices by Court Zone and by Season (2016-24)",
-    x = "Season",
-    y = "% of Shots",
-    color = "Court Zone"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-
-# Save the animation
-anim_save("./assets/lebron_linechart_16_24_v2.gif", lebron_linechart_16_24_v2)
-
-
-```
-
-![LeBron's shot choices (2016-2024) : The shift isn't just about LeBron. The NBA's average number of three-point attempts per game has more than doubled since his rookie year. The league has transitioned from a post-centric style to a perimeter-oriented game](assets/lebron_linechart_16_24_v2.gif)
-
-# LeBron as a mirror to the NBA
-
-LeBron’s career isn’t just about scoring points. It’s about reflecting the game’s evolution.
-
-The mid-range game, once the foundation of basketball, is now a relic. Analytics proved that long-range shots and finishes at the rim were more valuable, and the league responded. LeBron’s shift from mid-range jumpers to three-pointers wasn’t just personal growth - it was basketball growth.
-
-Consider this: In 2003, NBA teams averaged just 14 three-point attempts per game. By 2023, that number had more than doubled to 35. LeBron adapted not because he wanted to - but because he had to.
-
-The NBA’s greatest players aren’t just defined by their talent. They’re defined by how well they adjust when the rules of the game change.
-
-# What his journey can teach us
-
-LeBron’s evolution is a lesson in adaptability. He started his career mastering the tools of his era. Then, as the game changed, he didn’t resist - he evolved with it.
-
-For players entering the league today, the message is clear: success isn’t just about being great at one thing. It’s about being willing to reinvent yourself when the world around you changes.
-
-LeBron’s journey isn’t just about basketball. It’s about the universal truth that staying relevant requires constant evolution. The game always changes. The question is whether you’ll change with it.
-
-I believe that when its all said and done, LeBron’s legacy won't just about his stats or his championships. It’s about his adaptability.
-
-Over 20 years, he’s played in a league that’s transformed itself multiple times. Each time, LeBron transformed with it, redefining what it means to be great in basketball.
-
-The King’s reign is a testament to one simple idea: if you want to last, you have to evolve.
+*“The game is simple. You defend, you rebound, you make your teammates better. You win.” — Bill Russell*
 
 ------------------------------------------------------------------------
 
