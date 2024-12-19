@@ -1,13 +1,13 @@
 ---
-title: <span style="color:white">The Evolution of LeBron's Shot Choices (2003–2024)</span>
-subtitle: "How the King’s shot selection mirrors the NBA’s transformation"
+title: <span style="color:white">The Dream’s Blueprint</span>
+subtitle: "How mastery of the basics turned Hakeem Olajuwon into a basketball legend"
 
 author: 
 - name: "King Matayo"
   email: kingmatayo.thefirst@gmail.com
-date: 12/07/2024
+date: 12/19/2024
 
-title-block-banner: ./assets/lebron-collage.jpg
+title-block-banner: ./assets/hakeem.jpg
 title-block-banner-color: "black"
 
 format: html
@@ -42,201 +42,77 @@ library(viridis)
 # Source functions
 source(file="./R/00-functions.R")
 
-# Read csv file with all NBA shots data from 2003 to 2024
-all_shots <- read.csv("./data/allshots-2003-2024.csv")
-
-```
-
-# A rookie’s first shot
-
-In my experience, the simplest decisions often reveal the most about who we are, at any given point in time.
-
-On October 29, 2003, 18-year-old LeBron James made his first shot decision as an NBA player. It wasn’t a flashy dunk or a deep three. It was a mid-range jumper - plain, efficient, unremarkable. Two points.
-
-::: column-margin
-[LeBron's 1st NBA Game: October 29, 2003](https://youtu.be/JLjH0rrNFeU?si=R5YavOwTrWUNfcZ2){target="_blank"}
-:::
-
-But that single shot spoke volumes. It told us what basketball was in 2003: a game that valued size and strength, rewarded mid-range specialists, and treated the three-point line as an occasional luxury.
-
-Fast forward 20 years, and that same decision would look out of place. Today’s NBA is unrecognizable. Three-pointers aren’t just common - they’re necessary. Mid-range shots are now basketball’s version of a landline phone: technically still around, but rarely used.
-
-::: column-margin
-[LeBron, 20 years later: October 29, 2023](https://youtu.be/7-q0NDE-_bw?si=mcOFaFomUdgVMu6w){target="_blank"}
-:::
-
-LeBron’s first shot wasn’t just the start of his career. It was a snapshot of a moment in time. And what’s fascinating is how his evolution mirrors the evolution of the league itself. His choices on the court became a masterclass in adaptation.
-
-This is the story of how LeBron’s shot selection changed over two decades, and how those choices reflect the shifting forces that reshaped the game of basketball.
-
-::: {.panel-tabset .nav-pills}
-## LeBron's first NBA game chart
-
-```{r warning=FALSE, message=FALSE}
-# Creating a basic shot chart for Lebron's 1st NBA shot
-
-create_shotchart(all_shots,"LeBron James",20031029)
-```
-
-## 20 years later
-
-```{r warning=FALSE, message=FALSE}
-create_shotchart(all_shots,"LeBron James",20231029)
-```
-
-## Comparison: 2003 vs 2023
-
-```{r warning=FALSE, message=FALSE}
-# Generate's Lebron's slope chart with the slope chart generating function created
-base_lebron_slope_chart <- shots_game_by_game_slope_chart(all_shots,"LeBron James",20031029,20231029)
-
-# Style it abit
-base_lebron_slope_chart +
-  scale_x_discrete(labels = c("20031029" = "October 29, 2003", "20231029" = "October 29, 2023")) + 
-  labs(
-    title = "LeBron's shot choices: Oct. 29, 2003 vs. 2023",
-    subtitle = "His 3PT attempts went up from 5% to 42% of all shot choices",
-    x = "",
-    y = "% of shots") +
-  theme_minimal() +
-  theme(
-    text = element_text(size = 14),
-    legend.position = "none",  # Remove the legend
-    plot.title = element_text(size = 14, face = "bold"),
-    plot.subtitle = element_text(size = 10)
-  )
-```
-:::
-
-...
-
-# 2003-2008: The power of playing to your strengths
-
-In LeBron’s early years, the game was simple: get to the basket.
-
-He was faster, stronger, and more athletic than most players on the court. Why take a risky three-pointer when you could bulldoze your way to the rim? Over 40% of his shots came from the paint, where he was nearly unstoppable.
-
-The mid-range jumper - like the one he made in his first game - was his secondary weapon. And it worked because it fit the league’s style. Coaches weren’t chasing efficiency metrics yet. The paint and mid-range were where championships were won.
-
-LeBron wasn’t just playing basketball. He was thriving in a system built for players like him. The lesson? Success often comes from maximizing what works in the moment, even if it won’t last forever.
-
-```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
-
-# Since this is time-series data - use a custom function to create a line chart - as i did before, but this time make it animated with gganimate
-
-base_lebron_linechart_03_08 <- create_linechart(all_shots,"LeBron James",2003,2008)
-
-lebron_linechart_03_08_v2 <- base_lebron_linechart_03_08 +
-  # Animation: reveal a path per season
-  transition_reveal(yearSeason) +
-  labs(
-    title = "LeBron James % of Shot Choices by Court Zone and by Season (2003-08)",
-    x = "Season",
-    y = "% of Shots",
-    color = "Court Zone"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-
-# Save the animation
-# anim_save("./assets/lebron_linechart_03_08_v2.gif", lebron_linechart_03_08_v2)
 
 
 ```
 
-![LeBron's shot choices (2003-08) : Over 40% of LeBron’s shots came from the paint, with mid-range jumpers making up the second-largest proportion. Threes were an afterthought, comprising less than 15% of his attempts.](assets/lebron_linechart_03_08_v2.gif)
+# The Accidental Basketball Player
 
-# 2009-2015: Learning to adapt
+When Hakeem Olajuwon first stepped onto a basketball court, he was, by his own admission, clumsy. Born and raised in Lagos, Nigeria, Hakeem didn’t grow up idolizing Kareem Abdul-Jabbar or Wilt Chamberlain. Soccer was his first love, and footwork was its language. Pivoting to basketball as a teenager—almost by accident—he brought with him a foundation that would later transform him into one of the most graceful players the NBA has ever seen.
 
-By 2009, the NBA was changing. The three-point revolution, sparked by analytics and players like Stephen Curry, was underway. LeBron noticed.
+The thing about Hakeem is that he didn’t just learn the game. He mastered it. And not in the way most people imagine mastery looks like. His greatness wasn’t built on highlight dunks or flashy, viral moments. It was built on something quieter: the basics. Pivoting, positioning, and patience. Things that don’t scream for attention but demand respect when done well.
 
-He didn’t immediately abandon the mid-range game - it was still part of his identity - but he started taking more three-pointers. Slowly, deliberately, he added them to his repertoire. By the time he joined the Miami Heat in 2010, and with the influence of teammates like Ray Allen who joined the Heat in 2012, his three-point attempts had grown to 25% of his total shots.
+# The Dream Shake and the Illusion of Effortlessness
 
-This wasn’t just about skill development. It was about survival. The game was evolving, and players who clung to the old ways risked falling behind.
+If you’ve ever watched a defender fall for Hakeem’s Dream Shake, you might think it was magic. A subtle fake one way, a quick pivot the other, and the defender was spinning like a top while Hakeem finished with a soft touch around the rim. It was beautiful to watch—and devastating to defend.
 
-LeBron’s willingness to adapt showed a crucial insight: the best performers don’t just play their game -they adjust to the rules as they change.
+But what looked like magic wasn’t magic at all. It was work. Thousands of hours of work.
 
-```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
-base_lebron_linechart_09_15 <- create_linechart(all_shots,"LeBron James",2009,2015)
+Placeholder for Analysis:
 
-lebron_linechart_09_15_v2 <- base_lebron_linechart_09_15 +
-  # Animation: reveal a path per season
-  transition_reveal(yearSeason) +
-  labs(
-    title = "LeBron James % of Shot Choices by Court Zone and by Season (2009-15)",
-    x = "Season",
-    y = "% of Shots",
-    color = "Court Zone"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+-   Post Play Efficiency: A breakdown of the success rate of the Dream Shake, highlighting how it performed under different conditions (regular season vs. playoffs, against elite defenders, etc.).
 
-# Save the animation
-# anim_save("./assets/lebron_linechart_09_15_v2.gif", lebron_linechart_09_15_v2)
+-   Comparative Metrics: How Olajuwon’s post-scoring efficiency stacks up against other all-time great big men, providing a data-driven lens on his dominance.
 
-```
+Hakeem used to practice his footwork in solitude, moving through drills with the same intensity he brought to games. He treated every move like a puzzle piece, carefully crafted and meticulously placed. By the time defenders saw it, it was too late. They weren’t just guarding Hakeem; they were guarding the sum of years of focused effort.
 
-![Lebron's shot choices (2009-15) : Three-point attempts grew from 15% to 25% of his total shots. You can see the drastic change between 2012 and 2013 - the years he won 2 championships, back to back.](assets/lebron_linechart_09_15_v2.gif)
+We like to think genius is spontaneous, but more often, it’s the product of patience. Hakeem’s Dream Shake was a perfect example of this—an elegant reminder that mastery is often just the repetition of small things done extraordinarily well.
 
-# 2016-2024: Embracing the new reality
+# Defense: The Silent Dominance
 
-The modern NBA belongs to the three-pointer, and so does LeBron.
+In the NBA, defense doesn’t sell tickets. People come for the dunks, the threes, the highlight-reel plays. But Hakeem understood something many didn’t: defense wins championships.
 
-Between 2016 and 2023, over 35% of his shots came from beyond the arc. The mid-range? Almost gone. The paint? Still important, but less dominant than before.
+He wasn’t the tallest center, but he was always the smartest. He blocked shots with precision, swatted away 3,830 attempts in his career, a feat no one has surpassed. He read passes like a chess master anticipating moves, accumulating steals at a rate unheard of for a big man.
 
-This wasn’t a concession—it was a strategy. LeBron didn’t stop attacking the basket. He just became more selective, choosing to drive when it mattered most and saving his energy for long-range daggers.
+Placeholder for Analysis:
 
-The league had fully transitioned to an era of spacing and efficiency. Teams weren’t just tolerating three-pointers—they were building offenses around them. LeBron’s game evolved accordingly.
+-   Defensive Metrics: Hakeem’s block rate, steal rate, and defensive win shares, contextualized with the era he played in and compared to other defensive legends.
 
-The takeaway here is simple: the ability to change isn’t a weakness. It’s a competitive advantage
+-   Impact Analysis: How his presence in the paint altered opponents’ shot selections and efficiency, highlighting his broader influence on team defense.
 
-```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
+Hakeem didn’t just play defense; he controlled the game without needing the ball. Opponents dreaded entering his domain because it wasn’t just about skill—it was about preparation. He studied his rivals like a lawyer studying a case file, learning their tendencies, their tricks, and their weaknesses. Every block and steal wasn’t just athleticism; it was evidence of a mental edge.
 
-base_lebron_linechart_16_24 <- create_linechart(all_shots,"LeBron James",2016,2024)
+# Mastery Requires Focus
 
-lebron_linechart_16_24_v2 <- base_lebron_linechart_16_24 +
-  # Animation: reveal a path per season
-  transition_reveal(yearSeason) +
-  labs(
-    title = "LeBron James % of Shot Choices by Court Zone and by Season (2016-24)",
-    x = "Season",
-    y = "% of Shots",
-    color = "Court Zone"
-  ) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+What separates someone who’s good from someone who’s great? It’s tempting to think it’s talent, but that’s only part of the story. The real gap between good and great is focus. And Hakeem’s focus was otherworldly.
 
-# Save the animation
-anim_save("./assets/lebron_linechart_16_24_v2.gif", lebron_linechart_16_24_v2)
+During Ramadan, when Hakeem fasted from sunrise to sunset, he played some of his best basketball. He would practice and play without food or water, yet he remained dominant. How? Because Hakeem’s game was never just physical. His discipline—both mental and spiritual—created a foundation that even exhaustion couldn’t break.
 
+Placeholder for Analysis:
 
-```
+-   Playoff Performances: Statistical review of his Finals MVP seasons and key playoff games, showcasing how his focus and preparation translated into dominance on the biggest stage.
 
-![LeBron's shot choices (2016-2024) : The shift isn't just about LeBron. The NBA's average number of three-point attempts per game has more than doubled since his rookie year. The league has transitioned from a post-centric style to a perimeter-oriented game](assets/lebron_linechart_16_24_v2.gif)
+-   Clutch Metrics: Hakeem’s performance under high-pressure situations, including points, rebounds, blocks, and shooting efficiency in late-game scenarios.
 
-# LeBron as a mirror to the NBA
+Most players approach the game like a sprint, chasing quick wins and flashy moments. Hakeem approached it like a marathon. Preparation was his secret weapon. While others relied on adrenaline, he relied on calm repetition. And when it mattered most—when championships were on the line—that focus became his superpower.
 
-LeBron’s career isn’t just about scoring points. It’s about reflecting the game’s evolution.
+# The Lesson: Mastery is in the Margins
 
-The mid-range game, once the foundation of basketball, is now a relic. Analytics proved that long-range shots and finishes at the rim were more valuable, and the league responded. LeBron’s shift from mid-range jumpers to three-pointers wasn’t just personal growth - it was basketball growth.
+Hakeem’s story isn’t about basketball. It’s about what happens when you commit to doing something exceptionally well.
 
-Consider this: In 2003, NBA teams averaged just 14 three-point attempts per game. By 2023, that number had more than doubled to 35. LeBron adapted not because he wanted to - but because he had to.
+He didn’t set out to be flashy. He set out to be effective. His greatest moves—the Dream Shake, the blocks, the steals—were born from mastering the fundamentals. And the irony of mastering the basics is that it doesn’t make you basic. It makes you extraordinary.
 
-The NBA’s greatest players aren’t just defined by their talent. They’re defined by how well they adjust when the rules of the game change.
+In life, as in basketball, the little things are the big things. Patience. Repetition. Focus. These are the tools of greatness, and they’re available to anyone willing to put in the time.
 
-# What his journey can teach us
+# The Legacy of The Dream
 
-LeBron’s evolution is a lesson in adaptability. He started his career mastering the tools of his era. Then, as the game changed, he didn’t resist - he evolved with it.
+Hakeem Olajuwon’s career is proof that the pursuit of mastery pays dividends far beyond what the world sees. He showed us that greatness isn’t loud; it’s consistent. It’s the person who works when no one is watching, who refines the unremarkable until it becomes unforgettable.
 
-For players entering the league today, the message is clear: success isn’t just about being great at one thing. It’s about being willing to reinvent yourself when the world around you changes.
+And maybe the most important thing Hakeem taught us is this: mastery isn’t about being the best. It’s about becoming the best version of yourself. The Dream didn’t just dominate basketball—he showed us all how to dream bigger.
 
-LeBron’s journey isn’t just about basketball. It’s about the universal truth that staying relevant requires constant evolution. The game always changes. The question is whether you’ll change with it.
+Placeholder for Final Analysis:
 
-I believe that when its all said and done, LeBron’s legacy won't just about his stats or his championships. It’s about his adaptability.
-
-Over 20 years, he’s played in a league that’s transformed itself multiple times. Each time, LeBron transformed with it, redefining what it means to be great in basketball.
-
-The King’s reign is a testament to one simple idea: if you want to last, you have to evolve.
+-   Career Metrics Summary: Synthesis of Olajuwon’s achievements—blocks, steals, scoring efficiency, and championships—to quantify his all-time impact.
 
 ------------------------------------------------------------------------
 
