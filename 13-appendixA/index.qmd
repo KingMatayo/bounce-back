@@ -1,0 +1,121 @@
+---
+title: <span style="color:white">The Dream’s Blueprint</span>
+subtitle: "How mastery of the basics turned Hakeem Olajuwon into a basketball legend"
+
+author: 
+- name: "King Matayo"
+  email: kingmatayo.thefirst@gmail.com
+date: 12/19/2024
+
+title-block-banner: ./assets/hakeem.jpg
+title-block-banner-color: "black"
+
+format: html
+html:
+code-fold: false
+code-summary: "Code"
+echo: false
+css: style.css
+toc: true
+toc-location: left
+number-sections: false
+editor: visual
+fig-cap-location: margin
+---
+
+```{r warning=FALSE, message=FALSE}
+
+# Load required libraries
+library(tidyverse)
+library(BasketballAnalyzeR)
+library(nbastatR)
+library(ggimage)
+library(cropcircles)
+library(ggtext)
+library(glue)
+library(janitor)
+library(htmltools)
+library(gganimate)
+library(viridis)
+
+
+# Source functions
+source(file="./R/00-functions.R")
+
+
+
+```
+
+# The Accidental Basketball Player
+
+When Hakeem Olajuwon first stepped onto a basketball court, he was, by his own admission, clumsy. Born and raised in Lagos, Nigeria, Hakeem didn’t grow up idolizing Kareem Abdul-Jabbar or Wilt Chamberlain. Soccer was his first love, and footwork was its language. Pivoting to basketball as a teenager—almost by accident—he brought with him a foundation that would later transform him into one of the most graceful players the NBA has ever seen.
+
+The thing about Hakeem is that he didn’t just learn the game. He mastered it. And not in the way most people imagine mastery looks like. His greatness wasn’t built on highlight dunks or flashy, viral moments. It was built on something quieter: the basics. Pivoting, positioning, and patience. Things that don’t scream for attention but demand respect when done well.
+
+# The Dream Shake and the Illusion of Effortlessness
+
+If you’ve ever watched a defender fall for Hakeem’s Dream Shake, you might think it was magic. A subtle fake one way, a quick pivot the other, and the defender was spinning like a top while Hakeem finished with a soft touch around the rim. It was beautiful to watch—and devastating to defend.
+
+But what looked like magic wasn’t magic at all. It was work. Thousands of hours of work.
+
+Placeholder for Analysis:
+
+-   Post Play Efficiency: A breakdown of the success rate of the Dream Shake, highlighting how it performed under different conditions (regular season vs. playoffs, against elite defenders, etc.).
+
+-   Comparative Metrics: How Olajuwon’s post-scoring efficiency stacks up against other all-time great big men, providing a data-driven lens on his dominance.
+
+Hakeem used to practice his footwork in solitude, moving through drills with the same intensity he brought to games. He treated every move like a puzzle piece, carefully crafted and meticulously placed. By the time defenders saw it, it was too late. They weren’t just guarding Hakeem; they were guarding the sum of years of focused effort.
+
+We like to think genius is spontaneous, but more often, it’s the product of patience. Hakeem’s Dream Shake was a perfect example of this—an elegant reminder that mastery is often just the repetition of small things done extraordinarily well.
+
+# Defense: The Silent Dominance
+
+In the NBA, defense doesn’t sell tickets. People come for the dunks, the threes, the highlight-reel plays. But Hakeem understood something many didn’t: defense wins championships.
+
+He wasn’t the tallest center, but he was always the smartest. He blocked shots with precision, swatted away 3,830 attempts in his career, a feat no one has surpassed. He read passes like a chess master anticipating moves, accumulating steals at a rate unheard of for a big man.
+
+Placeholder for Analysis:
+
+-   Defensive Metrics: Hakeem’s block rate, steal rate, and defensive win shares, contextualized with the era he played in and compared to other defensive legends.
+
+-   Impact Analysis: How his presence in the paint altered opponents’ shot selections and efficiency, highlighting his broader influence on team defense.
+
+Hakeem didn’t just play defense; he controlled the game without needing the ball. Opponents dreaded entering his domain because it wasn’t just about skill—it was about preparation. He studied his rivals like a lawyer studying a case file, learning their tendencies, their tricks, and their weaknesses. Every block and steal wasn’t just athleticism; it was evidence of a mental edge.
+
+# Mastery Requires Focus
+
+What separates someone who’s good from someone who’s great? It’s tempting to think it’s talent, but that’s only part of the story. The real gap between good and great is focus. And Hakeem’s focus was otherworldly.
+
+During Ramadan, when Hakeem fasted from sunrise to sunset, he played some of his best basketball. He would practice and play without food or water, yet he remained dominant. How? Because Hakeem’s game was never just physical. His discipline—both mental and spiritual—created a foundation that even exhaustion couldn’t break.
+
+Placeholder for Analysis:
+
+-   Playoff Performances: Statistical review of his Finals MVP seasons and key playoff games, showcasing how his focus and preparation translated into dominance on the biggest stage.
+
+-   Clutch Metrics: Hakeem’s performance under high-pressure situations, including points, rebounds, blocks, and shooting efficiency in late-game scenarios.
+
+Most players approach the game like a sprint, chasing quick wins and flashy moments. Hakeem approached it like a marathon. Preparation was his secret weapon. While others relied on adrenaline, he relied on calm repetition. And when it mattered most—when championships were on the line—that focus became his superpower.
+
+# The Lesson: Mastery is in the Margins
+
+Hakeem’s story isn’t about basketball. It’s about what happens when you commit to doing something exceptionally well.
+
+He didn’t set out to be flashy. He set out to be effective. His greatest moves—the Dream Shake, the blocks, the steals—were born from mastering the fundamentals. And the irony of mastering the basics is that it doesn’t make you basic. It makes you extraordinary.
+
+In life, as in basketball, the little things are the big things. Patience. Repetition. Focus. These are the tools of greatness, and they’re available to anyone willing to put in the time.
+
+# The Legacy of The Dream
+
+Hakeem Olajuwon’s career is proof that the pursuit of mastery pays dividends far beyond what the world sees. He showed us that greatness isn’t loud; it’s consistent. It’s the person who works when no one is watching, who refines the unremarkable until it becomes unforgettable.
+
+And maybe the most important thing Hakeem taught us is this: mastery isn’t about being the best. It’s about becoming the best version of yourself. The Dream didn’t just dominate basketball—he showed us all how to dream bigger.
+
+Placeholder for Final Analysis:
+
+-   Career Metrics Summary: Synthesis of Olajuwon’s achievements—blocks, steals, scoring efficiency, and championships—to quantify his all-time impact.
+
+------------------------------------------------------------------------
+
+# Sources:
+
+To Be Included...
