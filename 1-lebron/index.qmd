@@ -220,7 +220,7 @@ LeBron’s career isn’t just about scoring points. It’s about reflecting the
 
 The mid-range game, once the foundation of basketball, is now a relic. Analytics proved that long-range shots and finishes at the rim were more valuable, and the league responded. LeBron’s shift from mid-range jumpers to three-pointers wasn’t just personal growth - it was basketball growth.
 
-Consider this: In 2003, NBA teams averaged just 14 three-point attempts per game. By 2023, that number had more than doubled to 35. LeBron adapted not because he wanted to - but because he had to.
+Consider this: In 2004, around 10% of all shot attempts made in the NBA, per season, were 3PT-ers. By 2024, that percentage had skyrocketed to over 30%. LeBron adapted not because he wanted to - but because he had to.
 
 ```{r}
 
@@ -247,32 +247,48 @@ league_shots <- all_shots |>
 lebron_shots <- league_shots %>% 
   filter(namePlayer == "LeBron James")
 
-# Now for the linechart - you have REWORK the mutate() code below - use the linechart code in the 00-functions.R file, as a guide
+# Now for the linechart - I reworked the code below, to make in simpler and broken it down step by step, to make it easier for future me to understand
 
 # Step 1: Calculate LeBron's three-point attempt percentage by season
-lebron_3pt <- lebron_shots |>
+lebron_3pt_attempts <- lebron_shots |>
   filter(court_zone == "3PT") |>
   group_by(yearSeason) |>
-  summarize(lebron_3pt_attempts = n(), .groups = "drop") |>
+  summarize(lebron_3pt_attempts = n(), .groups = "drop") 
+
+lebron_total_attempts <- lebron_shots  |> 
+  group_by(yearSeason) |> 
+  summarize(lebron_total_shots = n(), .groups = "drop") 
+
+lebron_3pt_pct <- left_join(lebron_3pt_attempts,lebron_total_attempts,by="yearSeason") |> 
   mutate(
-    total_attempts = lebron_shots |> group_by(yearSeason) |> summarize(total = n(), .groups = "drop"),
-    lebron_3pt_percentage = (lebron_3pt_attempts / total_attempts) * 100
-  ) 
+    percentage = (lebron_3pt_attempts / lebron_total_shots) * 100,
+    player = "LeBron James")
 
 # Step 2: Calculate league-wide three-point attempt percentage by season
-league_3pt <- league_shots |>
+league_3pt_attempts <- league_shots |>
   filter(court_zone == "3PT") |>
+  filter(yearSeason != "2003") |> 
   group_by(yearSeason) |>
-  summarize(league_3pt_attempts = n(), .groups = "drop") |>
+  summarize(league_3pt_attempts = n(), .groups = "drop") 
+
+league_total_attempts <- league_shots  |>
+  filter(yearSeason != "2003") |>
+  group_by(yearSeason) |> 
+  summarize(league_total_shots = n(), .groups = "drop") 
+
+league_3pt_pct <- left_join(league_3pt_attempts,league_total_attempts,by="yearSeason") |> 
   mutate(
-    total_attempts = league_shots |> group_by(yearSeason) |> summarize(total = n(), .groups = "drop"),
-    league_3pt_percentage = (league_3pt_attempts / total_attempts) * 100
-  )
+    percentage = (league_3pt_attempts / league_total_shots) * 100,
+    player = "Entire League")
 
 # Step 3: Merge LeBron's and league-wide data
-trend_data <- left_join(lebron_3pt, league_3pt, by = "yearSeason")
+final_trend_data <- bind_rows(lebron_3pt_pct, league_3pt_pct)
 
-# Step 4: Create the line chart - to be done later
+# Step 4: Create the line chart
+
+ggplot(final_trend_data, aes(x = yearSeason, y = percentage, color = player, group = player)) +
+    geom_line(linewidth=1) +
+    geom_point(size = 2)
 
 ```
 
