@@ -47,9 +47,9 @@ all_shots <- read.csv("./data/allshots-2003-2024.csv")
 
 ```
 
-# A rookie’s first shot
+*"It is our choices that show what we truly are, far more than our abilities."* – J.K. Rowling
 
-In my experience, the simplest decisions often reveal the most about who we are, at any given point in time.
+# A rookie’s first game
 
 On October 29, 2003, 18-year-old LeBron James made his first shot decision as an NBA player. It wasn’t a flashy dunk or a deep three. It was a mid-range jumper - plain, efficient, unremarkable. Two points.
 
@@ -67,24 +67,16 @@ Fast forward 20 years, and that same decision would look out of place. Today’s
 
 LeBron’s first shot wasn’t just the start of his career. It was a snapshot of a moment in time. And what’s fascinating is how his evolution mirrors the evolution of the league itself. His choices on the court became a masterclass in adaptation.
 
-This is the story of how LeBron’s shot selection changed over two decades, and how those choices reflect the shifting forces that reshaped the game of basketball.
-
 ::: {.panel-tabset .nav-pills}
-## LeBron's first NBA game chart
+## 1st NBA game
 
-```{r warning=FALSE, message=FALSE}
-# Creating a basic shot chart for Lebron's 1st NBA shot
-
-create_shotchart(all_shots,"LeBron James",20031029)
-```
+![](assets/rookie_shot_chart.png)
 
 ## 20 years later
 
-```{r warning=FALSE, message=FALSE}
-create_shotchart(all_shots,"LeBron James",20231029)
-```
+![](assets/veteran_shot_chart.png)
 
-## Comparison: 2003 vs 2023
+## Comparing 2003 vs 2023
 
 ```{r warning=FALSE, message=FALSE}
 # Generate's Lebron's slope chart with the slope chart generating function created
@@ -108,7 +100,7 @@ base_lebron_slope_chart +
 ```
 :::
 
-...
+This is the story of how LeBron’s shot selection changed over two decades, and how those choices reflect the shifting forces that reshaped the game of basketball.
 
 # 2003-2008: The power of playing to your strengths
 
