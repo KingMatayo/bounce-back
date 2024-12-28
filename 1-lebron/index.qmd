@@ -70,11 +70,11 @@ LeBron’s first shot wasn’t just the start of his career. It was a snapshot o
 ::: {.panel-tabset .nav-pills}
 ## 1st NBA game
 
-![](assets/rookie_shot_chart.png)
+![](assets/final_rookie_shot_chart.png)
 
 ## 20 years later
 
-![](assets/veteran_shot_chart.png)
+![](assets/final_veteran_shot_chart.png)
 
 ## Comparing 2003 vs 2023
 
@@ -214,7 +214,7 @@ The mid-range game, once the foundation of basketball, is now a relic. Analytics
 
 Consider this: In 2004, around 10% of all shot attempts made in the NBA, per season, were 3PT-ers. By 2024, that percentage had skyrocketed to over 30%. LeBron adapted not because he wanted to - but because he had to.
 
-```{r}
+```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
 
 
 
@@ -278,11 +278,30 @@ final_trend_data <- bind_rows(lebron_3pt_pct, league_3pt_pct)
 
 # Step 4: Create the line chart
 
-ggplot(final_trend_data, aes(x = yearSeason, y = percentage, color = player, group = player)) +
+base_lebron_league_chart <- ggplot(final_trend_data, aes(x = yearSeason, y = percentage, color = player, group = player)) +
     geom_line(linewidth=1) +
     geom_point(size = 2)
 
+# Step 5: Style and animate the line chart
+
+final_lebron_league_chart <- base_lebron_league_chart +
+  # Animation: reveal a path per season
+  transition_reveal(yearSeason) +
+  labs(
+    title = "LeBron James versus The League : % of 3PT shots attempted",
+    x = "Season",
+    y = "% of 3PT shots",
+    color = "Key"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+# Save the animation
+anim_save("./assets/lebron_vs_league.gif", final_lebron_league_chart)
+
 ```
+
+![](assets/lebron_vs_league.gif){fig-align="center"}
 
 The NBA’s greatest players aren’t just defined by their talent. They’re defined by how well they adjust when the rules of the game change.
 
@@ -302,6 +321,12 @@ The King’s reign is a testament to one simple idea: if you want to last, you h
 
 ------------------------------------------------------------------------
 
-# Sources:
+# References/Sources/Citations:
 
-To Be Included...
+-   Rowling, J.K. (1998). *Harry Potter and the Chamber of Secrets*. London: Bloomsbury Publishing. (Quote: “It is our choices that show what we truly are, far more than our abilities.” – Albus Dumbledore).
+
+-   YouTube (2018). *LeBron James' first NBA game on October 29, 2003*. Available at: <https://www.youtube.com/watch?v=JLjH0rrNFeU> (Accessed: 7 December 2024).
+
+-   YouTube (2023). *LeBron James' NBA game, 20 years later, on October 29, 2023*. Available at: <https://youtu.be/7-q0NDE-_bw> (Accessed: 7 December 2024).
+
+-   Abresler, A. (n.d.). *nbastatR: A comprehensive R package for NBA statistics and analysis*. Available at: <https://github.com/abresler/nbastatR> (Accessed: 7 December 2024).
