@@ -46,7 +46,7 @@ source(file="./R/00-functions.R")
 
 ```
 
-In 1997, when I was ten years old, my cousin handed me a basketball. That simple act introduced me to a world of competition, creativity, and resilience that has shaped how I think about life. For years, I spent countless hours on the court and in front of the screen, mesmerized by players who made the extraordinary look effortless.
+In 1997, when I was ten years old, my cousin handed me a basketball and taught me the game. That simple act introduced me to a world of sports, competition, creativity, and resilience that has shaped how I think about life. For years, I spent countless hours on the court and in front of the screen, mesmerized by players who made the extraordinary look effortless.
 
 Some memories of the game are seared into my mind. The 2006 and 2016 NBA Finals weren’t just sporting events—they were epics of resilience and grit. They taught me that in basketball, as in life, no challenge is insurmountable, and no deficit is final.
 
@@ -64,13 +64,13 @@ The book is structured into three themes, each capturing a crucial aspect of gre
 
 Greatness begins with decisions. Whether it’s choosing when to take the shot, how to adapt to changing circumstances, or outthinking the opposition, these moments define a career.
 
--   *LeBron James: Shot Choices explores how a superstar navigates the trade-offs between risk and reward.*
+-   *LeBron James: The King of Adaptability explores how a superstar evolves and transforms himself again and again in order to remain relevant.*
 
--   *Michael Jordan: Seizing the Moment delves into his uncanny ability to rise when it mattered most.*
+-   *Michael Jordan: Mr. Clutch delves into his uncanny ability to rise when it mattered most.*
 
--   *Kevin Durant: Thriving Through Change highlights the courage to reinvent oneself.*
+-   *Kevin Durant: The Shape Shifter highlights the courage to reinvent oneself.*
 
--   *Larry Bird: Outsmarting the Opposition showcases how intelligence can rival athleticism*.
+-   *Larry Bird: The Chess Player showcases how basketball IQ can rival athleticism*.
 
 2.  **Leadership and Team Dynamics**
 
@@ -82,7 +82,7 @@ Basketball is a team sport, and no player achieves greatness alone. The best und
 
 -   *Bill Russell: The Pillar of a Dynasty reflects on the essence of teamwork and sacrifice.*
 
--   *Stephen Curry: Leading Through Innovation explores how creativity reshaped an entire era*.
+-   *Stephen Curry: Leading Through Innovation explores how creativity and risk taking reshaped an entire era*.
 
 3.  **Mastery and the Pursuit of Greatness**
 
