@@ -12,9 +12,8 @@ title-block-banner-color: "black"
 
 format: html
 html:
-code-fold: false
-code-summary: "Code"
-echo: false
+code-fold: true
+code-summary: "Show the code"
 css: style.css
 toc: true
 toc-location: left
@@ -222,6 +221,65 @@ gamelogs |>
   hc_title(text = "Raptors Scoring") |> 
   hc_subtitle(text = "Shaded by Field Goal %")
 ```
+
+### Layering Elements
+
+As you can see from the code for some of these charts highcharter is much like ggplot where charts are built with layers. The good thing about highchart layers is that they are layered with the pipe `%>%` or '\|\>' operator rather than ggplots plus operator `+`. Layering is an excellent pattern for charting as chart objects can be passed further down scripts and altered / ammended by simply taking the current chart object and piping more layers onto it.
+
+#### Layering Series (geoms)
+
+Layering series onto the same chart works much like ggplot. It's a little bet less natural as the data object must be supplied each time which prevents big long data into highcharter chains. The additional layers, added with `hc_add_series()` can be added with exactly the same pattern as your initial `hchart()` call. It's good practice to name your series and you can specifically add them to the legend with the `showInLegend` option.
+
+```{r}
+# Creating the data object drum for Andre Drumond
+drum <- 
+  gamelogs |> 
+  filter(namePlayer == "Andre Drummond") |> 
+  arrange(numberGamePlayerSeason)
+
+
+# Passing the drum object into the hchart() function to generate a column chart of Drummond's defensive rebounds from last season
+
+hchart(drum, "column", hcaes(x = numberGamePlayerSeason, y = dreb), name = "Defensive Boards", showInLegend = TRUE) |>  # to add a new layer on top of 1st chart, we use the hc_add_series() function. Note that we pass the data object again
+  hc_add_series(drum, "column", hcaes(x = numberGamePlayerSeason, y = oreb), name = "Offensive Boards", showInLegend = TRUE) %>%
+  hc_title(text = "Andre Drummond Rebounds")
+
+```
+
+Series don't have to be the same type either obviously
+
+```{r}
+# Defensive Rebounds - 1st Layer - Column Chart
+hchart(drum, "column", hcaes(x = numberGamePlayerSeason, y = dreb), name = "Defensive Boards", showInLegend = TRUE) |> 
+  
+#Offensive Rebounds - 2nd Layer - Areaspline Chart
+  
+  hc_add_series(drum, "areaspline", hcaes(x = numberGamePlayerSeason, y = oreb), name = "Offensive Boards", showInLegend = TRUE) |> 
+  
+#Total Rebounds - 3rd Layer - Scatterplot
+  hc_add_series(drum, "scatter", hcaes(x = numberGamePlayerSeason, y = treb), name = "Total Boards", showInLegend = TRUE) |> 
+  hc_title(text = "Andre Drummond Rebounds")
+```
+
+## Understanding The API
+
+The most important thing to learn about this package is how the relatively undocumented R functions map onto the actual `highcharts` javascript library. The way these `htmlwidgets` packages work is consuming R dataframes and R instructions and turning them into the javascript code, that when embedded into your output html page, will display the particular chart you wanted to create.
+
+Once you understand this concept you'll no longer be limited by the package documnetation, or Josh Kunst's highcharter showcase website. You'll be able to build many, many different charts with near unlimited customisation.
+
+To illustrate how to write R highcharter code from just the javascript API documentation we'll isolate a relatively simple component: a chart's y axis.
+
+### A Simple Example
+
+To customise a highcharter y axis you need to use the `hc_yAxis()` function. Let's have a look at the documentation in R for that function.
+
+```{r eval=FALSE}
+
+help(hc_yAxis)
+
+```
+
+![](assets/hc_yAxis_help.PNG)
 
 ...
 
