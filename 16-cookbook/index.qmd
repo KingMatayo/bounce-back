@@ -44,7 +44,7 @@ source(file="./R/00-functions.R")
 
 ```
 
-*The below is a recreation and an update of the orginal HighCharter Cookbook by Tom Bishop available here:* <https://github.com/TMBish/MelbURN-highcharter>
+*The below is a recreation and an update of the orginal HighCharter Cookbook by Tom Bishop available here:* <https://github.com/TMBish/MelbURN-highcharter> . *Another great reference is :* <https://jkunst.com/blog/>
 
 # Overview of Highcharter
 
@@ -114,7 +114,113 @@ gamelogs |>
   summarise(ppg = mean(pts)) |> 
   arrange(desc(ppg)) |> 
   slice(1:10) |> 
-  hchart("column", hcaes(x = namePlayer, y = ppg))
+  hchart("column", hcaes(x = namePlayer, y = ppg)) |> 
+  hc_title(text = "Points Per Game - Top 10 Players")
+```
+
+This chart doesn't look that nice, but there's some notable format based advantages to the ggplot version:
+
+-   You can interact with it - hover over it to see a (relatively ugly) tooltip
+-   It's dynamic - reduce the width of your browser window to see the chart react and replot as it tries to estimate the best way to present the data without it looking busy and cluttered
+
+### Chart Types
+
+There are many chart types available in higcharts which you can see [here](https://api.highcharts.com/highcharts/series) however, I'll go through simple calls for the most common chart types.
+
+#### Column
+
+```{r}
+gamelogs |> 
+  group_by(namePlayer) |> 
+  summarise(apg = mean(ast)) |> 
+  arrange(desc(apg)) |> 
+  slice(1:10) |> 
+  hchart("column", hcaes(x = namePlayer, y = apg)) |> 
+  hc_title(text = "Assists Per Game - Top 10 Players")
+```
+
+#### Bar 
+
+```{r}
+gamelogs |> 
+  group_by(namePlayer) |> 
+  summarise(apg = mean(ast)) |> 
+  arrange(desc(apg)) |> 
+  slice(1:10) |> 
+  hchart("bar", hcaes(x = namePlayer, y = apg)) |> 
+  hc_title(text = "Assists Per Game - Top 10 Players")
+```
+
+#### Scatter
+
+```{r}
+gamelogs |> 
+  group_by(namePlayer) |> 
+  summarise(orebpg = mean(oreb), drebpg = mean(dreb), trebpg = mean(treb)) |> 
+  arrange(desc(trebpg)) |> 
+  slice(1:30) |> 
+  hchart("scatter", hcaes(x = drebpg, y = orebpg)) |> 
+  hc_title(text = "Off. Rebounds vs Def. Rebounds -  30 Players")
+```
+
+#### Bubble
+
+```{r}
+
+gamelogs |> 
+  group_by(namePlayer) |> 
+  summarise(orebpg = mean(oreb), drebpg = mean(dreb), trebpg = mean(treb)) |> 
+  arrange(desc(trebpg)) |> 
+  slice(1:30) |> 
+  hchart("scatter", hcaes(x = drebpg, y = orebpg, size = trebpg)) |> 
+  hc_title(text = "Off. Rebounds vs Def. Rebounds - 30 Players")
+
+```
+
+#### Line
+
+```{r}
+
+gamelogs |> 
+  filter(namePlayer == "Luka Dončić") |> 
+  hchart("line", hcaes(x = numberGamePlayerSeason, y = pts)) |> 
+  hc_title(text = "Luka Doncic Points")
+```
+
+#### Spline
+
+Splines have smoothed edges
+
+```{r}
+
+gamelogs  |> 
+  filter(namePlayer == "Luka Dončić")  |> 
+  hchart("spline", hcaes(x = numberGamePlayerSeason, y = pts))  |> 
+  hc_title(text = "Luka Doncic Points")
+```
+
+#### Area
+
+```{r}
+gamelogs |> 
+  filter(namePlayer == "Jonathan Isaac") |> 
+  hchart("area", hcaes(x = numberGamePlayerSeason, y = blk)) |> 
+  hc_title(text = "Jonathan Isaac Blocks")
+```
+
+There is an areaspline (smoothed edges) too.
+
+#### Treemap
+
+```{r}
+
+gamelogs |> 
+  filter(slugTeam == "TOR") |> 
+  group_by(namePlayer) |> 
+  summarise(pts = sum(pts), fgpct = sum(fgm) / sum(fga)) |> 
+  hchart("treemap", hcaes(name = namePlayer, value = pts, color = fgpct)) |> 
+  hc_title(text = "Raptors Scoring") |> 
+  hc_subtitle(text = "Shaded by Field Goal %")
 ```
 
 ...
@@ -122,3 +228,5 @@ gamelogs |>
 # References/Sources/Citations:
 
 -   Bishop, Tom. (2020). *A cookbook for we based data visualisations with R + Highcharter on June 30, 2020*. Available at: <https://github.com/TMBish/MelbURN-highcharter> (Accessed: 9 February 2025).
+
+-   Kunst, Joshua (2020). *Data, Code and Visualization Blog, 2020.* Available at: <https://github.com/jbkunst/blog> (Accessed: 9 February 2025)
