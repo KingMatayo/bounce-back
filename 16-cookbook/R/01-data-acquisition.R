@@ -11,6 +11,20 @@ library(nbastatR)
 
 Sys.setenv(VROOM_CONNECTION_SIZE = 500072)
 
+# PART 1
+
+# Getting game logs (boxscores) from the most recent NBA season 2023-2024
+
+gamelogs_2024 <- game_logs(seasons = 2024,league = "NBA")
+
+# save to csv
+write.csv(gamelogs_2024,"./data/gamelogs_2024.csv", row.names = FALSE)
+write.csv(df_nba_player_dict,"./data/nba_player_dict.csv", row.names = FALSE)
+
+
+
+#PART 2
+
 # The goal here it to get shot data for all LBJ teams from 2003 to 2024
 
 # Using a for-loop for each team and season lebron played in
