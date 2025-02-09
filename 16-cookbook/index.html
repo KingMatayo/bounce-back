@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="King Matayo">
+<meta name="dcterms.date" content="2025-02-09">
+
+<title>Appendix C - The Cookbook</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<style>
+
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: black;
+      }
+
+      .quarto-title-block .quarto-title-banner {
+        color: black;
+      }
+</style>
+<link href="index_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+<script src="index_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="index_files/libs/jquery-3.5.1/jquery.min.js"></script>
+
+<script src="index_files/libs/proj4js-2.3.15/proj4.js"></script>
+
+<link href="index_files/libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+
+<script src="index_files/libs/highcharts-9.3.1/highcharts.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/highcharts-3d.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/highcharts-more.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/stock.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/map.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/data.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/exporting.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/drilldown.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/item-series.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/annotations.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/export-data.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/funnel.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/heatmap.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/treemap.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/sankey.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/organization.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/streamgraph.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/sunburst.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/vector.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/wordcloud.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/xrange.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/tilemap.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/venn.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/gantt.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/timeline.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/bullet.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/coloraxis.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/dumbbell.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/lollipop.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/series-label.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/plugins/motion.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/custom/reset.js"></script>
+
+<script src="index_files/libs/highcharts-9.3.1/modules/boost.js"></script>
+
+<script src="index_files/libs/highchart-binding-0.9.4/highchart.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title"><span style="color:white">Appendix C - The Cookbook</span></h1>
+            <p class="subtitle lead">Creating nice looking NBA charts using the HighCharteR library</p>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>King Matayo <a href="mailto:kingmatayo.thefirst@gmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 9, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#overview-of-highcharter" id="toc-overview-of-highcharter" class="nav-link active" data-scroll-target="#overview-of-highcharter">Overview of Highcharter</a>
+  <ul class="collapse">
+  <li><a href="#what-is-it" id="toc-what-is-it" class="nav-link" data-scroll-target="#what-is-it">What is it?</a></li>
+  <li><a href="#why-and-why-use-it" id="toc-why-and-why-use-it" class="nav-link" data-scroll-target="#why-and-why-use-it">Why and Why use it?</a></li>
+  <li><a href="#getting-the-nba-data" id="toc-getting-the-nba-data" class="nav-link" data-scroll-target="#getting-the-nba-data">Getting the NBA data</a></li>
+  <li><a href="#basic-charts" id="toc-basic-charts" class="nav-link" data-scroll-target="#basic-charts">Basic Charts</a>
+  <ul class="collapse">
+  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data">Tidy Data</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#referencessourcescitations" id="toc-referencessourcescitations" class="nav-link" data-scroll-target="#referencessourcescitations">References/Sources/Citations:</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p><em>The below is a recreation and an update of the orginal HighCharter Cookbook by Tom Bishop available here:</em> <a href="https://github.com/TMBish/MelbURN-highcharter" class="uri">https://github.com/TMBish/MelbURN-highcharter</a></p>
+<section id="overview-of-highcharter" class="level1">
+<h1>Overview of Highcharter</h1>
+<section id="what-is-it" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-it">What is it?</h2>
+<p><code>highcharter</code> is an R implementation of the highcharts javascript graphing API through R’s <code>htmlwidgets</code>. Most of the highcharts functionality is implemented through <code>highcharter</code> however the documentation is a little light. This guide will provide examples on how to create and customise various graphs whilst providing some tips on how to think about the package that will help you build and debug your more ambitious charts. I’ll try to show and explain (to the best of my knowledge) the most common graphs and customisation options I use in my day-to-day work. I assume you’re familiar with tidy data, dplyr, and R lists, as well as as simple understanding of the grammar of graphics (ggplot / <code>aes()</code>).</p>
+<p>Highcharts is a commercial product so you can’t add these charts to a commercial product (selling to customers) without purchasing a licence but non commercial use (internal organisation / research) comes under their free license.</p>
+<p>Your most important resources should be the <code>highcharter</code> official website, and the highcharts API documentation which you should bookmark in your browser:</p>
+<ul>
+<li><a href="http://jkunst.com/highcharter/">Highcharter Official Website</a></li>
+<li><a href="https://api.highcharts.com/highcharts/">Highcharts API Documentation</a></li>
+</ul>
+<p>Additionally get into styling your charts so a few extra resources you might want bookmarked:</p>
+<ul>
+<li><a href="https://coolors.co/app">coolors for selecting colors</a></li>
+<li><a href="https://fonts.google.com/">google fonts for selecting fonts</a></li>
+</ul>
+<p>As you become more a more proficient <code>highcharter</code> user and your charting requirements become more complicated you will need to understand more about the complexities of the highcharts API and you might need to learn, read and write a little javascript. This learning curve is actually the best thing about highcharter: most basic charts are as easy to create as <code>ggplot</code>, whilst complex and beautiful charts are still achievable with enough thought and tinkering.</p>
+</section>
+<section id="why-and-why-use-it" class="level2">
+<h2 class="anchored" data-anchor-id="why-and-why-use-it">Why and Why use it?</h2>
+<p><code>highcharter</code> is a perfect compliment for <code>ggplot2</code>. Depending on your needs you it might not completely replace your use of that library, but it may. <code>ggplot</code> has a number of functional advantages over highcharter as it has simple implementations of reasonably complex chart types. I’d say I use <code>highcharter</code> for 90% of my day to day plots.</p>
+<p>If you need to do any of the following or you’re a gun at making ggplots look presentable it’s I’d suggest using <code>ggplot</code>: * Semi-complicated facetting * Standard statistical layers / geoms like smooths and confidence intervals / error bars etc.</p>
+</section>
+<section id="getting-the-nba-data" class="level2">
+<h2 class="anchored" data-anchor-id="getting-the-nba-data">Getting the NBA data</h2>
+<p>I’ll be illustrating <code>highcharter</code> functionality with an NBA dataset I’ll get from the <code>nbastatR</code> package.</p>
+<p>We’ll use the gamelogs (boxscores) from the most recent complete NBA season 2023-24:</p>
+</section>
+<section id="basic-charts" class="level2">
+<h2 class="anchored" data-anchor-id="basic-charts">Basic Charts</h2>
+<section id="tidy-data" class="level3">
+<h3 class="anchored" data-anchor-id="tidy-data">Tidy Data</h3>
+<p>Most (~90%) of your day-to-day charts can be probably written with 2-3 lines of code using the <code>hchart</code> and <code>hcaes</code> functions. These functions allow you to use the extremely powerful grammar of graphics to turn R data into interactive charts - functionality that isn’t implemented natively in R <code>plotly</code> for example. Like <code>ggplot2</code> your data needs to be in tidy / long format so you’ll often need to use <code>tidyr</code> for some simple data pivotting before passing it to your highchart functions.</p>
+<p>A simple <code>ggplot</code> of the top 10 scorers in the NBA this year might look like the following:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This chart, let’s be honest here, looks awful. Ggplot needs to do a better job of creating pleasing default charts and themes to entice beginners. Ggplot has also chosen to alphabetize the players on the x-axis even though I specifically ordered the dataframe in descending points per game order, a reasonbaly challenging workaround is needed for an R beginner. Highcharter, on the other hand, creates readable, nice looking default charts that can be presented naturally in a widely used publishing format (a html page).</p>
+<p>Here’s the highcharter version of this plot which you’ll notice feels extremely similar to above:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="highchart html-widget html-fill-item" id="htmlwidget-c59aa28d66340905b81d" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-c59aa28d66340905b81d">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"ppg"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}}},"series":[{"group":"group","data":[{"namePlayer":"Joel Embiid","ppg":34.69230769230769,"y":34.69230769230769,"name":"Joel Embiid"},{"namePlayer":"Luka Dončić","ppg":33.85714285714285,"y":33.85714285714285,"name":"Luka Dončić"},{"namePlayer":"Giannis Antetokounmpo","ppg":30.43835616438356,"y":30.43835616438356,"name":"Giannis Antetokounmpo"},{"namePlayer":"Shai Gilgeous-Alexander","ppg":30.05333333333333,"y":30.05333333333333,"name":"Shai Gilgeous-Alexander"},{"namePlayer":"Jalen Brunson","ppg":28.72727272727273,"y":28.72727272727273,"name":"Jalen Brunson"},{"namePlayer":"Kevin Durant","ppg":27.09333333333333,"y":27.09333333333333,"name":"Kevin Durant"},{"namePlayer":"Devin Booker","ppg":27.07352941176471,"y":27.07352941176471,"name":"Devin Booker"},{"namePlayer":"Jayson Tatum","ppg":26.85135135135135,"y":26.85135135135135,"name":"Jayson Tatum"},{"namePlayer":"Donovan Mitchell","ppg":26.6,"y":26.6,"name":"Donovan Mitchell"},{"namePlayer":"De'Aaron Fox","ppg":26.56756756756757,"y":26.56756756756757,"name":"De'Aaron Fox"}],"type":"column"}],"xAxis":{"type":"category","title":{"text":"namePlayer"},"categories":null}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>…</p>
+</section>
+</section>
+</section>
+<section id="referencessourcescitations" class="level1">
+<h1>References/Sources/Citations:</h1>
+<ul>
+<li>Bishop, Tom. (2020). <em>A cookbook for we based data visualisations with R + Highcharter on June 30, 2020</em>. Available at: <a href="https://github.com/TMBish/MelbURN-highcharter" class="uri">https://github.com/TMBish/MelbURN-highcharter</a> (Accessed: 9 February 2025).</li>
+</ul>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
