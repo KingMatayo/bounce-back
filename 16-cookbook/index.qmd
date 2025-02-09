@@ -269,6 +269,18 @@ Once you understand this concept you'll no longer be limited by the package docu
 
 To illustrate how to write R highcharter code from just the javascript API documentation we'll isolate a relatively simple component: a chart's y axis.
 
+### A Simple Example
+
+To customise a highcharter y axis you need to use the `hc_yAxis()` function. Let's have a look at the documentation in R for that function.
+
+```{r eval=FALSE}
+
+help(hc_yAxis)
+
+```
+
+![](assets/hc_yAxis_help.PNG)
+
 ...
 
 # References/Sources/Citations:
