@@ -1,0 +1,322 @@
+---
+title: <span style="color:white">The King of Adaptability</span>
+subtitle: "How the evolution of LeBron's shot choices mirrors the NBA's transformation (2003-2024)"
+
+author: 
+- name: "King Matayo"
+  email: kingmatayo.thefirst@gmail.com
+date: 12/07/2024
+
+title-block-banner: true
+title-block-banner-color: "black"
+
+format: html
+html:
+code-fold: false
+code-summary: "Code"
+echo: false
+css: style.css
+toc: true
+toc-location: left
+number-sections: false
+editor: visual
+fig-cap-location: margin
+---
+
+```{r warning=FALSE, message=FALSE}
+
+# Load required libraries
+library(tidyverse)
+library(BasketballAnalyzeR)
+library(nbastatR)
+library(ggimage)
+library(cropcircles)
+library(ggtext)
+library(glue)
+library(janitor)
+library(htmltools)
+library(gganimate)
+library(viridis)
+
+
+# Source functions
+source(file="./R/00-functions.R")
+
+# Read csv file with all NBA shots data from 2003 to 2024
+all_shots <- read.csv("./data/allshots-2003-2024.csv")
+
+```
+
+*"It is our choices that show what we truly are, far more than our abilities."* – J.K. Rowling
+
+# A rookie’s first game
+
+On October 29, 2003, 18-year-old LeBron James made his first shot decision as an NBA player. It wasn’t a flashy dunk or a deep three. It was a mid-range jumper - plain, efficient, unremarkable. Two points.
+
+::: column-margin
+[LeBron's 1st NBA Game: October 29, 2003](https://youtu.be/JLjH0rrNFeU?si=R5YavOwTrWUNfcZ2){target="_blank"}
+:::
+
+But that single shot spoke volumes. It told us what basketball was in 2003: a game that valued size and strength, rewarded mid-range specialists, and treated the three-point (3PT) line as an occasional luxury.
+
+Fast forward 20 years, and that same decision would look out of place. Today’s NBA is unrecognizable. 3PT-ers aren’t just common - they’re necessary. Mid-range shots are now basketball’s version of a landline phone: technically still around, but rarely used.
+
+::: column-margin
+[LeBron, 20 years later: October 29, 2023](https://youtu.be/7-q0NDE-_bw?si=mcOFaFomUdgVMu6w){target="_blank"}
+:::
+
+::: {.panel-tabset .nav-pills}
+## 1st NBA game
+
+![](assets/final_rookie_shot_chart.png)
+
+## 20 years later
+
+![](assets/final_veteran_shot_chart.png)
+
+## Comparing 2003 vs 2023
+
+```{r warning=FALSE, message=FALSE}
+# Generate's Lebron's slope chart with the slope chart generating function created
+base_lebron_slope_chart <- shots_game_by_game_slope_chart(all_shots,"LeBron James",20031029,20231029)
+
+# Style it abit
+base_lebron_slope_chart +
+  scale_x_discrete(labels = c("20031029" = "October 29, 2003", "20231029" = "October 29, 2023")) + 
+  labs(
+    title = "LeBron's shot choices: Oct. 29, 2003 vs. 2023",
+    subtitle = "His 3PT attempts went up from 5% to 42% of all shot choices",
+    x = "",
+    y = "% of shots") +
+  theme_minimal() +
+  theme(
+    text = element_text(size = 14),
+    legend.position = "none",  # Remove the legend
+    plot.title = element_text(size = 14, face = "bold"),
+    plot.subtitle = element_text(size = 10)
+  )
+```
+:::
+
+This is the story of how LeBron’s shot selection changed over two decades, and how those choices reflect the shifting forces that reshaped the game of basketball.
+
+# 2003-2008: The power of playing to your strengths
+
+In LeBron’s early years, the game was simple: get to the basket.
+
+He was faster, stronger, and more athletic than most players on the court. Why take a risky 3PT-er when you could bulldoze your way to the rim? Over 40% of his shots came from the paint, where he was nearly unstoppable.
+
+The mid-range jumper (like the one he made in his first game) was his secondary weapon. And it worked because it fit the league’s style. Coaches weren’t chasing efficiency metrics yet. The paint and mid-range were where championships were won.
+
+LeBron wasn’t just playing basketball. He was thriving in a system built for players like him. The lesson? Success often comes from maximizing what works in the moment, even if it won’t last forever.
+
+```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
+
+# Since this is time-series data - use a custom function to create a line chart - as i did before, but this time make it animated with gganimate
+
+base_lebron_linechart_03_08 <- create_linechart(all_shots,"LeBron James",2003,2008)
+
+lebron_linechart_03_08_v2 <- base_lebron_linechart_03_08 +
+  # Animation: reveal a path per season
+  transition_reveal(yearSeason) +
+  labs(
+    title = "LeBron James % of Shot Choices by Court Zone and by Season (2003-08)",
+    x = "Season",
+    y = "% of Shots",
+    color = "Court Zone"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+# Save the animation
+# anim_save("./assets/lebron_linechart_03_08_v2.gif", lebron_linechart_03_08_v2)
+
+
+```
+
+![LeBron's shot choices (2003-08) : Over 40% of LeBron’s shots came from the paint, with mid-range jumpers making up the second-largest proportion. Threes were an afterthought, comprising less than 15% of his attempts.](assets/lebron_linechart_03_08_v2.gif)
+
+# 2009-2015: Learning to adapt
+
+By 2009, the NBA was changing. The 3PT revolution, sparked by analytics and players like Stephen Curry, was underway. LeBron noticed.
+
+He didn’t immediately abandon the mid-range game - it was still part of his identity - but he started taking more 3PT-ers. Slowly, deliberately, he added them to his repertoire. By the time he joined the Miami Heat in 2010, and with the influence of teammates like Ray Allen who joined the Heat in 2012, his 3PT attempts had grown to 25% of his total shots.
+
+LeBron’s willingness to adapt showed a crucial insight: the best performers don’t just play their game -they adjust to the rules as they change.
+
+```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
+base_lebron_linechart_09_15 <- create_linechart(all_shots,"LeBron James",2009,2015)
+
+lebron_linechart_09_15_v2 <- base_lebron_linechart_09_15 +
+  # Animation: reveal a path per season
+  transition_reveal(yearSeason) +
+  labs(
+    title = "LeBron James % of Shot Choices by Court Zone and by Season (2009-15)",
+    x = "Season",
+    y = "% of Shots",
+    color = "Court Zone"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+# Save the animation
+# anim_save("./assets/lebron_linechart_09_15_v2.gif", lebron_linechart_09_15_v2)
+
+```
+
+![Lebron's shot choices (2009-15) : Three-point attempts grew from 15% to 25% of his total shots. You can see the drastic change between 2012 and 2013 - the years he won 2 championships, back to back.](assets/lebron_linechart_09_15_v2.gif)
+
+# 2016-2024: Embracing the new reality
+
+The modern NBA belongs to the 3PT-er, and so does LeBron.
+
+Between 2016 and 2024, over 35% of his shots came from beyond the arc. The mid-range? Almost gone. The paint? Still important, but less dominant than before.
+
+This wasn’t a concession—it was a strategy. LeBron didn’t stop attacking the basket. He just became more selective, choosing to drive when it mattered most and saving his energy for long-range daggers.
+
+The league had fully transitioned to an era of spacing and efficiency ("Sprawl" Ball as its called). Teams weren’t just tolerating 3PT-ers — they were building offenses around them. LeBron’s game evolved accordingly.
+
+The takeaway here is simple: the ability to change isn’t a weakness. It’s a competitive advantage
+
+```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
+
+base_lebron_linechart_16_24 <- create_linechart(all_shots,"LeBron James",2016,2024)
+
+lebron_linechart_16_24_v2 <- base_lebron_linechart_16_24 +
+  # Animation: reveal a path per season
+  transition_reveal(yearSeason) +
+  labs(
+    title = "LeBron James % of Shot Choices by Court Zone and by Season (2016-24)",
+    x = "Season",
+    y = "% of Shots",
+    color = "Court Zone"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+# Save the animation
+anim_save("./assets/lebron_linechart_16_24_v2.gif", lebron_linechart_16_24_v2)
+
+
+```
+
+![LeBron's shot choices (2016-2024) : The shift isn't just about LeBron. The NBA's average number of three-point attempts per game has more than doubled since his rookie year. The league has transitioned from a post-centric style to a perimeter-oriented game](assets/lebron_linechart_16_24_v2.gif)
+
+# LeBron as a mirror to the NBA
+
+LeBron’s career isn’t just about scoring points. It’s about reflecting the game’s evolution.
+
+Consider this: In 2004, around 10% of all shot attempts made in the NBA, per season, were 3PT-ers. By 2024, that percentage had skyrocketed to over 30%. LeBron adapted not because he wanted to - but because he had to.
+
+```{r warning=FALSE, message=FALSE, include=FALSE,output=FALSE}
+
+
+
+# Filtering out lebron_shots and league_shots data
+
+league_shots <- all_shots |>
+    # Scale x and y coordinates (court dimensions adjusted manually)
+    mutate(x = (locationX / 10) - 0,
+           y = (locationY / 10) - 41.75) |>
+    # Remove shots from beyond half-court range
+    filter(y < 0) |> 
+    mutate(
+      # Categorize shots based on distance from the basket
+      court_zone = case_when(
+        distanceShot <= 8 ~ "Paint",               # Shots close to the basket
+        distanceShot > 8 & distanceShot < 23 ~ "Mid-Range",  # Shots outside the paint but inside the 3PT line
+        distanceShot >= 23 ~ "3PT",                # Shots beyond the 3-point line
+        TRUE ~ "Other"                            # Catch-all for undefined cases
+      )
+    )
+
+lebron_shots <- league_shots %>% 
+  filter(namePlayer == "LeBron James")
+
+# Now for the linechart - I reworked the code below, to make in simpler and broken it down step by step, to make it easier for future me to understand
+
+# Step 1: Calculate LeBron's three-point attempt percentage by season
+lebron_3pt_attempts <- lebron_shots |>
+  filter(court_zone == "3PT") |>
+  group_by(yearSeason) |>
+  summarize(lebron_3pt_attempts = n(), .groups = "drop") 
+
+lebron_total_attempts <- lebron_shots  |> 
+  group_by(yearSeason) |> 
+  summarize(lebron_total_shots = n(), .groups = "drop") 
+
+lebron_3pt_pct <- left_join(lebron_3pt_attempts,lebron_total_attempts,by="yearSeason") |> 
+  mutate(
+    percentage = (lebron_3pt_attempts / lebron_total_shots) * 100,
+    player = "LeBron James")
+
+# Step 2: Calculate league-wide three-point attempt percentage by season
+league_3pt_attempts <- league_shots |>
+  filter(court_zone == "3PT") |>
+  filter(yearSeason != "2003") |> 
+  group_by(yearSeason) |>
+  summarize(league_3pt_attempts = n(), .groups = "drop") 
+
+league_total_attempts <- league_shots  |>
+  filter(yearSeason != "2003") |>
+  group_by(yearSeason) |> 
+  summarize(league_total_shots = n(), .groups = "drop") 
+
+league_3pt_pct <- left_join(league_3pt_attempts,league_total_attempts,by="yearSeason") |> 
+  mutate(
+    percentage = (league_3pt_attempts / league_total_shots) * 100,
+    player = "Entire League")
+
+# Step 3: Merge LeBron's and league-wide data
+final_trend_data <- bind_rows(lebron_3pt_pct, league_3pt_pct)
+
+# Step 4: Create the line chart
+
+base_lebron_league_chart <- ggplot(final_trend_data, aes(x = yearSeason, y = percentage, color = player, group = player)) +
+    geom_line(linewidth=1) +
+    geom_point(size = 2)
+
+# Step 5: Style and animate the line chart
+
+final_lebron_league_chart <- base_lebron_league_chart +
+  # Animation: reveal a path per season
+  transition_reveal(yearSeason) +
+  labs(
+    title = "LeBron James versus The League : % of 3PT shots attempted",
+    x = "Season",
+    y = "% of 3PT shots",
+    color = "Key"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+# Save the animation
+anim_save("./assets/lebron_vs_league.gif", final_lebron_league_chart)
+
+```
+
+![](assets/lebron_vs_league.gif){fig-align="center"}
+
+The NBA’s greatest players aren’t just defined by their talent. They’re defined by how well they adjust when the rules of the game change.
+
+# What his journey can teach us
+
+LeBron’s evolution is a lesson in adaptability. He started his career mastering the tools of his era. Then, as the game changed, he didn’t resist - he evolved with it.
+
+For players entering the league today, the message is clear: success isn’t just about being great at one thing. It’s about being willing to reinvent yourself when the world around you changes.
+
+LeBron’s journey isn’t just about basketball. It’s about the universal truth that staying relevant requires constant evolution. The game always changes. The question is whether you’ll change with it.
+
+The King’s reign is a testament to one simple idea: if you want to last, you have to evolve.
+
+------------------------------------------------------------------------
+
+# References/Sources/Citations:
+
+-   Rowling, J.K. (1998). *Harry Potter and the Chamber of Secrets*. London: Bloomsbury Publishing. (Quote: “It is our choices that show what we truly are, far more than our abilities.” – Albus Dumbledore).
+
+-   YouTube (2018). *LeBron James' first NBA game on October 29, 2003*. Available at: <https://www.youtube.com/watch?v=JLjH0rrNFeU> (Accessed: 7 December 2024).
+
+-   YouTube (2023). *LeBron James' NBA game, 20 years later, on October 29, 2023*. Available at: <https://youtu.be/7-q0NDE-_bw> (Accessed: 7 December 2024).
+
+-   Abresler, A. (n.d.). *nbastatR: A comprehensive R package for NBA statistics and analysis*. Available at: <https://github.com/abresler/nbastatR> (Accessed: 7 December 2024).
