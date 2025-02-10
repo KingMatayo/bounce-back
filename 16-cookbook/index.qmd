@@ -138,7 +138,7 @@ gamelogs |>
   hc_title(text = "Assists Per Game - Top 10 Players")
 ```
 
-#### Bar 
+#### Bar
 
 ```{r}
 gamelogs |> 
@@ -280,6 +280,178 @@ help(hc_yAxis)
 ```
 
 ![](assets/hc_yAxis_help.PNG)
+
+There is some example customisation supplied in the examples which can be very helpful, but is still limited to a few examples.
+
+![](assets/hc_yAxis_examples.PNG)
+
+However, it might not click with you immediately what's required or valid as an input for the `hc_yAxis()` function.
+
+-   **How do I know what arguments I can use for this function?**
+
+The answer is always the API documentation. Let's check the actual highcharts API documentation for a highcharts y Axis. You can find it yourself [here](https://api.highcharts.com/highcharts/yAxis) but a screen shot of the page looks like this:
+
+![](assets/yAxis_api_doc.PNG)
+
+The arguments in the green rectangle (there are more than shown) is an exhaustive list of the customisation options for a highcharts y Axis. There are nearly 50 different arguments for a y axis that will change the way your charts looks or works. You can use any of them (provided highcharter stays up to date) in your R function calls.
+
+-   **These don't look like R arguments, how do I write then into my R function?**
+
+The highcharts javascript API is expecting a JSON packet to define all y axis options. In other words: some options are single strings, some are booleans, some are numbers, but some are arrays of numbers or strings, and some are more JSON packets. Highcharter will make conversion provided you supply the options as an appropriately structured and named R list. It's easiest to see this in an example.
+
+#### Simple Arguments
+
+Starting simply using a couple of the simple boolean chart options we can adjust the `gridLineWidth` to 10 which will make the major grid lines extremely thick and change the dash style to "shortdash". We know we can enter the string "shortdash" as a possible option for the grid line dash style because when we click on that option in the API documentation it links us to another page which shows us the valid options:
+
+![](assets/yaxis_dash_style.PNG)
+
+```{r}
+gamelogs |> 
+  group_by(namePlayer) |> 
+  summarise(apg = mean(ast)) |> 
+  arrange(desc(apg)) |> 
+  slice(1:10) |> 
+  hchart("column", hcaes(x = namePlayer, y = apg)) |> 
+  hc_title(text = "Assists Per Game") |> 
+  hc_yAxis(
+    gridLineWidth = 5,
+    gridLineDashStyle = "shortdash"
+  )
+```
+
+Without going to this page on the documentation we'd be completely in the dark about the valid values for `gridLineDashStyle` were. That's why understanding this API documentation / highcharter link is the only way to use this package.
+
+#### Nested Arguments
+
+Your most common form of axis customisation will be probably be the title and labels on the axis. Here's the documentation for a Y axis title
+
+![](assets/yAxis_title_api_doc.PNG)
+
+Notice the dropdown icons and nested arguments. They tell us that the axis title should be defined by it's own JSON packet within the broader y axis configuration. Further any styling you want to add to the title should be another JSON packet (we'll get to this part next). To correctly create this JSON packet in R we use named lists.
+
+When using the documentation all you should think is when I see a nested JSON packet with a dropdown marker / open curly braces I need to start a new R list.
+
+```{r}
+gamelogs |> 
+  group_by(namePlayer) |> 
+  summarise(apg = mean(ast)) |> 
+  arrange(desc(apg)) |> 
+  slice(1:10) |> 
+  hchart("column", hcaes(x = namePlayer, y = apg)) |> 
+  hc_title(text = "Assists Per Game") |> 
+  hc_yAxis(
+    gridLineWidth = 10,
+    gridLineDashStyle = "shortdash",
+    title = list(
+        text = "Assists Per Game", # The actual title text
+        align = "high",            # Documentation says options are: low, middle or high
+        margin = 10                # Number of pixels between the title and the axis line
+    )
+  )
+```
+
+It's as simple as that. Any argument listed in the highcharts API documentation, whether it's a simple string or number or another nested JSON packet, can be inserted into the appropriate R function call using the right syntax. Failure to name the arguments properly or nest the options appropriately won't cause a fatal error for your chart (in most instances) the options just won't be successfully added to the chart (this can be frustrating debugging at times tbh).
+
+#### Style (CSS)
+
+The style argument is a special case available on many highcharts components. In the documentation for y axis above, only color is listed as an option in the style section but it's not nearly the only option.
+
+If you've done a little bit more web coding you'll know that what it's referring to is CSS style. Any CSS property can be added to a highcharter component that has this style argument. In this case we'll be defining the CSS properties to adjust on the chart title. A list of CSS properties can be found [here](https://www.w3schools.com/cssref/).
+
+What to watch for here is that CSS properties are often hyphenated words (like `font-weight`) which won't play perfectly nicely in R lists so you should define properties in your R lists with camel case version of these property names (eg. `fontWeight`). As an example we'll make the chart title bold, slightly larger and the color of the columns like so:
+
+```{r}
+gamelogs |> 
+  group_by(namePlayer) |> 
+  summarise(apg = mean(ast)) |> 
+  arrange(desc(apg)) |> 
+  slice(1:10) |> 
+  hchart("column", hcaes(x = namePlayer, y = apg)) |> 
+  hc_title(text = "Assists Per Game") |> 
+  hc_yAxis(
+    gridLineWidth = 10,
+    gridLineDashStyle = "shortdash",
+    title = list(
+        text = "Assists Per Game", # The actual title text
+        align = "high",            # Documentation says options are: low, middle or high
+        margin = 10,               # Number of pixels between the title and the axis line
+        style = list(
+            fontWeight = "bold",   # Bold
+            fontSize = '1.4em',    # 1.4 x tthe size of the default text
+            color = "#7cb5ec"      # Hex code for the default blue
+        )
+    )
+  )
+
+```
+
+### Chart Data
+
+Not only are the various chart features understandable and configurable from referencing the javascript API documentation but the data itself (the mapping between R dataframe rows and columns to highcharts data structures you normally just let `hchart()` do on your behalf) is understandable in the same way.
+
+Building your own nested lists to bypass the normal `hchart()` approach is a very useful tool to have at your disposal but is overkill for 99% of charts that can be built with a simpler approach. It is, however, helpful to understand and if you want to make highly bespoke charts you'll probably need to understand how this works.
+
+#### Columns
+
+Let's check the API documentation for a column graph. We'll find the specification for each chart type under the `series >` sub header.
+
+What we're interested in is the `series > column > data` entry which tells us the viable formats to enter the data for a column chart:
+
+![](assets/series_column.PNG)
+
+The documentation says we can enter the data in 3 different ways:
+
+1.  A simple array of numerical values
+2.  A array of arrays with x, y value pairs
+3.  An array of objects (JSON packets) with each object defining a single data point
+
+Let's try to implement the assists chart in each of these 3 ways but without the help of `hchart()`.
+
+#### Option 1: Simple Array
+
+![](assets/hc_columns_data_1.PNG)
+
+The first option says data can be presented as a simple array of values. When we see JSON "array" we should generally think of R lists but sometimes an R vector works too.
+
+```{r}
+
+# Get list of top-10 league leaders in assists
+assists <- 
+  gamelogs |> 
+  group_by(namePlayer) |> 
+  summarise(apg = mean(ast)) |> 
+  arrange(desc(apg)) |> 
+  slice(1:10)
+
+# Pull out names and assists / game as vectors
+apg <- assists |>  pull(apg)
+namePlayer = assists |>  pull(namePlayer)
+
+# The Assists Per Game Vector
+apg
+
+```
+
+To build a highcharter chart without `hchart()` we need to do it in 2 steps: instantiate a highcharter plot with `highchart()` and then add data and chart type with `hc_add_series()`.
+
+```{r}
+highchart() %>%
+hc_add_series(
+  type = "column",
+  data = apg
+)
+```
+
+So it worked, but given we only passed the chart the assist per game data series it doesn't know what players the values correspond to. Referencing the option 1 specification above, we can add the player names to the chart in a second step by specifying axis "categories" manually:
+
+```{r}
+highchart() |> 
+hc_add_series(
+  type = "column",
+  data = apg
+) |> 
+hc_xAxis(categories = namePlayer)
+```
 
 ...
 
