@@ -453,6 +453,214 @@ hc_add_series(
 hc_xAxis(categories = namePlayer)
 ```
 
+#### Option 2: Array of Arrays
+
+![](assets/hc_columns_data_2.PNG)
+
+So this option suggests you can provide the data as an array of x, y pairs. This isn't a perfectly natural data structure for R but we can construct a list of x, y pairs from a dataframe with the help of the `list_parse2()` function exported with highcharter. The reason this function has been created alongside these charting functions is exactly for this purpose. You often need to construct these specific list types if you're building charts this way.
+
+**Hardcode List**
+
+It's helpful to see the R code for each of these lists before we let a blackbox function build them on our behalf so we'll repeat this pattern for the rest of these chart types. First let's hardcode an example data series to see what the data looks like in R:
+
+```{r}
+highchart() %>%
+ hc_add_series(
+   type = "column",
+   data = list(
+     list("Russell Westbrook",10.5),
+     list("John Wall", 8.7),
+     list("Kyle Lowry", 8.6)
+   )
+ )
+```
+
+Notice that the x values (assuming these are x,y pairs) haven't been placed on the x axis as we'd like but rather appear as the "name" of the column when you hover over it - this is called the series name.
+
+**Generate List**
+
+Instead of manually hardcoding the list in the right structure we can construct the same structure for the top 10 players using `list_parse2()`. This function will create a list of length equal to the rows in your dataframe with pairs of values that come from the columns:
+
+```{r}
+# Construct the list in the right format
+assistsListXYPairs <- 
+  assists |> 
+  list_parse2()
+
+# Lets Inspect the first 2 elements
+assistsListXYPairs[1:2]
+```
+
+That's exactly what we were looking for, let's pass it as the value to the data argument and add the names on as categories to finish it off
+
+```{r}
+highchart() |> 
+hc_add_series(
+  type = "column",
+  data = assistsListXYPairs
+) |> 
+hc_xAxis(categories = namePlayer)
+```
+
+#### Array of Objects
+
+![](assets/hc_columns_data_3.PNG)
+
+This is the most general and most frequently viable data specification option for a highcharts series. An array of JSON packets describing all the appropriate properties required (or possible) for the chart. In R this will be a list (array) of named lists.
+
+**Hardcode List**
+
+Again let's harcode the named list manually to see what it looks like. We can even pass distinct column colors to illustrate that the named list configures each column independently:
+
+```{r}
+highchart() |> 
+ hc_add_series(
+   type = "column",
+   data = list(
+     list(
+       name = "Russell Westbrook",
+       y = 10.5,
+       color = "#5DA271"
+      ),
+     list(
+       name = "John Wall", 
+       y = 8.7,
+       color = "#7DB58D"
+      ),
+     list(
+       name = "Kyle Lowry", 
+       y = 8.6,
+       color = "#A4CBAF"
+     )
+   )
+ )
+
+```
+
+To achieve this list structure we use the other list parsing function `list_parse()` which will do the same thing as `list_parse2()` but preserve the names on the list. However, we do need the appropriate names inside each point specification so the column names to match up to the graph dimensions. We must first rename the columns. Best way to understand is to inspect a couple of elements:
+
+```{r}
+assistsListConfig <- 
+  assists |> 
+  rename(name = namePlayer, y = apg) |> 
+  list_parse()
+
+assistsListConfig[1:2]
+```
+
+Now passing as data for the series
+
+```{r}
+highchart() |> 
+hc_add_series(
+  type = "column",
+  data = assistsListConfig
+) |> 
+hc_xAxis(categories = namePlayer)
+```
+
+#### `hc_add_series_list()`
+
+So we understand the various ways we can construct the data vectors / lists that can be passed to as the data argument in `hc_add_series()`. The natural extension to this process is that not just the data is defined by a correctly structured named list but the *entire* series specification is input as a named list. That's what `hc_series_add_list()` expects - a single named list defining the entire series config.
+
+-   **Remember, the data, is just one component of the configuration of a series**
+
+**Hardcode List**
+
+Again let's start with the manual harcoded list first
+
+```{r}
+highchart() |> 
+ hc_add_series_list(
+   # Parent list containing a set of N series
+   list(
+     # An Individual Series Config
+     list(
+       name = "Assists Per Game",
+       type = "column",
+       data = list(
+         list(
+           name = "Russell Westbrook",
+           y = 10.5
+          ),
+         list(
+           name = "John Wall", 
+           y = 8.7
+          ),
+         list(
+           name = "Kyle Lowry", 
+           y = 8.6
+         )
+       )
+     )
+   )
+ )
+```
+
+Everything about the series (name, type, data) is defined in a named list. This gives us the most flexibility for advanced charts, but the challenge is obviously constructing this deeply nested named list in exactly the right way. Like we've seen the package provides as with a number of helpers to make this more feasible however it's normally overkill for most tasks.
+
+**Generate List**
+
+Let's try to do the same chart again.
+
+```{r}
+seriesConfigDF <- 
+  assists |> 
+  rename(name = namePlayer, y = apg) |> 
+  nest() |> 
+  mutate(data = data |>  map(list_parse)) |> 
+  mutate(
+    name = "Assists Per Game",
+    type = "column"
+  )
+
+seriesConfigDF
+```
+
+So for us to use `list_parse()` appropriately here we need a single row which defines our series. On that row at the top level we need the series name, the series type and then a list column which contains the correctly structured list which we saw could be accomplished using the `list_parse()` function on the renamed dataframe. That's what we have so now we can use `list_parse()` again on this dataframe to correctly structure the list and plot that series config list.
+
+```{r}
+seriesConfig <- 
+  seriesConfigDF |> 
+  list_parse()
+
+highchart() |> 
+ hc_add_series_list(seriesConfig) |> 
+  hc_xAxis(categories = namePlayer)
+```
+
+Now, you might be thinking that's alot of work and complexity to plot this simple chart. Let's show the power of this approach by extending this aprroach to multiple series. Notice the reasonably involved R required to build the right named list, but after that's achieved there's no highcharter configuration required. Hopefully this simple example will help you when you're building your own deeply nested named lists for advanced attempts
+
+```{r}
+seriesConfig <- 
+  gamelogs |> 
+  group_by(namePlayer) |> 
+  summarise(apg = mean(ast), pts = mean(pts)) |> 
+  arrange(desc(apg)) |> 
+  slice(1:10) |> 
+  pivot_longer(-namePlayer, names_to = "stat", values_to = "y") |> 
+  rename(name = namePlayer) |> 
+  group_by(stat) |> 
+  nest() |> 
+  mutate(data = data %>% map(list_parse)) |> 
+  rename(name = stat) |> 
+  mutate(
+    type = case_when(
+      name == "apg" ~ "column",
+      TRUE ~ "line"
+    )
+  ) |> 
+  list_parse()
+
+highchart() %>%
+ hc_add_series_list(seriesConfig) %>%
+ hc_xAxis(categories = namePlayer)
+```
+
+### Conclusion
+
+Hopefully what you should understand after these examples is that highcharts on the javascript side are just giant JSON configuration objects. Even the data is nested within the `series > data` slot in the appropriately structured format. On the R side a set of functions and helpers enable you to create this JSON often with only 1 or 2 lines of code. Most of the time you simply pass `hchart()` a tidy dataframe and let it convert your data into the JSON that will be placed inside the series config. Every now and then, though, and when you need to venture into more complicated chart types (animated charts is an example) the data specification won't be simple and easy to construct with `hchart()` and you'll need to build the raw data specification list yourself. To do so you need to know how to wrangle lists, likely with purrr, but most importantly: you need to understand the structure the javascript API needs expects. Knowing that you just fiddle around with purrr functions till your output list looks exactly right.
+
 ...
 
 # References/Sources/Citations:
