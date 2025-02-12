@@ -43,7 +43,9 @@ source(file="./R/00-functions.R")
 
 ```
 
-*The below is a recreation and an update of the orginal HighCharter Cookbook by Tom Bishop available here:* <https://github.com/TMBish/MelbURN-highcharter> . *Another great reference is :* <https://jkunst.com/blog/>
+*The below is a recreation and an update of the orginal HighCharter Cookbook by Tom Bishop available here:* <https://github.com/TMBish/MelbURN-highcharter> .
+
+Here is also *another great reference, from the creator of the highcharteR library :* <https://jkunst.com/blog/>
 
 # Overview of Highcharter
 
@@ -660,6 +662,68 @@ highchart() %>%
 ### Conclusion
 
 Hopefully what you should understand after these examples is that highcharts on the javascript side are just giant JSON configuration objects. Even the data is nested within the `series > data` slot in the appropriately structured format. On the R side a set of functions and helpers enable you to create this JSON often with only 1 or 2 lines of code. Most of the time you simply pass `hchart()` a tidy dataframe and let it convert your data into the JSON that will be placed inside the series config. Every now and then, though, and when you need to venture into more complicated chart types (animated charts is an example) the data specification won't be simple and easy to construct with `hchart()` and you'll need to build the raw data specification list yourself. To do so you need to know how to wrangle lists, likely with purrr, but most importantly: you need to understand the structure the javascript API needs expects. Knowing that you just fiddle around with purrr functions till your output list looks exactly right.
+
+## Pre-Baked `hchart()` for different R classes
+
+One of the awesome features Josh Kunst has built into highcharter is that, with some black box magic, `hchart()` supports charting of various standard R objects / classes out of the box.
+
+The github page currently says this function current supports:
+
+-   numeric,
+
+-   histogram,
+
+-   character,
+
+-   density,
+
+-   factors,
+
+-   ts,
+
+-   mts,
+
+-   xts,
+
+-   stl,
+
+-   ohlc,
+
+-   acf,
+
+-   forecast,
+
+-   mforecast,
+
+-   ets,
+
+-   igraph,
+
+-   dist,
+
+-   dendrogram,
+
+-   survfit classes.
+
+To see how this works lets have a look at a few examples of the functionality that i use regularly. This gamelog dataset doesn't lend itself to some of these classes so I won't show them all.
+
+### Histograms
+
+I want to view histograms or density plots of numeric vectors very regularly. This is a simple one liner in highcharter
+
+```{r}
+gamelogs |>  pull(pts) |>  hchart()
+```
+
+hchart() has been passed a simple numeric vector here (the points scored by players in all 19-20 NBA games), and decided that the appropriate plot is a histogram. Like other highcharts it is a highcharts object that supports the normal layering and customisation so we can add a few lines to makes the chart more readable:
+
+```{r}
+gamelogs |>  pull(pts) |>  
+  hchart(name = "Player Points") |> 
+  hc_xAxis(title = list(text = "Points Scored")) |> 
+  hc_yAxis(title = list(text = "# times acheived")) |> 
+  hc_title(text = "23-24 Box Score Points")
+```
 
 ...
 
