@@ -34,6 +34,7 @@ library(janitor)
 library(htmltools)
 library(lubridate)
 library(highcharter)
+library(forecast)
 
 
 # Source functions
@@ -43,7 +44,9 @@ source(file="./R/00-functions.R")
 
 ```
 
-*The below is a recreation and an update of the orginal HighCharter Cookbook by Tom Bishop available here:* <https://github.com/TMBish/MelbURN-highcharter> . *Another great reference is :* <https://jkunst.com/blog/>
+*The below is a recreation and an update of the orginal HighCharter Cookbook by Tom Bishop available here:* <https://github.com/TMBish/MelbURN-highcharter> .
+
+Here is also *another great reference, from the creator of the highcharteR library :* <https://jkunst.com/blog/>
 
 # Overview of Highcharter
 
@@ -660,6 +663,200 @@ highchart() %>%
 ### Conclusion
 
 Hopefully what you should understand after these examples is that highcharts on the javascript side are just giant JSON configuration objects. Even the data is nested within the `series > data` slot in the appropriately structured format. On the R side a set of functions and helpers enable you to create this JSON often with only 1 or 2 lines of code. Most of the time you simply pass `hchart()` a tidy dataframe and let it convert your data into the JSON that will be placed inside the series config. Every now and then, though, and when you need to venture into more complicated chart types (animated charts is an example) the data specification won't be simple and easy to construct with `hchart()` and you'll need to build the raw data specification list yourself. To do so you need to know how to wrangle lists, likely with purrr, but most importantly: you need to understand the structure the javascript API needs expects. Knowing that you just fiddle around with purrr functions till your output list looks exactly right.
+
+## Pre-Baked `hchart()` for different R classes
+
+One of the awesome features Josh Kunst has built into highcharter is that, with some black box magic, `hchart()` supports charting of various standard R objects / classes out of the box.
+
+The github page currently says this function current supports:
+
+-   numeric,
+
+-   histogram,
+
+-   character,
+
+-   density,
+
+-   factors,
+
+-   ts,
+
+-   mts,
+
+-   xts,
+
+-   stl,
+
+-   ohlc,
+
+-   acf,
+
+-   forecast,
+
+-   mforecast,
+
+-   ets,
+
+-   igraph,
+
+-   dist,
+
+-   dendrogram,
+
+-   survfit classes.
+
+To see how this works lets have a look at a few examples of the functionality that i use regularly. This gamelog dataset doesn't lend itself to some of these classes so I won't show them all.
+
+### Histograms
+
+I want to view histograms or density plots of numeric vectors very regularly. This is a simple one liner in highcharter
+
+```{r}
+gamelogs |>  pull(pts) |>  hchart()
+```
+
+hchart() has been passed a simple numeric vector here (the points scored by players in all 19-20 NBA games), and decided that the appropriate plot is a histogram. Like other highcharts it is a highcharts object that supports the normal layering and customisation so we can add a few lines to makes the chart more readable:
+
+```{r}
+gamelogs |>  pull(pts) |>  
+  hchart(name = "Player Points") |> 
+  hc_xAxis(title = list(text = "Points Scored")) |> 
+  hc_yAxis(title = list(text = "# times acheived")) |> 
+  hc_title(text = "23-24 Box Score Points")
+```
+
+### Densities
+
+Similarly if we were interested in this plot but in a density form (smoothed & proportion of total cases) we can simply pass hchart() a density object created by the base density() function
+
+```{r}
+gamelogs |>  
+  pull(pf) |> 
+  density() |> 
+  hchart(name = "Player Fouls") |> 
+  hc_xAxis(title = list(text = "Fouls")) |> 
+  hc_yAxis(title = list(text = "% of time acheived")) |> 
+  hc_title(text = "23-24 Box Score Fouls")
+```
+
+### Character / Factor Counts
+
+Like the numeric vector example supplying hchart() with a character vector or factor vector will create a plot of the value counts within the vector.
+
+```{r}
+gamelogs |>  pull(slugTeamWinner) |>  hchart(name="Total Winning Games Per Player")
+```
+
+### Forecast
+
+To show a more elaborate implementation a forecast created with the forecast package is plotted automatically as follows
+
+```{r}
+gamelogs |> 
+  filter(namePlayer == "Al Horford") |> 
+  select(pts) |> 
+  slice(1:60) |> 
+  ts() |> 
+  forecast() |> 
+  hchart()
+```
+
+### Correlation Matrix
+
+Plotting a correlation matrix from a base R correlation analysis is also simple and easy. Notice the huge presentation and clutter advantage of interactivity for a chart type like this.
+
+```{r}
+
+gamelogs |> 
+  select(pts, minutes, treb, dreb, oreb) |> 
+  cor() |> 
+  hchart()
+```
+
+## Components + Style
+
+Adding the right components and style to charts is my #1 rule for data visualisation. It's your job as the visualiser to make a chart that is clear, easy to understand, and purposeful. Too many charts are presented without labels, descriptions, units or fail to convey a clear message or conclusion and it's a crime (not a real crime I suppose, but a chart crime). Making your chart clean and aesthetically appealing is also a hugely underated job and has huge impact on how much effort your viewer will spend trying to absorb your chart's insight.
+
+This is where highcharter really shines over some of it's htmlwidget & static competitors. Highcharter is brimming with options to customise and highcharter allows natural component and option layering through the pipe operator making highcharter charts flexible and extensible.
+
+### Grids + Facetting
+
+This is an area highcharter is genuinely much inferior to ggplot. In ggplot, facetting is natural, logical and easy. Supplmentary ggplot packages like `cowplot` and Thomas Pedersen's new `patchwork` package enhance this process even further. Assembling a grid of highcharts split by some variable or combination of variables requires a fair bit more code. Like most things in highcharter, though, it is largely possible.
+
+Splitting charts vertically is easy with the concept of multiple axes. Axes can be assembled with different heights / sizes to make vertical grids within charts plotting different series. You use the `hc_yAxis_multiples()` function instead of the single `hc_yAxis()` function to do this.
+
+You can either specify the options for each yAxis with named R lists like the following. When creating the initial series or adding additional series you also need to define which axis you want to chart the data against. You do this with a y axis index, obsersving that javascript is a language where indicies start at 0.
+
+2 Axes:
+
+```{r}
+harden <- 
+  gamelogs |> 
+  filter(namePlayer == "James Harden") |> 
+  select(numberGameTeamSeason, pts, treb, ast) 
+
+hchart(harden, "column", hcaes(x = numberGameTeamSeason, y = pts), yAxis = 0) |> 
+  hc_yAxis_multiples(
+    list(title = list(text = "Points"), top = "0%", height = "50%"),                    # specify details of axis 1 (0 index)
+    list(title = list(text = "Assists"), top = "50%", height = "50%", opposite = TRUE)  # specify details of axis 2 (1 index)
+    # ... could add more axes
+  ) |> 
+  hc_add_series(harden, "column", hcaes(x = numberGameTeamSeason, y = ast), yAxis = 1)
+```
+
+With 3 axes we need to specify the top of the axis (the % of the way down the plot area) and how tall we want the axis to be. If we want 3 equal rows then each axis should be 33% (roughly) of the plot area and their starting points should be 0% (top) 33% the way down and 66% of the way down.
+
+```{r}
+hchart(harden, "column", hcaes(x = numberGameTeamSeason, y = pts), yAxis = 0) |> 
+  hc_yAxis_multiples(
+    list(title = list(text = "Points"), top = "0%", height = "33%"),                     # specify details of axis 1 (0 index)
+    list(title = list(text = "Assists"), top = "33%", height = "33%", opposite = TRUE),  # specify details of axis 2 (1 index)
+    list(title = list(text = "Rebounds"), top = "66%", height = "33%")                   # specify details of axis 3 (2 index)
+  ) |> 
+  hc_add_series(harden, "column", hcaes(x = numberGameTeamSeason, y = ast), yAxis = 1) |> 
+  hc_add_series(harden, "column", hcaes(x = numberGameTeamSeason, y = treb), yAxis = 2)
+```
+
+However, you'll notice some weird spacing issues on the 3rd axis, that's due to some little fidgety stuff about the heights and sizes of each axis. The helper function `create_yaxis` can create these axis specifications for you with a more simple function call. You could create the same chart like:
+
+```{r}
+hchart(harden, "column", hcaes(x = numberGameTeamSeason, y = pts), yAxis = 0) |> 
+  hc_yAxis_multiples(
+    create_yaxis(
+      naxis = 3,                                                       # 3 different y axes
+      heights = c(1,1,1),                                              # All equal
+      turnopposite = TRUE,                                             # Alternate left-right sides of the axes
+      title = map(c("Points", "Asissts", "Rebounds"), ~list(text = .)) # Needs a list like: list(list(text = 'Points'), list(text = 'Assists'),...)
+    )
+  ) |> 
+  hc_add_series(harden, "column", hcaes(x = numberGameTeamSeason, y = ast), yAxis = 1) |> 
+  hc_add_series(harden, "column", hcaes(x = numberGameTeamSeason, y = treb), yAxis = 2)
+```
+
+Multiple y axes is not our only option for grids thankfully. We can simply chain together individual highcharts objects to acheive a similar goal using the `hw_grid()` function.
+
+Let's produce a similar version of this chart using that approach to see how it would work. (Note this R is a little big trickier than what we've seen previously. The output of this `group_map` is a list of highcharter charts. Check the `group_map` documentation if you're confused about how this worked.)
+
+```{r}
+hardenLong <- 
+  harden |> 
+  pivot_longer(-numberGameTeamSeason)
+
+hardenLong |> 
+  group_by(name) |> 
+  group_map(~{
+    .x |> 
+      hchart("column", hcaes(x = numberGameTeamSeason, y = value)) |> 
+      hc_title(text = .y$name)
+  }) |> 
+  hw_grid(ncol = 1, rowheight = "200px")
+
+```
+
+### Axes
+
+Axes can be customised in numerous ways. Most frequently I'll simply be changing the axis title, adding unit formatting to the axis labels, changing the plot grid lines, and sometimes removing the axis all together.
 
 ...
 
