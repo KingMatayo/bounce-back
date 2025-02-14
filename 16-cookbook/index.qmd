@@ -858,6 +858,113 @@ hardenLong |>
 
 Axes can be customised in numerous ways. Most frequently I'll simply be changing the axis title, adding unit formatting to the axis labels, changing the plot grid lines, and sometimes removing the axis all together.
 
+```{r}
+cyan <- "#2EC4B6" # Nice cyan
+
+teamFreeThrows <- 
+  gamelogs |> 
+  group_by(nameTeam) |> 
+  summarise(
+    ftaPerGame = sum(fta) / n_distinct(idGame),
+    ftPct = sum(ftm) / sum(fta)
+  ) |> 
+  hchart("scatter", hcaes(x = ftaPerGame, y = ftPct), color = cyan, name = "Free Throw Stats") |> 
+  hc_xAxis(
+    title = list(text = "Free Throws Per Game", align = "high", style = list(fontSize = "1.5em", color =  "#000000")), # Large bolded titles
+    gridLineWidth = 0.5, gridLineColor = cyan, gridLineDashStyle = "longdash", # Light blue long dashed gridlines
+    labels = list(style = list(color =  cyan)),
+    tickWidth = 0,
+    lineWidth = 0 # No Axis Line
+  ) |> 
+  hc_yAxis(
+    title = list(text = "FT Pct", align = "high", style = list(fontSize = "1.5em", color =  "#000000")), # Large bolded titles
+    gridLineWidth = 0.5, gridLineColor = cyan, gridLineDashStyle = "longdash",  # Light blue long dashed gridlines
+    labels = list(style = list(color =  cyan)),
+    lineWidth = 0 # No Axis Line
+  ) 
+
+teamFreeThrows
+```
+
+### Axes Transforms
+
+Not yet completed...
+
+### Unit Formatting
+
+You should never leave units like this. You should always display units in the most human readable way for the data series: including adding comma seperators to large numbers, rounding, percentages etc.
+
+To do this in highcharter you need to write a little javascript. Lickily javascript is very syntactically similar to R so it should make sense. There are two options to format labels: format and formatter. I'll just explore formatter as it's more flexible and what i use predominantly. Formatter is simply a javascript function that will be applied to your label object, the return of which will show up on your chart. So we simply want to multiply the 0-1 decimal by 100, round and add the percentage character on the end.
+
+Just a few notes to make this understandable if you haven't used javascript before:
+
+-   `JS()` tells processes downstream that the string is literal javascript and should be interpretted as such
+-   Brackets, function definition and return all the same as R which is handy
+-   You need to invoke the Math library to get the `round()` function (it's not available by default in javascript)
+-   You get elements from within other objects (or libraries) using the dot `Math.XXX`
+-   Strings can be concatenated with the `+` operator like python
+-   The `this.XXX` notation is very pervasive javascript concept which is the current object decided by the current execution context, so in this example it would be the axis object which contains, among other things a `.value`
+
+```{r}
+teamFreeThrows <- 
+  teamFreeThrows  |> 
+  hc_yAxis(
+    labels = list(
+      formatter = JS(
+        "function(){
+          byHundred = Math.round(this.value * 100)
+          return(byHundred + '%') 
+        }"
+      )
+    )
+  )
+
+teamFreeThrows
+```
+
+### Titles
+
+highcharts have a title and a subtitle element which you can set like following. We can style the titles like we've seen before:
+
+```{r}
+teamFreeThrows <- 
+  teamFreeThrows |> 
+  hc_title(
+    text = "23-24 Team Free Throws",
+    align = "left",
+    style = list(fontSize = "24px", color = "#000000", fontWeight = "bold")
+  ) %>%
+  hc_subtitle(
+    text = "Free Thow Attempts Per Game vs FT PCT",
+    align = "left",
+    style = list(fontSize = "12px", color = "#000000", fontStyle = "italic")
+  )
+
+teamFreeThrows
+```
+
+### Chart Padding and Spacing
+
+The axis title and the chart title now look a little cramped. You can fully customise the padding and margins of highcharts chart components. Here's a visual on how that works.
+
+![](assets/highcharts_margins.png)
+
+So we want to add a little more margin to the top of the chart.
+
+```{r}
+teamFreeThrows <- 
+  teamFreeThrows  |> 
+  hc_chart(
+    marginTop = 100
+  )
+
+teamFreeThrows
+```
+
+### Fonts
+
+#### Standard Fonts
+
 ...
 
 # References/Sources/Citations:
