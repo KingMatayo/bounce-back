@@ -35,6 +35,7 @@ library(htmltools)
 library(lubridate)
 library(highcharter)
 library(forecast)
+library(scales)
 
 
 # Source functions
@@ -857,6 +858,629 @@ hardenLong |>
 ### Axes
 
 Axes can be customised in numerous ways. Most frequently I'll simply be changing the axis title, adding unit formatting to the axis labels, changing the plot grid lines, and sometimes removing the axis all together.
+
+```{r}
+cyan <- "#2EC4B6" # Nice cyan
+
+teamFreeThrows <- 
+  gamelogs |> 
+  group_by(nameTeam) |> 
+  summarise(
+    ftaPerGame = sum(fta) / n_distinct(idGame),
+    ftPct = sum(ftm) / sum(fta)
+  ) |> 
+  hchart("scatter", hcaes(x = ftaPerGame, y = ftPct), color = cyan, name = "Free Throw Stats") |> 
+  hc_xAxis(
+    title = list(text = "Free Throws Per Game", align = "high", style = list(fontSize = "1.5em", color =  "#000000")), # Large bolded titles
+    gridLineWidth = 0.5, gridLineColor = cyan, gridLineDashStyle = "longdash", # Light blue long dashed gridlines
+    labels = list(style = list(color =  cyan)),
+    tickWidth = 0,
+    lineWidth = 0 # No Axis Line
+  ) |> 
+  hc_yAxis(
+    title = list(text = "FT Pct", align = "high", style = list(fontSize = "1.5em", color =  "#000000")), # Large bolded titles
+    gridLineWidth = 0.5, gridLineColor = cyan, gridLineDashStyle = "longdash",  # Light blue long dashed gridlines
+    labels = list(style = list(color =  cyan)),
+    lineWidth = 0 # No Axis Line
+  ) 
+
+teamFreeThrows
+```
+
+### Axes Transforms
+
+Not yet completed...
+
+### Unit Formatting
+
+You should never leave units like this. You should always display units in the most human readable way for the data series: including adding comma seperators to large numbers, rounding, percentages etc.
+
+To do this in highcharter you need to write a little javascript. Lickily javascript is very syntactically similar to R so it should make sense. There are two options to format labels: format and formatter. I'll just explore formatter as it's more flexible and what i use predominantly. Formatter is simply a javascript function that will be applied to your label object, the return of which will show up on your chart. So we simply want to multiply the 0-1 decimal by 100, round and add the percentage character on the end.
+
+Just a few notes to make this understandable if you haven't used javascript before:
+
+-   `JS()` tells processes downstream that the string is literal javascript and should be interpretted as such
+-   Brackets, function definition and return all the same as R which is handy
+-   You need to invoke the Math library to get the `round()` function (it's not available by default in javascript)
+-   You get elements from within other objects (or libraries) using the dot `Math.XXX`
+-   Strings can be concatenated with the `+` operator like python
+-   The `this.XXX` notation is very pervasive javascript concept which is the current object decided by the current execution context, so in this example it would be the axis object which contains, among other things a `.value`
+
+```{r}
+teamFreeThrows <- 
+  teamFreeThrows  |> 
+  hc_yAxis(
+    labels = list(
+      formatter = JS(
+        "function(){
+          byHundred = Math.round(this.value * 100)
+          return(byHundred + '%') 
+        }"
+      )
+    )
+  )
+
+teamFreeThrows
+```
+
+### Titles
+
+highcharts have a title and a subtitle element which you can set like following. We can style the titles like we've seen before:
+
+```{r}
+teamFreeThrows <- 
+  teamFreeThrows |> 
+  hc_title(
+    text = "23-24 Team Free Throws",
+    align = "left",
+    style = list(fontSize = "24px", color = "#000000", fontWeight = "bold")
+  ) %>%
+  hc_subtitle(
+    text = "Free Thow Attempts Per Game vs FT PCT",
+    align = "left",
+    style = list(fontSize = "12px", color = "#000000", fontStyle = "italic")
+  )
+
+teamFreeThrows
+```
+
+### Chart Padding and Spacing
+
+The axis title and the chart title now look a little cramped. You can fully customise the padding and margins of highcharts chart components. Here's a visual on how that works.
+
+![](assets/highcharts_margins.png)
+
+So we want to add a little more margin to the top of the chart.
+
+```{r}
+teamFreeThrows <- 
+  teamFreeThrows  |> 
+  hc_chart(
+    marginTop = 100
+  )
+
+teamFreeThrows
+```
+
+### Fonts
+
+#### Standard Fonts
+
+Different fonts can be added to individual sections or a new default font family can be added to all elements on the chart. Here I'll update the font family on the chart to a google font by simply referring to it's name:
+
+```{r}
+teamFreeThrows <- 
+  teamFreeThrows |> 
+  hc_chart(
+    style = list(
+      fontFamily = "Balsamiq Sans" # https://fonts.google.com/specimen/Balsamiq+Sans
+    )
+  )
+
+teamFreeThrows
+```
+
+Font choice is HUGELY underrated by most technical people. Using a nice or appropriate font can increase the aesthetic appeal of a chart by an order of magnitude with almost zero effort.
+
+#### Custom / Private Fonts
+
+Not yet complete...
+
+### Tooltip
+
+Another slight ding for highcharter is the default tooltip is pretty awful. So I'm almost always changing the default tooltip for every chart I make. Given tooltips are one of the key advantages of web based charts I think it's worth the effort to customise your tooltip almost every time.
+
+This is another area where the use of the formatter is preferred so you have to write a little javascript function to define your output. We'll discuss further down how you can be a little smarter about this and push most of the logic into your R code to minimise the amount of javascript you have to write:
+
+```{r}
+teamFreeThrows |> 
+  hc_tooltip(
+    useHTML = TRUE,                              # The output should be understood to be html markup
+    formatter = JS(
+      "
+      function(){
+        outHTML = '<b>' + this.point.nameTeam + '</b> <br> Free Throws Per Game ' + Math.round(this.x) + '<br> Free Throw Pct ' + Math.round(this.y*100) + '%'
+        return(outHTML)
+      }
+
+      "
+    ),
+    shape = "square", # Options are square, circle and callout
+    borderWidth = 0   # No border on the tooltip shape
+  )
+```
+
+So you might notice that even though we didn't define the team name (nameTeam) as a dimension of the plot it was still accessible through the `this.point.[input dataframe column]` accessor in the tooltip. This is extremely handy and we'll be able to use this to make the above tooltip easier to construct later in this document.
+
+### Plot Area
+
+The plot area of a chart can be customised with colors, color gradients, images or even gifs.
+
+Color can be customised in `hc_chart()` options:
+
+```{r}
+lakersGold <- "#FDB927"
+lakersPurple <- "#552583"
+
+gamelogs |> 
+  filter(namePlayer == "LeBron James") |>  
+  hchart("column", hcaes(x = numberGameTeamSeason, y = pts), color = lakersGold) |>
+  hc_title(text = "LeBron James", style = list(color = lakersGold)) |> 
+  hc_subtitle(text = "Scoring 23-24 Season", style = list(color = lakersGold)) |> 
+  hc_chart(
+    backgroundColor = lakersPurple # Chart Background Color
+  )
+```
+
+Looks awful in this instance but that's how we could do it. Let's try a color gradient
+
+```{r}
+gamelogs |> 
+  filter(namePlayer == "LeBron James") |>  
+  hchart("column", hcaes(x = numberGameTeamSeason, y = pts), color = lakersGold) |> 
+  hc_title(text = "LeBron James", style = list(color = lakersGold)) |> 
+  hc_subtitle(text = "Scoring 23-24 Season", style = list(color = lakersGold)) |> 
+  hc_chart(
+    backgroundColor = list(
+       linearGradient = c(0, 0, 500, 500),
+       stops = list(
+         list(0, 'rgba(0, 0, 0, 0.8'),             # Start Color (black)
+         list(1, "rgba(85, 37, 131, 1)")           # End Color (Lakers purple)
+       )
+    )
+  )
+
+```
+
+Still ugly. Let's make a slightly different lakers theme with a few more color specifications on the axis labels and titles, and a font which is closer to the lakers font:
+
+```{r}
+baseBronChart <- 
+  gamelogs |> 
+  filter(namePlayer == "LeBron James") |>  
+  hchart(
+    "column", 
+    hcaes(x = numberGameTeamSeason, y = pts), 
+    color = lakersGold, # Color of columns
+    borderColor = "transparent" # Outline of column bars
+  ) |> 
+  hc_chart(
+    style = list(
+        fontFamily = "Rubik" # Set a different font
+    )  
+  ) |> 
+  hc_title(
+    text = "LeBron James", 
+    style = list(
+      color = lakersPurple, 
+      fontWeight = "bold",
+      fontSize = "28px"
+    ), 
+    align = "left"
+  ) |> 
+  hc_subtitle(
+    text = "Scoring 23-24 Season", 
+    style = list(
+      color = lakersPurple, 
+      fontStyle = "italic",
+      fontSize = "18px"
+    ), 
+    align = "left"
+  ) |> 
+  hc_yAxis(
+    gridLineWidth = 0, 
+    labels = list(style = list(color =  "#000000")),
+    title = list(text = "Points Scored", style = list(color = "#000000"))
+  ) |> 
+  hc_xAxis(
+    labels = list(style = list(color =  "#000000")), 
+    title = list(text= ""),
+    lineWidth = 0,
+    tickWidth = 0
+  )
+
+baseBronChart
+```
+
+Similarly we could add a picture as the entire background to the plot area to give the viewer an even faster recognition of what player this chart is visualising:
+
+```{r}
+bronHeadshot <- gamelogs |>  filter(namePlayer == "LeBron James") |>  head(1) |>  pull(urlPlayerPhoto)
+
+baseBronChart |> 
+  hc_chart(
+    plotBackgroundImage = bronHeadshot # Add Bron's headshot to the plot area
+  )
+```
+
+Lookin good.. Using the same approach would could simply look up a relevant gif and insert it's url as the background image like follows:
+
+```{r}
+baseBronChart |> 
+  hc_chart(
+    plotBackgroundImage = "https://media1.giphy.com/media/lJ88OkVp8NdOP74ucu/giphy.gif" # Add Bron's headshot to the plot area
+  )
+```
+
+### Annotations
+
+Instead of setting the entire background image to be a lebron gif or image I could utilise the annotation functionality within highcharts. You can add annotations with the specifications at this [link](https://api.highcharts.com/highcharts/annotations). You can add a single annotation with `hc_add_annotation` or multiple with distinct lists with `hc_add_annotations`. Annotation can be shapes, text or image links.
+
+```{r}
+baseBronChart |> 
+  hc_add_annotation(
+    shapes = list(
+      type = "image",
+      src = bronHeadshot,        # Link to the official lebron headshot image
+      width = 180, height = 131, # Correct image aspect ratio for these headshots
+      point = list(
+        x = 37, xAxis = 0,       # Unit 37 (game number) on the x axis
+        y = 20, yAxis = 0        # Unit 20 (points) on the y axis
+      )
+    )
+)
+```
+
+or the gif we used above:
+
+```{r}
+baseBronChart |> 
+  hc_add_annotation(
+    shapes = list(
+      type = "image",
+      src = "https://media1.giphy.com/media/lJ88OkVp8NdOP74ucu/giphy.gif",  # Link to gif
+      width = 180, height = 131, # Correct image aspect ratio for these headshots
+      point = list(
+        x = 37, xAxis = 0,       # Unit 37 (game number) on the x axis
+        y = 22, yAxis = 0        # Unit 20 (points) on the y axis
+      )
+    )
+)
+```
+
+These annotations can be easily added and placed programatically (smartly in the plot area etc) rather than manually as we've done, and are a great tool for customising your charts.
+
+### Plot Lines and Bands
+
+Plot lines or bands can be a great way to highlight things on the chart you want to call the users attention to. In the above Lebron James points column chart we know the big gap in the middle is explained by Lebron experiencing his first significant injury of his career in this season. We should spefically call that out to the viewer as it's an obvious anomoly with the data shown. It makes sense to do that with a plot area in this example. We could also add his season average points to the line as a reference point for the columns
+
+```{r}
+bronPPG <- gamelogs |>  filter(namePlayer == "LeBron James") |>  summarise(mean(pts, na.rm = TRUE)) |>  pull()
+
+baseBronChart <- 
+  baseBronChart |> 
+  hc_yAxis(
+    # Season Avg PPG Line
+    plotLines = list(
+      list(                # Defines a single plot line, could add more
+        value = bronPPG,   # Where on the yAxis to show the line
+        color = "#000000", # Color of the line
+        zIndex = 1000,     # Defines priority, higher means shown on top of other elements, want to show over plot columns
+        label = list(
+          text = glue("Season ppg: {round(bronPPG,1)}"), # Text on the plotline
+          style = list(
+            color = "#000000",                           # Black colored text
+            fontSize = "16px",                           # Text 16 pixels large
+            fontWeight = "bold"                          # Bold
+          )
+        )
+      ) 
+    )
+  ) |> 
+  hc_xAxis(
+    # Injury Plot Area
+    plotBands = list(
+        list(
+          from = 55,                        # Start of the plotband (first game # of injury)
+          to = 58,                          # End of the plotband (last game missed)
+          color = "rgba(85, 37, 131, 0.2)", # RGB specification of the lakers purple color with a 20% alpha (transparency)
+          label = list(
+            text = "???",          # Text for the plotBand
+            style = list(fontWeight = "bold", color = "#FFFFFF", fontSize = "12px")
+          )
+        )
+    )
+  )
+
+baseBronChart
+```
+
+### Datalabels
+
+Data labels can easily be added to charts of all types. Highcharts data labels also have some built in smarts that prevent display when labels are too crowded. Options can be set for individual series or for all series types inside the `hc_plotOptions()` function. Given we've already added the series layer to this chart let's just specify that all column charts should have data labels like following:
+
+```{r}
+baseBronChart |> 
+  hc_plotOptions(
+    column = list(
+      dataLabels = list(
+        enabled = TRUE
+      )
+    )
+  )
+```
+
+### Advanced Labels
+
+Even though highcharts has been smart enough to remove some labels where they have distinct overlap with other labels it still looks a bit busy. Maybe I just want to highlight Lebron's highest and lowest scoring games. There's two good ways I can do this.
+
+#### JS Callbacks + Highcharts Properties
+
+If you're comfortable writing more involved javascript callback functions you can leverage some of the many properties of highcharts series to accomplish goals like this. I don't do a lot of this but only because my javascript is poor. For example there is a `.dataMax` and a `.dataMin` property of a highcharts series which I could access to check whether or not this point is equal to this value and plot a label if required:
+
+```{r}
+baseBronChart |> 
+  hc_plotOptions(
+    column = list(
+      dataLabels = list(
+        enabled = TRUE,
+        formatter = JS(
+          "
+          function(){
+            if (this.y == this.series.dataMax) {
+                return('High Score: ' + this.y)
+              } else if (this.y == this.series.dataMin) {
+                return('Low Score: ' + this.y)
+              }
+            }
+          "
+        )
+      )
+    )
+  )
+```
+
+There are many other properties of series and points that you could access for more advanced tooltips or datalabels however the R side processing is a big advantage for the R highcharts user given R is so natural for this kind of structured data processing.
+
+#### Glue + HTML
+
+One great highcharter tip is using your R dplyr / glue skills to build HTML that will be parsed to highcharts to render. This will save you a lot of time and prevent you from having to write longer more involved javascript callback functions. Suppose I want to create a nice label for Lebron's high and low scoring games including the date of the game and the opponent, I can do that using dplyr. I'll have to go back to the starting point because I'm augmenting the chart data:
+
+```{r}
+# New dataset with datalabel created using dplyr
+bronChartData <- 
+  gamelogs |> 
+  filter(namePlayer == "LeBron James") |> 
+  mutate(
+    hc_dataLabel = case_when(
+      pts == max(pts) ~ glue("High Score {pts} <i> ({dateGame} vs {slugOpponent}) </i>"),
+      pts == min(pts) ~ glue("Low Score {pts} <i> ({dateGame} vs {slugOpponent}) </i>"),
+      TRUE ~ "" # No label
+    )
+  )
+
+# Let's have a look at the labels - we might have more than one high or low score
+bronChartData |>  count(hc_dataLabel)
+```
+
+Let's rebuild the whole chart and add a reference to these strings as the labels. Now all I need to write in the callback is that I want to return the exact value of the label (`hc_dataLabel`) that I've prebaked in my dplyr chain. Notice also the slight html markup that will display the opponent team and date of game in italics.
+
+```{r}
+baseBronChart <- 
+  bronChartData |> 
+  hchart(
+    "column", 
+    hcaes(x = numberGameTeamSeason, y = pts), 
+    color = lakersGold,
+    borderColor = "transparent",
+    dataLabels = list(
+      enabled = TRUE,
+      ##
+      # Data Label Definition
+      ##
+      formatter = JS(
+        "
+        function(){return(this.point.hc_dataLabel)}
+        "
+      ) 
+    )
+  ) |> 
+  hc_chart(style = list(fontFamily = "Rubik")) |> 
+  hc_title(
+    text = "LeBron James", 
+    style = list(
+      color = lakersPurple, 
+      fontWeight = "bold",
+      fontSize = "28px"
+    ), 
+    align = "left"
+  ) %>%
+  hc_subtitle(
+    text = "Scoring 23-24 Season", 
+    style = list(
+      color = lakersPurple, 
+      fontStyle = "italic",
+      fontSize = "18px"
+    ), 
+    align = "left"
+  ) %>%
+  hc_yAxis(
+    gridLineWidth = 0, 
+    labels = list(style = list(color =  "#000000")),
+    title = list(text = "Points Scored", style = list(color = "#000000")),
+    # Season Avg PPG Line
+    plotLines = list(
+      list( 
+        value = bronPPG, 
+        color = "#000000", 
+        zIndex = 1000,
+        label = list(
+          text = glue("Season ppg: {round(bronPPG,1)}"),
+          style = list(color = "#000000",fontSize = "16px",fontWeight = "bold")
+        )
+      ) 
+    )
+  ) |> 
+  hc_xAxis(
+    labels = list(style = list(color =  "#000000")),
+    title = list(text= ""),
+    lineWidth = 0,
+    tickWidth = 0,
+    # Injury Plot Area
+    plotBands = list(
+        list(
+          from = 55,
+          to = 58, 
+          color = "rgba(85, 37, 131, 0.2)",
+          label = list(
+            text = "???",
+            style = list(fontWeight = "bold", color = "#FFFFFF", fontSize = "12px")
+          )
+        )
+    )
+  )
+
+baseBronChart
+
+```
+
+### Advanced Tooltips
+
+The exact same approach can be used to define a more advanced tooltip specification. Let's say I wanted to the tooltip to give more information about Lebron's game for each of these bars.
+
+```{r}
+bronChartData <- 
+  gamelogs |> 
+  filter(namePlayer == "LeBron James") |> 
+  mutate(
+    # Data Label (same as before)
+    hc_dataLabel = case_when(
+      pts == max(pts) ~ glue("High Score {pts} <i> ({dateGame} vs {slugOpponent}) </i>"),
+      pts == min(pts) ~ glue("Low Score {pts} <i> ({dateGame} vs {slugOpponent}) </i>"),
+      TRUE ~ "" # No label
+    ),
+    # Tooltip
+    hc_ttip = 
+      glue(
+        "
+        Date: {dateGame} <br>
+        Points: {pts} <br>
+        FG%: {scales::percent(pctFG)} <br>
+        FG3%: {scales::percent(pctFG3)} <br>
+        FT%: {scales::percent(pctFT)} <br>
+        Rebounds: {treb} <br>
+        Assists: {ast} <br>
+        Turnovers: {tov} <br>
+        "
+      )
+  )
+
+```
+
+Continuing...
+
+```{r}
+baseBronChart <- 
+  bronChartData  |> 
+  hchart(
+    "column", 
+    hcaes(x = numberGameTeamSeason, y = pts), 
+    color = lakersGold,
+    borderColor = "transparent",
+    dataLabels = list(
+      enabled = TRUE,
+      formatter = JS(
+        "
+        function(){return(this.point.hc_dataLabel)}
+        "
+      ) 
+    )
+  ) |> 
+  hc_chart(style = list(fontFamily = "Rubik")) %>%
+  hc_title(
+    text = "LeBron James", 
+    style = list(
+      color = lakersPurple, 
+      fontWeight = "bold",
+      fontSize = "28px"
+    ), 
+    align = "left"
+  ) %>%
+  hc_subtitle(
+    text = "Scoring 23-24 Season", 
+    style = list(
+      color = lakersPurple, 
+      fontStyle = "italic",
+      fontSize = "18px"
+    ), 
+    align = "left"
+  ) |> 
+  hc_yAxis(
+    gridLineWidth = 0, 
+    labels = list(style = list(color =  "#000000")),
+    title = list(text = "Points Scored", style = list(color = "#000000")),
+    # Season Avg PPG Line
+    plotLines = list(
+      list( 
+        value = bronPPG, 
+        color = "#000000", 
+        zIndex = 1000,
+        label = list(
+          text = glue("Season ppg: {round(bronPPG,1)}"),
+          style = list(color = "#000000",fontSize = "16px",fontWeight = "bold")
+        )
+      ) 
+    )
+  ) |> 
+  hc_xAxis(
+    labels = list(style = list(color =  "#000000")),
+    title = list(text= ""),
+    lineWidth = 0,
+    tickWidth = 0,
+    # Injury Plot Area
+    plotBands = list(
+        list(
+          from = 55,
+          to = 58, 
+          color = "rgba(85, 37, 131, 0.2)",
+          label = list(
+            text = "???",
+            style = list(fontWeight = "bold", color = "#FFFFFF", fontSize = "12px")
+          )
+        )
+    )
+  ) |> 
+  hc_tooltip(
+    formatter = JS(
+      "
+      function(){return(this.point.hc_ttip)}
+      "
+    ),
+    shape = "square",
+    borderWidth = 0
+  )
+
+baseBronChart
+
+```
+
+### Nested Charts
+
+Not yet complete...
+
+### Dates + Datetimes
+
+Dates and datetimes work well but require a little bit more understanding. Let's look at the series of \# of NBA games for the dates of the 19-20 season
 
 ...
 
