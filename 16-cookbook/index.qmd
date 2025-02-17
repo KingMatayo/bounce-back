@@ -1480,7 +1480,357 @@ Not yet complete...
 
 ### Dates + Datetimes
 
-Dates and datetimes work well but require a little bit more understanding. Let's look at the series of \# of NBA games for the dates of the 19-20 season
+Dates and datetimes work well but require a little bit more understanding. Let's look at the series of \# of NBA games for the dates of the 23-24 season
+
+
+```{r, class.source="language-r"}
+gamelogs |> 
+  group_by(dateGame) |> 
+  summarise(games = n_distinct(idGame)) |> 
+  hchart("area", hcaes(x = dateGame, y = games), fillOpacity = 0.2) |> 
+  hc_add_theme(hc_theme_elementary())
+```
+
+highcharter has correctly plotted this as a date axis (the tooltip will show a day of the week for example). Highcharts finds the appropriate format for the span of the dates. Those patterns are:
+
+```         
+second: '%H:%M:%S',
+minute: '%H:%M',
+hour: '%H:%M',
+day: '%e. %b',
+week: '%e. %b',
+month: '%b \'%y',
+year: '%Y'
+```
+
+So it looks like given our chart is about 6 months of data it has chosen the week units. We can change the default for this type by customising the unit formats in the `.dateTimeLabelFormats` property of the x axis
+
+```{r, class.source="language-r"}
+gamelogs |> 
+  group_by(dateGame) |> 
+  summarise(games = n_distinct(idGame)) |> 
+  hchart("area", hcaes(x = dateGame, y = games), fillOpacity = 0.2) |> 
+  hc_add_theme(hc_theme_elementary()) |> 
+  hc_xAxis(
+    dateTimeLabelFormats = list(
+      week = "%b-%y" # Month name and short year
+    )
+  )
+```
+
+With date axes it's also natural to add a date filter on the x axis. There are many options including the awesome navigator which I can add like this:
+
+```{r, class.source="language-r"}
+gamelogs |> 
+  group_by(dateGame) |> 
+  summarise(games = n_distinct(idGame)) |> 
+  hchart("area", hcaes(x = dateGame, y = games), fillOpacity = 0.2) |> 
+  hc_add_theme(hc_theme_elementary()) |> 
+  hc_navigator(
+    enabled = TRUE
+  )
+```
+
+Notice how the axis labels are dynamic and update the format to the appropriate units if you zoom in all the way to an individual week for example.
+
+I can also add another filter element called a rangeSelector which gives me some more dynamic filtering functionality
+
+```{r, class.source="language-r"}
+gamelogs |> 
+  group_by(dateGame) |> 
+  summarise(games = n_distinct(idGame)) |> 
+  hchart("area", hcaes(x = dateGame, y = games), fillOpacity = 0.2) |> 
+  hc_add_theme(hc_theme_elementary()) |> 
+  hc_navigator(
+    enabled = TRUE
+  ) %>%
+  hc_rangeSelector(
+    enabled = TRUE
+  )
+```
+
+The last thing you might find difficult with this chart type is adding annotations or plot lines. On a date or datetime axis the value / location of a plotline needs to be converted to a unix timestamp with highcharters `datetime_to_timestamp()` function. Let's add a line for christmas day games using the second method.
+
+```{r, class.source="language-r"}
+gamelogs |> 
+  group_by(dateGame) |> 
+  summarise(games = n_distinct(idGame)) %>%
+  hchart("area", hcaes(x = dateGame, y = games), fillOpacity = 0.2) |> 
+  hc_add_theme(hc_theme_elementary()) |> 
+  hc_navigator(
+    enabled = TRUE
+  ) |> 
+  hc_rangeSelector(
+    enabled = TRUE
+  ) |> 
+  hc_xAxis(
+    plotLines = list(
+      list(
+        value = ymd(20231225) %>% datetime_to_timestamp(),
+        color = "#FF0000",
+        label = list(
+          text = "xmas day games",
+          align = "top",
+          style = list(color = "#FF0000")
+        )
+      )
+    )
+  )
+```
+
+To work with datetimes we'll need to get a slightly different dataset:
+
+```{r, class.source="language-r"}
+game = 
+  gamelogs %>%
+  group_by(idGame, dateGame) %>%
+  summarise(pts = sum(pts)) %>%
+  ungroup() %>%
+  arrange(desc(pts)) %>%
+  slice(1)
+
+playByPlay =
+  play_by_play_v2(game$idGame) %>%
+  mutate(
+    time = str_c(game$dateGame, " ", timeStringWC) %>% ymd_hm(tz = "America/New_York")
+  )
+
+playByPlay %>% head(2)
+```
+
+Let's try to plot the home and away score of this game at the different timestamps:
+
+```{r, class.source="language-r"}
+playByPlay %>% 
+  filter_at(vars(matches("^score")), all_vars(!is.na(.))) %>%
+  distinct(scoreAway, scoreHome, time) %>%
+  pivot_longer(-time) %>%
+  hchart("line", hcaes(x = time, y = value, group = name))
+```
+
+No good, that's because hchart doesn't recognise datetimes natively we first have to convert to unix timestamps
+
+```{r, class.source="language-r"}
+playByPlay %>% 
+  filter_at(vars(matches("^score")), all_vars(!is.na(.))) %>%
+  distinct(scoreAway, scoreHome, time) %>%
+  pivot_longer(-time) %>%
+  mutate(time = time %>% datetime_to_timestamp()) %>%
+  hchart("line", hcaes(x = time, y = value, group = name))
+```
+
+But now we're in strife cause our x axis units are unix timestamps which is unintelligle to us. We just need to add some formatting
+
+```{r, class.source="language-r"}
+playByPlay %>% 
+  filter_at(vars(matches("^score")), all_vars(!is.na(.))) %>%
+  distinct(scoreAway, scoreHome, time) %>%
+  pivot_longer(-time) %>%
+  mutate(time = time %>% datetime_to_timestamp()) %>%
+  hchart("line", hcaes(x = time, y = value, group = name)) %>%
+  hc_xAxis(
+     type = 'datetime',
+     labels = list(format = '{value: %H:%M}')
+  )
+```
+
+### Packaged Themes
+
+highcharter comes with a number of nice out of the box themes. Let's take a look at them all:
+
+```{r, class.source="language-r"}
+themes = 
+  str_subset(lsf.str("package:highcharter"), "hc_theme_") %>%
+  str_subset("_merge", negate = TRUE)
+
+teamWins = 
+  gamelogs %>%
+  distinct(slugTeam, idGame, isWin) %>%
+  group_by(slugTeam) %>%
+  summarise(wins = sum(isWin)) %>%
+  arrange(desc(wins)) %>%
+  hchart("column", hcaes(x = slugTeam, y = wins), colorByPoint = TRUE) %>%
+  hc_subtitle(text = "Number of wins by team")
+
+themes %>%
+  map(function(x){
+    f = match.fun(x)
+    teamWins %>% hc_add_theme(f()) %>% hc_title(text = x)
+  }) %>%
+  hw_grid(rowheight = 300)
+
+```
+
+Some gooduns in there, how bout making your own theme
+
+### Custom Themes
+
+You can create custom themes from scratch or use one of these themes as a base and merge in some changes. I like the elementary theme and I also like circular line markers with white borders. I could create a New Orleans Pelicans theme by combining these two components, adding a new default font, and adding the Pelicans color palette. Note: creating a theme from scratch you just need the second component of the merge below.
+
+```{r, class.source="language-r"}
+hc_theme_pelicans = 
+  hc_theme_merge(
+    hc_theme_elementary(),
+    hc_theme(
+      colors = c(
+        "#0C2340", # Navy
+        "#C8102E", # Red
+        "#85714D" # Gold
+      ),
+      chart = list(
+        style = list(
+          fontFamily = "Bubblegum Sans"
+        )
+      ),
+      # Seems titles are outside chart area so need own font specification
+      title = list(
+        style = list(fontFamily = "Bubblegum Sans")
+      ),
+      subtitle = list(
+        style = list(fontFamily = "Bubblegum Sans")
+      ),
+      plotOptions = list(
+        line = list(marker = list(symbol = "circle", lineWidth = 2, radius = 5))
+      )
+    )
+  )
+
+gamelogs %>%
+  filter(nameTeam == "New Orleans Pelicans") %>%
+  group_by(namePlayer, locationGame) %>%
+  summarise(
+    avgPts = mean(pts)
+  ) %>% 
+  ungroup() %>%
+  group_by(namePlayer) %>%
+  filter(n()==2) %>% # Played both home and away games
+  hchart("line", hcaes(x = namePlayer, y = avgPts, group = locationGame)) %>%
+  hc_title(text = "NO Pelicans") %>%
+  hc_subtitle(text = "Scoring average wins vs losses") %>%
+  hc_add_theme(hc_theme_pelicans)
+```
+
+## Harder Charts / Showcase
+
+I've spent a few hours attempting some more ambitious charts to show you a fraction of what's possible with this package. The R list wrangling on a few of these charts is a little bit of a mind fuck sometimes so I wouldn't dwell too much on that to begin with. Just have a look at the final list / dataframe structure and how it's getting ingested by the highcharter functions. A lot of the time I'll just repurpose the list wrangling I've used for other charts or from stack-overflow or from Kunsts examples / blog itself as a starting point.
+
+Let's start by making a custom theme that we'll style this chart set with
+
+```{r, class.source="language-r"}
+hc_theme_hcCookbook = 
+  hc_theme_merge(
+    hc_theme_smpl(),
+    hc_theme(
+      colors = list("#f94144","#f3722c","#f8961e","#f9c74f","#90be6d","#43aa8b","#577590"),
+      chart = list(style = list(fontFamily = "Roboto")),
+      title = list(style = list(fontFamily = "Roboto"), align = "left"),
+      subtitle = list(style = list(fontFamily = "Roboto"), align = "left")
+    )
+  )
+```
+
+### Packed Bubble
+
+```{r, class.source="language-r"}
+
+# Top 5 3 Point Shooting Teams By Makes
+fg3m_top5 = 
+  gamelogs %>%
+  group_by(nameTeam) %>%
+  summarise(total_fg3m = sum(fg3m)) %>%
+  arrange(desc(total_fg3m)) %>%
+  slice(1:5)
+
+# FG3M / game from those teams with FG3M 50+
+fg3m_seasonTotal = 
+  gamelogs %>%
+  inner_join(fg3m_top5, by = "nameTeam") %>%
+  group_by(namePlayer, nameTeam) %>%
+  summarise(fg3m = sum(fg3m), games = n()) %>%
+  filter(fg3m >= 50) %>%
+  mutate(fg3m_pg = fg3m / games) %>%
+  ungroup()
+
+# Nested HC List Data - FG3M by Team's Game Number
+fg3m_byGameNumber = 
+  gamelogs %>%
+  inner_join(fg3m_top5, by = "nameTeam") %>%
+  select(namePlayer, numberGameTeamSeason, fg3m) %>%
+  nest(-namePlayer) %>%
+  mutate(
+    madeFG3M_byGame = 
+      data %>%
+      map(mutate_mapping, hcaes(x = numberGameTeamSeason, y = fg3m), drop = TRUE) %>%
+      map(list_parse)
+  ) %>%
+  select(-data)
+
+threePointBubbleData = 
+  fg3m_seasonTotal %>%
+  left_join(fg3m_byGameNumber)
+
+threePointBubbleData %>% head(2)
+```
+
+```{r, class.source="language-r"}
+threePointBubbleData %>%
+  hchart(
+    "packedbubble", 
+    hcaes(value = fg3m_pg, name = namePlayer, group = nameTeam), 
+    dataLabels = list(
+      enabled = TRUE,
+      format = '{point.name}',
+      filter = list(
+        property = "y",
+        operator = ">", 
+        value = 1.75
+      ),
+      style = list(
+        textOutline = "none",
+        #$color = "#000000",
+        fontWeight = "normal"
+      )
+    )
+  ) %>%
+  hc_plotOptions(
+    packedbubble = list(
+      minSize = '5px',
+      maxSize = '90px',
+      layoutAlgorithm = list(
+        gravitationalConstant =  0.05,
+        bubblePadding = 10,
+        splitSeries = TRUE,
+        seriesInteraction = TRUE,
+        maxIterations = 500
+      )
+    )
+  ) %>%
+  hc_tooltip(
+    useHTML = TRUE,
+    headerFormat = "<b>{point.key}</b>",
+    pointFormatter = tooltip_chart(
+      accesor = "madeFG3M_byGame",
+      hc_opts = list(
+        chart = list(type = "area"),
+        yAxis = list(title = list(text = "FG3M")),
+        xAxis = list(title = list(text = "Game #")),
+        plotOptions = list(area = list(fillOpacity = 0.2))
+      )
+    )
+  ) %>%
+  hc_add_theme(hc_theme_hcCookbook) %>%
+  hc_title(text = "3PT Makes Per Game 19-20") %>%
+  hc_subtitle(text = "Top 5 3PM Teams | showing players with 50+ 3PM on the season") %>%
+  hc_size(height = 750)
+```
+
+### Donut Tooltip
+
+Full diclosure this isn't my idea, I just think it's an awesome graph. Josh Kunst's version of this chart is located on his blog here: <http://jkunst.com/blog/posts/2019-02-04-using-tooltips-in-unexpected-ways/>
+
+So for my version I'd like to plot scoring efficiency for each team as measured by True Shooting %. I'll use a donut arrangement not to present any data dimension but to just layout the teams in a ring. The visual will be presented on hover over in the form of a tooltip located in the center of the donut. Let's roll
+
+To be added....
 
 ...
 
