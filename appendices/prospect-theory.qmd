@@ -1,0 +1,179 @@
+---
+title: "The Psychology of the Perfect Shot Choice"
+subtitle: "What LeBron James teaches about decision-making under pressure"
+author:
+  - name: "King Matayo"
+    email: kingmatayo.thefirst@gmail.com
+date: 12/22/2024
+image: "../assets/images/prospect.jpg"
+categories: [Appendix, Psychology, Decision-Making]
+---
+
+```{r setup, warning=FALSE, message=FALSE}
+source("../_common.R")
+
+all_shots <- read.csv("../data/allshots-2003-2024.csv")
+
+lebron_shots <- all_shots %>%
+  filter(namePlayer == "LeBron James") %>%
+  mutate(
+    court_zone = case_when(
+      distanceShot <= 8 ~ "Paint",
+      distanceShot > 8 & distanceShot < 23 ~ "Mid-Range",
+      distanceShot >= 23 ~ "3PT",
+      TRUE ~ "Other"
+    )
+  )
+
+# Simulate clutch vs non-clutch (using quarter as proxy)
+lebron_by_quarter <- lebron_shots %>%
+  mutate(quarter = (numberPeriod %% 4) + 1) %>%
+  group_by(quarter) %>%
+  summarize(
+    shots = n(),
+    makes = sum(isShotMade == TRUE, na.rm = TRUE),
+    fg_pct = round(makes / shots * 100, 1)
+  )
+```
+
+> *"I like criticism. It makes you strong."* – LeBron James
+
+## The Science of Decision-Making
+
+In 1979, psychologists Daniel Kahneman and Amos Tversky introduced **Prospect Theory**, a groundbreaking framework for understanding how humans make decisions under uncertainty. Their key insight: we don't evaluate outcomes objectively—we evaluate them relative to a reference point.
+
+**LeBron James' shot selection provides a perfect case study for these principles in action.**
+
+## Loss Aversion on the Court
+
+Prospect Theory's most famous finding is **loss aversion**: losses hurt roughly twice as much as equivalent gains feel good. This creates asymmetric decision-making.
+
+In basketball, this manifests in fascinating ways:
+- Players protect leads more aggressively than they chase deficits
+- Late-game decisions become more conservative
+- High-stakes moments trigger risk-averse behavior
+
+```{r quarter-performance, warning=FALSE, message=FALSE}
+#| fig-cap: "LeBron's efficiency varies across game situations"
+
+highchart() %>%
+  hc_chart(type = "column") %>%
+  hc_title(text = "LeBron's Field Goal % by Quarter") %>%
+  hc_subtitle(text = "How does performance change as pressure increases?") %>%
+  hc_xAxis(categories = c("Q1", "Q2", "Q3", "Q4")) %>%
+  hc_yAxis(title = list(text = "FG%"), min = 40, max = 55) %>%
+  hc_add_series(
+    name = "FG%",
+    data = lebron_by_quarter$fg_pct,
+    colorByPoint = TRUE,
+    colors = c("#860038", "#860038", "#860038", "#FFD700")
+  ) %>%
+  hc_plotOptions(column = list(dataLabels = list(enabled = TRUE, format = "{y:.1f}%"))) %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+## Reference Points and Shot Selection
+
+Kahneman and Tversky showed that our decisions depend heavily on our **reference point**—where we start from. For LeBron:
+
+- **When leading**: His shot selection becomes more conservative (protecting the gain)
+- **When trailing**: He takes higher-risk shots (seeking to recover the loss)
+
+This isn't irrational—it's human psychology in action.
+
+```{r shot-distribution, warning=FALSE, message=FALSE}
+#| fig-cap: "LeBron's shot selection reflects strategic decision-making"
+
+shot_dist <- lebron_shots %>%
+  group_by(yearSeason, court_zone) %>%
+  summarize(shots = n(), .groups = "drop") %>%
+  group_by(yearSeason) %>%
+  mutate(pct = round(shots / sum(shots) * 100, 1)) %>%
+  filter(yearSeason >= 2015)
+
+shot_wide <- shot_dist %>%
+  select(yearSeason, court_zone, pct) %>%
+  pivot_wider(names_from = court_zone, values_from = pct, values_fill = 0)
+
+highchart() %>%
+  hc_chart(type = "area") %>%
+  hc_title(text = "LeBron's Shot Selection Evolution (2015-2024)") %>%
+  hc_xAxis(categories = unique(shot_dist$yearSeason)) %>%
+  hc_yAxis(title = list(text = "% of Shots")) %>%
+  hc_add_series(name = "3PT", data = shot_wide$`3PT`, color = "#FF9999") %>%
+  hc_add_series(name = "Mid-Range", data = shot_wide$`Mid-Range`, color = "#50C878") %>%
+  hc_add_series(name = "Paint", data = shot_wide$Paint, color = "#99CCFF") %>%
+  hc_plotOptions(area = list(stacking = "normal")) %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+## The Certainty Effect
+
+Prospect Theory also describes the **certainty effect**: we overweight outcomes that are certain relative to outcomes that are merely probable.
+
+In basketball terms:
+- A guaranteed 2 points (easy layup) feels more valuable than a 50% chance at 3 points
+- Even though expected value favors the three-pointer (1.5 vs 2.0 points)
+
+LeBron's evolution shows him learning to overcome this bias—taking more three-pointers as analytics proved their value.
+
+## Framing Effects in Clutch Moments
+
+How a situation is framed dramatically affects decision-making. Consider two scenarios:
+
+| Frame | Situation | Likely Decision |
+|-------|-----------|-----------------|
+| "Don't lose the lead" | Up by 3, 30 seconds left | Conservative, run clock |
+| "Win the game" | Same situation | Aggressive, attack |
+
+LeBron has mastered the art of reframing pressure moments. Rather than thinking "don't miss," he thinks "make the play."
+
+## The Data Behind the Decisions
+
+LeBron's career demonstrates sophisticated decision-making that aligns with—and sometimes transcends—Prospect Theory predictions:
+
+```{r career-efficiency, warning=FALSE, message=FALSE}
+#| fig-cap: "LeBron's overall efficiency has remained remarkably stable"
+
+lebron_yearly <- lebron_shots %>%
+  group_by(yearSeason) %>%
+  summarize(
+    fg_pct = round(sum(isShotMade == TRUE, na.rm = TRUE) / n() * 100, 1)
+  )
+
+highchart() %>%
+  hc_chart(type = "spline") %>%
+  hc_title(text = "LeBron's Career Field Goal Percentage") %>%
+  hc_xAxis(categories = lebron_yearly$yearSeason) %>%
+  hc_yAxis(title = list(text = "FG%"), min = 40, max = 60) %>%
+  hc_add_series(name = "FG%", data = lebron_yearly$fg_pct, color = "#860038") %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+::: {.callout-tip}
+## Lessons from Behavioral Economics
+
+1. **Recognize your reference point** - Are you playing to win or playing not to lose?
+2. **Overcome loss aversion** - The best decisions often require accepting short-term losses
+3. **Reframe pressure situations** - "Opportunity" vs "threat" changes behavior
+4. **Trust expected value** - Analytics can overcome psychological biases
+5. **Adapt over time** - LeBron's evolution shows the power of learning
+:::
+
+## Beyond Basketball
+
+These principles extend far beyond the court:
+
+- **Investing**: Loss aversion causes people to sell winners too early and hold losers too long
+- **Career decisions**: We overvalue job security (certainty) vs growth opportunities (probability)
+- **Negotiations**: Framing as "gains" or "losses" dramatically shifts outcomes
+
+LeBron's shot selection teaches us that great decision-makers understand their own psychology—and learn to work with it, not against it.
+
+---
+
+## References
+
+- Kahneman, D. & Tversky, A. (1979). "Prospect Theory: An Analysis of Decision under Risk." *Econometrica*.
+- Kahneman, D. (2011). *Thinking, Fast and Slow*. Farrar, Straus and Giroux.
+- Thaler, R. (2015). *Misbehaving: The Making of Behavioral Economics*. W.W. Norton.

@@ -1,0 +1,131 @@
+---
+title: "The Fast Mind That Saw It All"
+subtitle: "How Larry Bird's basketball IQ proved that thinking can beat athleticism"
+author:
+  - name: "King Matayo"
+    email: kingmatayo.thefirst@gmail.com
+date: 12/15/2024
+image: "../assets/images/bird.jpg"
+categories: [Decision-Making, Basketball IQ, Strategy]
+---
+
+```{r setup, warning=FALSE, message=FALSE}
+source("../_common.R")
+
+# Bird's career statistics
+bird_career <- tibble(
+  season = c("1979-80", "1980-81", "1981-82", "1982-83", "1983-84", "1984-85",
+             "1985-86", "1986-87", "1987-88", "1988-89", "1989-90", "1990-91", "1991-92"),
+  ppg = c(21.3, 21.2, 22.9, 23.6, 24.2, 28.7, 25.8, 28.1, 29.9, 22.3, 24.3, 19.4, 20.2),
+  rpg = c(10.4, 10.9, 10.9, 11.0, 10.1, 10.5, 9.8, 9.2, 9.3, 9.3, 9.5, 8.5, 9.6),
+  apg = c(4.5, 5.5, 5.8, 5.8, 6.6, 6.6, 6.8, 7.6, 6.1, 7.8, 7.5, 7.2, 6.8),
+  spg = c(1.7, 2.0, 1.9, 1.9, 1.8, 1.6, 2.0, 1.8, 1.6, 1.4, 1.4, 1.0, 0.9),
+  fg_pct = c(47.4, 47.8, 50.3, 50.4, 49.2, 52.2, 49.6, 52.5, 52.7, 47.1, 47.3, 45.4, 46.6),
+  championship = c(FALSE, TRUE, FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE),
+  mvp = c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE),
+  age = 22:34
+)
+
+# Assist to turnover ratio
+bird_efficiency <- tibble(
+  category = c("Career Assists", "Career Turnovers", "A/TO Ratio"),
+  value = c(5695, 2816, 2.02)
+)
+```
+
+> *"First master the fundamentals."* – Larry Bird
+
+## Playing Chess While Others Played Checkers
+
+Larry Bird wasn't the fastest player on the court. He couldn't jump the highest or run the longest. What he could do was think—faster, deeper, and more strategically than anyone else.
+
+In an era dominated by explosive athleticism, Bird proved that the mind could be the ultimate weapon. **His basketball IQ wasn't just high; it was transcendent.**
+
+## The Game Before the Game
+
+Bird famously arrived hours before games to walk the court, feeling the rims, testing the floor, understanding the arena. While others relied on instinct, Bird relied on preparation.
+
+```{r career-scoring, warning=FALSE, message=FALSE}
+#| fig-cap: "Bird's scoring peaked during his three consecutive MVP seasons (1984-86)"
+
+highchart() %>%
+  hc_chart(type = "areaspline") %>%
+  hc_title(text = "Larry Bird: Career Scoring Timeline") %>%
+  hc_subtitle(text = "Three consecutive MVPs marked his peak years") %>%
+  hc_xAxis(categories = bird_career$season, labels = list(rotation = -45)) %>%
+  hc_yAxis(title = list(text = "Points Per Game"), min = 15, max = 35) %>%
+  hc_add_series(
+    name = "PPG",
+    data = bird_career$ppg,
+    color = "#007A33",
+    fillOpacity = 0.3,
+    marker = list(
+      fillColor = ifelse(bird_career$mvp, "#FFD700", "#007A33"),
+      radius = ifelse(bird_career$mvp, 8, 4)
+    )
+  ) %>%
+  hc_tooltip(pointFormat = "<b>{point.y:.1f} PPG</b>") %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+## The Art of Seeing the Floor
+
+Bird's passing was legendary because he saw plays developing before they happened. His 5,695 career assists—remarkable for a forward—came from an almost supernatural court vision.
+
+```{r triple-threat, warning=FALSE, message=FALSE}
+#| fig-cap: "Bird was a true triple-threat: scoring, rebounding, and playmaking"
+
+# Triple-double capability
+bird_averages <- tibble(
+  stat = c("Points", "Rebounds", "Assists"),
+  career_avg = c(24.3, 10.0, 6.3),
+  peak_season = c(29.9, 11.0, 7.8)
+)
+
+highchart() %>%
+  hc_chart(type = "column") %>%
+  hc_title(text = "Bird's Triple-Threat Averages") %>%
+  hc_xAxis(categories = bird_averages$stat) %>%
+  hc_yAxis(title = list(text = "Per Game")) %>%
+  hc_add_series(name = "Career Average", data = bird_averages$career_avg, color = "#007A33") %>%
+  hc_add_series(name = "Peak Season", data = bird_averages$peak_season, color = "#FFD700") %>%
+  hc_plotOptions(column = list(dataLabels = list(enabled = TRUE, format = "{y:.1f}"))) %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+::: {.callout-note}
+## The Left-Handed Game
+In a regular season game, Bird scored 47 points shooting exclusively with his left hand—just to prove he could. That's the confidence of a player who had already mastered the fundamentals.
+:::
+
+## The Weight of the Moment
+
+In clutch situations, Bird elevated his game. His performances in the 1984 and 1986 Finals showed a player who thrived under pressure, making the difficult look routine.
+
+| Achievement | Value |
+|------------|-------|
+| Career PPG | 24.3 |
+| Championships | 3 |
+| Finals MVPs | 2 |
+| MVP Awards | 3 (consecutive) |
+| All-Star Games | 12 |
+
+## When Thinking Beats Talent
+
+Bird's career teaches us that preparation and intelligence can overcome physical limitations. He studied opponents obsessively, anticipated plays before they happened, and always found the angle others missed.
+
+::: {.callout-tip}
+## Lessons from Bird's Approach
+
+1. **Preparation creates opportunity** - Arriving early gave Bird edges others never found
+2. **Court vision is a skill** - Seeing the game differently is learnable through study
+3. **Confidence comes from mastery** - His trash talk was backed by relentless practice
+4. **Think two plays ahead** - Bird's passes arrived before defenders could react
+:::
+
+---
+
+## References
+
+- MacMullan, J. (2018). *When the Game Was Ours*. Houghton Mifflin Harcourt.
+- [Basketball Reference: Larry Bird Career Stats](https://www.basketball-reference.com/players/b/birdla01.html)

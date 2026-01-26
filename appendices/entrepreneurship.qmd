@@ -1,0 +1,153 @@
+---
+title: "The Entrepreneurial 3-Pointer"
+subtitle: "Why starting a business is like shooting from deep"
+author:
+  - name: "King Matayo"
+    email: kingmatayo.thefirst@gmail.com
+date: 12/21/2024
+image: "../assets/images/business.jpg"
+categories: [Appendix, Business, Strategy]
+---
+
+```{r setup, warning=FALSE, message=FALSE}
+source("../_common.R")
+
+all_shots <- read.csv("../data/allshots-2003-2024.csv")
+
+# Curry's three-point evolution
+curry_3pt <- all_shots %>%
+  filter(namePlayer == "Stephen Curry") %>%
+  filter(distanceShot >= 23) %>%
+  group_by(yearSeason) %>%
+  summarize(
+    attempts = n(),
+    makes = sum(isShotMade == TRUE, na.rm = TRUE),
+    pct = round(makes / attempts * 100, 1)
+  )
+
+# League 3PT trends
+league_3pt <- all_shots %>%
+  filter(yearSeason >= 2010) %>%
+  group_by(yearSeason) %>%
+  summarize(
+    total = n(),
+    threes = sum(distanceShot >= 23),
+    pct = round(threes / total * 100, 1)
+  )
+
+# Startup statistics
+startup_stats <- tibble(
+  stage = c("Year 1", "Year 2", "Year 3", "Year 5", "Year 10"),
+  survival_rate = c(80, 70, 60, 50, 30),
+  success_rate = c(20, 15, 12, 10, 8)
+)
+```
+
+> *"I'm not afraid to take it. I've been shooting that shot my whole life."* – Stephen Curry
+
+## The Shot No One Wanted
+
+In the early 2000s, the three-point shot was considered risky. Teams used it sparingly, as a last resort. The conventional wisdom was clear: get closer to the basket for a "better" shot.
+
+Then Stephen Curry arrived. He didn't just take three-pointers—he built his entire game around them. What was once considered reckless became revolutionary.
+
+**Entrepreneurship follows a similar path.** What seems crazy to conventional wisdom often becomes the next paradigm shift.
+
+## The Risk-Reward Calculation
+
+A three-pointer is worth 50% more than a two-pointer. If you shoot 35% from three, you score 1.05 points per attempt. To match that efficiency from two-point range, you'd need to shoot 52.5%.
+
+```{r curry-efficiency, warning=FALSE, message=FALSE}
+#| fig-cap: "Curry's three-point volume AND efficiency revolutionized the game"
+
+highchart() %>%
+  hc_chart(type = "column") %>%
+  hc_title(text = "Stephen Curry: Three-Point Evolution") %>%
+  hc_subtitle(text = "Volume and efficiency over time") %>%
+  hc_xAxis(categories = curry_3pt$yearSeason) %>%
+  hc_yAxis_multiples(
+    list(title = list(text = "Attempts")),
+    list(title = list(text = "FG%"), opposite = TRUE, max = 50)
+  ) %>%
+  hc_add_series(name = "3PT Attempts", data = curry_3pt$attempts, color = "#1D428A", type = "column") %>%
+  hc_add_series(name = "3PT%", data = curry_3pt$pct, color = "#FDB927", type = "spline", yAxis = 1) %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+Similarly, entrepreneurship offers asymmetric returns. Most startups fail, but successful ones can return 10x, 100x, or even 1000x the initial investment.
+
+## The Failure Rate
+
+Here's the uncomfortable truth about startups:
+
+```{r startup-survival, warning=FALSE, message=FALSE}
+#| fig-cap: "Most startups don't survive—but that doesn't mean you shouldn't try"
+
+highchart() %>%
+  hc_chart(type = "areaspline") %>%
+  hc_title(text = "Startup Survival Rates") %>%
+  hc_subtitle(text = "The odds are against you—just like a contested three-pointer") %>%
+  hc_xAxis(categories = startup_stats$stage) %>%
+  hc_yAxis(title = list(text = "% Still Operating"), max = 100) %>%
+  hc_add_series(name = "Survival Rate", data = startup_stats$survival_rate, color = "#e94560", fillOpacity = 0.3) %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+Stephen Curry misses roughly 57% of his three-point attempts. But he keeps shooting because he understands expected value. Entrepreneurs must embrace the same mindset.
+
+## Practice Makes Permanent
+
+Curry doesn't just shoot—he trains with obsessive precision. His pre-game routine includes hundreds of shots from spots he'll likely never use in the game. Why? Because when the moment comes, execution must be automatic.
+
+```{r league-adoption, warning=FALSE, message=FALSE}
+#| fig-cap: "The entire NBA followed Curry's lead"
+
+highchart() %>%
+  hc_chart(type = "areaspline") %>%
+  hc_title(text = "League-Wide Three-Point Revolution") %>%
+  hc_subtitle(text = "Percentage of all shots from three-point range") %>%
+  hc_xAxis(categories = league_3pt$yearSeason) %>%
+  hc_yAxis(title = list(text = "% of Shots from 3PT"), min = 20, max = 45) %>%
+  hc_add_series(name = "3PT Rate", data = league_3pt$pct, color = "#1D428A", fillOpacity = 0.3) %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+Similarly, successful entrepreneurs don't wing it. They study markets obsessively, test ideas relentlessly, and build skills before they're needed.
+
+## The Courage to Take the Shot
+
+The hardest part of shooting a three-pointer isn't the physical act—it's the decision to take it. The same is true for entrepreneurship. The mechanics of starting a business can be learned. The courage to try cannot be taught.
+
+| Three-Point Shooting | Entrepreneurship |
+|---------------------|------------------|
+| 33% success rate | ~10% startup survival |
+| 50% more valuable than 2PT | 10-100x potential returns |
+| Requires practice | Requires preparation |
+| Fear of missing | Fear of failure |
+| Game-changing when hot | Industry-disrupting when successful |
+
+::: {.callout-tip}
+## Lessons for Entrepreneurs
+
+1. **Expected value matters more than success rate** - High-risk, high-reward strategies can be optimal
+2. **Practice creates confidence** - Preparation enables action when opportunity arrives
+3. **First movers reshape markets** - Curry changed how the entire league plays
+4. **Keep shooting** - Missing is part of the process
+5. **Build for the long term** - Curry's success came from years of development
+:::
+
+## The Contagious Effect
+
+When Curry proved the three-pointer worked, the entire NBA followed. Teams that clung to mid-range strategies found themselves at a competitive disadvantage.
+
+The same happens in business. When one company proves a new model works—think Uber, Airbnb, or Netflix—the entire industry must adapt or become obsolete.
+
+**The question isn't whether to take the shot. It's whether you're willing to miss enough times to eventually make it.**
+
+---
+
+## References
+
+- Ries, E. (2011). *The Lean Startup*. Crown Business.
+- Thompson, M. (2017). *Golden: The Miraculous Rise of Steph Curry*. Touchstone.
+- Startup survival statistics from Bureau of Labor Statistics and CB Insights

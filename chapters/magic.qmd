@@ -1,0 +1,103 @@
+---
+title: "The Invisible Hand of Greatness"
+subtitle: "How Magic Johnson proved that making others better is the ultimate form of leadership"
+author:
+  - name: "King Matayo"
+    email: kingmatayo.thefirst@gmail.com
+date: 12/15/2024
+image: "../assets/images/magic.jpg"
+categories: [Leadership, Team Dynamics, Playmaking]
+---
+
+```{r setup, warning=FALSE, message=FALSE}
+source("../_common.R")
+
+magic_career <- tibble(
+  season = c("1979-80", "1980-81", "1981-82", "1982-83", "1983-84", "1984-85",
+             "1985-86", "1986-87", "1987-88", "1988-89", "1989-90", "1990-91"),
+  ppg = c(18.0, 21.6, 18.6, 16.8, 17.6, 18.3, 18.8, 23.9, 19.6, 22.5, 22.3, 19.4),
+  apg = c(7.3, 8.6, 9.5, 10.5, 13.1, 12.6, 12.6, 12.2, 11.9, 12.8, 11.5, 12.5),
+  rpg = c(7.7, 8.6, 9.6, 8.6, 7.3, 6.2, 5.9, 6.3, 6.2, 7.9, 6.6, 7.0),
+  championship = c(TRUE, FALSE, TRUE, FALSE, FALSE, TRUE, FALSE, TRUE, TRUE, FALSE, FALSE, FALSE),
+  finals_mvp = c(TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE)
+)
+```
+
+> *"Ask not what your teammates can do for you. Ask what you can do for your teammates."* – Magic Johnson
+
+## The Magical Rookie
+
+On May 16, 1980, a 20-year-old rookie did something that had never been done before and has never been done since. With Kareem Abdul-Jabbar injured and the Lakers' championship hopes in jeopardy, Magic Johnson started at center in Game 6 of the NBA Finals—and scored 42 points, grabbed 15 rebounds, and dished 7 assists.
+
+The Lakers won the championship. Magic won Finals MVP as a rookie. **It was the announcement that basketball had a new kind of leader.**
+
+```{r career-assists, warning=FALSE, message=FALSE}
+#| fig-cap: "Magic's assist numbers were unprecedented for a player of his size"
+
+highchart() %>%
+  hc_chart(type = "spline") %>%
+  hc_title(text = "Magic Johnson: Career Assists Per Game") %>%
+  hc_subtitle(text = "Consistently elite playmaking throughout his career") %>%
+  hc_xAxis(categories = magic_career$season, labels = list(rotation = -45)) %>%
+  hc_yAxis(
+    title = list(text = "Assists Per Game"),
+    min = 5,
+    plotLines = list(list(value = 11.2, color = "#e94560", dashStyle = "dash",
+                          label = list(text = "Career Avg: 11.2")))
+  ) %>%
+  hc_add_series(name = "APG", data = magic_career$apg, color = "#552583") %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+## The Smile That Changed a Team
+
+Magic didn't lead through intimidation or intensity. He led through joy. His smile was contagious, his enthusiasm infectious. He made the game look fun—because for him, it was.
+
+But don't mistake joy for softness. Magic was one of the fiercest competitors in NBA history. He just expressed it differently.
+
+## Making the Team Shine
+
+Magic's career statistics tell only part of the story. The real measure of his impact was what happened to his teammates when they played alongside him.
+
+```{r triple-doubles, warning=FALSE, message=FALSE}
+#| fig-cap: "Magic's versatility: scoring, rebounding, AND playmaking"
+
+magic_stats <- tibble(
+  stat = c("Points", "Assists", "Rebounds"),
+  career = c(19.5, 11.2, 7.2),
+  playoff = c(19.5, 12.3, 7.7)
+)
+
+highchart() %>%
+  hc_chart(type = "bar") %>%
+  hc_title(text = "Magic's All-Around Game") %>%
+  hc_xAxis(categories = magic_stats$stat) %>%
+  hc_add_series(name = "Regular Season", data = magic_stats$career, color = "#552583") %>%
+  hc_add_series(name = "Playoffs", data = magic_stats$playoff, color = "#FDB927") %>%
+  hc_plotOptions(bar = list(dataLabels = list(enabled = TRUE, format = "{y:.1f}"))) %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+| Achievement | Value |
+|------------|-------|
+| Career Assists | 10,141 |
+| Triple-Doubles | 138 |
+| Championships | 5 |
+| Finals MVPs | 3 |
+| MVP Awards | 3 |
+
+::: {.callout-tip}
+## Lessons from Magic's Leadership
+
+1. **Elevate others** - The best leaders make everyone around them better
+2. **Joy is contagious** - Positive energy transforms team culture
+3. **Versatility wins** - Being able to play any position made Magic invaluable
+4. **Rise to the moment** - His Game 6 performance showed what's possible under pressure
+:::
+
+---
+
+## References
+
+- Johnson, E. & Bird, L. (2009). *When the Game Was Ours*. Houghton Mifflin Harcourt.
+- [Basketball Reference: Magic Johnson Career Stats](https://www.basketball-reference.com/players/j/johnsma02.html)

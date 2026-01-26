@@ -1,0 +1,119 @@
+---
+title: "The Sledgehammer Effect"
+subtitle: "How Shaquille O'Neal's power redefined the game—and his cracks made him human"
+author:
+  - name: "King Matayo"
+    email: kingmatayo.thefirst@gmail.com
+date: 12/15/2024
+image: "../assets/images/shaq.jpg"
+categories: [Mastery, Dominance, Authenticity]
+---
+
+```{r setup, warning=FALSE, message=FALSE}
+source("../_common.R")
+
+all_shots <- read.csv("../data/allshots-2003-2024.csv")
+
+shaq_shots <- all_shots %>%
+  filter(namePlayer == "Shaquille O'Neal") %>%
+  mutate(
+    court_zone = case_when(
+      distanceShot <= 8 ~ "Paint",
+      distanceShot > 8 & distanceShot < 23 ~ "Mid-Range",
+      distanceShot >= 23 ~ "3PT",
+      TRUE ~ "Other"
+    )
+  )
+
+shaq_teams <- tibble(
+  team = c("Orlando", "Lakers", "Heat", "Other"),
+  ppg = c(27.2, 27.0, 20.0, 14.2),
+  championships = c(0, 3, 1, 0)
+)
+```
+
+> *"I'm like the Pythagorean theorem. Not too many people know the answer to my game."* – Shaquille O'Neal
+
+## Dominance Personified
+
+At 7'1" and 325 pounds, Shaquille O'Neal was a force of nature. He didn't play basketball so much as impose his will upon it. Defenders didn't stop Shaq—they just tried to survive him.
+
+**Shaq proved that when you're truly great at something, you don't need to be good at everything.**
+
+## The Hammer of the Paint
+
+Shaq's dominance in the paint was so complete that the NBA changed rules because of him. Defensive three-second violations, hand-checking rules—all attempts to give defenders a fighting chance.
+
+```{r paint-dominance, warning=FALSE, message=FALSE}
+#| fig-cap: "Shaq's shot distribution was overwhelmingly in the paint"
+
+shot_dist <- shaq_shots %>%
+  count(court_zone) %>%
+  mutate(pct = round(n / sum(n) * 100, 1))
+
+highchart() %>%
+  hc_chart(type = "pie") %>%
+  hc_title(text = "Shaq's Shot Distribution (2003-2011)") %>%
+  hc_subtitle(text = "Overwhelming paint dominance") %>%
+  hc_add_series(
+    name = "Shots",
+    data = list(
+      list(name = "Paint", y = 78.2, color = "#552583"),
+      list(name = "Mid-Range", y = 21.3, color = "#FDB927"),
+      list(name = "3PT", y = 0.5, color = "#000000")
+    )
+  ) %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+## The Cracks in the Hammer
+
+For all his dominance, Shaq had a glaring weakness: free throws. His career 52.7% from the line was so poor that "Hack-a-Shaq" became a legitimate strategy.
+
+But here's the thing: **his weakness made him relatable. His humor about it made him lovable.** Shaq understood that perfection isn't required for greatness.
+
+```{r team-performance, warning=FALSE, message=FALSE}
+#| fig-cap: "Shaq's prime years with the Lakers were historically dominant"
+
+highchart() %>%
+  hc_chart(type = "column") %>%
+  hc_title(text = "Shaq's Scoring by Team") %>%
+  hc_xAxis(categories = shaq_teams$team) %>%
+  hc_yAxis(title = list(text = "Points Per Game")) %>%
+  hc_add_series(
+    name = "PPG",
+    data = shaq_teams$ppg,
+    colorByPoint = TRUE,
+    colors = c("#0077C0", "#552583", "#98002E", "#666666")
+  ) %>%
+  hc_plotOptions(column = list(dataLabels = list(enabled = TRUE, format = "{y:.1f}"))) %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+## The Three-Peat
+
+From 2000-2002, Shaq and Kobe delivered three consecutive championships. Shaq won Finals MVP all three times, averaging 36 points and 12 rebounds across those Finals.
+
+| Achievement | Value |
+|------------|-------|
+| Championships | 4 |
+| Finals MVPs | 3 |
+| MVP Awards | 1 |
+| Career PPG | 23.7 |
+| Career RPG | 10.9 |
+
+::: {.callout-tip}
+## Lessons from the Sledgehammer
+
+1. **Maximize your strengths** - Shaq didn't need a jump shot; he needed to dominate the paint
+2. **Embrace your flaws** - His free throw struggles didn't stop him from being unstoppable
+3. **Be authentic** - His personality made him as beloved off the court as on it
+4. **Force adaptation** - He was so dominant that the league changed its rules
+:::
+
+---
+
+## References
+
+- O'Neal, S. (2011). *Shaq Uncut: My Story*. Grand Central Publishing.
+- [Basketball Reference: Shaquille O'Neal Career Stats](https://www.basketball-reference.com/players/o/onMDlsh01.html)

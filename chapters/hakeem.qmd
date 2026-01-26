@@ -1,0 +1,109 @@
+---
+title: "The Dream's Blueprint"
+subtitle: "How mastery of the basics turned Hakeem Olajuwon into a basketball legend"
+author:
+  - name: "King Matayo"
+    email: kingmatayo.thefirst@gmail.com
+date: 12/15/2024
+image: "../assets/images/hakeem.jpg"
+categories: [Mastery, Fundamentals, Defense]
+---
+
+```{r setup, warning=FALSE, message=FALSE}
+source("../_common.R")
+
+hakeem_career <- tibble(
+  season = c("1984-85", "1987-88", "1990-91", "1993-94", "1994-95", "1996-97"),
+  ppg = c(20.6, 22.8, 21.2, 27.3, 27.8, 23.2),
+  rpg = c(11.9, 12.1, 13.8, 11.9, 10.8, 9.2),
+  bpg = c(2.7, 2.7, 3.9, 3.7, 3.4, 2.2)
+)
+
+blocks_leaders <- tibble(
+  player = c("Hakeem Olajuwon", "Dikembe Mutombo", "Kareem Abdul-Jabbar", "Mark Eaton", "Tim Duncan"),
+  blocks = c(3830, 3289, 3189, 3064, 3020)
+)
+```
+
+> *"Defense is all about helping, recovery, and rotation."* – Hakeem Olajuwon
+
+## The Accidental Basketball Player
+
+Hakeem Olajuwon didn't pick up a basketball until he was 17. A soccer goalkeeper in Nigeria, he had footwork that would become legendary—but in basketball, it was foreign.
+
+**His late start became his superpower.** Without ingrained habits, Hakeem could build his game from scratch, focusing obsessively on fundamentals that others took for granted.
+
+## The Dream Shake and the Illusion of Effortlessness
+
+The "Dream Shake" was a series of post moves so fluid that defenders seemed to be moving through water. But that fluidity came from thousands of hours of practice, perfecting footwork patterns that originated on soccer fields in Lagos.
+
+```{r career-stats, warning=FALSE, message=FALSE}
+#| fig-cap: "Hakeem's two-way dominance: elite scoring AND elite defense"
+
+highchart() %>%
+  hc_chart(type = "line") %>%
+  hc_title(text = "Hakeem's Two-Way Excellence") %>%
+  hc_xAxis(categories = hakeem_career$season) %>%
+  hc_yAxis_multiples(
+    list(title = list(text = "PPG / RPG")),
+    list(title = list(text = "Blocks Per Game"), opposite = TRUE)
+  ) %>%
+  hc_add_series(name = "Points", data = hakeem_career$ppg, color = "#CE1141") %>%
+  hc_add_series(name = "Rebounds", data = hakeem_career$rpg, color = "#000000") %>%
+  hc_add_series(name = "Blocks", data = hakeem_career$bpg, yAxis = 1, color = "#C4CED4") %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+## Defense: The Silent Dominance
+
+Hakeem is the NBA's all-time leader in blocked shots with 3,830. But his defensive impact went beyond blocks—he altered thousands more shots and anchored Houston's championship defenses.
+
+```{r blocks-leaders, warning=FALSE, message=FALSE}
+#| fig-cap: "Hakeem's career blocks total remains unmatched"
+
+highchart() %>%
+  hc_chart(type = "bar") %>%
+  hc_title(text = "All-Time Career Blocks Leaders") %>%
+  hc_xAxis(categories = blocks_leaders$player) %>%
+  hc_yAxis(title = list(text = "Career Blocks")) %>%
+  hc_add_series(
+    name = "Blocks",
+    data = blocks_leaders$blocks,
+    colorByPoint = TRUE,
+    colors = c("#CE1141", "#0E2240", "#552583", "#002B5C", "#C4CED4")
+  ) %>%
+  hc_tooltip(pointFormat = "<b>{point.y:,.0f} blocks</b>") %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+## Mastery Requires Focus
+
+During Ramadan, Hakeem fasted from sunrise to sunset—even during games. His performance during these periods was remarkably consistent, proving that mental discipline could transcend physical limitations.
+
+## The Back-to-Back Championships
+
+In 1994 and 1995, Hakeem led the Rockets to consecutive championships, winning Finals MVP both times. The 1995 playoff run was particularly remarkable—Houston became the first team to defeat four 50-win teams in a single postseason.
+
+| Achievement | Value |
+|------------|-------|
+| Championships | 2 |
+| Finals MVPs | 2 |
+| MVP Awards | 1 |
+| Career Blocks | 3,830 (Record) |
+| Quadruple-Doubles | 2 |
+
+::: {.callout-tip}
+## Lessons from The Dream's Blueprint
+
+1. **Master the fundamentals** - Hakeem's footwork was built from scratch and became legendary
+2. **Defense wins championships** - His rim protection anchored two title teams
+3. **Late starts aren't disadvantages** - Beginning at 17 let him build without bad habits
+4. **Mental discipline matters** - Fasting during Ramadan didn't slow him down
+:::
+
+---
+
+## References
+
+- Olajuwon, H. (1996). *Living the Dream*. Little, Brown and Company.
+- [Basketball Reference: Hakeem Olajuwon Career Stats](https://www.basketball-reference.com/players/o/olajuha01.html)

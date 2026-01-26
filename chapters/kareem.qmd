@@ -1,0 +1,107 @@
+---
+title: "The Skyhook and the Infinite Game"
+subtitle: "How Kareem Abdul-Jabbar built a legacy by mastering the unmasterable"
+author:
+  - name: "King Matayo"
+    email: kingmatayo.thefirst@gmail.com
+date: 12/15/2024
+image: "../assets/images/kareem.jpg"
+categories: [Mastery, Longevity, Innovation]
+---
+
+```{r setup, warning=FALSE, message=FALSE}
+source("../_common.R")
+
+kareem_career <- tibble(
+  decade = c("1970s", "1980s"),
+  ppg = c(27.2, 21.5),
+  rpg = c(14.2, 7.5),
+  championships = c(1, 5)
+)
+
+kareem_by_age <- tibble(
+  age = c(22, 25, 28, 31, 34, 37, 40),
+  ppg = c(28.8, 30.2, 26.2, 24.8, 21.5, 17.5, 10.1)
+)
+
+all_time_scorers <- tibble(
+  player = c("LeBron James", "Kareem Abdul-Jabbar", "Karl Malone", "Kobe Bryant", "Michael Jordan"),
+  points = c(40474, 38387, 36928, 33643, 32292)
+)
+```
+
+> *"One man can be a crucial ingredient on a team, but one man cannot make a team."* – Kareem Abdul-Jabbar
+
+## Mastery of a Shot
+
+The skyhook was basketball's most unblockable shot. Released from a position where defenders simply couldn't reach it, Kareem's signature move carried him for 20 NBA seasons—the longest career of excellence the league had ever seen.
+
+**Kareem didn't just play the game. He perfected one aspect of it so thoroughly that it became his alone.**
+
+## The Shot That Couldn't Be Stopped
+
+The skyhook wasn't natural—it was engineered. Kareem practiced it obsessively, understanding that a single, perfected weapon could be more valuable than a diverse but average arsenal.
+
+```{r scoring-timeline, warning=FALSE, message=FALSE}
+#| fig-cap: "Kareem maintained scoring production deep into his late 30s"
+
+highchart() %>%
+  hc_chart(type = "spline") %>%
+  hc_title(text = "Kareem's Scoring by Age") %>%
+  hc_subtitle(text = "Elite production well past typical prime years") %>%
+  hc_xAxis(categories = kareem_by_age$age, title = list(text = "Age")) %>%
+  hc_yAxis(title = list(text = "Points Per Game"), min = 0, max = 35) %>%
+  hc_add_series(name = "PPG", data = kareem_by_age$ppg, color = "#552583") %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+## The Longevity of Greatness
+
+Kareem won championships in the 1970s and 1980s. He was Finals MVP at age 38. His career spanned eras, teammates, and playing styles—and he adapted to all of them.
+
+```{r all-time-scoring, warning=FALSE, message=FALSE}
+#| fig-cap: "Kareem held the all-time scoring record for 39 years"
+
+highchart() %>%
+  hc_chart(type = "bar") %>%
+  hc_title(text = "All-Time NBA Scoring Leaders") %>%
+  hc_xAxis(categories = all_time_scorers$player) %>%
+  hc_yAxis(title = list(text = "Career Points")) %>%
+  hc_add_series(
+    name = "Points",
+    data = all_time_scorers$points,
+    colorByPoint = TRUE,
+    colors = c("#860038", "#552583", "#002B5C", "#552583", "#CE1141")
+  ) %>%
+  hc_tooltip(pointFormat = "<b>{point.y:,.0f} points</b>") %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+| Achievement | Value |
+|------------|-------|
+| Career Points | 38,387 |
+| Championships | 6 |
+| MVP Awards | 6 (Record) |
+| Finals MVPs | 2 |
+| All-Star Games | 19 |
+| Seasons Played | 20 |
+
+## The Infinite Game
+
+Kareem understood that basketball careers are finite, but mastery is eternal. By perfecting the skyhook and maintaining his body, he extended his excellence far beyond what anyone thought possible.
+
+::: {.callout-tip}
+## Lessons from Kareem's Infinite Game
+
+1. **Perfect one thing** - The skyhook alone made him unstoppable
+2. **Longevity is a strategy** - Taking care of his body extended his prime
+3. **Adapt across eras** - He won championships in two different decades
+4. **Play the long game** - His approach was sustainable, not flashy
+:::
+
+---
+
+## References
+
+- Abdul-Jabbar, K. (2017). *Becoming Kareem*. Little, Brown Books.
+- [Basketball Reference: Kareem Abdul-Jabbar Career Stats](https://www.basketball-reference.com/players/a/abdulka01.html)

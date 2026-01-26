@@ -1,0 +1,104 @@
+---
+title: "The Invisible Scoreboard"
+subtitle: "How Bill Russell proved that winning is about what you don't see"
+author:
+  - name: "King Matayo"
+    email: kingmatayo.thefirst@gmail.com
+date: 12/15/2024
+image: "../assets/images/russell.jpg"
+categories: [Leadership, Defense, Team-First]
+---
+
+```{r setup, warning=FALSE, message=FALSE}
+source("../_common.R")
+
+russell_career <- tibble(
+  season = c("1956-57", "1957-58", "1958-59", "1959-60", "1960-61", "1961-62",
+             "1962-63", "1963-64", "1964-65", "1965-66", "1966-67", "1967-68", "1968-69"),
+  ppg = c(14.7, 16.6, 16.7, 18.2, 16.9, 18.9, 16.8, 15.0, 14.1, 12.9, 13.3, 12.5, 9.9),
+  rpg = c(19.6, 22.7, 23.0, 24.0, 23.9, 23.6, 23.6, 24.7, 24.1, 22.8, 21.0, 18.6, 19.3),
+  championship = c(TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE)
+)
+
+champions_comparison <- tibble(
+  player = c("Bill Russell", "Michael Jordan", "Kareem Abdul-Jabbar", "Magic Johnson", "LeBron James"),
+  rings = c(11, 6, 6, 5, 4)
+)
+```
+
+> *"The most important measure of how good a game I played was how much better I'd made my teammates play."* – Bill Russell
+
+## The Invisible Scoreboard
+
+Bill Russell won 11 NBA championships in 13 seasons. That's not a typo. Eleven. In thirteen years.
+
+Yet if you only looked at his scoring statistics, you might wonder what the fuss was about. Russell averaged just 15.1 points per game for his career—modest by superstar standards.
+
+**The difference was that Russell measured success by a different scoreboard—one that counted wins, not points.**
+
+## Defense Wins Championships
+
+In an era before blocks were officially tracked, Russell was estimated to have blocked over 8,000 shots in his career. He transformed defense from an afterthought into an art form.
+
+```{r championship-rings, warning=FALSE, message=FALSE}
+#| fig-cap: "Russell's 11 championships remain unmatched in NBA history"
+
+highchart() %>%
+  hc_chart(type = "bar") %>%
+  hc_title(text = "Championship Rings: Russell vs. Other Legends") %>%
+  hc_xAxis(categories = champions_comparison$player) %>%
+  hc_yAxis(title = list(text = "Championships"), max = 12) %>%
+  hc_add_series(
+    name = "Rings",
+    data = champions_comparison$rings,
+    colorByPoint = TRUE,
+    colors = c("#007A33", "#CE1141", "#552583", "#552583", "#860038")
+  ) %>%
+  hc_plotOptions(bar = list(dataLabels = list(enabled = TRUE))) %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+## The Team-First Mentality
+
+Russell didn't chase individual statistics. He chased wins. His rebounding wasn't about padding numbers—it was about giving his teammates extra possessions.
+
+```{r rebounding-dominance, warning=FALSE, message=FALSE}
+#| fig-cap: "Russell's rebounding was consistently dominant throughout his career"
+
+highchart() %>%
+  hc_chart(type = "areaspline") %>%
+  hc_title(text = "Bill Russell: Career Rebounding") %>%
+  hc_subtitle(text = "Averaged over 20 rebounds per game for most of his career") %>%
+  hc_xAxis(categories = russell_career$season, labels = list(rotation = -45)) %>%
+  hc_yAxis(title = list(text = "Rebounds Per Game"), min = 0, max = 30) %>%
+  hc_add_series(name = "RPG", data = russell_career$rpg, color = "#007A33", fillOpacity = 0.3) %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+## Leadership Under Pressure
+
+Russell was 10-0 in Game 7s. Perfect. When everything was on the line, Russell delivered—not with heroic shots, but with smothering defense, timely rebounds, and plays that don't show up in box scores.
+
+| Achievement | Value |
+|------------|-------|
+| Championships | 11 |
+| MVP Awards | 5 |
+| Game 7 Record | 10-0 |
+| Career Rebounds | 21,620 |
+| All-Star Games | 12 |
+
+::: {.callout-tip}
+## Lessons from Russell's Invisible Impact
+
+1. **Redefine success metrics** - Wins matter more than individual stats
+2. **Make others better** - Russell's presence elevated his entire team
+3. **Defense is a mindset** - He turned it into a weapon, not a chore
+4. **Show up in big moments** - His Game 7 record speaks for itself
+:::
+
+---
+
+## References
+
+- Russell, B. & Branch, T. (1979). *Second Wind: The Memoirs of an Opinionated Man*. Random House.
+- [Basketball Reference: Bill Russell Career Stats](https://www.basketball-reference.com/players/r/russewi01.html)
