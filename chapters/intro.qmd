@@ -1,0 +1,89 @@
+---
+title: "Introduction"
+subtitle: "A little bit about myself and why I wrote this book"
+author:
+  - name: "King Matayo"
+    email: kingmatayo.thefirst@gmail.com
+date: 12/20/2024
+image: "../assets/images/intro.jpg"
+categories: [Introduction, About]
+---
+
+In 1997, when I was ten years old, my cousin handed me a basketball and taught me the game. That simple act introduced me to a world of sports, competition, creativity, and resilience that has shaped how I think about life. For years, I spent countless hours on the court and in front of the screen, mesmerized by players who made the extraordinary look effortless.
+
+Some memories of the game are seared into my mind. The 2006 and 2016 NBA Finals weren't just sporting events—they were epics of resilience and grit. They taught me that in basketball, as in life, no challenge is insurmountable, and no deficit is final.
+
+As adulthood demanded more of my time, my relationship with basketball changed. In 2012, I began my career as a management consultant, and while the game I loved took a backseat, my passion for it never faded. I kept following the NBA as it evolved, witnessing players like Stephen Curry redefine what it means to be great.
+
+But as the years went by, I started seeing basketball differently. My work taught me to uncover patterns, analyze decisions, and tell stories using data. I began applying those skills to the sport, exploring the wealth of data that now surrounds the NBA. What I found were fascinating insights into the decisions, trade-offs, and judgment calls that separate the good from the great.
+
+This book, *Bounce Back*, grew out of that exploration.
+
+## The 12 Disciples of Greatness
+
+At its core, *Bounce Back* is a study of decision-making, resilience, and mastery through the lens of basketball's greatest players—what I call the "12 disciples" of greatness. Each player has a story to tell, a lesson to share, and a legacy to inspire.
+
+The book is structured into three themes, each capturing a crucial aspect of greatness:
+
+### 1. The Art of Decision-Making
+
+Greatness begins with decisions. Whether it's choosing when to take the shot, how to adapt to changing circumstances, or outthinking the opposition, these moments define a career.
+
+| Player | Chapter | Theme |
+|--------|---------|-------|
+| [LeBron James](lebron.qmd) | The King of Adaptability | How a superstar evolves and transforms to remain relevant |
+| [Michael Jordan](jordan.qmd) | The Last Shot | Uncanny ability to rise when it mattered most |
+| [Kevin Durant](durant.qmd) | The Shape-Shifter | The courage to reinvent oneself |
+| [Larry Bird](bird.qmd) | The Fast Mind | How basketball IQ rivals athleticism |
+
+### 2. Leadership and Team Dynamics
+
+Basketball is a team sport, and no player achieves greatness alone. The best understand how to lead, inspire, and elevate those around them.
+
+| Player | Chapter | Theme |
+|--------|---------|-------|
+| [Magic Johnson](magic.qmd) | The Invisible Hand | The power of putting the team first |
+| [Tim Duncan](duncan.qmd) | Foundation of Greatness | Quiet leadership that built a dynasty |
+| [Bill Russell](russell.qmd) | The Invisible Scoreboard | The essence of teamwork and sacrifice |
+| [Stephen Curry](curry.qmd) | Gravity of Greatness | How creativity and risk-taking reshaped an era |
+
+### 3. Mastery and the Pursuit of Greatness
+
+Beyond leadership and decision-making lies mastery—the relentless drive to perfect one's craft and dominate the game.
+
+| Player | Chapter | Theme |
+|--------|---------|-------|
+| [Kareem Abdul-Jabbar](kareem.qmd) | The Infinite Game | How reinvention fuels longevity |
+| [Kobe Bryant](kobe.qmd) | Mamba Mentality | A story of obsession and dedication |
+| [Shaquille O'Neal](shaq.qmd) | The Sledgehammer Effect | Capitalizing on one's unique gifts |
+| [Hakeem Olajuwon](hakeem.qmd) | The Dream's Blueprint | The beauty in perfecting the basics |
+
+## Beyond Basketball
+
+Through these stories, we'll explore how the principles that make players great on the court also apply off the court—to business, relationships, and life itself. The lessons go beyond the stat sheets and highlight the decisions, sacrifices, and mindsets that separate the exceptional from the merely good.
+
+::: {.callout-note}
+## A Note on the Data
+
+This book combines narrative storytelling with data analysis. Where possible, I've used shot data, career statistics, and game logs to illustrate the patterns behind greatness. The visualizations are built using R and the Highcharter library, with code available in [Appendix C: The Cookbook](../appendices/cookbook.qmd).
+:::
+
+In basketball, the score resets every game. Life doesn't offer that luxury, but the principles of resilience, judgment, and mastery remain universal.
+
+This book is not just for basketball fans. It's for anyone who's faced challenges, made tough decisions, or sought to bounce back stronger.
+
+**Welcome to *Bounce Back*. Let's begin.**
+
+---
+
+## How to Navigate This Book
+
+- **Read linearly:** Start with Decision-Making, move to Leadership, and finish with Mastery
+- **Jump to your favorite player:** Each chapter stands on its own
+- **Explore the appendices:** Learn about the data analysis methods and create your own visualizations
+
+::: {.callout-tip}
+## Get Started
+
+Ready to begin? Start with [LeBron James: The King of Adaptability](lebron.qmd) to see how the greatest adapt to change.
+:::

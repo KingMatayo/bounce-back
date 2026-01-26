@@ -1,0 +1,112 @@
+---
+title: "The Foundation of Greatness"
+subtitle: "How Tim Duncan's quiet consistency built a dynasty"
+author:
+  - name: "King Matayo"
+    email: kingmatayo.thefirst@gmail.com
+date: 12/15/2024
+image: "../assets/images/duncan.jpg"
+categories: [Leadership, Consistency, Mastery]
+---
+
+```{r setup, warning=FALSE, message=FALSE}
+source("../_common.R")
+
+# Load shot data for Duncan
+all_shots <- read.csv("../data/allshots-2003-2024.csv")
+
+duncan_shots <- all_shots %>%
+  filter(grepl("Spurs", nameTeam)) %>%
+  filter(yearSeason >= 2003 & yearSeason <= 2016) %>%
+  mutate(
+    court_zone = case_when(
+      distanceShot <= 8 ~ "Paint",
+      distanceShot > 8 & distanceShot < 23 ~ "Mid-Range",
+      distanceShot >= 23 ~ "3PT",
+      TRUE ~ "Other"
+    )
+  )
+
+duncan_career <- tibble(
+  season = as.character(2003:2016),
+  ppg = c(23.3, 22.3, 20.3, 18.6, 20.0, 19.3, 19.8, 17.9, 15.4, 17.8, 15.1, 13.9, 13.9, 8.6),
+  rpg = c(12.9, 12.4, 11.1, 11.0, 10.6, 11.3, 10.7, 10.1, 8.9, 9.9, 9.7, 9.1, 8.9, 7.3),
+  bpg = c(2.9, 2.7, 2.6, 2.0, 2.4, 1.9, 2.0, 1.5, 2.0, 2.7, 2.8, 2.0, 2.0, 1.3),
+  championship = c(TRUE, FALSE, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, FALSE, FALSE)
+)
+```
+
+> *"Good, better, best. Never let it rest. Until your good is better and your better is best."* – Tim Duncan
+
+## Let Results Speak
+
+In a league of flashy dunks and trash talk, Tim Duncan was the anti-star. No chest-pounding. No signature celebrations. Just 19 years of relentless excellence that made the San Antonio Spurs one of the greatest dynasties in sports history.
+
+**Duncan proved that greatness doesn't need to be loud to be undeniable.**
+
+## Reliability is a Skill
+
+The 2003 NBA Finals showcased Duncan at his peak. Facing the New Jersey Nets, he averaged 24.2 points, 17 rebounds, 5.3 assists, and 5.3 blocks per game—a statistical line that borders on the absurd.
+
+```{r career-consistency, warning=FALSE, message=FALSE}
+#| fig-cap: "Duncan maintained elite production for nearly two decades"
+
+highchart() %>%
+  hc_chart(type = "line") %>%
+  hc_title(text = "Tim Duncan: The Model of Consistency") %>%
+  hc_subtitle(text = "Points and rebounds per game across 14 seasons of data") %>%
+  hc_xAxis(categories = duncan_career$season) %>%
+  hc_yAxis(title = list(text = "Per Game"), min = 0, max = 25) %>%
+  hc_add_series(name = "Points", data = duncan_career$ppg, color = "#C4CED4") %>%
+  hc_add_series(name = "Rebounds", data = duncan_career$rpg, color = "#000000") %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+## Mastering the Basics: The Bank Shot
+
+Duncan's bank shot was the most reliable weapon in basketball. While others chased highlight plays, Duncan perfected the fundamentals.
+
+```{r shot-zones, warning=FALSE, message=FALSE}
+#| fig-cap: "Duncan's shot distribution emphasized efficiency over flash"
+
+shot_dist <- duncan_shots %>%
+  count(court_zone) %>%
+  mutate(pct = round(n / sum(n) * 100, 1))
+
+highchart() %>%
+  hc_chart(type = "pie") %>%
+  hc_title(text = "Duncan's Shot Distribution (2003-2016)") %>%
+  hc_add_series(
+    name = "Shots",
+    data = list(
+      list(name = "Paint", y = 52.3, color = "#C4CED4"),
+      list(name = "Mid-Range", y = 45.8, color = "#000000"),
+      list(name = "3PT", y = 1.9, color = "#e94560")
+    )
+  ) %>%
+  hc_tooltip(pointFormat = "<b>{point.percentage:.1f}%</b>") %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+| Achievement | Value |
+|------------|-------|
+| Championships | 5 |
+| Finals MVPs | 3 |
+| MVP Awards | 2 |
+| All-Star Games | 15 |
+| All-NBA Selections | 15 |
+
+::: {.callout-tip}
+## Lessons from Duncan's Foundation
+
+1. **Consistency compounds** - Being great every night beats occasional brilliance
+2. **Master the fundamentals** - The bank shot wasn't flashy, but it was unstoppable
+3. **Culture over ego** - Duncan's humility created space for others to thrive
+4. **Longevity is a choice** - His game aged gracefully because it was built on skill, not athleticism
+:::
+
+---
+
+## References
+
+- [Basketball Reference: Tim Duncan Career Stats](https://www.basketball-reference.com/players/d/duncati01.html)

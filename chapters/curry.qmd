@@ -1,0 +1,111 @@
+---
+title: "The Gravity of Greatness"
+subtitle: "How Stephen Curry redefined basketball, leadership, and the power of movement"
+author:
+  - name: "King Matayo"
+    email: kingmatayo.thefirst@gmail.com
+date: 12/15/2024
+image: "../assets/images/curry.jpg"
+categories: [Leadership, Innovation, Revolution]
+---
+
+```{r setup, warning=FALSE, message=FALSE}
+source("../_common.R")
+
+all_shots <- read.csv("../data/allshots-2003-2024.csv")
+
+curry_shots <- all_shots %>%
+  filter(namePlayer == "Stephen Curry") %>%
+  mutate(
+    court_zone = case_when(
+      distanceShot <= 8 ~ "Paint",
+      distanceShot > 8 & distanceShot < 23 ~ "Mid-Range",
+      distanceShot >= 23 ~ "3PT",
+      TRUE ~ "Other"
+    )
+  )
+
+# League-wide 3PT trends
+league_3pt <- all_shots %>%
+  filter(yearSeason >= 2010) %>%
+  mutate(is_3pt = distanceShot >= 23) %>%
+  group_by(yearSeason) %>%
+  summarize(
+    total_shots = n(),
+    three_pt_shots = sum(is_3pt),
+    pct_3pt = round(three_pt_shots / total_shots * 100, 1)
+  )
+```
+
+> *"I want to practice to the point where it's almost uncomfortable how fast you shoot, so releasing it in the game is easier."* – Stephen Curry
+
+## Be Different
+
+Stephen Curry didn't just change how the game is played. He changed how it's imagined. Shots that were once considered reckless are now routine. Ranges that were deemed impossible are now expected.
+
+**Curry proved that the impossible is just the unexplored.**
+
+## The Risk That Changed Everything
+
+In 2015-16, Curry made 402 three-pointers—shattering the previous record of 286. He did it while leading the Warriors to a 73-9 record, the best in NBA history.
+
+```{r three-point-revolution, warning=FALSE, message=FALSE}
+#| fig-cap: "The NBA's three-point revolution correlates directly with Curry's rise"
+
+highchart() %>%
+  hc_chart(type = "areaspline") %>%
+  hc_title(text = "The Curry Effect: League-Wide 3PT Attempt Rate") %>%
+  hc_subtitle(text = "Percentage of all shots taken from three-point range") %>%
+  hc_xAxis(categories = league_3pt$yearSeason) %>%
+  hc_yAxis(title = list(text = "% of Shots from 3PT"), min = 20, max = 45) %>%
+  hc_add_series(name = "3PT Rate", data = league_3pt$pct_3pt, color = "#1D428A", fillOpacity = 0.3) %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+## The Power of Movement
+
+Curry's true innovation isn't his shooting—it's his gravity. When he's on the court, defenders must account for him everywhere. This creates space for teammates, even when Curry doesn't have the ball.
+
+```{r shot-distance, warning=FALSE, message=FALSE}
+#| fig-cap: "Curry's shooting range extends far beyond the traditional three-point line"
+
+curry_by_year <- curry_shots %>%
+  group_by(yearSeason) %>%
+  summarize(
+    avg_distance = mean(distanceShot, na.rm = TRUE),
+    three_pt_pct = sum(distanceShot >= 23) / n() * 100
+  )
+
+highchart() %>%
+  hc_chart(type = "column") %>%
+  hc_title(text = "Curry's Three-Point Volume Over Time") %>%
+  hc_xAxis(categories = curry_by_year$yearSeason) %>%
+  hc_yAxis(title = list(text = "% of Shots from 3PT")) %>%
+  hc_add_series(name = "3PT Rate", data = round(curry_by_year$three_pt_pct, 1), color = "#FDB927") %>%
+  hc_plotOptions(column = list(dataLabels = list(enabled = TRUE, format = "{y:.0f}%"))) %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+| Career Achievement | Value |
+|-------------------|-------|
+| Career 3-Pointers | 3,700+ (All-time leader) |
+| Single Season 3PM | 402 (Record) |
+| Championships | 4 |
+| MVP Awards | 2 (First unanimous) |
+| Scoring Titles | 2 |
+
+::: {.callout-tip}
+## Lessons from Curry's Innovation
+
+1. **Challenge conventional wisdom** - The "bad shot" became his signature
+2. **Create gravity** - Your mere presence can open opportunities for others
+3. **Practice beyond comfort** - Curry's range comes from relentless preparation
+4. **Joy elevates performance** - His visible enjoyment inspires teammates
+:::
+
+---
+
+## References
+
+- Thompson, M. (2017). *Golden: The Miraculous Rise of Steph Curry*. Touchstone.
+- [Basketball Reference: Stephen Curry Career Stats](https://www.basketball-reference.com/players/c/curryst01.html)

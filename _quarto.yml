@@ -1,0 +1,120 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Bounce Back"
+  description: "Lessons in decision-making, teamwork, and resilience from the NBA's greatest players"
+  favicon: assets/images/basketball.jpg
+
+  navbar:
+    title: "Bounce Back"
+    logo: assets/images/basketball.jpg
+    background: dark
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Introduction"
+        href: chapters/intro.qmd
+      - text: "Decision-Making"
+        menu:
+          - text: "LeBron James: The King of Adaptability"
+            href: chapters/lebron.qmd
+          - text: "Michael Jordan: The Last Shot"
+            href: chapters/jordan.qmd
+          - text: "Kevin Durant: The Shape-Shifter"
+            href: chapters/durant.qmd
+          - text: "Larry Bird: The Fast Mind"
+            href: chapters/bird.qmd
+      - text: "Leadership"
+        menu:
+          - text: "Magic Johnson: Invisible Hand"
+            href: chapters/magic.qmd
+          - text: "Tim Duncan: Foundation of Greatness"
+            href: chapters/duncan.qmd
+          - text: "Bill Russell: Invisible Scoreboard"
+            href: chapters/russell.qmd
+          - text: "Stephen Curry: Gravity of Greatness"
+            href: chapters/curry.qmd
+      - text: "Mastery"
+        menu:
+          - text: "Kareem Abdul-Jabbar: The Infinite Game"
+            href: chapters/kareem.qmd
+          - text: "Kobe Bryant: Mamba Mentality"
+            href: chapters/kobe.qmd
+          - text: "Shaquille O'Neal: Sledgehammer Effect"
+            href: chapters/shaq.qmd
+          - text: "Hakeem Olajuwon: Dream's Blueprint"
+            href: chapters/hakeem.qmd
+      - text: "Appendices"
+        menu:
+          - text: "A: The Entrepreneurial 3-Pointer"
+            href: appendices/entrepreneurship.qmd
+          - text: "B: Psychology of Shot Choice"
+            href: appendices/prospect-theory.qmd
+          - text: "C: Highcharter Cookbook"
+            href: appendices/cookbook.qmd
+    right:
+      - icon: github
+        href: https://github.com/kingmatayo/bounce-back
+
+  sidebar:
+    - title: "Chapters"
+      style: "floating"
+      search: true
+      contents:
+        - section: "Getting Started"
+          contents:
+            - chapters/intro.qmd
+        - section: "Decision-Making"
+          contents:
+            - chapters/lebron.qmd
+            - chapters/jordan.qmd
+            - chapters/durant.qmd
+            - chapters/bird.qmd
+        - section: "Leadership"
+          contents:
+            - chapters/magic.qmd
+            - chapters/duncan.qmd
+            - chapters/russell.qmd
+            - chapters/curry.qmd
+        - section: "Mastery"
+          contents:
+            - chapters/kareem.qmd
+            - chapters/kobe.qmd
+            - chapters/shaq.qmd
+            - chapters/hakeem.qmd
+        - section: "Appendices"
+          contents:
+            - appendices/entrepreneurship.qmd
+            - appendices/prospect-theory.qmd
+            - appendices/cookbook.qmd
+
+  page-footer:
+    left: |
+      Created by [King Matayo](mailto:kingmatayo.thefirst@gmail.com)
+    center: |
+      "Bounce Back" - NBA Analytics & Life Lessons
+    right: |
+      Built with [Quarto](https://quarto.org/)
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    css: styles.css
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    code-fold: true
+    code-summary: "Show code"
+    code-tools: true
+    highlight-style: github
+    link-external-newwindow: true
+
+execute:
+  freeze: auto
+  echo: false
+  warning: false
+  message: false

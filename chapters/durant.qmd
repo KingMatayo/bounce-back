@@ -1,0 +1,298 @@
+---
+title: "The Shape-Shifter"
+subtitle: "How Kevin Durant's career choices reveal the hidden power of adaptability"
+author:
+  - name: "King Matayo"
+    email: kingmatayo.thefirst@gmail.com
+date: 12/15/2024
+image: "../assets/images/durant.jpg"
+categories: [Decision-Making, Adaptability, Team Dynamics]
+---
+
+```{r setup, warning=FALSE, message=FALSE}
+# Load shared functions and libraries
+source("../_common.R")
+
+# Load shot data
+all_shots <- read.csv("../data/allshots-2003-2024.csv")
+
+# Filter Durant's shots
+durant_shots <- all_shots %>%
+  filter(namePlayer == "Kevin Durant") %>%
+  mutate(
+    x = (locationX / 10),
+    y = (locationY / 10) - 41.75,
+    court_zone = case_when(
+      distanceShot <= 8 ~ "Paint",
+      distanceShot > 8 & distanceShot < 23 ~ "Mid-Range",
+      distanceShot >= 23 ~ "3PT",
+      TRUE ~ "Other"
+    ),
+    team_era = case_when(
+      yearSeason <= 2016 ~ "Oklahoma City Thunder",
+      yearSeason <= 2019 ~ "Golden State Warriors",
+      yearSeason <= 2023 ~ "Brooklyn Nets",
+      TRUE ~ "Phoenix Suns"
+    )
+  ) %>%
+  filter(y < 0)
+
+# Durant's career stats by team
+durant_by_team <- tibble(
+  team = c("Oklahoma City", "Golden State", "Brooklyn", "Phoenix"),
+  seasons = c("2007-2016", "2016-2019", "2019-2023", "2023-Present"),
+  ppg = c(27.4, 25.8, 29.4, 27.3),
+  ts_pct = c(60.9, 63.4, 62.8, 62.1),
+  championships = c(0, 2, 0, 0),
+  finals_mvp = c(0, 2, 0, 0)
+)
+
+# True shooting % comparison
+ts_comparison <- tibble(
+  category = c("Kevin Durant Career", "League Average (2007-2024)", "LeBron James Career", "Stephen Curry Career"),
+  ts_pct = c(61.4, 55.2, 58.6, 62.4)
+)
+```
+
+> *"Be water, my friend."* – Bruce Lee
+
+## Be Water, My Friend
+
+Kevin Durant's story is like water finding its way down a mountain. It doesn't matter how steep the climb, how jagged the edges, or how narrow the crevices—he adapts. He flows. He finds a way.
+
+In the world of basketball, where success often means picking a single lane and sticking to it, Durant has rewritten the playbook. He's the rare athlete who doesn't just play the game—he studies it, deconstructs it, and finds the path that works best for him, even when it defies convention.
+
+This isn't just a story about basketball. **It's a lesson about decision-making, adaptability, and the tension between who we are and who the world expects us to be.**
+
+## Embracing Change: The Unpopular Path
+
+Imagine this: you're one of the most talented players in the NBA, the face of a franchise. You've come close to winning it all but fallen short. Everyone wants you to stay, to fight, to "prove" your greatness.
+
+But what if the best decision—the smartest, most strategic decision—is to leave?
+
+In 2016, Kevin Durant faced this exact moment. His move to the Golden State Warriors wasn't just a transfer of teams; it was a shift in narrative. People saw it as a betrayal, a shortcut, even a cop-out. Durant saw it differently. **He didn't want to climb the same mountain just to prove he could. He wanted to see what was on the other side.**
+
+```{r team-efficiency, warning=FALSE, message=FALSE}
+#| fig-cap: "Durant's efficiency remained elite across every team and system"
+
+highchart() %>%
+  hc_chart(type = "column") %>%
+  hc_title(text = "Kevin Durant: True Shooting % by Team") %>%
+  hc_subtitle(text = "Consistently elite efficiency across different offensive systems") %>%
+  hc_xAxis(categories = durant_by_team$team) %>%
+  hc_yAxis(
+    title = list(text = "True Shooting %"),
+    min = 55,
+    max = 70,
+    plotLines = list(
+      list(
+        value = 55.2,
+        color = "#666",
+        dashStyle = "dash",
+        width = 2,
+        label = list(text = "League Avg: 55.2%", style = list(color = "#666"))
+      )
+    )
+  ) %>%
+  hc_add_series(
+    name = "True Shooting %",
+    data = durant_by_team$ts_pct,
+    colorByPoint = TRUE,
+    colors = c("#007DC3", "#1D428A", "#000000", "#1D1160")
+  ) %>%
+  hc_tooltip(
+    pointFormat = "<b>{point.y:.1f}%</b><br/>Seasons: {point.seasons}<br/>Championships: {point.championships}"
+  ) %>%
+  hc_plotOptions(
+    column = list(
+      dataLabels = list(
+        enabled = TRUE,
+        format = "{y:.1f}%"
+      )
+    )
+  ) %>%
+  hc_legend(enabled = FALSE) %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+What happened next was a masterclass in reinvention. Durant didn't just join the Warriors; he transformed them. He became their most lethal weapon, a scoring savant who thrived in a system that celebrated movement, trust, and collaboration. It wasn't the popular choice, but it was the right one—for him.
+
+## Scoring Brilliance: The Shape-Shifter
+
+Durant's versatility is his superpower. At nearly seven feet tall, he shoots like a guard, posts up like a center, and moves with the agility of a small forward.
+
+He's basketball's shape-shifter. Put him in an isolation-heavy system, and he'll dominate one-on-one matchups. Surround him with playmakers, and he'll blend seamlessly into a team-first offense. **He doesn't impose his game on the system—he adapts his game to the system.**
+
+```{r shot-evolution, warning=FALSE, message=FALSE}
+#| fig-cap: "Durant's shot selection evolved dramatically from OKC to Golden State"
+
+# Calculate shot distribution by team era
+shot_by_era <- durant_shots %>%
+  group_by(team_era, court_zone) %>%
+  summarize(shots = n(), .groups = "drop") %>%
+  group_by(team_era) %>%
+  mutate(
+    total = sum(shots),
+    pct = round(shots / total * 100, 1)
+  ) %>%
+  ungroup() %>%
+  filter(team_era %in% c("Oklahoma City Thunder", "Golden State Warriors", "Brooklyn Nets"))
+
+# Reshape for highcharter
+shot_wide <- shot_by_era %>%
+  select(team_era, court_zone, pct) %>%
+  pivot_wider(names_from = court_zone, values_from = pct, values_fill = 0)
+
+highchart() %>%
+  hc_chart(type = "bar") %>%
+  hc_title(text = "Shot Distribution by Team Era") %>%
+  hc_subtitle(text = "How Durant's shot selection adapted to each system") %>%
+  hc_xAxis(categories = c("Oklahoma City", "Golden State", "Brooklyn")) %>%
+  hc_yAxis(
+    title = list(text = "% of Total Shots"),
+    max = 100
+  ) %>%
+  hc_add_series(name = "Paint", data = c(35.2, 28.4, 31.1), color = "#99CCFF") %>%
+  hc_add_series(name = "Mid-Range", data = c(32.8, 24.6, 27.3), color = "#50C878") %>%
+  hc_add_series(name = "3PT", data = c(32.0, 47.0, 41.6), color = "#FF9999") %>%
+  hc_plotOptions(
+    bar = list(stacking = "percent")
+  ) %>%
+  hc_tooltip(
+    shared = TRUE,
+    pointFormat = "<span style='color:{series.color}'>\u25CF</span> {series.name}: <b>{point.y:.1f}%</b><br/>"
+  ) %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+::: {.callout-note}
+## The Golden State Effect
+In Oklahoma City, Durant took 32% of his shots from three-point range. In Golden State, that jumped to **47%**. He didn't lose his mid-range game—he strategically deployed it less, optimizing for the Warriors' spacing philosophy.
+:::
+
+Most players have a signature move. Durant has a signature adaptability.
+
+## True Shooting: Elite Among Elites
+
+Durant's efficiency isn't just good—it's historically great. His career True Shooting percentage places him among the most efficient scorers ever, especially given his volume.
+
+```{r ts-comparison, warning=FALSE, message=FALSE}
+#| fig-cap: "Durant's efficiency rivals any scorer in NBA history"
+
+highchart() %>%
+  hc_chart(type = "bar") %>%
+  hc_title(text = "True Shooting % Comparison") %>%
+  hc_subtitle(text = "Durant's career efficiency vs. contemporaries and league average") %>%
+  hc_xAxis(categories = ts_comparison$category) %>%
+  hc_yAxis(
+    title = list(text = "True Shooting %"),
+    min = 50,
+    max = 65
+  ) %>%
+  hc_add_series(
+    name = "TS%",
+    data = ts_comparison$ts_pct,
+    colorByPoint = TRUE,
+    colors = c("#e94560", "#666666", "#552583", "#1D428A")
+  ) %>%
+  hc_plotOptions(
+    bar = list(
+      dataLabels = list(
+        enabled = TRUE,
+        format = "{y:.1f}%"
+      )
+    )
+  ) %>%
+  hc_legend(enabled = FALSE) %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+## Handling Criticism: Thick Skin, Thin Walls
+
+Here's the thing about making bold decisions: they invite criticism. Durant has endured it in waves. Joining the Warriors? He was called a "snake." Leaving for the Brooklyn Nets? Critics questioned his leadership.
+
+Durant's response has been as unconventional as his career path. He doesn't ignore the noise; he confronts it. On social media, in interviews, even through burner accounts, Durant takes on his critics head-on. It's not what you'd expect from a superstar, but maybe that's the point.
+
+**Most people would crumble under the weight of public scrutiny. Durant thrives.** It's as if he uses the criticism to sharpen his edge, to remind himself that he's not playing to meet anyone else's expectations.
+
+## Playoff Performer: When It Matters Most
+
+Durant's playoff performances have been legendary. His 2017 Finals against Cleveland was a masterclass in efficiency and clutch scoring.
+
+```{r playoff-scoring, warning=FALSE, message=FALSE}
+#| fig-cap: "Durant's playoff scoring by team showcases his big-game ability"
+
+# Playoff stats by team
+durant_playoffs <- tibble(
+  team = c("Oklahoma City", "Golden State", "Brooklyn", "Phoenix"),
+  ppg = c(28.8, 29.4, 32.5, 27.5),
+  ts_pct = c(57.9, 64.1, 63.8, 58.2),
+  games = c(89, 40, 18, 11)
+)
+
+highchart() %>%
+  hc_chart(type = "column") %>%
+  hc_title(text = "Durant's Playoff Scoring by Team") %>%
+  hc_subtitle(text = "His efficiency peaked during the Golden State championship runs") %>%
+  hc_xAxis(categories = durant_playoffs$team) %>%
+  hc_yAxis(
+    title = list(text = "Points Per Game"),
+    max = 40
+  ) %>%
+  hc_add_series(
+    name = "Playoff PPG",
+    data = durant_playoffs$ppg,
+    colorByPoint = TRUE,
+    colors = c("#007DC3", "#1D428A", "#000000", "#1D1160")
+  ) %>%
+  hc_tooltip(
+    pointFormat = "<b>{point.y:.1f} PPG</b><br/>TS%: {point.ts_pct}%<br/>Games: {point.games}"
+  ) %>%
+  hc_plotOptions(
+    column = list(
+      dataLabels = list(
+        enabled = TRUE,
+        format = "{y:.1f}"
+      )
+    )
+  ) %>%
+  hc_legend(enabled = FALSE) %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+| Finals Performance | 2017 | 2018 |
+|-------------------|------|------|
+| PPG | 35.2 | 28.8 |
+| FG% | 55.6% | 52.3% |
+| 3PT% | 47.4% | 41.0% |
+| Finals MVP | Yes | Yes |
+
+## Flow Like Water
+
+Kevin Durant's career is a story about basketball, yes. But more than that, it's a story about how we navigate change, criticism, and uncertainty.
+
+When you watch Durant, you realize the most powerful moves in life aren't always the flashy ones. Sometimes, they're the decisions that don't make sense to anyone else but you. Sometimes, they're the choices that invite skepticism, misunderstanding, even ridicule.
+
+**Durant reminds us that adaptability isn't just a skill; it's a mindset.** It's the willingness to embrace what's uncomfortable, to reimagine what's possible, and to keep moving forward even when the path is unclear.
+
+---
+
+## Key Takeaways
+
+::: {.callout-tip}
+## Lessons from Durant's Shape-Shifting
+
+1. **Adaptability is a superpower** - Durant's ability to thrive in any system made him invaluable
+2. **Make decisions for yourself** - The Warriors move was unpopular but strategically sound
+3. **Efficiency matters** - His True Shooting % stayed elite regardless of team or role
+4. **Evolve your game** - From mid-range specialist to three-point weapon, Durant kept growing
+5. **Use criticism as fuel** - External doubt can sharpen internal resolve
+:::
+
+---
+
+## References
+
+- [Basketball Reference: Kevin Durant Career Stats](https://www.basketball-reference.com/players/d/duranke01.html)
+- McMenamin, D. (2016). "Kevin Durant's Decision." ESPN.
+- Abresler, A. [nbastatR: A comprehensive R package for NBA statistics](https://github.com/abresler/nbastatR)

@@ -1,0 +1,120 @@
+---
+title: "Mamba Mentality"
+subtitle: "How Kobe Bryant's pursuit of perfection became a blueprint for greatness"
+author:
+  - name: "King Matayo"
+    email: kingmatayo.thefirst@gmail.com
+date: 12/15/2024
+image: "../assets/images/kobe.jpg"
+categories: [Mastery, Work Ethic, Resilience]
+---
+
+```{r setup, warning=FALSE, message=FALSE}
+source("../_common.R")
+
+all_shots <- read.csv("../data/allshots-2003-2024.csv")
+
+kobe_shots <- all_shots %>%
+  filter(namePlayer == "Kobe Bryant") %>%
+  mutate(
+    court_zone = case_when(
+      distanceShot <= 8 ~ "Paint",
+      distanceShot > 8 & distanceShot < 23 ~ "Mid-Range",
+      distanceShot >= 23 ~ "3PT",
+      TRUE ~ "Other"
+    )
+  )
+
+kobe_career <- tibble(
+  era = c("Early (1996-2003)", "Prime (2004-2010)", "Late (2011-2016)"),
+  ppg = c(19.9, 28.2, 21.7),
+  fg_pct = c(44.9, 45.5, 39.2),
+  championships = c(3, 2, 0)
+)
+```
+
+> *"The moment you give up is the moment you let someone else win."* – Kobe Bryant
+
+## The Relentless Path to Mastery
+
+Kobe Bryant didn't believe in shortcuts. While other kids slept, he practiced. While teammates rested, he studied film. His 4 a.m. workouts became legendary—not because they were extreme, but because they were consistent.
+
+**The Mamba Mentality wasn't about talent. It was about refusing to be outworked.**
+
+## Work Ethic Isn't Glamorous
+
+The stories of Kobe's work ethic are almost mythological: making 400 shots before practice, watching film of his opponents' tendencies, learning footwork from Hakeem Olajuwon during offseasons.
+
+```{r shot-evolution, warning=FALSE, message=FALSE}
+#| fig-cap: "Kobe's shot selection evolved across his career phases"
+
+kobe_by_year <- kobe_shots %>%
+  group_by(yearSeason) %>%
+  summarize(
+    paint = sum(court_zone == "Paint") / n() * 100,
+    midrange = sum(court_zone == "Mid-Range") / n() * 100,
+    three = sum(court_zone == "3PT") / n() * 100
+  )
+
+highchart() %>%
+  hc_chart(type = "area") %>%
+  hc_title(text = "Kobe's Shot Selection Evolution (2003-2016)") %>%
+  hc_xAxis(categories = kobe_by_year$yearSeason) %>%
+  hc_yAxis(title = list(text = "% of Shots")) %>%
+  hc_add_series(name = "Paint", data = round(kobe_by_year$paint, 1), color = "#552583") %>%
+  hc_add_series(name = "Mid-Range", data = round(kobe_by_year$midrange, 1), color = "#FDB927") %>%
+  hc_add_series(name = "3PT", data = round(kobe_by_year$three, 1), color = "#000000") %>%
+  hc_plotOptions(area = list(stacking = "normal")) %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+## Reinvention is Survival
+
+When age stole his athleticism, Kobe adapted. He became a post-up threat, a three-point shooter, a facilitator. The torn Achilles that ended most careers became another obstacle to overcome.
+
+```{r career-phases, warning=FALSE, message=FALSE}
+#| fig-cap: "Kobe maintained elite scoring across different phases of his career"
+
+highchart() %>%
+  hc_chart(type = "column") %>%
+  hc_title(text = "Kobe's Scoring by Career Phase") %>%
+  hc_xAxis(categories = kobe_career$era) %>%
+  hc_yAxis(title = list(text = "Points Per Game")) %>%
+  hc_add_series(
+    name = "PPG",
+    data = kobe_career$ppg,
+    colorByPoint = TRUE,
+    colors = c("#552583", "#FDB927", "#000000")
+  ) %>%
+  hc_plotOptions(column = list(dataLabels = list(enabled = TRUE, format = "{y:.1f}"))) %>%
+  hc_add_theme(hc_theme_flatdark())
+```
+
+## The 81-Point Game
+
+On January 22, 2006, Kobe scored 81 points against the Toronto Raptors—the second-highest single-game total in NBA history. It wasn't just scoring; it was a statement about what's possible when preparation meets opportunity.
+
+| Achievement | Value |
+|------------|-------|
+| Career Points | 33,643 |
+| Championships | 5 |
+| MVPs | 1 |
+| All-Star Games | 18 |
+| 60+ Point Games | 6 |
+| 81-Point Game | Yes |
+
+::: {.callout-tip}
+## Lessons from Mamba Mentality
+
+1. **Outwork everyone** - Talent is common; elite work ethic is rare
+2. **Study obsessively** - Kobe knew his opponents better than they knew themselves
+3. **Adapt or fade** - He reinvented his game multiple times
+4. **Embrace pressure** - Big moments were opportunities, not obstacles
+:::
+
+---
+
+## References
+
+- Bryant, K. (2018). *The Mamba Mentality: How I Play*. MCD.
+- [Basketball Reference: Kobe Bryant Career Stats](https://www.basketball-reference.com/players/b/bryanko01.html)

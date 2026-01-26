@@ -1,0 +1,1386 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Bounce Back",
+    "section": "",
+    "text": "This project explores the careers of 12 NBA icons through data visualization and storytelling. Each chapter examines how these players made decisions, led their teams, and mastered their craft—offering lessons that extend far beyond the court.\nStart Reading"
+  },
+  {
+    "objectID": "index.html#the-12-disciples-of-basketball-wisdom",
+    "href": "index.html#the-12-disciples-of-basketball-wisdom",
+    "title": "Bounce Back",
+    "section": "The 12 Disciples of Basketball Wisdom",
+    "text": "The 12 Disciples of Basketball Wisdom\n\n\nDecision-Making\nHow the greats made choices under pressure.\n\n\n\nLeBron James\nThe King of Adaptability\nHow the evolution of LeBron’s shot choices mirrors the NBA’s transformation (2003-2024).\n\n\n\n\n\nMichael Jordan\nThe Last Shot\nExploring Jordan’s ability to deliver in high-pressure moments and his relentless competitive spirit.\n\n\n\n\n\nKevin Durant\nThe Shape-Shifter\nExamining Durant’s career through the lens of adaptability, personal growth, and resilience.\n\n\n\n\n\nLarry Bird\nThe Fast Mind\nDelving into Bird’s basketball IQ and strategic thinking that made him a legend.\n\n\n\n\nLeadership\nHow the greats elevated those around them.\n\n\n\nMagic Johnson\nThe Invisible Hand\nMagic’s unique leadership style and how he elevated the performance of his teammates.\n\n\n\n\n\nTim Duncan\nFoundation of Greatness\nDuncan’s understated but highly effective leadership style and consistency.\n\n\n\n\n\nBill Russell\nThe Invisible Scoreboard\nRussell’s legacy as a defensive anchor who prioritized collective success over individual accolades.\n\n\n\n\n\nStephen Curry\nGravity of Greatness\nHow Curry’s revolutionary shooting and off-ball movement redefined team strategies.\n\n\n\n\nMastery\nHow the greats perfected their craft.\n\n\n\nKareem Abdul-Jabbar\nThe Infinite Game\nHow Kareem’s Skyhook redefined basketball and his ability to sustain excellence across decades.\n\n\n\n\n\nKobe Bryant\nMamba Mentality\nKobe’s obsessive work ethic and how relentless preparation shaped his career.\n\n\n\n\n\nShaquille O’Neal\nThe Sledgehammer Effect\nShaq’s physical dominance and how embracing unique strengths leads to extraordinary impact.\n\n\n\n\n\nHakeem Olajuwon\nThe Dream’s Blueprint\nHakeem’s precision, patience, and mastery of fundamentals, particularly his footwork."
+  },
+  {
+    "objectID": "index.html#appendices",
+    "href": "index.html#appendices",
+    "title": "Bounce Back",
+    "section": "Appendices",
+    "text": "Appendices\n\n\n\n\n\nAppendix A: The Entrepreneurial 3-Pointer\nHow entrepreneurship is similar to shooting from the 3PT line—high risk, high reward, and the courage to take the shot.\n\n\n\n\n\n\n\nAppendix B: Psychology of Shot Choice\nExamining shot choices through the lens of Prospect Theory and behavioral economics.\n\n\n\n\n\n\n\nAppendix C: Highcharter Cookbook\nA comprehensive guide to creating beautiful NBA charts using the Highcharter R package."
+  },
+  {
+    "objectID": "index.html#about-this-project",
+    "href": "index.html#about-this-project",
+    "title": "Bounce Back",
+    "section": "About This Project",
+    "text": "About This Project\nBounce Back is a data-driven exploration of what makes NBA legends great—and what we can learn from their journeys. Each chapter combines statistical analysis, interactive visualizations, and storytelling to reveal insights about decision-making, leadership, and mastery.\nWhether you’re a basketball fan, a data enthusiast, or someone seeking inspiration from greatness, there’s something here for you.\nAuthor: King Matayo Contact: kingmatayo.thefirst@gmail.com"
+  },
+  {
+    "objectID": "chapters/lebron.html",
+    "href": "chapters/lebron.html",
+    "title": "The King of Adaptability",
+    "section": "",
+    "text": "“It is our choices that show what we truly are, far more than our abilities.” – J.K. Rowling",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The King of Adaptability"
+    ]
+  },
+  {
+    "objectID": "chapters/lebron.html#a-rookies-first-game",
+    "href": "chapters/lebron.html#a-rookies-first-game",
+    "title": "The King of Adaptability",
+    "section": "A rookie’s first game",
+    "text": "A rookie’s first game\nOn October 29, 2003, 18-year-old LeBron James made his first shot decision as an NBA player. It wasn’t a flashy dunk or a deep three. It was a mid-range jumper - plain, efficient, unremarkable. Two points.\n\n\nLeBron’s 1st NBA Game: October 29, 2003\nBut that single shot spoke volumes. It told us what basketball was in 2003: a game that valued size and strength, rewarded mid-range specialists, and treated the three-point (3PT) line as an occasional luxury.\nFast forward 20 years, and that same decision would look out of place. Today’s NBA is unrecognizable. 3PT-ers aren’t just common - they’re necessary. Mid-range shots are now basketball’s version of a landline phone: technically still around, but rarely used.\n\n\nLeBron, 20 years later: October 29, 2023\n\n1st NBA game20 years laterComparing 2003 vs 2023\n\n\n\n\n\nLeBron’s shot chart from his first NBA game in 2003\n\n\n\n\n\n\n\nLeBron’s shot chart 20 years later in 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis is the story of how LeBron’s shot selection changed over two decades, and how those choices reflect the shifting forces that reshaped the game of basketball.",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The King of Adaptability"
+    ]
+  },
+  {
+    "objectID": "chapters/lebron.html#the-power-of-playing-to-your-strengths",
+    "href": "chapters/lebron.html#the-power-of-playing-to-your-strengths",
+    "title": "The King of Adaptability",
+    "section": "2003-2008: The power of playing to your strengths",
+    "text": "2003-2008: The power of playing to your strengths\nIn LeBron’s early years, the game was simple: get to the basket.\nHe was faster, stronger, and more athletic than most players on the court. Why take a risky 3PT-er when you could bulldoze your way to the rim? Over 40% of his shots came from the paint, where he was nearly unstoppable.\nThe mid-range jumper (like the one he made in his first game) was his secondary weapon. And it worked because it fit the league’s style. Coaches weren’t chasing efficiency metrics yet. The paint and mid-range were where championships were won.\nLeBron wasn’t just playing basketball. He was thriving in a system built for players like him. The lesson? Success often comes from maximizing what works in the moment, even if it won’t last forever.\n\n\n\nLeBron’s shot choices (2003-08): Over 40% of LeBron’s shots came from the paint, with mid-range jumpers making up the second-largest proportion. Threes were an afterthought, comprising less than 15% of his attempts.",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The King of Adaptability"
+    ]
+  },
+  {
+    "objectID": "chapters/lebron.html#learning-to-adapt",
+    "href": "chapters/lebron.html#learning-to-adapt",
+    "title": "The King of Adaptability",
+    "section": "2009-2015: Learning to adapt",
+    "text": "2009-2015: Learning to adapt\nBy 2009, the NBA was changing. The 3PT revolution, sparked by analytics and players like Stephen Curry, was underway. LeBron noticed.\nHe didn’t immediately abandon the mid-range game - it was still part of his identity - but he started taking more 3PT-ers. Slowly, deliberately, he added them to his repertoire. By the time he joined the Miami Heat in 2010, and with the influence of teammates like Ray Allen who joined the Heat in 2012, his 3PT attempts had grown to 25% of his total shots.\nLeBron’s willingness to adapt showed a crucial insight: the best performers don’t just play their game - they adjust to the rules as they change.\n\n\n\nLeBron’s shot choices (2009-15): Three-point attempts grew from 15% to 25% of his total shots. You can see the drastic change between 2012 and 2013 - the years he won 2 championships, back to back.",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The King of Adaptability"
+    ]
+  },
+  {
+    "objectID": "chapters/lebron.html#embracing-the-new-reality",
+    "href": "chapters/lebron.html#embracing-the-new-reality",
+    "title": "The King of Adaptability",
+    "section": "2016-2024: Embracing the new reality",
+    "text": "2016-2024: Embracing the new reality\nThe modern NBA belongs to the 3PT-er, and so does LeBron.\nBetween 2016 and 2024, over 35% of his shots came from beyond the arc. The mid-range? Almost gone. The paint? Still important, but less dominant than before.\nThis wasn’t a concession—it was a strategy. LeBron didn’t stop attacking the basket. He just became more selective, choosing to drive when it mattered most and saving his energy for long-range daggers.\nThe league had fully transitioned to an era of spacing and efficiency (“Sprawl” Ball as it’s called). Teams weren’t just tolerating 3PT-ers — they were building offenses around them. LeBron’s game evolved accordingly.\nThe takeaway here is simple: the ability to change isn’t a weakness. It’s a competitive advantage.\n\n\n\nLeBron’s shot choices (2016-2024): The shift isn’t just about LeBron. The NBA’s average number of three-point attempts per game has more than doubled since his rookie year. The league has transitioned from a post-centric style to a perimeter-oriented game.",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The King of Adaptability"
+    ]
+  },
+  {
+    "objectID": "chapters/lebron.html#lebron-as-a-mirror-to-the-nba",
+    "href": "chapters/lebron.html#lebron-as-a-mirror-to-the-nba",
+    "title": "The King of Adaptability",
+    "section": "LeBron as a mirror to the NBA",
+    "text": "LeBron as a mirror to the NBA\nLeBron’s career isn’t just about scoring points. It’s about reflecting the game’s evolution.\nConsider this: In 2004, around 10% of all shot attempts made in the NBA, per season, were 3PT-ers. By 2024, that percentage had skyrocketed to over 30%. LeBron adapted not because he wanted to - but because he had to.\n\n\n\nLeBron James versus The League: % of 3PT shots attempted\n\n\nThe NBA’s greatest players aren’t just defined by their talent. They’re defined by how well they adjust when the rules of the game change.",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The King of Adaptability"
+    ]
+  },
+  {
+    "objectID": "chapters/lebron.html#what-his-journey-can-teach-us",
+    "href": "chapters/lebron.html#what-his-journey-can-teach-us",
+    "title": "The King of Adaptability",
+    "section": "What his journey can teach us",
+    "text": "What his journey can teach us\nLeBron’s evolution is a lesson in adaptability. He started his career mastering the tools of his era. Then, as the game changed, he didn’t resist - he evolved with it.\nFor players entering the league today, the message is clear: success isn’t just about being great at one thing. It’s about being willing to reinvent yourself when the world around you changes.\nLeBron’s journey isn’t just about basketball. It’s about the universal truth that staying relevant requires constant evolution. The game always changes. The question is whether you’ll change with it.\nThe King’s reign is a testament to one simple idea: if you want to last, you have to evolve.",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The King of Adaptability"
+    ]
+  },
+  {
+    "objectID": "chapters/lebron.html#key-takeaways",
+    "href": "chapters/lebron.html#key-takeaways",
+    "title": "The King of Adaptability",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\n\n\n\n\n\n\nLessons from LeBron’s Adaptability\n\n\n\n\nPlay to your strengths - Early in his career, LeBron dominated the paint because that’s where he was unstoppable\nWatch for signals of change - He noticed the 3PT revolution before it fully arrived and started preparing\nEvolve deliberately - His transition wasn’t overnight; it was gradual and strategic\nDon’t abandon what works - He still attacks the paint when it matters most\nEmbrace the new reality - When the game changed, he changed with it",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The King of Adaptability"
+    ]
+  },
+  {
+    "objectID": "chapters/lebron.html#references",
+    "href": "chapters/lebron.html#references",
+    "title": "The King of Adaptability",
+    "section": "References",
+    "text": "References\n\nRowling, J.K. (1998). Harry Potter and the Chamber of Secrets. London: Bloomsbury Publishing.\nLeBron’s first NBA game (October 29, 2003)\nLeBron’s game 20 years later (October 29, 2023)\nAbresler, A. nbastatR: A comprehensive R package for NBA statistics",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The King of Adaptability"
+    ]
+  },
+  {
+    "objectID": "chapters/durant.html",
+    "href": "chapters/durant.html",
+    "title": "The Shape-Shifter",
+    "section": "",
+    "text": "“Be water, my friend.” – Bruce Lee",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Shape-Shifter"
+    ]
+  },
+  {
+    "objectID": "chapters/durant.html#be-water-my-friend",
+    "href": "chapters/durant.html#be-water-my-friend",
+    "title": "The Shape-Shifter",
+    "section": "Be Water, My Friend",
+    "text": "Be Water, My Friend\nKevin Durant’s story is like water finding its way down a mountain. It doesn’t matter how steep the climb, how jagged the edges, or how narrow the crevices—he adapts. He flows. He finds a way.\nIn the world of basketball, where success often means picking a single lane and sticking to it, Durant has rewritten the playbook. He’s the rare athlete who doesn’t just play the game—he studies it, deconstructs it, and finds the path that works best for him, even when it defies convention.\nThis isn’t just a story about basketball. It’s a lesson about decision-making, adaptability, and the tension between who we are and who the world expects us to be.",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Shape-Shifter"
+    ]
+  },
+  {
+    "objectID": "chapters/durant.html#embracing-change-the-unpopular-path",
+    "href": "chapters/durant.html#embracing-change-the-unpopular-path",
+    "title": "The Shape-Shifter",
+    "section": "Embracing Change: The Unpopular Path",
+    "text": "Embracing Change: The Unpopular Path\nImagine this: you’re one of the most talented players in the NBA, the face of a franchise. You’ve come close to winning it all but fallen short. Everyone wants you to stay, to fight, to “prove” your greatness.\nBut what if the best decision—the smartest, most strategic decision—is to leave?\nIn 2016, Kevin Durant faced this exact moment. His move to the Golden State Warriors wasn’t just a transfer of teams; it was a shift in narrative. People saw it as a betrayal, a shortcut, even a cop-out. Durant saw it differently. He didn’t want to climb the same mountain just to prove he could. He wanted to see what was on the other side.\n\n\n\n\nDurant’s efficiency remained elite across every team and system\n\n\nWhat happened next was a masterclass in reinvention. Durant didn’t just join the Warriors; he transformed them. He became their most lethal weapon, a scoring savant who thrived in a system that celebrated movement, trust, and collaboration. It wasn’t the popular choice, but it was the right one—for him.",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Shape-Shifter"
+    ]
+  },
+  {
+    "objectID": "chapters/durant.html#scoring-brilliance-the-shape-shifter",
+    "href": "chapters/durant.html#scoring-brilliance-the-shape-shifter",
+    "title": "The Shape-Shifter",
+    "section": "Scoring Brilliance: The Shape-Shifter",
+    "text": "Scoring Brilliance: The Shape-Shifter\nDurant’s versatility is his superpower. At nearly seven feet tall, he shoots like a guard, posts up like a center, and moves with the agility of a small forward.\nHe’s basketball’s shape-shifter. Put him in an isolation-heavy system, and he’ll dominate one-on-one matchups. Surround him with playmakers, and he’ll blend seamlessly into a team-first offense. He doesn’t impose his game on the system—he adapts his game to the system.\n\n\n\n\nDurant’s shot selection evolved dramatically from OKC to Golden State\n\n\n\n\n\n\n\n\nThe Golden State Effect\n\n\n\nIn Oklahoma City, Durant took 32% of his shots from three-point range. In Golden State, that jumped to 47%. He didn’t lose his mid-range game—he strategically deployed it less, optimizing for the Warriors’ spacing philosophy.\n\n\nMost players have a signature move. Durant has a signature adaptability.",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Shape-Shifter"
+    ]
+  },
+  {
+    "objectID": "chapters/durant.html#true-shooting-elite-among-elites",
+    "href": "chapters/durant.html#true-shooting-elite-among-elites",
+    "title": "The Shape-Shifter",
+    "section": "True Shooting: Elite Among Elites",
+    "text": "True Shooting: Elite Among Elites\nDurant’s efficiency isn’t just good—it’s historically great. His career True Shooting percentage places him among the most efficient scorers ever, especially given his volume.\n\n\n\n\nDurant’s efficiency rivals any scorer in NBA history",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Shape-Shifter"
+    ]
+  },
+  {
+    "objectID": "chapters/durant.html#handling-criticism-thick-skin-thin-walls",
+    "href": "chapters/durant.html#handling-criticism-thick-skin-thin-walls",
+    "title": "The Shape-Shifter",
+    "section": "Handling Criticism: Thick Skin, Thin Walls",
+    "text": "Handling Criticism: Thick Skin, Thin Walls\nHere’s the thing about making bold decisions: they invite criticism. Durant has endured it in waves. Joining the Warriors? He was called a “snake.” Leaving for the Brooklyn Nets? Critics questioned his leadership.\nDurant’s response has been as unconventional as his career path. He doesn’t ignore the noise; he confronts it. On social media, in interviews, even through burner accounts, Durant takes on his critics head-on. It’s not what you’d expect from a superstar, but maybe that’s the point.\nMost people would crumble under the weight of public scrutiny. Durant thrives. It’s as if he uses the criticism to sharpen his edge, to remind himself that he’s not playing to meet anyone else’s expectations.",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Shape-Shifter"
+    ]
+  },
+  {
+    "objectID": "chapters/durant.html#playoff-performer-when-it-matters-most",
+    "href": "chapters/durant.html#playoff-performer-when-it-matters-most",
+    "title": "The Shape-Shifter",
+    "section": "Playoff Performer: When It Matters Most",
+    "text": "Playoff Performer: When It Matters Most\nDurant’s playoff performances have been legendary. His 2017 Finals against Cleveland was a masterclass in efficiency and clutch scoring.\n\n\n\n\nDurant’s playoff scoring by team showcases his big-game ability\n\n\n\n\n\nFinals Performance\n2017\n2018\n\n\n\n\nPPG\n35.2\n28.8\n\n\nFG%\n55.6%\n52.3%\n\n\n3PT%\n47.4%\n41.0%\n\n\nFinals MVP\nYes\nYes",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Shape-Shifter"
+    ]
+  },
+  {
+    "objectID": "chapters/durant.html#flow-like-water",
+    "href": "chapters/durant.html#flow-like-water",
+    "title": "The Shape-Shifter",
+    "section": "Flow Like Water",
+    "text": "Flow Like Water\nKevin Durant’s career is a story about basketball, yes. But more than that, it’s a story about how we navigate change, criticism, and uncertainty.\nWhen you watch Durant, you realize the most powerful moves in life aren’t always the flashy ones. Sometimes, they’re the decisions that don’t make sense to anyone else but you. Sometimes, they’re the choices that invite skepticism, misunderstanding, even ridicule.\nDurant reminds us that adaptability isn’t just a skill; it’s a mindset. It’s the willingness to embrace what’s uncomfortable, to reimagine what’s possible, and to keep moving forward even when the path is unclear.",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Shape-Shifter"
+    ]
+  },
+  {
+    "objectID": "chapters/durant.html#key-takeaways",
+    "href": "chapters/durant.html#key-takeaways",
+    "title": "The Shape-Shifter",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\n\n\n\n\n\n\nLessons from Durant’s Shape-Shifting\n\n\n\n\nAdaptability is a superpower - Durant’s ability to thrive in any system made him invaluable\nMake decisions for yourself - The Warriors move was unpopular but strategically sound\nEfficiency matters - His True Shooting % stayed elite regardless of team or role\nEvolve your game - From mid-range specialist to three-point weapon, Durant kept growing\nUse criticism as fuel - External doubt can sharpen internal resolve",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Shape-Shifter"
+    ]
+  },
+  {
+    "objectID": "chapters/durant.html#references",
+    "href": "chapters/durant.html#references",
+    "title": "The Shape-Shifter",
+    "section": "References",
+    "text": "References\n\nBasketball Reference: Kevin Durant Career Stats\nMcMenamin, D. (2016). “Kevin Durant’s Decision.” ESPN.\nAbresler, A. nbastatR: A comprehensive R package for NBA statistics",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Shape-Shifter"
+    ]
+  },
+  {
+    "objectID": "chapters/jordan.html",
+    "href": "chapters/jordan.html",
+    "title": "The Last Shot",
+    "section": "",
+    "text": "“I’ve missed more than 9,000 shots in my career. I’ve lost almost 300 games. 26 times, I’ve been trusted to take the game-winning shot and missed. I’ve failed over and over and over again in my life. And that is why I succeed.” – Michael Jordan",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Last Shot"
+    ]
+  },
+  {
+    "objectID": "chapters/jordan.html#relentless",
+    "href": "chapters/jordan.html#relentless",
+    "title": "The Last Shot",
+    "section": "Relentless",
+    "text": "Relentless\nThe defining moments in life don’t announce themselves in advance. They don’t come with a trumpet blast or a prelude. They sneak up on you, disguised as just another Tuesday or another possession in the fourth quarter of a basketball game.\nFor Michael Jordan, those moments came often—and he made them look inevitable. But inevitability is an illusion. Behind every buzzer-beater, every jaw-dropping play, and every championship trophy was a relentless competitor who understood something fundamental: greatness is built not in moments of glory, but in the countless decisions that come before them.",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Last Shot"
+    ]
+  },
+  {
+    "objectID": "chapters/jordan.html#the-competitive-fire",
+    "href": "chapters/jordan.html#the-competitive-fire",
+    "title": "The Last Shot",
+    "section": "The Competitive Fire",
+    "text": "The Competitive Fire\nThe story of Michael Jordan is a story about fire. Not the kind that burns brightly and then fizzles out, but the kind that stays lit, consuming everything in its path.\nIn Game 5 of the 1997 NBA Finals, Jordan was visibly sick. Feverish, dehydrated, and barely able to stand during timeouts, he still managed to score 38 points, including a clutch three-pointer that sealed the win. The “flu game” became legend, but its real lesson wasn’t about his physical performance. It was about his mental one.\nMost players might have rested. They might have conserved their energy for the next game. Not Jordan. Sitting out wasn’t even a consideration. His competitive instinct didn’t allow it.\n\n\n\n\nJordan’s scoring dominance across 15 seasons, with championship years highlighted\n\n\nThat fire was the same reason he pushed his teammates to exhaustion during practice, sometimes crossing the line into cruelty. He wasn’t trying to be liked; he was trying to win.",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Last Shot"
+    ]
+  },
+  {
+    "objectID": "chapters/jordan.html#clutch-decision-making",
+    "href": "chapters/jordan.html#clutch-decision-making",
+    "title": "The Last Shot",
+    "section": "Clutch Decision-Making",
+    "text": "Clutch Decision-Making\nImagine this: the clock is ticking down, the defense is smothering, and millions are watching. Your next decision could win or lose the game. For Jordan, these moments weren’t just tests of skill—they were tests of nerve.\nIn the 1998 NBA Finals, Game 6, with the championship on the line, Jordan found himself facing Utah’s Bryon Russell. He didn’t rush. He didn’t panic. He simply read the situation, executed a quick crossover, and drained the jumper. To everyone watching, it felt like destiny. But to Jordan, it was preparation.\n\n\n\n\nJordan’s performance elevated in high-pressure situations\n\n\nThe numbers tell the story: Jordan’s scoring average increased in clutch situations. While most players tighten up under pressure, Jordan relaxed into it. His Finals clutch scoring was 42% higher than his regular season clutch average.\n\n\n\n\n\n\nThe Last Shot Mentality\n\n\n\nJordan took 26 potential game-winning shots in his career and made 9 of them. That’s a 34.6% success rate—but here’s what matters: he wanted the ball every single time. Most players avoid the moment. Jordan demanded it.",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Last Shot"
+    ]
+  },
+  {
+    "objectID": "chapters/jordan.html#playoff-performer",
+    "href": "chapters/jordan.html#playoff-performer",
+    "title": "The Last Shot",
+    "section": "Playoff Performer",
+    "text": "Playoff Performer\nThe regular season was just practice for Jordan. When the playoffs arrived, he elevated his game to another level entirely.\n\n\n\n\nJordan’s playoff scoring exceeded his regular season average by 3.3 points",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Last Shot"
+    ]
+  },
+  {
+    "objectID": "chapters/jordan.html#failure-as-a-catalyst",
+    "href": "chapters/jordan.html#failure-as-a-catalyst",
+    "title": "The Last Shot",
+    "section": "Failure as a Catalyst",
+    "text": "Failure as a Catalyst\n“I’ve missed more than 9,000 shots in my career.” Jordan’s famous quote is so well-known that it risks losing its weight. But think about it: nine thousand missed shots. That’s not just failure—that’s public failure. Televised, scrutinized, and immortalized.\nWhat made Jordan different wasn’t his avoidance of failure—it was his use of it. Every missed shot became data. Every loss became fuel. He understood a fundamental truth about progress: failure isn’t the opposite of success. It’s a prerequisite.\n\n\n\n\nJordan’s accolades timeline: 6 championships, 5 MVPs, 10 scoring titles\n\n\nThis mindset wasn’t just about basketball. It was about life. Failure, for Jordan, wasn’t a wall—it was a door.",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Last Shot"
+    ]
+  },
+  {
+    "objectID": "chapters/jordan.html#the-numbers-behind-the-legend",
+    "href": "chapters/jordan.html#the-numbers-behind-the-legend",
+    "title": "The Last Shot",
+    "section": "The Numbers Behind the Legend",
+    "text": "The Numbers Behind the Legend\nLet’s put Jordan’s dominance in perspective:\n\n\n\nStatistic\nValue\nContext\n\n\n\n\nCareer PPG\n30.12\nHighest in NBA history\n\n\nScoring Titles\n10\nMost all-time\n\n\nFinals MVPs\n6\n100% success rate in Finals\n\n\nPlayoff PPG\n33.4\nHighest in NBA history\n\n\n50+ Point Games\n31\nRegular season\n\n\n60+ Point Games\n5\nIncluding 69 vs Cavaliers\n\n\n\n\n\n\n\nJordan’s scoring consistency across his career phases",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Last Shot"
+    ]
+  },
+  {
+    "objectID": "chapters/jordan.html#broader-lessons",
+    "href": "chapters/jordan.html#broader-lessons",
+    "title": "The Last Shot",
+    "section": "Broader Lessons",
+    "text": "Broader Lessons\nWe like to think decision-making is about logic and reason. But in high-pressure moments, it’s about something else entirely: persistence, preparation, and poise.\nJordan’s career teaches us three lessons:\n\n\n\n\n\n\nLessons from Jordan’s Greatness\n\n\n\n\nPersistence matters more than talent. Missing 9,000 shots is irrelevant if you make the one that counts.\nThe moment is yours if you take it. Most of us hesitate. Jordan didn’t. He knew that you can’t win if you don’t shoot.\nPressure doesn’t create champions—it reveals them. What you’ve done in the quiet hours of preparation determines how you’ll perform when the spotlight hits.\n\n\n\nThese lessons aren’t confined to basketball. They apply to business, relationships, and any decision where the stakes are high. Success isn’t about being perfect. It’s about being ready.",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Last Shot"
+    ]
+  },
+  {
+    "objectID": "chapters/jordan.html#the-last-shot",
+    "href": "chapters/jordan.html#the-last-shot",
+    "title": "The Last Shot",
+    "section": "The Last Shot",
+    "text": "The Last Shot\nMichael Jordan’s career wasn’t a straight line to greatness. It was a series of choices, risks, and moments where the outcome was anything but certain. The only thing that was certain was Jordan himself—the competitor who never stopped deciding to be great.\nThat final shot against Utah in 1998 wasn’t luck. It was the culmination of thousands of hours of practice, hundreds of high-pressure moments, and a lifetime of refusing to back down.\nThe rest? That’s just history.",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Last Shot"
+    ]
+  },
+  {
+    "objectID": "chapters/jordan.html#key-takeaways",
+    "href": "chapters/jordan.html#key-takeaways",
+    "title": "The Last Shot",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\n\n\n\n\n\n\nWhat Jordan Teaches Us About Decision-Making\n\n\n\n\nEmbrace pressure - High-stakes moments aren’t obstacles; they’re opportunities\nUse failure as fuel - Every miss is data for your next make\nPrepare relentlessly - Clutch performance is built in practice, not in the moment\nTrust your preparation - When the moment comes, don’t think—execute\nWant the ball - Champions demand responsibility, not avoid it",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Last Shot"
+    ]
+  },
+  {
+    "objectID": "chapters/jordan.html#references",
+    "href": "chapters/jordan.html#references",
+    "title": "The Last Shot",
+    "section": "References",
+    "text": "References\n\nJordan, M. (1998). I Can’t Accept Not Trying: Michael Jordan on the Pursuit of Excellence. HarperCollins.\nSmith, S. (1995). The Jordan Rules. Pocket Books.\nHalberstam, D. (1999). Playing for Keeps: Michael Jordan and the World He Made. Random House.\nBasketball Reference: Michael Jordan Career Stats",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Last Shot"
+    ]
+  },
+  {
+    "objectID": "chapters/kobe.html",
+    "href": "chapters/kobe.html",
+    "title": "Mamba Mentality",
+    "section": "",
+    "text": "“The moment you give up is the moment you let someone else win.” – Kobe Bryant",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "Mamba Mentality"
+    ]
+  },
+  {
+    "objectID": "chapters/kobe.html#the-relentless-path-to-mastery",
+    "href": "chapters/kobe.html#the-relentless-path-to-mastery",
+    "title": "Mamba Mentality",
+    "section": "The Relentless Path to Mastery",
+    "text": "The Relentless Path to Mastery\nKobe Bryant didn’t believe in shortcuts. While other kids slept, he practiced. While teammates rested, he studied film. His 4 a.m. workouts became legendary—not because they were extreme, but because they were consistent.\nThe Mamba Mentality wasn’t about talent. It was about refusing to be outworked.",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "Mamba Mentality"
+    ]
+  },
+  {
+    "objectID": "chapters/kobe.html#work-ethic-isnt-glamorous",
+    "href": "chapters/kobe.html#work-ethic-isnt-glamorous",
+    "title": "Mamba Mentality",
+    "section": "Work Ethic Isn’t Glamorous",
+    "text": "Work Ethic Isn’t Glamorous\nThe stories of Kobe’s work ethic are almost mythological: making 400 shots before practice, watching film of his opponents’ tendencies, learning footwork from Hakeem Olajuwon during offseasons.\n\n\n\n\nKobe’s shot selection evolved across his career phases",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "Mamba Mentality"
+    ]
+  },
+  {
+    "objectID": "chapters/kobe.html#reinvention-is-survival",
+    "href": "chapters/kobe.html#reinvention-is-survival",
+    "title": "Mamba Mentality",
+    "section": "Reinvention is Survival",
+    "text": "Reinvention is Survival\nWhen age stole his athleticism, Kobe adapted. He became a post-up threat, a three-point shooter, a facilitator. The torn Achilles that ended most careers became another obstacle to overcome.\n\n\n\n\nKobe maintained elite scoring across different phases of his career",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "Mamba Mentality"
+    ]
+  },
+  {
+    "objectID": "chapters/kobe.html#the-81-point-game",
+    "href": "chapters/kobe.html#the-81-point-game",
+    "title": "Mamba Mentality",
+    "section": "The 81-Point Game",
+    "text": "The 81-Point Game\nOn January 22, 2006, Kobe scored 81 points against the Toronto Raptors—the second-highest single-game total in NBA history. It wasn’t just scoring; it was a statement about what’s possible when preparation meets opportunity.\n\n\n\nAchievement\nValue\n\n\n\n\nCareer Points\n33,643\n\n\nChampionships\n5\n\n\nMVPs\n1\n\n\nAll-Star Games\n18\n\n\n60+ Point Games\n6\n\n\n81-Point Game\nYes\n\n\n\n\n\n\n\n\n\nLessons from Mamba Mentality\n\n\n\n\nOutwork everyone - Talent is common; elite work ethic is rare\nStudy obsessively - Kobe knew his opponents better than they knew themselves\nAdapt or fade - He reinvented his game multiple times\nEmbrace pressure - Big moments were opportunities, not obstacles",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "Mamba Mentality"
+    ]
+  },
+  {
+    "objectID": "chapters/kobe.html#references",
+    "href": "chapters/kobe.html#references",
+    "title": "Mamba Mentality",
+    "section": "References",
+    "text": "References\n\nBryant, K. (2018). The Mamba Mentality: How I Play. MCD.\nBasketball Reference: Kobe Bryant Career Stats",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "Mamba Mentality"
+    ]
+  },
+  {
+    "objectID": "chapters/hakeem.html",
+    "href": "chapters/hakeem.html",
+    "title": "The Dream’s Blueprint",
+    "section": "",
+    "text": "“Defense is all about helping, recovery, and rotation.” – Hakeem Olajuwon",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "The Dream's Blueprint"
+    ]
+  },
+  {
+    "objectID": "chapters/hakeem.html#the-accidental-basketball-player",
+    "href": "chapters/hakeem.html#the-accidental-basketball-player",
+    "title": "The Dream’s Blueprint",
+    "section": "The Accidental Basketball Player",
+    "text": "The Accidental Basketball Player\nHakeem Olajuwon didn’t pick up a basketball until he was 17. A soccer goalkeeper in Nigeria, he had footwork that would become legendary—but in basketball, it was foreign.\nHis late start became his superpower. Without ingrained habits, Hakeem could build his game from scratch, focusing obsessively on fundamentals that others took for granted.",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "The Dream's Blueprint"
+    ]
+  },
+  {
+    "objectID": "chapters/hakeem.html#the-dream-shake-and-the-illusion-of-effortlessness",
+    "href": "chapters/hakeem.html#the-dream-shake-and-the-illusion-of-effortlessness",
+    "title": "The Dream’s Blueprint",
+    "section": "The Dream Shake and the Illusion of Effortlessness",
+    "text": "The Dream Shake and the Illusion of Effortlessness\nThe “Dream Shake” was a series of post moves so fluid that defenders seemed to be moving through water. But that fluidity came from thousands of hours of practice, perfecting footwork patterns that originated on soccer fields in Lagos.\n\n\n\n\nHakeem’s two-way dominance: elite scoring AND elite defense",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "The Dream's Blueprint"
+    ]
+  },
+  {
+    "objectID": "chapters/hakeem.html#defense-the-silent-dominance",
+    "href": "chapters/hakeem.html#defense-the-silent-dominance",
+    "title": "The Dream’s Blueprint",
+    "section": "Defense: The Silent Dominance",
+    "text": "Defense: The Silent Dominance\nHakeem is the NBA’s all-time leader in blocked shots with 3,830. But his defensive impact went beyond blocks—he altered thousands more shots and anchored Houston’s championship defenses.\n\n\n\n\nHakeem’s career blocks total remains unmatched",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "The Dream's Blueprint"
+    ]
+  },
+  {
+    "objectID": "chapters/hakeem.html#mastery-requires-focus",
+    "href": "chapters/hakeem.html#mastery-requires-focus",
+    "title": "The Dream’s Blueprint",
+    "section": "Mastery Requires Focus",
+    "text": "Mastery Requires Focus\nDuring Ramadan, Hakeem fasted from sunrise to sunset—even during games. His performance during these periods was remarkably consistent, proving that mental discipline could transcend physical limitations.",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "The Dream's Blueprint"
+    ]
+  },
+  {
+    "objectID": "chapters/hakeem.html#the-back-to-back-championships",
+    "href": "chapters/hakeem.html#the-back-to-back-championships",
+    "title": "The Dream’s Blueprint",
+    "section": "The Back-to-Back Championships",
+    "text": "The Back-to-Back Championships\nIn 1994 and 1995, Hakeem led the Rockets to consecutive championships, winning Finals MVP both times. The 1995 playoff run was particularly remarkable—Houston became the first team to defeat four 50-win teams in a single postseason.\n\n\n\nAchievement\nValue\n\n\n\n\nChampionships\n2\n\n\nFinals MVPs\n2\n\n\nMVP Awards\n1\n\n\nCareer Blocks\n3,830 (Record)\n\n\nQuadruple-Doubles\n2\n\n\n\n\n\n\n\n\n\nLessons from The Dream’s Blueprint\n\n\n\n\nMaster the fundamentals - Hakeem’s footwork was built from scratch and became legendary\nDefense wins championships - His rim protection anchored two title teams\nLate starts aren’t disadvantages - Beginning at 17 let him build without bad habits\nMental discipline matters - Fasting during Ramadan didn’t slow him down",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "The Dream's Blueprint"
+    ]
+  },
+  {
+    "objectID": "chapters/hakeem.html#references",
+    "href": "chapters/hakeem.html#references",
+    "title": "The Dream’s Blueprint",
+    "section": "References",
+    "text": "References\n\nOlajuwon, H. (1996). Living the Dream. Little, Brown and Company.\nBasketball Reference: Hakeem Olajuwon Career Stats",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "The Dream's Blueprint"
+    ]
+  },
+  {
+    "objectID": "chapters/magic.html",
+    "href": "chapters/magic.html",
+    "title": "The Invisible Hand of Greatness",
+    "section": "",
+    "text": "“Ask not what your teammates can do for you. Ask what you can do for your teammates.” – Magic Johnson",
+    "crumbs": [
+      "Introduction",
+      "Leadership",
+      "The Invisible Hand of Greatness"
+    ]
+  },
+  {
+    "objectID": "chapters/magic.html#the-magical-rookie",
+    "href": "chapters/magic.html#the-magical-rookie",
+    "title": "The Invisible Hand of Greatness",
+    "section": "The Magical Rookie",
+    "text": "The Magical Rookie\nOn May 16, 1980, a 20-year-old rookie did something that had never been done before and has never been done since. With Kareem Abdul-Jabbar injured and the Lakers’ championship hopes in jeopardy, Magic Johnson started at center in Game 6 of the NBA Finals—and scored 42 points, grabbed 15 rebounds, and dished 7 assists.\nThe Lakers won the championship. Magic won Finals MVP as a rookie. It was the announcement that basketball had a new kind of leader.\n\n\n\n\nMagic’s assist numbers were unprecedented for a player of his size",
+    "crumbs": [
+      "Introduction",
+      "Leadership",
+      "The Invisible Hand of Greatness"
+    ]
+  },
+  {
+    "objectID": "chapters/magic.html#the-smile-that-changed-a-team",
+    "href": "chapters/magic.html#the-smile-that-changed-a-team",
+    "title": "The Invisible Hand of Greatness",
+    "section": "The Smile That Changed a Team",
+    "text": "The Smile That Changed a Team\nMagic didn’t lead through intimidation or intensity. He led through joy. His smile was contagious, his enthusiasm infectious. He made the game look fun—because for him, it was.\nBut don’t mistake joy for softness. Magic was one of the fiercest competitors in NBA history. He just expressed it differently.",
+    "crumbs": [
+      "Introduction",
+      "Leadership",
+      "The Invisible Hand of Greatness"
+    ]
+  },
+  {
+    "objectID": "chapters/magic.html#making-the-team-shine",
+    "href": "chapters/magic.html#making-the-team-shine",
+    "title": "The Invisible Hand of Greatness",
+    "section": "Making the Team Shine",
+    "text": "Making the Team Shine\nMagic’s career statistics tell only part of the story. The real measure of his impact was what happened to his teammates when they played alongside him.\n\n\n\n\nMagic’s versatility: scoring, rebounding, AND playmaking\n\n\n\n\n\nAchievement\nValue\n\n\n\n\nCareer Assists\n10,141\n\n\nTriple-Doubles\n138\n\n\nChampionships\n5\n\n\nFinals MVPs\n3\n\n\nMVP Awards\n3\n\n\n\n\n\n\n\n\n\nLessons from Magic’s Leadership\n\n\n\n\nElevate others - The best leaders make everyone around them better\nJoy is contagious - Positive energy transforms team culture\nVersatility wins - Being able to play any position made Magic invaluable\nRise to the moment - His Game 6 performance showed what’s possible under pressure",
+    "crumbs": [
+      "Introduction",
+      "Leadership",
+      "The Invisible Hand of Greatness"
+    ]
+  },
+  {
+    "objectID": "chapters/magic.html#references",
+    "href": "chapters/magic.html#references",
+    "title": "The Invisible Hand of Greatness",
+    "section": "References",
+    "text": "References\n\nJohnson, E. & Bird, L. (2009). When the Game Was Ours. Houghton Mifflin Harcourt.\nBasketball Reference: Magic Johnson Career Stats",
+    "crumbs": [
+      "Introduction",
+      "Leadership",
+      "The Invisible Hand of Greatness"
+    ]
+  },
+  {
+    "objectID": "chapters/bird.html",
+    "href": "chapters/bird.html",
+    "title": "The Fast Mind That Saw It All",
+    "section": "",
+    "text": "“First master the fundamentals.” – Larry Bird",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Fast Mind That Saw It All"
+    ]
+  },
+  {
+    "objectID": "chapters/bird.html#playing-chess-while-others-played-checkers",
+    "href": "chapters/bird.html#playing-chess-while-others-played-checkers",
+    "title": "The Fast Mind That Saw It All",
+    "section": "Playing Chess While Others Played Checkers",
+    "text": "Playing Chess While Others Played Checkers\nLarry Bird wasn’t the fastest player on the court. He couldn’t jump the highest or run the longest. What he could do was think—faster, deeper, and more strategically than anyone else.\nIn an era dominated by explosive athleticism, Bird proved that the mind could be the ultimate weapon. His basketball IQ wasn’t just high; it was transcendent.",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Fast Mind That Saw It All"
+    ]
+  },
+  {
+    "objectID": "chapters/bird.html#the-game-before-the-game",
+    "href": "chapters/bird.html#the-game-before-the-game",
+    "title": "The Fast Mind That Saw It All",
+    "section": "The Game Before the Game",
+    "text": "The Game Before the Game\nBird famously arrived hours before games to walk the court, feeling the rims, testing the floor, understanding the arena. While others relied on instinct, Bird relied on preparation.\n\n\n\n\nBird’s scoring peaked during his three consecutive MVP seasons (1984-86)",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Fast Mind That Saw It All"
+    ]
+  },
+  {
+    "objectID": "chapters/bird.html#the-art-of-seeing-the-floor",
+    "href": "chapters/bird.html#the-art-of-seeing-the-floor",
+    "title": "The Fast Mind That Saw It All",
+    "section": "The Art of Seeing the Floor",
+    "text": "The Art of Seeing the Floor\nBird’s passing was legendary because he saw plays developing before they happened. His 5,695 career assists—remarkable for a forward—came from an almost supernatural court vision.\n\n\n\n\nBird was a true triple-threat: scoring, rebounding, and playmaking\n\n\n\n\n\n\n\n\nThe Left-Handed Game\n\n\n\nIn a regular season game, Bird scored 47 points shooting exclusively with his left hand—just to prove he could. That’s the confidence of a player who had already mastered the fundamentals.",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Fast Mind That Saw It All"
+    ]
+  },
+  {
+    "objectID": "chapters/bird.html#the-weight-of-the-moment",
+    "href": "chapters/bird.html#the-weight-of-the-moment",
+    "title": "The Fast Mind That Saw It All",
+    "section": "The Weight of the Moment",
+    "text": "The Weight of the Moment\nIn clutch situations, Bird elevated his game. His performances in the 1984 and 1986 Finals showed a player who thrived under pressure, making the difficult look routine.\n\n\n\nAchievement\nValue\n\n\n\n\nCareer PPG\n24.3\n\n\nChampionships\n3\n\n\nFinals MVPs\n2\n\n\nMVP Awards\n3 (consecutive)\n\n\nAll-Star Games\n12",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Fast Mind That Saw It All"
+    ]
+  },
+  {
+    "objectID": "chapters/bird.html#when-thinking-beats-talent",
+    "href": "chapters/bird.html#when-thinking-beats-talent",
+    "title": "The Fast Mind That Saw It All",
+    "section": "When Thinking Beats Talent",
+    "text": "When Thinking Beats Talent\nBird’s career teaches us that preparation and intelligence can overcome physical limitations. He studied opponents obsessively, anticipated plays before they happened, and always found the angle others missed.\n\n\n\n\n\n\nLessons from Bird’s Approach\n\n\n\n\nPreparation creates opportunity - Arriving early gave Bird edges others never found\nCourt vision is a skill - Seeing the game differently is learnable through study\nConfidence comes from mastery - His trash talk was backed by relentless practice\nThink two plays ahead - Bird’s passes arrived before defenders could react",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Fast Mind That Saw It All"
+    ]
+  },
+  {
+    "objectID": "chapters/bird.html#references",
+    "href": "chapters/bird.html#references",
+    "title": "The Fast Mind That Saw It All",
+    "section": "References",
+    "text": "References\n\nMacMullan, J. (2018). When the Game Was Ours. Houghton Mifflin Harcourt.\nBasketball Reference: Larry Bird Career Stats",
+    "crumbs": [
+      "Introduction",
+      "Decision-Making",
+      "The Fast Mind That Saw It All"
+    ]
+  },
+  {
+    "objectID": "chapters/curry.html",
+    "href": "chapters/curry.html",
+    "title": "The Gravity of Greatness",
+    "section": "",
+    "text": "“I want to practice to the point where it’s almost uncomfortable how fast you shoot, so releasing it in the game is easier.” – Stephen Curry",
+    "crumbs": [
+      "Introduction",
+      "Leadership",
+      "The Gravity of Greatness"
+    ]
+  },
+  {
+    "objectID": "chapters/curry.html#be-different",
+    "href": "chapters/curry.html#be-different",
+    "title": "The Gravity of Greatness",
+    "section": "Be Different",
+    "text": "Be Different\nStephen Curry didn’t just change how the game is played. He changed how it’s imagined. Shots that were once considered reckless are now routine. Ranges that were deemed impossible are now expected.\nCurry proved that the impossible is just the unexplored.",
+    "crumbs": [
+      "Introduction",
+      "Leadership",
+      "The Gravity of Greatness"
+    ]
+  },
+  {
+    "objectID": "chapters/curry.html#the-risk-that-changed-everything",
+    "href": "chapters/curry.html#the-risk-that-changed-everything",
+    "title": "The Gravity of Greatness",
+    "section": "The Risk That Changed Everything",
+    "text": "The Risk That Changed Everything\nIn 2015-16, Curry made 402 three-pointers—shattering the previous record of 286. He did it while leading the Warriors to a 73-9 record, the best in NBA history.\n\n\n\n\nThe NBA’s three-point revolution correlates directly with Curry’s rise",
+    "crumbs": [
+      "Introduction",
+      "Leadership",
+      "The Gravity of Greatness"
+    ]
+  },
+  {
+    "objectID": "chapters/curry.html#the-power-of-movement",
+    "href": "chapters/curry.html#the-power-of-movement",
+    "title": "The Gravity of Greatness",
+    "section": "The Power of Movement",
+    "text": "The Power of Movement\nCurry’s true innovation isn’t his shooting—it’s his gravity. When he’s on the court, defenders must account for him everywhere. This creates space for teammates, even when Curry doesn’t have the ball.\n\n\n\n\nCurry’s shooting range extends far beyond the traditional three-point line\n\n\n\n\n\nCareer Achievement\nValue\n\n\n\n\nCareer 3-Pointers\n3,700+ (All-time leader)\n\n\nSingle Season 3PM\n402 (Record)\n\n\nChampionships\n4\n\n\nMVP Awards\n2 (First unanimous)\n\n\nScoring Titles\n2\n\n\n\n\n\n\n\n\n\nLessons from Curry’s Innovation\n\n\n\n\nChallenge conventional wisdom - The “bad shot” became his signature\nCreate gravity - Your mere presence can open opportunities for others\nPractice beyond comfort - Curry’s range comes from relentless preparation\nJoy elevates performance - His visible enjoyment inspires teammates",
+    "crumbs": [
+      "Introduction",
+      "Leadership",
+      "The Gravity of Greatness"
+    ]
+  },
+  {
+    "objectID": "chapters/curry.html#references",
+    "href": "chapters/curry.html#references",
+    "title": "The Gravity of Greatness",
+    "section": "References",
+    "text": "References\n\nThompson, M. (2017). Golden: The Miraculous Rise of Steph Curry. Touchstone.\nBasketball Reference: Stephen Curry Career Stats",
+    "crumbs": [
+      "Introduction",
+      "Leadership",
+      "The Gravity of Greatness"
+    ]
+  },
+  {
+    "objectID": "chapters/intro.html",
+    "href": "chapters/intro.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "In 1997, when I was ten years old, my cousin handed me a basketball and taught me the game. That simple act introduced me to a world of sports, competition, creativity, and resilience that has shaped how I think about life. For years, I spent countless hours on the court and in front of the screen, mesmerized by players who made the extraordinary look effortless.\nSome memories of the game are seared into my mind. The 2006 and 2016 NBA Finals weren’t just sporting events—they were epics of resilience and grit. They taught me that in basketball, as in life, no challenge is insurmountable, and no deficit is final.\nAs adulthood demanded more of my time, my relationship with basketball changed. In 2012, I began my career as a management consultant, and while the game I loved took a backseat, my passion for it never faded. I kept following the NBA as it evolved, witnessing players like Stephen Curry redefine what it means to be great.\nBut as the years went by, I started seeing basketball differently. My work taught me to uncover patterns, analyze decisions, and tell stories using data. I began applying those skills to the sport, exploring the wealth of data that now surrounds the NBA. What I found were fascinating insights into the decisions, trade-offs, and judgment calls that separate the good from the great.\nThis book, Bounce Back, grew out of that exploration.",
+    "crumbs": [
+      "Introduction",
+      "Getting Started",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "chapters/intro.html#the-12-disciples-of-greatness",
+    "href": "chapters/intro.html#the-12-disciples-of-greatness",
+    "title": "Introduction",
+    "section": "The 12 Disciples of Greatness",
+    "text": "The 12 Disciples of Greatness\nAt its core, Bounce Back is a study of decision-making, resilience, and mastery through the lens of basketball’s greatest players—what I call the “12 disciples” of greatness. Each player has a story to tell, a lesson to share, and a legacy to inspire.\nThe book is structured into three themes, each capturing a crucial aspect of greatness:\n\n1. The Art of Decision-Making\nGreatness begins with decisions. Whether it’s choosing when to take the shot, how to adapt to changing circumstances, or outthinking the opposition, these moments define a career.\n\n\n\nPlayer\nChapter\nTheme\n\n\n\n\nLeBron James\nThe King of Adaptability\nHow a superstar evolves and transforms to remain relevant\n\n\nMichael Jordan\nThe Last Shot\nUncanny ability to rise when it mattered most\n\n\nKevin Durant\nThe Shape-Shifter\nThe courage to reinvent oneself\n\n\nLarry Bird\nThe Fast Mind\nHow basketball IQ rivals athleticism\n\n\n\n\n\n2. Leadership and Team Dynamics\nBasketball is a team sport, and no player achieves greatness alone. The best understand how to lead, inspire, and elevate those around them.\n\n\n\nPlayer\nChapter\nTheme\n\n\n\n\nMagic Johnson\nThe Invisible Hand\nThe power of putting the team first\n\n\nTim Duncan\nFoundation of Greatness\nQuiet leadership that built a dynasty\n\n\nBill Russell\nThe Invisible Scoreboard\nThe essence of teamwork and sacrifice\n\n\nStephen Curry\nGravity of Greatness\nHow creativity and risk-taking reshaped an era\n\n\n\n\n\n3. Mastery and the Pursuit of Greatness\nBeyond leadership and decision-making lies mastery—the relentless drive to perfect one’s craft and dominate the game.\n\n\n\nPlayer\nChapter\nTheme\n\n\n\n\nKareem Abdul-Jabbar\nThe Infinite Game\nHow reinvention fuels longevity\n\n\nKobe Bryant\nMamba Mentality\nA story of obsession and dedication\n\n\nShaquille O’Neal\nThe Sledgehammer Effect\nCapitalizing on one’s unique gifts\n\n\nHakeem Olajuwon\nThe Dream’s Blueprint\nThe beauty in perfecting the basics",
+    "crumbs": [
+      "Introduction",
+      "Getting Started",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "chapters/intro.html#beyond-basketball",
+    "href": "chapters/intro.html#beyond-basketball",
+    "title": "Introduction",
+    "section": "Beyond Basketball",
+    "text": "Beyond Basketball\nThrough these stories, we’ll explore how the principles that make players great on the court also apply off the court—to business, relationships, and life itself. The lessons go beyond the stat sheets and highlight the decisions, sacrifices, and mindsets that separate the exceptional from the merely good.\n\n\n\n\n\n\nA Note on the Data\n\n\n\nThis book combines narrative storytelling with data analysis. Where possible, I’ve used shot data, career statistics, and game logs to illustrate the patterns behind greatness. The visualizations are built using R and the Highcharter library, with code available in Appendix C: The Cookbook.\n\n\nIn basketball, the score resets every game. Life doesn’t offer that luxury, but the principles of resilience, judgment, and mastery remain universal.\nThis book is not just for basketball fans. It’s for anyone who’s faced challenges, made tough decisions, or sought to bounce back stronger.\nWelcome to Bounce Back. Let’s begin.",
+    "crumbs": [
+      "Introduction",
+      "Getting Started",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "chapters/intro.html#how-to-navigate-this-book",
+    "href": "chapters/intro.html#how-to-navigate-this-book",
+    "title": "Introduction",
+    "section": "How to Navigate This Book",
+    "text": "How to Navigate This Book\n\nRead linearly: Start with Decision-Making, move to Leadership, and finish with Mastery\nJump to your favorite player: Each chapter stands on its own\nExplore the appendices: Learn about the data analysis methods and create your own visualizations\n\n\n\n\n\n\n\nGet Started\n\n\n\nReady to begin? Start with LeBron James: The King of Adaptability to see how the greatest adapt to change.",
+    "crumbs": [
+      "Introduction",
+      "Getting Started",
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "chapters/russell.html",
+    "href": "chapters/russell.html",
+    "title": "The Invisible Scoreboard",
+    "section": "",
+    "text": "“The most important measure of how good a game I played was how much better I’d made my teammates play.” – Bill Russell",
+    "crumbs": [
+      "Introduction",
+      "Leadership",
+      "The Invisible Scoreboard"
+    ]
+  },
+  {
+    "objectID": "chapters/russell.html#the-invisible-scoreboard",
+    "href": "chapters/russell.html#the-invisible-scoreboard",
+    "title": "The Invisible Scoreboard",
+    "section": "The Invisible Scoreboard",
+    "text": "The Invisible Scoreboard\nBill Russell won 11 NBA championships in 13 seasons. That’s not a typo. Eleven. In thirteen years.\nYet if you only looked at his scoring statistics, you might wonder what the fuss was about. Russell averaged just 15.1 points per game for his career—modest by superstar standards.\nThe difference was that Russell measured success by a different scoreboard—one that counted wins, not points.",
+    "crumbs": [
+      "Introduction",
+      "Leadership",
+      "The Invisible Scoreboard"
+    ]
+  },
+  {
+    "objectID": "chapters/russell.html#defense-wins-championships",
+    "href": "chapters/russell.html#defense-wins-championships",
+    "title": "The Invisible Scoreboard",
+    "section": "Defense Wins Championships",
+    "text": "Defense Wins Championships\nIn an era before blocks were officially tracked, Russell was estimated to have blocked over 8,000 shots in his career. He transformed defense from an afterthought into an art form.\n\n\n\n\nRussell’s 11 championships remain unmatched in NBA history",
+    "crumbs": [
+      "Introduction",
+      "Leadership",
+      "The Invisible Scoreboard"
+    ]
+  },
+  {
+    "objectID": "chapters/russell.html#the-team-first-mentality",
+    "href": "chapters/russell.html#the-team-first-mentality",
+    "title": "The Invisible Scoreboard",
+    "section": "The Team-First Mentality",
+    "text": "The Team-First Mentality\nRussell didn’t chase individual statistics. He chased wins. His rebounding wasn’t about padding numbers—it was about giving his teammates extra possessions.\n\n\n\n\nRussell’s rebounding was consistently dominant throughout his career",
+    "crumbs": [
+      "Introduction",
+      "Leadership",
+      "The Invisible Scoreboard"
+    ]
+  },
+  {
+    "objectID": "chapters/russell.html#leadership-under-pressure",
+    "href": "chapters/russell.html#leadership-under-pressure",
+    "title": "The Invisible Scoreboard",
+    "section": "Leadership Under Pressure",
+    "text": "Leadership Under Pressure\nRussell was 10-0 in Game 7s. Perfect. When everything was on the line, Russell delivered—not with heroic shots, but with smothering defense, timely rebounds, and plays that don’t show up in box scores.\n\n\n\nAchievement\nValue\n\n\n\n\nChampionships\n11\n\n\nMVP Awards\n5\n\n\nGame 7 Record\n10-0\n\n\nCareer Rebounds\n21,620\n\n\nAll-Star Games\n12\n\n\n\n\n\n\n\n\n\nLessons from Russell’s Invisible Impact\n\n\n\n\nRedefine success metrics - Wins matter more than individual stats\nMake others better - Russell’s presence elevated his entire team\nDefense is a mindset - He turned it into a weapon, not a chore\nShow up in big moments - His Game 7 record speaks for itself",
+    "crumbs": [
+      "Introduction",
+      "Leadership",
+      "The Invisible Scoreboard"
+    ]
+  },
+  {
+    "objectID": "chapters/russell.html#references",
+    "href": "chapters/russell.html#references",
+    "title": "The Invisible Scoreboard",
+    "section": "References",
+    "text": "References\n\nRussell, B. & Branch, T. (1979). Second Wind: The Memoirs of an Opinionated Man. Random House.\nBasketball Reference: Bill Russell Career Stats",
+    "crumbs": [
+      "Introduction",
+      "Leadership",
+      "The Invisible Scoreboard"
+    ]
+  },
+  {
+    "objectID": "chapters/shaq.html",
+    "href": "chapters/shaq.html",
+    "title": "The Sledgehammer Effect",
+    "section": "",
+    "text": "“I’m like the Pythagorean theorem. Not too many people know the answer to my game.” – Shaquille O’Neal",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "The Sledgehammer Effect"
+    ]
+  },
+  {
+    "objectID": "chapters/shaq.html#dominance-personified",
+    "href": "chapters/shaq.html#dominance-personified",
+    "title": "The Sledgehammer Effect",
+    "section": "Dominance Personified",
+    "text": "Dominance Personified\nAt 7’1” and 325 pounds, Shaquille O’Neal was a force of nature. He didn’t play basketball so much as impose his will upon it. Defenders didn’t stop Shaq—they just tried to survive him.\nShaq proved that when you’re truly great at something, you don’t need to be good at everything.",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "The Sledgehammer Effect"
+    ]
+  },
+  {
+    "objectID": "chapters/shaq.html#the-hammer-of-the-paint",
+    "href": "chapters/shaq.html#the-hammer-of-the-paint",
+    "title": "The Sledgehammer Effect",
+    "section": "The Hammer of the Paint",
+    "text": "The Hammer of the Paint\nShaq’s dominance in the paint was so complete that the NBA changed rules because of him. Defensive three-second violations, hand-checking rules—all attempts to give defenders a fighting chance.\n\n\n\n\nShaq’s shot distribution was overwhelmingly in the paint",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "The Sledgehammer Effect"
+    ]
+  },
+  {
+    "objectID": "chapters/shaq.html#the-cracks-in-the-hammer",
+    "href": "chapters/shaq.html#the-cracks-in-the-hammer",
+    "title": "The Sledgehammer Effect",
+    "section": "The Cracks in the Hammer",
+    "text": "The Cracks in the Hammer\nFor all his dominance, Shaq had a glaring weakness: free throws. His career 52.7% from the line was so poor that “Hack-a-Shaq” became a legitimate strategy.\nBut here’s the thing: his weakness made him relatable. His humor about it made him lovable. Shaq understood that perfection isn’t required for greatness.\n\n\n\n\nShaq’s prime years with the Lakers were historically dominant",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "The Sledgehammer Effect"
+    ]
+  },
+  {
+    "objectID": "chapters/shaq.html#the-three-peat",
+    "href": "chapters/shaq.html#the-three-peat",
+    "title": "The Sledgehammer Effect",
+    "section": "The Three-Peat",
+    "text": "The Three-Peat\nFrom 2000-2002, Shaq and Kobe delivered three consecutive championships. Shaq won Finals MVP all three times, averaging 36 points and 12 rebounds across those Finals.\n\n\n\nAchievement\nValue\n\n\n\n\nChampionships\n4\n\n\nFinals MVPs\n3\n\n\nMVP Awards\n1\n\n\nCareer PPG\n23.7\n\n\nCareer RPG\n10.9\n\n\n\n\n\n\n\n\n\nLessons from the Sledgehammer\n\n\n\n\nMaximize your strengths - Shaq didn’t need a jump shot; he needed to dominate the paint\nEmbrace your flaws - His free throw struggles didn’t stop him from being unstoppable\nBe authentic - His personality made him as beloved off the court as on it\nForce adaptation - He was so dominant that the league changed its rules",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "The Sledgehammer Effect"
+    ]
+  },
+  {
+    "objectID": "chapters/shaq.html#references",
+    "href": "chapters/shaq.html#references",
+    "title": "The Sledgehammer Effect",
+    "section": "References",
+    "text": "References\n\nO’Neal, S. (2011). Shaq Uncut: My Story. Grand Central Publishing.\nBasketball Reference: Shaquille O’Neal Career Stats",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "The Sledgehammer Effect"
+    ]
+  },
+  {
+    "objectID": "chapters/kareem.html",
+    "href": "chapters/kareem.html",
+    "title": "The Skyhook and the Infinite Game",
+    "section": "",
+    "text": "“One man can be a crucial ingredient on a team, but one man cannot make a team.” – Kareem Abdul-Jabbar",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "The Skyhook and the Infinite Game"
+    ]
+  },
+  {
+    "objectID": "chapters/kareem.html#mastery-of-a-shot",
+    "href": "chapters/kareem.html#mastery-of-a-shot",
+    "title": "The Skyhook and the Infinite Game",
+    "section": "Mastery of a Shot",
+    "text": "Mastery of a Shot\nThe skyhook was basketball’s most unblockable shot. Released from a position where defenders simply couldn’t reach it, Kareem’s signature move carried him for 20 NBA seasons—the longest career of excellence the league had ever seen.\nKareem didn’t just play the game. He perfected one aspect of it so thoroughly that it became his alone.",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "The Skyhook and the Infinite Game"
+    ]
+  },
+  {
+    "objectID": "chapters/kareem.html#the-shot-that-couldnt-be-stopped",
+    "href": "chapters/kareem.html#the-shot-that-couldnt-be-stopped",
+    "title": "The Skyhook and the Infinite Game",
+    "section": "The Shot That Couldn’t Be Stopped",
+    "text": "The Shot That Couldn’t Be Stopped\nThe skyhook wasn’t natural—it was engineered. Kareem practiced it obsessively, understanding that a single, perfected weapon could be more valuable than a diverse but average arsenal.\n\n\n\n\nKareem maintained scoring production deep into his late 30s",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "The Skyhook and the Infinite Game"
+    ]
+  },
+  {
+    "objectID": "chapters/kareem.html#the-longevity-of-greatness",
+    "href": "chapters/kareem.html#the-longevity-of-greatness",
+    "title": "The Skyhook and the Infinite Game",
+    "section": "The Longevity of Greatness",
+    "text": "The Longevity of Greatness\nKareem won championships in the 1970s and 1980s. He was Finals MVP at age 38. His career spanned eras, teammates, and playing styles—and he adapted to all of them.\n\n\n\n\nKareem held the all-time scoring record for 39 years\n\n\n\n\n\nAchievement\nValue\n\n\n\n\nCareer Points\n38,387\n\n\nChampionships\n6\n\n\nMVP Awards\n6 (Record)\n\n\nFinals MVPs\n2\n\n\nAll-Star Games\n19\n\n\nSeasons Played\n20",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "The Skyhook and the Infinite Game"
+    ]
+  },
+  {
+    "objectID": "chapters/kareem.html#the-infinite-game",
+    "href": "chapters/kareem.html#the-infinite-game",
+    "title": "The Skyhook and the Infinite Game",
+    "section": "The Infinite Game",
+    "text": "The Infinite Game\nKareem understood that basketball careers are finite, but mastery is eternal. By perfecting the skyhook and maintaining his body, he extended his excellence far beyond what anyone thought possible.\n\n\n\n\n\n\nLessons from Kareem’s Infinite Game\n\n\n\n\nPerfect one thing - The skyhook alone made him unstoppable\nLongevity is a strategy - Taking care of his body extended his prime\nAdapt across eras - He won championships in two different decades\nPlay the long game - His approach was sustainable, not flashy",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "The Skyhook and the Infinite Game"
+    ]
+  },
+  {
+    "objectID": "chapters/kareem.html#references",
+    "href": "chapters/kareem.html#references",
+    "title": "The Skyhook and the Infinite Game",
+    "section": "References",
+    "text": "References\n\nAbdul-Jabbar, K. (2017). Becoming Kareem. Little, Brown Books.\nBasketball Reference: Kareem Abdul-Jabbar Career Stats",
+    "crumbs": [
+      "Introduction",
+      "Mastery",
+      "The Skyhook and the Infinite Game"
+    ]
+  },
+  {
+    "objectID": "appendices/entrepreneurship.html",
+    "href": "appendices/entrepreneurship.html",
+    "title": "The Entrepreneurial 3-Pointer",
+    "section": "",
+    "text": "“I’m not afraid to take it. I’ve been shooting that shot my whole life.” – Stephen Curry",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "The Entrepreneurial 3-Pointer"
+    ]
+  },
+  {
+    "objectID": "appendices/entrepreneurship.html#the-shot-no-one-wanted",
+    "href": "appendices/entrepreneurship.html#the-shot-no-one-wanted",
+    "title": "The Entrepreneurial 3-Pointer",
+    "section": "The Shot No One Wanted",
+    "text": "The Shot No One Wanted\nIn the early 2000s, the three-point shot was considered risky. Teams used it sparingly, as a last resort. The conventional wisdom was clear: get closer to the basket for a “better” shot.\nThen Stephen Curry arrived. He didn’t just take three-pointers—he built his entire game around them. What was once considered reckless became revolutionary.\nEntrepreneurship follows a similar path. What seems crazy to conventional wisdom often becomes the next paradigm shift.",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "The Entrepreneurial 3-Pointer"
+    ]
+  },
+  {
+    "objectID": "appendices/entrepreneurship.html#the-risk-reward-calculation",
+    "href": "appendices/entrepreneurship.html#the-risk-reward-calculation",
+    "title": "The Entrepreneurial 3-Pointer",
+    "section": "The Risk-Reward Calculation",
+    "text": "The Risk-Reward Calculation\nA three-pointer is worth 50% more than a two-pointer. If you shoot 35% from three, you score 1.05 points per attempt. To match that efficiency from two-point range, you’d need to shoot 52.5%.\n\n\n\n\nCurry’s three-point volume AND efficiency revolutionized the game\n\n\nSimilarly, entrepreneurship offers asymmetric returns. Most startups fail, but successful ones can return 10x, 100x, or even 1000x the initial investment.",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "The Entrepreneurial 3-Pointer"
+    ]
+  },
+  {
+    "objectID": "appendices/entrepreneurship.html#the-failure-rate",
+    "href": "appendices/entrepreneurship.html#the-failure-rate",
+    "title": "The Entrepreneurial 3-Pointer",
+    "section": "The Failure Rate",
+    "text": "The Failure Rate\nHere’s the uncomfortable truth about startups:\n\n\n\n\nMost startups don’t survive—but that doesn’t mean you shouldn’t try\n\n\nStephen Curry misses roughly 57% of his three-point attempts. But he keeps shooting because he understands expected value. Entrepreneurs must embrace the same mindset.",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "The Entrepreneurial 3-Pointer"
+    ]
+  },
+  {
+    "objectID": "appendices/entrepreneurship.html#practice-makes-permanent",
+    "href": "appendices/entrepreneurship.html#practice-makes-permanent",
+    "title": "The Entrepreneurial 3-Pointer",
+    "section": "Practice Makes Permanent",
+    "text": "Practice Makes Permanent\nCurry doesn’t just shoot—he trains with obsessive precision. His pre-game routine includes hundreds of shots from spots he’ll likely never use in the game. Why? Because when the moment comes, execution must be automatic.\n\n\n\n\nThe entire NBA followed Curry’s lead\n\n\nSimilarly, successful entrepreneurs don’t wing it. They study markets obsessively, test ideas relentlessly, and build skills before they’re needed.",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "The Entrepreneurial 3-Pointer"
+    ]
+  },
+  {
+    "objectID": "appendices/entrepreneurship.html#the-courage-to-take-the-shot",
+    "href": "appendices/entrepreneurship.html#the-courage-to-take-the-shot",
+    "title": "The Entrepreneurial 3-Pointer",
+    "section": "The Courage to Take the Shot",
+    "text": "The Courage to Take the Shot\nThe hardest part of shooting a three-pointer isn’t the physical act—it’s the decision to take it. The same is true for entrepreneurship. The mechanics of starting a business can be learned. The courage to try cannot be taught.\n\n\n\nThree-Point Shooting\nEntrepreneurship\n\n\n\n\n33% success rate\n~10% startup survival\n\n\n50% more valuable than 2PT\n10-100x potential returns\n\n\nRequires practice\nRequires preparation\n\n\nFear of missing\nFear of failure\n\n\nGame-changing when hot\nIndustry-disrupting when successful\n\n\n\n\n\n\n\n\n\nLessons for Entrepreneurs\n\n\n\n\nExpected value matters more than success rate - High-risk, high-reward strategies can be optimal\nPractice creates confidence - Preparation enables action when opportunity arrives\nFirst movers reshape markets - Curry changed how the entire league plays\nKeep shooting - Missing is part of the process\nBuild for the long term - Curry’s success came from years of development",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "The Entrepreneurial 3-Pointer"
+    ]
+  },
+  {
+    "objectID": "appendices/entrepreneurship.html#the-contagious-effect",
+    "href": "appendices/entrepreneurship.html#the-contagious-effect",
+    "title": "The Entrepreneurial 3-Pointer",
+    "section": "The Contagious Effect",
+    "text": "The Contagious Effect\nWhen Curry proved the three-pointer worked, the entire NBA followed. Teams that clung to mid-range strategies found themselves at a competitive disadvantage.\nThe same happens in business. When one company proves a new model works—think Uber, Airbnb, or Netflix—the entire industry must adapt or become obsolete.\nThe question isn’t whether to take the shot. It’s whether you’re willing to miss enough times to eventually make it.",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "The Entrepreneurial 3-Pointer"
+    ]
+  },
+  {
+    "objectID": "appendices/entrepreneurship.html#references",
+    "href": "appendices/entrepreneurship.html#references",
+    "title": "The Entrepreneurial 3-Pointer",
+    "section": "References",
+    "text": "References\n\nRies, E. (2011). The Lean Startup. Crown Business.\nThompson, M. (2017). Golden: The Miraculous Rise of Steph Curry. Touchstone.\nStartup survival statistics from Bureau of Labor Statistics and CB Insights",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "The Entrepreneurial 3-Pointer"
+    ]
+  },
+  {
+    "objectID": "appendices/prospect-theory.html",
+    "href": "appendices/prospect-theory.html",
+    "title": "The Psychology of the Perfect Shot Choice",
+    "section": "",
+    "text": "“I like criticism. It makes you strong.” – LeBron James",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "The Psychology of the Perfect Shot Choice"
+    ]
+  },
+  {
+    "objectID": "appendices/prospect-theory.html#the-science-of-decision-making",
+    "href": "appendices/prospect-theory.html#the-science-of-decision-making",
+    "title": "The Psychology of the Perfect Shot Choice",
+    "section": "The Science of Decision-Making",
+    "text": "The Science of Decision-Making\nIn 1979, psychologists Daniel Kahneman and Amos Tversky introduced Prospect Theory, a groundbreaking framework for understanding how humans make decisions under uncertainty. Their key insight: we don’t evaluate outcomes objectively—we evaluate them relative to a reference point.\nLeBron James’ shot selection provides a perfect case study for these principles in action.",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "The Psychology of the Perfect Shot Choice"
+    ]
+  },
+  {
+    "objectID": "appendices/prospect-theory.html#loss-aversion-on-the-court",
+    "href": "appendices/prospect-theory.html#loss-aversion-on-the-court",
+    "title": "The Psychology of the Perfect Shot Choice",
+    "section": "Loss Aversion on the Court",
+    "text": "Loss Aversion on the Court\nProspect Theory’s most famous finding is loss aversion: losses hurt roughly twice as much as equivalent gains feel good. This creates asymmetric decision-making.\nIn basketball, this manifests in fascinating ways: - Players protect leads more aggressively than they chase deficits - Late-game decisions become more conservative - High-stakes moments trigger risk-averse behavior\n\n\n\n\nLeBron’s efficiency varies across game situations",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "The Psychology of the Perfect Shot Choice"
+    ]
+  },
+  {
+    "objectID": "appendices/prospect-theory.html#reference-points-and-shot-selection",
+    "href": "appendices/prospect-theory.html#reference-points-and-shot-selection",
+    "title": "The Psychology of the Perfect Shot Choice",
+    "section": "Reference Points and Shot Selection",
+    "text": "Reference Points and Shot Selection\nKahneman and Tversky showed that our decisions depend heavily on our reference point—where we start from. For LeBron:\n\nWhen leading: His shot selection becomes more conservative (protecting the gain)\nWhen trailing: He takes higher-risk shots (seeking to recover the loss)\n\nThis isn’t irrational—it’s human psychology in action.\n\n\n\n\nLeBron’s shot selection reflects strategic decision-making",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "The Psychology of the Perfect Shot Choice"
+    ]
+  },
+  {
+    "objectID": "appendices/prospect-theory.html#the-certainty-effect",
+    "href": "appendices/prospect-theory.html#the-certainty-effect",
+    "title": "The Psychology of the Perfect Shot Choice",
+    "section": "The Certainty Effect",
+    "text": "The Certainty Effect\nProspect Theory also describes the certainty effect: we overweight outcomes that are certain relative to outcomes that are merely probable.\nIn basketball terms: - A guaranteed 2 points (easy layup) feels more valuable than a 50% chance at 3 points - Even though expected value favors the three-pointer (1.5 vs 2.0 points)\nLeBron’s evolution shows him learning to overcome this bias—taking more three-pointers as analytics proved their value.",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "The Psychology of the Perfect Shot Choice"
+    ]
+  },
+  {
+    "objectID": "appendices/prospect-theory.html#framing-effects-in-clutch-moments",
+    "href": "appendices/prospect-theory.html#framing-effects-in-clutch-moments",
+    "title": "The Psychology of the Perfect Shot Choice",
+    "section": "Framing Effects in Clutch Moments",
+    "text": "Framing Effects in Clutch Moments\nHow a situation is framed dramatically affects decision-making. Consider two scenarios:\n\n\n\n\n\n\n\n\nFrame\nSituation\nLikely Decision\n\n\n\n\n“Don’t lose the lead”\nUp by 3, 30 seconds left\nConservative, run clock\n\n\n“Win the game”\nSame situation\nAggressive, attack\n\n\n\nLeBron has mastered the art of reframing pressure moments. Rather than thinking “don’t miss,” he thinks “make the play.”",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "The Psychology of the Perfect Shot Choice"
+    ]
+  },
+  {
+    "objectID": "appendices/prospect-theory.html#the-data-behind-the-decisions",
+    "href": "appendices/prospect-theory.html#the-data-behind-the-decisions",
+    "title": "The Psychology of the Perfect Shot Choice",
+    "section": "The Data Behind the Decisions",
+    "text": "The Data Behind the Decisions\nLeBron’s career demonstrates sophisticated decision-making that aligns with—and sometimes transcends—Prospect Theory predictions:\n\n\n\n\nLeBron’s overall efficiency has remained remarkably stable\n\n\n\n\n\n\n\n\nLessons from Behavioral Economics\n\n\n\n\nRecognize your reference point - Are you playing to win or playing not to lose?\nOvercome loss aversion - The best decisions often require accepting short-term losses\nReframe pressure situations - “Opportunity” vs “threat” changes behavior\nTrust expected value - Analytics can overcome psychological biases\nAdapt over time - LeBron’s evolution shows the power of learning",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "The Psychology of the Perfect Shot Choice"
+    ]
+  },
+  {
+    "objectID": "appendices/prospect-theory.html#beyond-basketball",
+    "href": "appendices/prospect-theory.html#beyond-basketball",
+    "title": "The Psychology of the Perfect Shot Choice",
+    "section": "Beyond Basketball",
+    "text": "Beyond Basketball\nThese principles extend far beyond the court:\n\nInvesting: Loss aversion causes people to sell winners too early and hold losers too long\nCareer decisions: We overvalue job security (certainty) vs growth opportunities (probability)\nNegotiations: Framing as “gains” or “losses” dramatically shifts outcomes\n\nLeBron’s shot selection teaches us that great decision-makers understand their own psychology—and learn to work with it, not against it.",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "The Psychology of the Perfect Shot Choice"
+    ]
+  },
+  {
+    "objectID": "appendices/prospect-theory.html#references",
+    "href": "appendices/prospect-theory.html#references",
+    "title": "The Psychology of the Perfect Shot Choice",
+    "section": "References",
+    "text": "References\n\nKahneman, D. & Tversky, A. (1979). “Prospect Theory: An Analysis of Decision under Risk.” Econometrica.\nKahneman, D. (2011). Thinking, Fast and Slow. Farrar, Straus and Giroux.\nThaler, R. (2015). Misbehaving: The Making of Behavioral Economics. W.W. Norton.",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "The Psychology of the Perfect Shot Choice"
+    ]
+  },
+  {
+    "objectID": "appendices/cookbook.html",
+    "href": "appendices/cookbook.html",
+    "title": "Appendix C - The Highcharter Cookbook",
+    "section": "",
+    "text": "The below is a recreation and an update of the orginal HighCharter Cookbook by Tom Bishop available here: https://github.com/TMBish/MelbURN-highcharter .\nHere is also another great reference, from the creator of the highcharteR library : https://jkunst.com/blog/",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "Appendix C - The Highcharter Cookbook"
+    ]
+  },
+  {
+    "objectID": "appendices/cookbook.html#what-is-it",
+    "href": "appendices/cookbook.html#what-is-it",
+    "title": "Appendix C - The Highcharter Cookbook",
+    "section": "What is it?",
+    "text": "What is it?\nhighcharter is an R implementation of the highcharts javascript graphing API through R’s htmlwidgets. Most of the highcharts functionality is implemented through highcharter however the documentation is a little light. This guide will provide examples on how to create and customise various graphs whilst providing some tips on how to think about the package that will help you build and debug your more ambitious charts. I’ll try to show and explain (to the best of my knowledge) the most common graphs and customisation options I use in my day-to-day work. I assume you’re familiar with tidy data, dplyr, and R lists, as well as as simple understanding of the grammar of graphics (ggplot / aes()).\nHighcharts is a commercial product so you can’t add these charts to a commercial product (selling to customers) without purchasing a licence but non commercial use (internal organisation / research) comes under their free license.\nYour most important resources should be the highcharter official website, and the highcharts API documentation which you should bookmark in your browser:\n\nHighcharter Official Website\nHighcharts API Documentation\n\nAdditionally get into styling your charts so a few extra resources you might want bookmarked:\n\ncoolors for selecting colors\ngoogle fonts for selecting fonts\n\nAs you become more a more proficient highcharter user and your charting requirements become more complicated you will need to understand more about the complexities of the highcharts API and you might need to learn, read and write a little javascript. This learning curve is actually the best thing about highcharter: most basic charts are as easy to create as ggplot, whilst complex and beautiful charts are still achievable with enough thought and tinkering.",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "Appendix C - The Highcharter Cookbook"
+    ]
+  },
+  {
+    "objectID": "appendices/cookbook.html#why-and-why-use-it",
+    "href": "appendices/cookbook.html#why-and-why-use-it",
+    "title": "Appendix C - The Highcharter Cookbook",
+    "section": "Why and Why use it?",
+    "text": "Why and Why use it?\nhighcharter is a perfect compliment for ggplot2. Depending on your needs you it might not completely replace your use of that library, but it may. ggplot has a number of functional advantages over highcharter as it has simple implementations of reasonably complex chart types. I’d say I use highcharter for 90% of my day to day plots.\nIf you need to do any of the following or you’re a gun at making ggplots look presentable it’s I’d suggest using ggplot: * Semi-complicated facetting * Standard statistical layers / geoms like smooths and confidence intervals / error bars etc.",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "Appendix C - The Highcharter Cookbook"
+    ]
+  },
+  {
+    "objectID": "appendices/cookbook.html#getting-the-nba-data",
+    "href": "appendices/cookbook.html#getting-the-nba-data",
+    "title": "Appendix C - The Highcharter Cookbook",
+    "section": "Getting the NBA data",
+    "text": "Getting the NBA data\nI’ll be illustrating highcharter functionality with an NBA dataset I’ll get from the nbastatR package.\nWe’ll use the gamelogs (boxscores) from the most recent complete NBA season 2023-24:",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "Appendix C - The Highcharter Cookbook"
+    ]
+  },
+  {
+    "objectID": "appendices/cookbook.html#basic-charts",
+    "href": "appendices/cookbook.html#basic-charts",
+    "title": "Appendix C - The Highcharter Cookbook",
+    "section": "Basic Charts",
+    "text": "Basic Charts\n\nTidy Data\nMost (~90%) of your day-to-day charts can be probably written with 2-3 lines of code using the hchart and hcaes functions. These functions allow you to use the extremely powerful grammar of graphics to turn R data into interactive charts - functionality that isn’t implemented natively in R plotly for example. Like ggplot2 your data needs to be in tidy / long format so you’ll often need to use tidyr for some simple data pivotting before passing it to your highchart functions.\nA simple ggplot of the top 10 scorers in the NBA this year might look like the following:\n\n\n\n\n\n\n\n\n\nThis chart, let’s be honest here, looks awful. Ggplot needs to do a better job of creating pleasing default charts and themes to entice beginners. Ggplot has also chosen to alphabetize the players on the x-axis even though I specifically ordered the dataframe in descending points per game order, a reasonbaly challenging workaround is needed for an R beginner. Highcharter, on the other hand, creates readable, nice looking default charts that can be presented naturally in a widely used publishing format (a html page).\nHere’s the highcharter version of this plot which you’ll notice feels extremely similar to above:\n\n\n\n\n\n\nThis chart doesn’t look that nice, but there’s some notable format based advantages to the ggplot version:\n\nYou can interact with it - hover over it to see a (relatively ugly) tooltip\nIt’s dynamic - reduce the width of your browser window to see the chart react and replot as it tries to estimate the best way to present the data without it looking busy and cluttered\n\n\n\nChart Types\nThere are many chart types available in higcharts which you can see here however, I’ll go through simple calls for the most common chart types.\n\nColumn\n\n\n\n\n\n\n\n\nBar\n\n\n\n\n\n\n\n\nScatter\n\n\n\n\n\n\n\n\nBubble\n\n\n\n\n\n\n\n\nLine\n\n\n\n\n\n\n\n\nSpline\nSplines have smoothed edges\n\n\n\n\n\n\n\n\nArea\n\n\n\n\n\n\nThere is an areaspline (smoothed edges) too.\n\n\nTreemap\n\n\n\n\n\n\n\n\n\nLayering Elements\nAs you can see from the code for some of these charts highcharter is much like ggplot where charts are built with layers. The good thing about highchart layers is that they are layered with the pipe %&gt;% or ‘|&gt;’ operator rather than ggplots plus operator +. Layering is an excellent pattern for charting as chart objects can be passed further down scripts and altered / ammended by simply taking the current chart object and piping more layers onto it.\n\nLayering Series (geoms)\nLayering series onto the same chart works much like ggplot. It’s a little bet less natural as the data object must be supplied each time which prevents big long data into highcharter chains. The additional layers, added with hc_add_series() can be added with exactly the same pattern as your initial hchart() call. It’s good practice to name your series and you can specifically add them to the legend with the showInLegend option.\n\n\n\n\n\n\nSeries don’t have to be the same type either obviously",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "Appendix C - The Highcharter Cookbook"
+    ]
+  },
+  {
+    "objectID": "appendices/cookbook.html#understanding-the-api",
+    "href": "appendices/cookbook.html#understanding-the-api",
+    "title": "Appendix C - The Highcharter Cookbook",
+    "section": "Understanding The API",
+    "text": "Understanding The API\nThe most important thing to learn about this package is how the relatively undocumented R functions map onto the actual highcharts javascript library. The way these htmlwidgets packages work is consuming R dataframes and R instructions and turning them into the javascript code, that when embedded into your output html page, will display the particular chart you wanted to create.\nOnce you understand this concept you’ll no longer be limited by the package documnetation, or Josh Kunst’s highcharter showcase website. You’ll be able to build many, many different charts with near unlimited customisation.\nTo illustrate how to write R highcharter code from just the javascript API documentation we’ll isolate a relatively simple component: a chart’s y axis.\n\nA Simple Example\nTo customise a highcharter y axis you need to use the hc_yAxis() function. Let’s have a look at the documentation in R for that function.\n\nThere is some example customisation supplied in the examples which can be very helpful, but is still limited to a few examples.\n\nHowever, it might not click with you immediately what’s required or valid as an input for the hc_yAxis() function.\n\nHow do I know what arguments I can use for this function?\n\nThe answer is always the API documentation. Let’s check the actual highcharts API documentation for a highcharts y Axis. You can find it yourself here but a screen shot of the page looks like this:\n\nThe arguments in the green rectangle (there are more than shown) is an exhaustive list of the customisation options for a highcharts y Axis. There are nearly 50 different arguments for a y axis that will change the way your charts looks or works. You can use any of them (provided highcharter stays up to date) in your R function calls.\n\nThese don’t look like R arguments, how do I write then into my R function?\n\nThe highcharts javascript API is expecting a JSON packet to define all y axis options. In other words: some options are single strings, some are booleans, some are numbers, but some are arrays of numbers or strings, and some are more JSON packets. Highcharter will make conversion provided you supply the options as an appropriately structured and named R list. It’s easiest to see this in an example.\n\nSimple Arguments\nStarting simply using a couple of the simple boolean chart options we can adjust the gridLineWidth to 10 which will make the major grid lines extremely thick and change the dash style to “shortdash”. We know we can enter the string “shortdash” as a possible option for the grid line dash style because when we click on that option in the API documentation it links us to another page which shows us the valid options:\n\n\n\n\n\n\n\nWithout going to this page on the documentation we’d be completely in the dark about the valid values for gridLineDashStyle were. That’s why understanding this API documentation / highcharter link is the only way to use this package.\n\n\nNested Arguments\nYour most common form of axis customisation will be probably be the title and labels on the axis. Here’s the documentation for a Y axis title\n\nNotice the dropdown icons and nested arguments. They tell us that the axis title should be defined by it’s own JSON packet within the broader y axis configuration. Further any styling you want to add to the title should be another JSON packet (we’ll get to this part next). To correctly create this JSON packet in R we use named lists.\nWhen using the documentation all you should think is when I see a nested JSON packet with a dropdown marker / open curly braces I need to start a new R list.\n\n\n\n\n\n\nIt’s as simple as that. Any argument listed in the highcharts API documentation, whether it’s a simple string or number or another nested JSON packet, can be inserted into the appropriate R function call using the right syntax. Failure to name the arguments properly or nest the options appropriately won’t cause a fatal error for your chart (in most instances) the options just won’t be successfully added to the chart (this can be frustrating debugging at times tbh).\n\n\nStyle (CSS)\nThe style argument is a special case available on many highcharts components. In the documentation for y axis above, only color is listed as an option in the style section but it’s not nearly the only option.\nIf you’ve done a little bit more web coding you’ll know that what it’s referring to is CSS style. Any CSS property can be added to a highcharter component that has this style argument. In this case we’ll be defining the CSS properties to adjust on the chart title. A list of CSS properties can be found here.\nWhat to watch for here is that CSS properties are often hyphenated words (like font-weight) which won’t play perfectly nicely in R lists so you should define properties in your R lists with camel case version of these property names (eg. fontWeight). As an example we’ll make the chart title bold, slightly larger and the color of the columns like so:\n\n\n\n\n\n\n\n\n\nChart Data\nNot only are the various chart features understandable and configurable from referencing the javascript API documentation but the data itself (the mapping between R dataframe rows and columns to highcharts data structures you normally just let hchart() do on your behalf) is understandable in the same way.\nBuilding your own nested lists to bypass the normal hchart() approach is a very useful tool to have at your disposal but is overkill for 99% of charts that can be built with a simpler approach. It is, however, helpful to understand and if you want to make highly bespoke charts you’ll probably need to understand how this works.\n\nColumns\nLet’s check the API documentation for a column graph. We’ll find the specification for each chart type under the series &gt; sub header.\nWhat we’re interested in is the series &gt; column &gt; data entry which tells us the viable formats to enter the data for a column chart:\n\nThe documentation says we can enter the data in 3 different ways:\n\nA simple array of numerical values\nA array of arrays with x, y value pairs\nAn array of objects (JSON packets) with each object defining a single data point\n\nLet’s try to implement the assists chart in each of these 3 ways but without the help of hchart().\n\n\nOption 1: Simple Array\n\nThe first option says data can be presented as a simple array of values. When we see JSON “array” we should generally think of R lists but sometimes an R vector works too.\n\n\n [1] 10.898551 10.796296  9.800000  8.962025  8.527778  8.295775  8.207317\n [8]  8.111111  8.068493  8.000000\n\n\nTo build a highcharter chart without hchart() we need to do it in 2 steps: instantiate a highcharter plot with highchart() and then add data and chart type with hc_add_series().\n\n\n\n\n\n\nSo it worked, but given we only passed the chart the assist per game data series it doesn’t know what players the values correspond to. Referencing the option 1 specification above, we can add the player names to the chart in a second step by specifying axis “categories” manually:\n\n\n\n\n\n\n\n\nOption 2: Array of Arrays\n\nSo this option suggests you can provide the data as an array of x, y pairs. This isn’t a perfectly natural data structure for R but we can construct a list of x, y pairs from a dataframe with the help of the list_parse2() function exported with highcharter. The reason this function has been created alongside these charting functions is exactly for this purpose. You often need to construct these specific list types if you’re building charts this way.\nHardcode List\nIt’s helpful to see the R code for each of these lists before we let a blackbox function build them on our behalf so we’ll repeat this pattern for the rest of these chart types. First let’s hardcode an example data series to see what the data looks like in R:\n\n\n\n\n\n\nNotice that the x values (assuming these are x,y pairs) haven’t been placed on the x axis as we’d like but rather appear as the “name” of the column when you hover over it - this is called the series name.\nGenerate List\nInstead of manually hardcoding the list in the right structure we can construct the same structure for the top 10 players using list_parse2(). This function will create a list of length equal to the rows in your dataframe with pairs of values that come from the columns:\n\n\n[[1]]\n[[1]][[1]]\n[1] \"Tyrese Haliburton\"\n\n[[1]][[2]]\n[1] 10.89855\n\n\n[[2]]\n[[2]][[1]]\n[1] \"Trae Young\"\n\n[[2]][[2]]\n[1] 10.7963\n\n\nThat’s exactly what we were looking for, let’s pass it as the value to the data argument and add the names on as categories to finish it off\n\n\n\n\n\n\n\n\nArray of Objects\n\nThis is the most general and most frequently viable data specification option for a highcharts series. An array of JSON packets describing all the appropriate properties required (or possible) for the chart. In R this will be a list (array) of named lists.\nHardcode List\nAgain let’s harcode the named list manually to see what it looks like. We can even pass distinct column colors to illustrate that the named list configures each column independently:\n\n\n\n\n\n\nTo achieve this list structure we use the other list parsing function list_parse() which will do the same thing as list_parse2() but preserve the names on the list. However, we do need the appropriate names inside each point specification so the column names to match up to the graph dimensions. We must first rename the columns. Best way to understand is to inspect a couple of elements:\n\n\n[[1]]\n[[1]]$name\n[1] \"Tyrese Haliburton\"\n\n[[1]]$y\n[1] 10.89855\n\n\n[[2]]\n[[2]]$name\n[1] \"Trae Young\"\n\n[[2]]$y\n[1] 10.7963\n\n\nNow passing as data for the series\n\n\n\n\n\n\n\n\nhc_add_series_list()\nSo we understand the various ways we can construct the data vectors / lists that can be passed to as the data argument in hc_add_series(). The natural extension to this process is that not just the data is defined by a correctly structured named list but the entire series specification is input as a named list. That’s what hc_series_add_list() expects - a single named list defining the entire series config.\n\nRemember, the data, is just one component of the configuration of a series\n\nHardcode List\nAgain let’s start with the manual harcoded list first\n\n\n\n\n\n\nEverything about the series (name, type, data) is defined in a named list. This gives us the most flexibility for advanced charts, but the challenge is obviously constructing this deeply nested named list in exactly the right way. Like we’ve seen the package provides as with a number of helpers to make this more feasible however it’s normally overkill for most tasks.\nGenerate List\nLet’s try to do the same chart again.\n\n\n# A tibble: 1 × 3\n  data        name             type  \n  &lt;list&gt;      &lt;chr&gt;            &lt;chr&gt; \n1 &lt;list [10]&gt; Assists Per Game column\n\n\nSo for us to use list_parse() appropriately here we need a single row which defines our series. On that row at the top level we need the series name, the series type and then a list column which contains the correctly structured list which we saw could be accomplished using the list_parse() function on the renamed dataframe. That’s what we have so now we can use list_parse() again on this dataframe to correctly structure the list and plot that series config list.\n\n\n\n\n\n\nNow, you might be thinking that’s alot of work and complexity to plot this simple chart. Let’s show the power of this approach by extending this aprroach to multiple series. Notice the reasonably involved R required to build the right named list, but after that’s achieved there’s no highcharter configuration required. Hopefully this simple example will help you when you’re building your own deeply nested named lists for advanced attempts\n\n\n\n\n\n\n\n\n\nConclusion\nHopefully what you should understand after these examples is that highcharts on the javascript side are just giant JSON configuration objects. Even the data is nested within the series &gt; data slot in the appropriately structured format. On the R side a set of functions and helpers enable you to create this JSON often with only 1 or 2 lines of code. Most of the time you simply pass hchart() a tidy dataframe and let it convert your data into the JSON that will be placed inside the series config. Every now and then, though, and when you need to venture into more complicated chart types (animated charts is an example) the data specification won’t be simple and easy to construct with hchart() and you’ll need to build the raw data specification list yourself. To do so you need to know how to wrangle lists, likely with purrr, but most importantly: you need to understand the structure the javascript API needs expects. Knowing that you just fiddle around with purrr functions till your output list looks exactly right.",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "Appendix C - The Highcharter Cookbook"
+    ]
+  },
+  {
+    "objectID": "appendices/cookbook.html#pre-baked-hchart-for-different-r-classes",
+    "href": "appendices/cookbook.html#pre-baked-hchart-for-different-r-classes",
+    "title": "Appendix C - The Highcharter Cookbook",
+    "section": "Pre-Baked hchart() for different R classes",
+    "text": "Pre-Baked hchart() for different R classes\nOne of the awesome features Josh Kunst has built into highcharter is that, with some black box magic, hchart() supports charting of various standard R objects / classes out of the box.\nThe github page currently says this function current supports:\n\nnumeric,\nhistogram,\ncharacter,\ndensity,\nfactors,\nts,\nmts,\nxts,\nstl,\nohlc,\nacf,\nforecast,\nmforecast,\nets,\nigraph,\ndist,\ndendrogram,\nsurvfit classes.\n\nTo see how this works lets have a look at a few examples of the functionality that i use regularly. This gamelog dataset doesn’t lend itself to some of these classes so I won’t show them all.\n\nHistograms\nI want to view histograms or density plots of numeric vectors very regularly. This is a simple one liner in highcharter\n\n\n\n\n\n\nhchart() has been passed a simple numeric vector here (the points scored by players in all 19-20 NBA games), and decided that the appropriate plot is a histogram. Like other highcharts it is a highcharts object that supports the normal layering and customisation so we can add a few lines to makes the chart more readable:\n\n\n\n\n\n\n\n\nDensities\nSimilarly if we were interested in this plot but in a density form (smoothed & proportion of total cases) we can simply pass hchart() a density object created by the base density() function\n\n\n\n\n\n\n\n\nCharacter / Factor Counts\nLike the numeric vector example supplying hchart() with a character vector or factor vector will create a plot of the value counts within the vector.\n\n\n\n\n\n\n\n\nForecast\nTo show a more elaborate implementation a forecast created with the forecast package is plotted automatically as follows\n\n\n\n\n\n\n\n\nCorrelation Matrix\nPlotting a correlation matrix from a base R correlation analysis is also simple and easy. Notice the huge presentation and clutter advantage of interactivity for a chart type like this.",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "Appendix C - The Highcharter Cookbook"
+    ]
+  },
+  {
+    "objectID": "appendices/cookbook.html#components-style",
+    "href": "appendices/cookbook.html#components-style",
+    "title": "Appendix C - The Highcharter Cookbook",
+    "section": "Components + Style",
+    "text": "Components + Style\nAdding the right components and style to charts is my #1 rule for data visualisation. It’s your job as the visualiser to make a chart that is clear, easy to understand, and purposeful. Too many charts are presented without labels, descriptions, units or fail to convey a clear message or conclusion and it’s a crime (not a real crime I suppose, but a chart crime). Making your chart clean and aesthetically appealing is also a hugely underated job and has huge impact on how much effort your viewer will spend trying to absorb your chart’s insight.\nThis is where highcharter really shines over some of it’s htmlwidget & static competitors. Highcharter is brimming with options to customise and highcharter allows natural component and option layering through the pipe operator making highcharter charts flexible and extensible.\n\nGrids + Facetting\nThis is an area highcharter is genuinely much inferior to ggplot. In ggplot, facetting is natural, logical and easy. Supplmentary ggplot packages like cowplot and Thomas Pedersen’s new patchwork package enhance this process even further. Assembling a grid of highcharts split by some variable or combination of variables requires a fair bit more code. Like most things in highcharter, though, it is largely possible.\nSplitting charts vertically is easy with the concept of multiple axes. Axes can be assembled with different heights / sizes to make vertical grids within charts plotting different series. You use the hc_yAxis_multiples() function instead of the single hc_yAxis() function to do this.\nYou can either specify the options for each yAxis with named R lists like the following. When creating the initial series or adding additional series you also need to define which axis you want to chart the data against. You do this with a y axis index, obsersving that javascript is a language where indicies start at 0.\n2 Axes:\n\n\n\n\n\n\nWith 3 axes we need to specify the top of the axis (the % of the way down the plot area) and how tall we want the axis to be. If we want 3 equal rows then each axis should be 33% (roughly) of the plot area and their starting points should be 0% (top) 33% the way down and 66% of the way down.\n\n\n\n\n\n\nHowever, you’ll notice some weird spacing issues on the 3rd axis, that’s due to some little fidgety stuff about the heights and sizes of each axis. The helper function create_yaxis can create these axis specifications for you with a more simple function call. You could create the same chart like:\n\n\n\n\n\n\nMultiple y axes is not our only option for grids thankfully. We can simply chain together individual highcharts objects to acheive a similar goal using the hw_grid() function.\nLet’s produce a similar version of this chart using that approach to see how it would work. (Note this R is a little big trickier than what we’ve seen previously. The output of this group_map is a list of highcharter charts. Check the group_map documentation if you’re confused about how this worked.)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAxes\nAxes can be customised in numerous ways. Most frequently I’ll simply be changing the axis title, adding unit formatting to the axis labels, changing the plot grid lines, and sometimes removing the axis all together.\n\n\n\n\n\n\n\n\nAxes Transforms\nNot yet completed…\n\n\nUnit Formatting\nYou should never leave units like this. You should always display units in the most human readable way for the data series: including adding comma seperators to large numbers, rounding, percentages etc.\nTo do this in highcharter you need to write a little javascript. Lickily javascript is very syntactically similar to R so it should make sense. There are two options to format labels: format and formatter. I’ll just explore formatter as it’s more flexible and what i use predominantly. Formatter is simply a javascript function that will be applied to your label object, the return of which will show up on your chart. So we simply want to multiply the 0-1 decimal by 100, round and add the percentage character on the end.\nJust a few notes to make this understandable if you haven’t used javascript before:\n\nJS() tells processes downstream that the string is literal javascript and should be interpretted as such\nBrackets, function definition and return all the same as R which is handy\nYou need to invoke the Math library to get the round() function (it’s not available by default in javascript)\nYou get elements from within other objects (or libraries) using the dot Math.XXX\nStrings can be concatenated with the + operator like python\nThe this.XXX notation is very pervasive javascript concept which is the current object decided by the current execution context, so in this example it would be the axis object which contains, among other things a .value\n\n\n\n\n\n\n\n\n\nTitles\nhighcharts have a title and a subtitle element which you can set like following. We can style the titles like we’ve seen before:\n\n\n\n\n\n\n\n\nChart Padding and Spacing\nThe axis title and the chart title now look a little cramped. You can fully customise the padding and margins of highcharts chart components. Here’s a visual on how that works.\n\nSo we want to add a little more margin to the top of the chart.\n\n\n\n\n\n\n\n\nFonts\n\nStandard Fonts\nDifferent fonts can be added to individual sections or a new default font family can be added to all elements on the chart. Here I’ll update the font family on the chart to a google font by simply referring to it’s name:\n\n\n\n\n\n\nFont choice is HUGELY underrated by most technical people. Using a nice or appropriate font can increase the aesthetic appeal of a chart by an order of magnitude with almost zero effort.\n\n\nCustom / Private Fonts\nNot yet complete…\n\n\n\nTooltip\nAnother slight ding for highcharter is the default tooltip is pretty awful. So I’m almost always changing the default tooltip for every chart I make. Given tooltips are one of the key advantages of web based charts I think it’s worth the effort to customise your tooltip almost every time.\nThis is another area where the use of the formatter is preferred so you have to write a little javascript function to define your output. We’ll discuss further down how you can be a little smarter about this and push most of the logic into your R code to minimise the amount of javascript you have to write:\n\n\n\n\n\n\nSo you might notice that even though we didn’t define the team name (nameTeam) as a dimension of the plot it was still accessible through the this.point.[input dataframe column] accessor in the tooltip. This is extremely handy and we’ll be able to use this to make the above tooltip easier to construct later in this document.\n\n\nPlot Area\nThe plot area of a chart can be customised with colors, color gradients, images or even gifs.\nColor can be customised in hc_chart() options:\n\n\n\n\n\n\nLooks awful in this instance but that’s how we could do it. Let’s try a color gradient\n\n\n\n\n\n\nStill ugly. Let’s make a slightly different lakers theme with a few more color specifications on the axis labels and titles, and a font which is closer to the lakers font:\n\n\n\n\n\n\nSimilarly we could add a picture as the entire background to the plot area to give the viewer an even faster recognition of what player this chart is visualising:\n\n\n\n\n\n\nLookin good.. Using the same approach would could simply look up a relevant gif and insert it’s url as the background image like follows:\n\n\n\n\n\n\n\n\nAnnotations\nInstead of setting the entire background image to be a lebron gif or image I could utilise the annotation functionality within highcharts. You can add annotations with the specifications at this link. You can add a single annotation with hc_add_annotation or multiple with distinct lists with hc_add_annotations. Annotation can be shapes, text or image links.\n\n\n\n\n\n\nor the gif we used above:\n\n\n\n\n\n\nThese annotations can be easily added and placed programatically (smartly in the plot area etc) rather than manually as we’ve done, and are a great tool for customising your charts.\n\n\nPlot Lines and Bands\nPlot lines or bands can be a great way to highlight things on the chart you want to call the users attention to. In the above Lebron James points column chart we know the big gap in the middle is explained by Lebron experiencing his first significant injury of his career in this season. We should spefically call that out to the viewer as it’s an obvious anomoly with the data shown. It makes sense to do that with a plot area in this example. We could also add his season average points to the line as a reference point for the columns\n\n\n\n\n\n\n\n\nDatalabels\nData labels can easily be added to charts of all types. Highcharts data labels also have some built in smarts that prevent display when labels are too crowded. Options can be set for individual series or for all series types inside the hc_plotOptions() function. Given we’ve already added the series layer to this chart let’s just specify that all column charts should have data labels like following:\n\n\n\n\n\n\n\n\nAdvanced Labels\nEven though highcharts has been smart enough to remove some labels where they have distinct overlap with other labels it still looks a bit busy. Maybe I just want to highlight Lebron’s highest and lowest scoring games. There’s two good ways I can do this.\n\nJS Callbacks + Highcharts Properties\nIf you’re comfortable writing more involved javascript callback functions you can leverage some of the many properties of highcharts series to accomplish goals like this. I don’t do a lot of this but only because my javascript is poor. For example there is a .dataMax and a .dataMin property of a highcharts series which I could access to check whether or not this point is equal to this value and plot a label if required:\n\n\n\n\n\n\nThere are many other properties of series and points that you could access for more advanced tooltips or datalabels however the R side processing is a big advantage for the R highcharts user given R is so natural for this kind of structured data processing.\n\n\nGlue + HTML\nOne great highcharter tip is using your R dplyr / glue skills to build HTML that will be parsed to highcharts to render. This will save you a lot of time and prevent you from having to write longer more involved javascript callback functions. Suppose I want to create a nice label for Lebron’s high and low scoring games including the date of the game and the opponent, I can do that using dplyr. I’ll have to go back to the starting point because I’m augmenting the chart data:\n\n\n                                hc_dataLabel  n\n1                                            67\n2 High Score 40 &lt;i&gt; (2023-12-23 vs OKC) &lt;/i&gt;  1\n3 High Score 40 &lt;i&gt; (2024-03-16 vs GSW) &lt;/i&gt;  1\n4 High Score 40 &lt;i&gt; (2024-03-31 vs BKN) &lt;/i&gt;  1\n5  Low Score 10 &lt;i&gt; (2024-01-11 vs PHX) &lt;/i&gt;  1\n\n\nLet’s rebuild the whole chart and add a reference to these strings as the labels. Now all I need to write in the callback is that I want to return the exact value of the label (hc_dataLabel) that I’ve prebaked in my dplyr chain. Notice also the slight html markup that will display the opponent team and date of game in italics.\n\n\n\n\n\n\n\n\n\nAdvanced Tooltips\nThe exact same approach can be used to define a more advanced tooltip specification. Let’s say I wanted to the tooltip to give more information about Lebron’s game for each of these bars.\nContinuing…\n\n\n\n\n\n\n\n\nNested Charts\nNot yet complete…\n\n\nDates + Datetimes\nDates and datetimes work well but require a little bit more understanding. Let’s look at the series of # of NBA games for the dates of the 23-24 season\n\n\n\n\n\n\nhighcharter has correctly plotted this as a date axis (the tooltip will show a day of the week for example). Highcharts finds the appropriate format for the span of the dates. Those patterns are:\nsecond: '%H:%M:%S',\nminute: '%H:%M',\nhour: '%H:%M',\nday: '%e. %b',\nweek: '%e. %b',\nmonth: '%b \\'%y',\nyear: '%Y'\nSo it looks like given our chart is about 6 months of data it has chosen the week units. We can change the default for this type by customising the unit formats in the .dateTimeLabelFormats property of the x axis\n\n\n\n\n\n\nWith date axes it’s also natural to add a date filter on the x axis. There are many options including the awesome navigator which I can add like this:\n\n\n\n\n\n\nNotice how the axis labels are dynamic and update the format to the appropriate units if you zoom in all the way to an individual week for example.\nI can also add another filter element called a rangeSelector which gives me some more dynamic filtering functionality\n\n\n\n\n\n\nThe last thing you might find difficult with this chart type is adding annotations or plot lines. On a date or datetime axis the value / location of a plotline needs to be converted to a unix timestamp with highcharters datetime_to_timestamp() function. Let’s add a line for christmas day games using the second method.\n\n\n\n\n\n\n\n\nPackaged Themes\nhighcharter comes with a number of nice out of the box themes. Let’s take a look at them all:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSome gooduns in there, how bout making your own theme\n\n\nCustom Themes\nYou can create custom themes from scratch or use one of these themes as a base and merge in some changes. I like the elementary theme and I also like circular line markers with white borders. I could create a New Orleans Pelicans theme by combining these two components, adding a new default font, and adding the Pelicans color palette. Note: creating a theme from scratch you just need the second component of the merge below.",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "Appendix C - The Highcharter Cookbook"
+    ]
+  },
+  {
+    "objectID": "appendices/cookbook.html#harder-charts-showcase",
+    "href": "appendices/cookbook.html#harder-charts-showcase",
+    "title": "Appendix C - The Highcharter Cookbook",
+    "section": "Harder Charts / Showcase",
+    "text": "Harder Charts / Showcase\nI’ve spent a few hours attempting some more ambitious charts to show you a fraction of what’s possible with this package. The R list wrangling on a few of these charts is a little bit of a mind fuck sometimes so I wouldn’t dwell too much on that to begin with. Just have a look at the final list / dataframe structure and how it’s getting ingested by the highcharter functions. A lot of the time I’ll just repurpose the list wrangling I’ve used for other charts or from stack-overflow or from Kunsts examples / blog itself as a starting point.\nLet’s start by making a custom theme that we’ll style this chart set with\n\nPacked Bubble\n\n\n# A tibble: 2 × 6\n  namePlayer nameTeam         fg3m games fg3m_pg madeFG3M_byGame\n  &lt;chr&gt;      &lt;chr&gt;           &lt;int&gt; &lt;int&gt;   &lt;dbl&gt; &lt;list&gt;         \n1 AJ Green   Milwaukee Bucks    69    56    1.23 &lt;list [56]&gt;    \n2 Al Horford Boston Celtics    108    65    1.66 &lt;list [65]&gt;    \n\n\n\n\n\n\n\n\n\n\nDonut Tooltip\nFull diclosure this isn’t my idea, I just think it’s an awesome graph. Josh Kunst’s version of this chart is located on his blog here: http://jkunst.com/blog/posts/2019-02-04-using-tooltips-in-unexpected-ways/\nSo for my version I’d like to plot scoring efficiency for each team as measured by True Shooting %. I’ll use a donut arrangement not to present any data dimension but to just layout the teams in a ring. The visual will be presented on hover over in the form of a tooltip located in the center of the donut. Let’s roll\nTo be added….\n…",
+    "crumbs": [
+      "Introduction",
+      "Appendices",
+      "Appendix C - The Highcharter Cookbook"
+    ]
+  },
+  {
+    "objectID": "chapters/duncan.html",
+    "href": "chapters/duncan.html",
+    "title": "The Foundation of Greatness",
+    "section": "",
+    "text": "“Good, better, best. Never let it rest. Until your good is better and your better is best.” – Tim Duncan",
+    "crumbs": [
+      "Introduction",
+      "Leadership",
+      "The Foundation of Greatness"
+    ]
+  },
+  {
+    "objectID": "chapters/duncan.html#let-results-speak",
+    "href": "chapters/duncan.html#let-results-speak",
+    "title": "The Foundation of Greatness",
+    "section": "Let Results Speak",
+    "text": "Let Results Speak\nIn a league of flashy dunks and trash talk, Tim Duncan was the anti-star. No chest-pounding. No signature celebrations. Just 19 years of relentless excellence that made the San Antonio Spurs one of the greatest dynasties in sports history.\nDuncan proved that greatness doesn’t need to be loud to be undeniable.",
+    "crumbs": [
+      "Introduction",
+      "Leadership",
+      "The Foundation of Greatness"
+    ]
+  },
+  {
+    "objectID": "chapters/duncan.html#reliability-is-a-skill",
+    "href": "chapters/duncan.html#reliability-is-a-skill",
+    "title": "The Foundation of Greatness",
+    "section": "Reliability is a Skill",
+    "text": "Reliability is a Skill\nThe 2003 NBA Finals showcased Duncan at his peak. Facing the New Jersey Nets, he averaged 24.2 points, 17 rebounds, 5.3 assists, and 5.3 blocks per game—a statistical line that borders on the absurd.\n\n\n\n\nDuncan maintained elite production for nearly two decades",
+    "crumbs": [
+      "Introduction",
+      "Leadership",
+      "The Foundation of Greatness"
+    ]
+  },
+  {
+    "objectID": "chapters/duncan.html#mastering-the-basics-the-bank-shot",
+    "href": "chapters/duncan.html#mastering-the-basics-the-bank-shot",
+    "title": "The Foundation of Greatness",
+    "section": "Mastering the Basics: The Bank Shot",
+    "text": "Mastering the Basics: The Bank Shot\nDuncan’s bank shot was the most reliable weapon in basketball. While others chased highlight plays, Duncan perfected the fundamentals.\n\n\n\n\nDuncan’s shot distribution emphasized efficiency over flash\n\n\n\n\n\nAchievement\nValue\n\n\n\n\nChampionships\n5\n\n\nFinals MVPs\n3\n\n\nMVP Awards\n2\n\n\nAll-Star Games\n15\n\n\nAll-NBA Selections\n15\n\n\n\n\n\n\n\n\n\nLessons from Duncan’s Foundation\n\n\n\n\nConsistency compounds - Being great every night beats occasional brilliance\nMaster the fundamentals - The bank shot wasn’t flashy, but it was unstoppable\nCulture over ego - Duncan’s humility created space for others to thrive\nLongevity is a choice - His game aged gracefully because it was built on skill, not athleticism",
+    "crumbs": [
+      "Introduction",
+      "Leadership",
+      "The Foundation of Greatness"
+    ]
+  },
+  {
+    "objectID": "chapters/duncan.html#references",
+    "href": "chapters/duncan.html#references",
+    "title": "The Foundation of Greatness",
+    "section": "References",
+    "text": "References\n\nBasketball Reference: Tim Duncan Career Stats",
+    "crumbs": [
+      "Introduction",
+      "Leadership",
+      "The Foundation of Greatness"
+    ]
+  }
+]
